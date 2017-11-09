@@ -1,0 +1,49 @@
+!MaterialAsset
+Id: 1baccb5c-8d61-44b9-a1c1-4606f18a3803
+SerializedVersion: {Xenko: 2.0.0.0}
+Tags: []
+Attributes:
+    Surface: !MaterialNormalMapFeature
+        NormalMap: !ComputeTextureColor
+            Texture: 018a2f11-223b-413c-8754-6ba4f9e42c33:Materials/iron_paint/iron_paint_nml
+            FallbackValue:
+                Value: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
+            Scale: {X: 1.0, Y: 1.0}
+            Offset: {X: 0.0, Y: 0.0}
+            Swizzle: null
+        IsXYNormal: true
+    MicroSurface: !MaterialGlossinessMapFeature
+        GlossinessMap: !ComputeBinaryScalar
+            Operator: Add
+            LeftChild: !ComputeTextureScalar
+                Texture: 100b15ee-e73f-4eea-adb2-5997dc9ad9fe:Materials/iron_paint/iron_paint_gls
+                FallbackValue:
+                    Value: 1.0
+                Scale: {X: 1.0, Y: 1.0}
+                Offset: {X: 0.0, Y: 0.0}
+            RightChild: !ComputeFloat
+                Value: 0.9
+    Diffuse: !MaterialDiffuseMapFeature
+        DiffuseMap: !ComputeTextureColor
+            Texture: 096e01fa-dac9-4472-b56b-e2c557f955d3:Materials/iron_paint/iron_paint_dif
+            FallbackValue:
+                Value: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
+            Scale: {X: 1.0, Y: 1.0}
+            Offset: {X: 0.0, Y: 0.0}
+            Swizzle: null
+    DiffuseModel: !MaterialDiffuseLambertModelFeature {}
+    Specular: !MaterialMetalnessMapFeature
+        MetalnessMap: !ComputeTextureScalar
+            Texture: 4d2cc647-e0a2-4ccc-8949-92ca2fd12049:Materials/iron_paint/iron_paint_mtl
+            FallbackValue:
+                Value: 1.0
+            Scale: {X: 1.0, Y: 1.0}
+            Offset: {X: 0.0, Y: 0.0}
+    SpecularModel: !MaterialSpecularMicrofacetModelFeature
+        Fresnel: !MaterialSpecularMicrofacetFresnelSchlick {}
+        Visibility: !MaterialSpecularMicrofacetVisibilitySmithSchlickGGX {}
+        NormalDistribution: !MaterialSpecularMicrofacetNormalDistributionGGX {}
+        Environment: !MaterialSpecularMicrofacetEnvironmentGGXLUT {}
+    Overrides:
+        UVScale: {X: 1.0, Y: 1.0}
+Layers: {}

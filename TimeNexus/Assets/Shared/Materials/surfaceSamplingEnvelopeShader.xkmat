@@ -1,0 +1,52 @@
+!MaterialAsset
+Id: 60dca1c2-186d-4686-9684-292dcd6ac5a7
+SerializedVersion: {Xenko: 2.0.0.0}
+Tags: []
+Attributes:
+    Surface: !MaterialNormalMapFeature
+        NormalMap: !ComputeTextureColor
+            Texture: ead2055a-0f45-4237-b47d-48351c13bebb:Textures/xenko_coin_normals
+            FallbackValue:
+                Value: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
+            Scale: {X: 1.0, Y: 1.0}
+            Offset: {X: 0.0, Y: 0.0}
+            Swizzle: null
+        IsXYNormal: true
+    MicroSurface: !MaterialGlossinessMapFeature
+        GlossinessMap: !ComputeFloat
+            Value: 1.0
+    Diffuse: !MaterialDiffuseMapFeature
+        DiffuseMap: !ComputeColor
+            Value: {R: 0.2375, G: 0.2375, B: 0.2375, A: 1.0}
+    DiffuseModel: !MaterialDiffuseLambertModelFeature {}
+    Specular: !MaterialSpecularMapFeature
+        SpecularMap: !ComputeTextureColor
+            FallbackValue:
+                Value: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
+            Scale: {X: 1.0, Y: 1.0}
+            Offset: {X: 0.0, Y: 0.0}
+            Swizzle: null
+        Intensity: !ComputeFloat
+            Value: 0.346734
+    SpecularModel: !MaterialSpecularMicrofacetModelFeature
+        Fresnel: !MaterialSpecularMicrofacetFresnelSchlick {}
+        Visibility: !MaterialSpecularMicrofacetVisibilitySmithSchlickGGX {}
+        NormalDistribution: !MaterialSpecularMicrofacetNormalDistributionGGX {}
+        Environment: !MaterialSpecularMicrofacetEnvironmentGGXLUT {}
+    Occlusion: !MaterialOcclusionMapFeature
+        AmbientOcclusionMap: !ComputeTextureScalar
+            Texture: 412ec7d6-f041-4c1c-8025-06f660af4239:Textures/xenko_coin_occlusion
+            FallbackValue:
+                Value: 1.0
+            Scale: {X: 1.0, Y: 1.0}
+            Offset: {X: 0.0, Y: 0.0}
+        DirectLightingFactor: !ComputeFloat
+            Value: 0.0
+        CavityMap: null
+        DiffuseCavity: !ComputeFloat
+            Value: 0.0
+        SpecularCavity: !ComputeFloat
+            Value: 1.0
+    Overrides:
+        UVScale: {X: 1.0, Y: 1.0}
+Layers: {}

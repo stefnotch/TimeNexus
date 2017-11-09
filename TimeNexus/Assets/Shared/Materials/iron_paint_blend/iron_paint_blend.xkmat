@@ -1,0 +1,50 @@
+!MaterialAsset
+Id: 6aa11e72-0373-4927-8411-917d9cd13899
+SerializedVersion: {Xenko: 2.0.0.0}
+Tags: []
+Attributes:
+    MicroSurface: !MaterialGlossinessMapFeature
+        GlossinessMap: !ComputeBinaryScalar
+            Operator: Add
+            LeftChild: !ComputeTextureScalar
+                Texture: dc99e0d2-c845-429f-bc6f-c4f8d64da4ef:Materials/iron_paint_blend/iron_mtl
+                FallbackValue:
+                    Value: 1.0
+                Scale: {X: 1.0, Y: 1.0}
+                Offset: {X: 0.0, Y: 0.0}
+            RightChild: !ComputeFloat
+                Value: 0.5
+    Diffuse: !MaterialDiffuseMapFeature
+        DiffuseMap: !ComputeTextureColor
+            Texture: d9f4a6f8-0e57-4af2-a1dd-26ae4fa24a44:Materials/iron_paint_blend/iron_dif
+            FallbackValue:
+                Value: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
+            Scale: {X: 1.0, Y: 1.0}
+            Offset: {X: 0.0, Y: 0.0}
+            Swizzle: null
+    DiffuseModel: !MaterialDiffuseLambertModelFeature {}
+    Specular: !MaterialMetalnessMapFeature
+        MetalnessMap: !ComputeTextureScalar
+            Texture: dc99e0d2-c845-429f-bc6f-c4f8d64da4ef:Materials/iron_paint_blend/iron_mtl
+            FallbackValue:
+                Value: 1.0
+            Scale: {X: 1.0, Y: 1.0}
+            Offset: {X: 0.0, Y: 0.0}
+    SpecularModel: !MaterialSpecularMicrofacetModelFeature
+        Fresnel: !MaterialSpecularMicrofacetFresnelSchlick {}
+        Visibility: !MaterialSpecularMicrofacetVisibilitySmithSchlickGGX {}
+        NormalDistribution: !MaterialSpecularMicrofacetNormalDistributionGGX {}
+        Environment: !MaterialSpecularMicrofacetEnvironmentGGXLUT {}
+    Overrides:
+        UVScale: {X: 1.0, Y: 1.0}
+Layers:
+    4a4650c8e73d3a44a8740d4a40a35de4:
+        Material: 0cf6b008-b9a6-4ede-8258-ec730dc05ae2:Materials/iron_paint_blend/iron_paint
+        BlendMap: !ComputeTextureScalar
+            Texture: c1004e93-a454-4110-8202-46a757a686e8:Materials/iron_paint_blend/iron_paint_msk
+            FallbackValue:
+                Value: 1.0
+            Scale: {X: 1.0, Y: 1.0}
+            Offset: {X: 0.0, Y: 0.0}
+        Overrides:
+            UVScale: {X: 1.0, Y: 1.0}

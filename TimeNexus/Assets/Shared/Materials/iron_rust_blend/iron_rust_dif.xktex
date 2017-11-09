@@ -1,0 +1,7 @@
+!Texture
+Id: 41b8e9bb-a7a5-41ae-99ba-7e49738799cb
+SerializedVersion: {Xenko: 2.0.0.0}
+Tags: []
+Source: ../../../../Resources/Textures/iron_blend/rust/iron_rust_dif.png
+Type: !ColorTextureType
+    ColorKeyColor: {R: 255, G: 0, B: 255, A: 255}

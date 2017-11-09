@@ -1,0 +1,9 @@
+!Texture
+Id: 9d9f08e0-0fa7-4723-9df4-75e65edf459f
+SerializedVersion: {Xenko: 2.0.0.0}
+Tags: []
+Source: ../../../Resources/Textures/Grid10x10.png
+Type: !ColorTextureType
+    ColorKeyColor: {R: 255, G: 0, B: 255, A: 255}
+    Alpha: None
+    PremultiplyAlpha: false

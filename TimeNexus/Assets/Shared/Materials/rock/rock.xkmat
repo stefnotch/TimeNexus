@@ -1,0 +1,47 @@
+!MaterialAsset
+Id: bc59daf9-3057-4449-9984-84ac4e535898
+SerializedVersion: {Xenko: 2.0.0.0}
+Tags: []
+Attributes:
+    Surface: !MaterialNormalMapFeature
+        NormalMap: !ComputeTextureColor
+            Texture: d32135e0-6a50-4f54-a4cc-a2fe94a6af7c:Materials/rock/rock_nml
+            FallbackValue:
+                Value: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
+            Scale: {X: 1.0, Y: 1.0}
+            Offset: {X: 0.0, Y: 0.0}
+            Swizzle: null
+        IsXYNormal: true
+    MicroSurface: !MaterialGlossinessMapFeature
+        GlossinessMap: !ComputeBinaryScalar
+            Operator: Add
+            LeftChild: !ComputeTextureScalar
+                Texture: cc0c0228-a53b-4509-8045-4a623c3b2415:Materials/rock/rock_gls
+                FallbackValue:
+                    Value: 1.0
+                Scale: {X: 1.0, Y: 1.0}
+                Offset: {X: 0.0, Y: 0.0}
+            RightChild: !ComputeFloat
+                Value: 0.1
+    Diffuse: !MaterialDiffuseMapFeature
+        DiffuseMap: !ComputeTextureColor
+            Texture: 4f7f2fc2-c8bb-48b3-a3eb-a81d21c7f0ff:Materials/rock/rock_dif
+            FallbackValue:
+                Value: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
+            Scale: {X: 1.0, Y: 1.0}
+            Offset: {X: 0.0, Y: 0.0}
+            Swizzle: null
+    DiffuseModel: !MaterialDiffuseLambertModelFeature {}
+    Specular: !MaterialSpecularMapFeature
+        SpecularMap: !ComputeFloat4
+            Value: {X: 1.0, Y: 1.0, Z: 1.0, W: 1.0}
+        Intensity: !ComputeFloat
+            Value: 0.03
+    SpecularModel: !MaterialSpecularMicrofacetModelFeature
+        Fresnel: !MaterialSpecularMicrofacetFresnelSchlick {}
+        Visibility: !MaterialSpecularMicrofacetVisibilitySmithSchlickGGX {}
+        NormalDistribution: !MaterialSpecularMicrofacetNormalDistributionGGX {}
+        Environment: !MaterialSpecularMicrofacetEnvironmentGGXLUT {}
+    Overrides:
+        UVScale: {X: 1.0, Y: 1.0}
+Layers: {}

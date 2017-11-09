@@ -1,0 +1,24 @@
+!Model
+Id: d3f02424-b5a7-4f9e-a757-be0dc12cc23c
+SerializedVersion: {Xenko: 2.0.0.0}
+Tags: []
+Source: ../../../Resources/Models/HandModelLeft.fbx
+Skeleton: 48908ed5-356a-4c19-96ed-69b226e9e907:Models/HandModelLeft Skeleton
+PivotPosition: {X: 0.0, Y: 0.0, Z: 0.0}
+Materials:
+    6a70d88729ca6a32a5bb95c95bade139:
+        Name: SemiglossMT
+        MaterialInstance:
+            Material: e2edc06a-2d77-465e-9b21-1ee41e42d24f:Materials/BodyGray
+    320080a3133b85e84f5c5af64f5c5af6:
+        Name: GlossMT
+        MaterialInstance:
+            Material: 089b2e7b-3d47-4885-8134-eca202a64b87:Materials/BodyWhite
+    faa4a3f8305ed27cc904838a9cc19a82:
+        Name: upperMatteMT
+        MaterialInstance:
+            Material: 88189689-209f-48b2-b4e3-745772a112be:Materials/MattBlackUpper
+    e3befa98ad23d3cfa84708dda84708dd:
+        Name: lambert1
+        MaterialInstance:
+            Material: 88189689-209f-48b2-b4e3-745772a112be:Materials/MattBlackUpper

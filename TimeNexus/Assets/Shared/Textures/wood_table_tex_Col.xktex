@@ -1,0 +1,8 @@
+!Texture
+Id: eef59a2f-26a5-476c-85f3-4c23089848a1
+SerializedVersion: {Xenko: 2.0.0.0}
+Tags: []
+Source: ../../../Resources/Textures/wood_table_tex_Col.png
+IsCompressed: false
+Type: !ColorTextureType
+    ColorKeyColor: {R: 255, G: 0, B: 255, A: 255}

@@ -1,0 +1,40 @@
+!MaterialAsset
+Id: eedfd63a-ff95-4d73-90da-4d40d335a5ef
+SerializedVersion: {Xenko: 2.0.0.0}
+Tags: []
+Attributes:
+    MicroSurface: !MaterialGlossinessMapFeature
+        GlossinessMap: !ComputeBinaryScalar
+            Operator: Add
+            LeftChild: !ComputeTextureScalar
+                Texture: 0a2dd17d-394b-4579-91c8-b402c9a1d818:Materials/iron/iron_mtl
+                FallbackValue:
+                    Value: 1.0
+                Scale: {X: 1.0, Y: 1.0}
+                Offset: {X: 0.0, Y: 0.0}
+            RightChild: !ComputeFloat
+                Value: 0.4
+    Diffuse: !MaterialDiffuseMapFeature
+        DiffuseMap: !ComputeTextureColor
+            Texture: 5ca5c007-cbdd-4d74-bf4a-2d94261368dc:Materials/iron/iron_dif
+            FallbackValue:
+                Value: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
+            Scale: {X: 1.0, Y: 1.0}
+            Offset: {X: 0.0, Y: 0.0}
+            Swizzle: null
+    DiffuseModel: !MaterialDiffuseLambertModelFeature {}
+    Specular: !MaterialMetalnessMapFeature
+        MetalnessMap: !ComputeTextureScalar
+            Texture: 0a2dd17d-394b-4579-91c8-b402c9a1d818:Materials/iron/iron_mtl
+            FallbackValue:
+                Value: 1.0
+            Scale: {X: 1.0, Y: 1.0}
+            Offset: {X: 0.0, Y: 0.0}
+    SpecularModel: !MaterialSpecularMicrofacetModelFeature
+        Fresnel: !MaterialSpecularMicrofacetFresnelSchlick {}
+        Visibility: !MaterialSpecularMicrofacetVisibilitySmithSchlickGGX {}
+        NormalDistribution: !MaterialSpecularMicrofacetNormalDistributionGGX {}
+        Environment: !MaterialSpecularMicrofacetEnvironmentGGXLUT {}
+    Overrides:
+        UVScale: {X: 1.0, Y: 1.0}
+Layers: {}

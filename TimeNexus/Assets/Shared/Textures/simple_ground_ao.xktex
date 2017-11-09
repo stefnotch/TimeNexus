@@ -1,0 +1,7 @@
+!Texture
+Id: 44d7f981-328c-4447-b8df-998dccd73969
+SerializedVersion: {Xenko: 2.0.0.0}
+Tags: []
+Source: ../../../Resources/Stand/simple_ground_ao.png
+Type: !ColorTextureType
+    ColorKeyColor: {R: 255, G: 0, B: 255, A: 255}

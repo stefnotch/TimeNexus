@@ -341,3 +341,5 @@ routerlog.txt
 *.pri
 *.lib
 !Others/NativeLinking/NativeLibs/**/*
+
+TimeNexus/Cache/

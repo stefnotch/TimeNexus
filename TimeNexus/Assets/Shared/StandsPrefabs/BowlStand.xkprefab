@@ -1,0 +1,23 @@
+!PrefabAsset
+Id: d0f55160-06e5-47cd-8627-85c3116f1d12
+SerializedVersion: {Xenko: 2.1.0.1}
+Tags: []
+Hierarchy:
+    RootParts:
+        - ref!! c4ed5ffb-10c7-4afd-99a6-94297f77fe2c
+    Parts:
+        -   Entity:
+                Id: c4ed5ffb-10c7-4afd-99a6-94297f77fe2c
+                Name: BowlStand
+                Components:
+                    dddc4ce6b2dd274caff8c03d63758cfc: !TransformComponent
+                        Id: e64cdcdd-ddb2-4c27-aff8-c03d63758cfc
+                        Position: {X: 0.0, Y: 0.0, Z: -0.712937236}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.5, Y: 1.5, Z: 1.5}
+                        Children: {}
+                    a52571d9541c8946bbb5925290159529: !ModelComponent
+                        Id: d97125a5-1c54-4689-bbb5-925290159529
+                        Model: 411d1b9d-a94d-404d-9227-c410919bcb6a:Models/standBowl
+                        Materials:
+                            49e03984c6e09a4091d2940d5f28ee3b~0: 3bc1fe40-fd77-4b41-9cff-e5aca8e7ac85:Materials/PolishedStone

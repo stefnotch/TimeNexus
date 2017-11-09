@@ -1,0 +1,40 @@
+!Package
+Id: 6e6868ad-1e33-43fb-8bf3-1ab87163e5b4
+SerializedVersion: {Assets: 0.0.4}
+Meta:
+    Name: TimeNexus
+    Version: 1.0.0.0
+    Authors: []
+    Owners: []
+    RootNamespace: TimeNexus
+    Dependencies:
+        -   Name: Xenko
+            Version: 2.1.0.3
+            RootAssets: []
+LocalDependencies: []
+Profiles:
+    -   Name: Shared
+        Platform: Shared
+        InheritProfiles: []
+        AssetFolders:
+            -   Path: Assets/Shared
+            -   Path: TimeNexus.Game/Effects
+        OutputGroupDirectories: {}
+        ProjectReferences:
+            -   Id: afe04b3a-4fb6-4d0e-85f7-35a1ad6e3590
+                Location: TimeNexus.Game/TimeNexus.Game.csproj
+                Type: Library
+    -   Name: Windows
+        Platform: Windows
+        InheritProfiles: []
+        AssetFolders:
+            -   Path: Assets/Windows
+        OutputGroupDirectories: {}
+        ProjectReferences:
+            -   Id: 0d2af89c-e1ed-41c8-b28e-a0a0160a1ac7
+                Location: TimeNexus.Windows/TimeNexus.Windows.csproj
+                Type: Executable
+ExplicitFolders: []
+Bundles: []
+TemplateFolders: []
+RootAssets: []
