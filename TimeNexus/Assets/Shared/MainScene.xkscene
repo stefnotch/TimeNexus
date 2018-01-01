@@ -2,8 +2,7 @@
 Id: de46e442-f5b7-4ea8-93c4-d4081978c424
 SerializedVersion: {Xenko: 2.1.0.1}
 Tags: []
-ChildrenIds:
-    - 92be52ce-cc2e-4691-8760-e5d879afd43c
+ChildrenIds: []
 Offset: {X: 0.0, Y: 0.0, Z: 0.0}
 Hierarchy:
     RootParts:
@@ -16,7 +15,21 @@ Hierarchy:
         - ref!! 26ba01af-882a-431e-9dfe-3209e2518789
         - ref!! 6556b6fe-5966-4c84-8c45-67b89fadc908
         - ref!! f443a56a-9ef0-4757-84ab-55f2366c06ef
+        - ref!! 0230cda6-cdf5-4bff-a008-a8401ac352a1
     Parts:
+        -   Entity:
+                Id: 0230cda6-cdf5-4bff-a008-a8401ac352a1
+                Name: TimeScrolller
+                Components:
+                    9fd389cf56fe6bdeb16a901f4d1ee4f8: !TransformComponent
+                        Id: 7019fa1e-c215-4d19-acab-91bd784e2973
+                        Position: {X: -3.22749281, Y: 2.1146872, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    da249101588ba4a6fb10aaa2a5fe6ada: !TimeNexus.TimeController,TimeNexus.Game
+                        Id: dd08bb82-ead2-44c4-8cb0-88f25ad0aefe
+                        ShowModel: 1
         -   Entity:
                 Id: 2401dfa1-ccfc-4314-a920-87db266b1c7e
                 Name: Skybox

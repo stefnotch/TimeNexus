@@ -18,7 +18,25 @@ namespace TimeNexus
 		{
 			get
 			{
-				if (_m == 1)
+				if (Entity?.Scene?.Entities != null)
+				{
+					foreach (Entity e in this.Entity.Scene.Entities)
+					{
+						if (_m == 1)
+						{
+							e.Enable<ModelComponent>(true);
+						}
+						else
+						{
+							e.Enable<ModelComponent>(false);
+						}
+					}
+				}
+
+
+				
+
+				/*if (_m == 1)
 				{
 					models.AddRange(this.Entity.GetAll<ModelComponent>().ToList());
 
@@ -34,7 +52,7 @@ namespace TimeNexus
 						model.Enabled = false;
 					});
 
-				}
+				}*/
 				return _m;
 			}
 			set
