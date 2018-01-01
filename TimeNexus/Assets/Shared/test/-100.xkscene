@@ -1,0 +1,34 @@
+!SceneAsset
+Id: 92be52ce-cc2e-4691-8760-e5d879afd43c
+SerializedVersion: {Xenko: 2.1.0.1}
+Tags: []
+ChildrenIds: []
+Parent: de46e442-f5b7-4ea8-93c4-d4081978c424:MainScene
+Offset: {X: 0.0, Y: 0.0, Z: 0.0}
+Hierarchy:
+    RootParts:
+        - ref!! fa7420e7-e36e-4c97-9e88-2058cf307bbd
+    Parts:
+        -   Entity:
+                Id: fa7420e7-e36e-4c97-9e88-2058cf307bbd
+                Name: Camera
+                Components:
+                    232b759d34e6bee3e1d0c734bca9aed1: !TransformComponent
+                        Id: c4aed872-c265-4aff-ace1-d127201450fa
+                        Position: {X: 2.6, Y: 0.6, Z: -1.0}
+                        Rotation: {X: 0.0, Y: 0.829037547, Z: 0.0, W: 0.5591929}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    e3d77feba104b66ed402667ef2f52ac1: !CameraComponent
+                        Id: 4b9f3b89-9b3a-47b5-a29c-1780e76a4e16
+                        Name: null
+                        Projection: Perspective
+                        Slot: 2ace6a4c-7e1b-491b-9f4a-5e02be4d59b5
+                    55800a249df03c874a1f7c6335b9746e: !TimeNexus.BasicCameraController,TimeNexus.Game
+                        Id: 31349c0f-ebfc-477e-a760-b7112bdb3f3c
+                        KeyboardMovementSpeed: {X: 5.0, Y: 5.0, Z: 5.0}
+                        TouchMovementSpeed: {X: 40.0, Y: 40.0, Z: 20.0}
+                        SpeedFactor: 5.0
+                        KeyboardRotationSpeed: {X: 3.0, Y: 3.0}
+                        MouseRotationSpeed: {X: 90.0, Y: 60.0}
+                        TouchRotationSpeed: {X: 60.0, Y: 40.0}

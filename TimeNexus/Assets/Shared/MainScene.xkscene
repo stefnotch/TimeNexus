@@ -2,15 +2,20 @@
 Id: de46e442-f5b7-4ea8-93c4-d4081978c424
 SerializedVersion: {Xenko: 2.1.0.1}
 Tags: []
-ChildrenIds: []
+ChildrenIds:
+    - 92be52ce-cc2e-4691-8760-e5d879afd43c
 Offset: {X: 0.0, Y: 0.0, Z: 0.0}
 Hierarchy:
     RootParts:
-        - ref!! 92956ce7-79ad-4908-9791-ba35d69a475d
         - ref!! 8fce8da4-da36-40f6-a3b8-8e6de95f19ba
         - ref!! 2401dfa1-ccfc-4314-a920-87db266b1c7e
-        - ref!! 6556b6fe-5966-4c84-8c45-67b89fadc908
         - ref!! 24e73305-b9c3-452a-9ea6-da3a8f8a9b47
+        - ref!! 5ff4d46a-0163-4ef1-a0b2-cc9477e46a1c
+        - ref!! 9ab674b4-a79a-429a-a4d6-d6fd0ba3d902
+        - ref!! f586b596-c1aa-4fa5-b5f1-c4f70f30fb0f
+        - ref!! 26ba01af-882a-431e-9dfe-3209e2518789
+        - ref!! 6556b6fe-5966-4c84-8c45-67b89fadc908
+        - ref!! f443a56a-9ef0-4757-84ab-55f2366c06ef
     Parts:
         -   Entity:
                 Id: 2401dfa1-ccfc-4314-a920-87db266b1c7e
@@ -43,7 +48,38 @@ Hierarchy:
                         Id: fa06a0a4-ecf3-4952-be11-5ec08c2ac43f
                         Model: f1dab258-cf36-4649-9666-d7523db86341:Sphere
                         Materials: {}
-        -   Entity:
+        -   Folder: -100
+            Entity:
+                Id: 26ba01af-882a-431e-9dfe-3209e2518789
+                Name: box
+                Components:
+                    9bd01bd7dc49e722e56c56075b6efefe: !TransformComponent
+                        Id: ffd77799-f177-4102-9142-df81ca27e3d0
+                        Position: {X: -1.15195465, Y: 1.241122, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    b2f7f5d68514b83e1170be6266664f2d: !ModelComponent
+                        Id: 59b20621-a873-4a3f-93f4-e8799ccd0776
+                        Model: a8a4c85d-3bbd-412f-a11f-c53fb3504f4c:box
+                        Materials: {}
+        -   Folder: 100
+            Entity:
+                Id: 5ff4d46a-0163-4ef1-a0b2-cc9477e46a1c
+                Name: Sphere
+                Components:
+                    42a6d43bf677f9f0e44d36b167efe054: !TransformComponent
+                        Id: b7a2609c-bc55-474a-8edc-858f6ffd7db8
+                        Position: {X: 3.77048, Y: 2.24897838, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    873e167ea9ce992ebf79239c8ed3f78c: !ModelComponent
+                        Id: f071fbd2-5e1e-4be6-95be-aece8cabfb07
+                        Model: f1dab258-cf36-4649-9666-d7523db86341:Sphere
+                        Materials: {}
+        -   Folder: 100
+            Entity:
                 Id: 6556b6fe-5966-4c84-8c45-67b89fadc908
                 Name: Ground
                 Components:
@@ -81,26 +117,48 @@ Hierarchy:
                                 PartitionMode: !LightDirectionalShadowMap.PartitionLogarithmic {}
                                 BiasParameters: {}
                         Intensity: 20.0
-        -   Entity:
-                Id: 92956ce7-79ad-4908-9791-ba35d69a475d
-                Name: Camera
+        -   Folder: 100
+            Entity:
+                Id: 9ab674b4-a79a-429a-a4d6-d6fd0ba3d902
+                Name: MaterialModel
                 Components:
-                    232b759d34e6bee3e1d0c734bca9aed1: !TransformComponent
-                        Id: 62ea2215-af70-4ec7-bf90-64a0ee95c89e
-                        Position: {X: 2.6, Y: 0.6, Z: -1.0}
-                        Rotation: {X: 0.0, Y: 0.829037547, Z: 0.0, W: 0.5591929}
+                    7340a629932a48898955d019ba8b76d3: !TransformComponent
+                        Id: 76fefbee-fe34-453a-9699-e1a03cf6cf97
+                        Position: {X: 3.05809617, Y: 2.74005985, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
-                    e3d77feba104b66ed402667ef2f52ac1: !CameraComponent
-                        Id: 1abe0a46-e800-401c-a33e-149fe3ff8bf2
-                        Name: null
-                        Projection: Perspective
-                        Slot: 2ace6a4c-7e1b-491b-9f4a-5e02be4d59b5
-                    55800a249df03c874a1f7c6335b9746e: !TimeNexus.BasicCameraController,TimeNexus.Game
-                        Id: c60d4782-86c5-4b61-9532-72641e72c329
-                        KeyboardMovementSpeed: {X: 5.0, Y: 5.0, Z: 5.0}
-                        TouchMovementSpeed: {X: 40.0, Y: 40.0, Z: 20.0}
-                        SpeedFactor: 5.0
-                        KeyboardRotationSpeed: {X: 3.0, Y: 3.0}
-                        MouseRotationSpeed: {X: 90.0, Y: 60.0}
-                        TouchRotationSpeed: {X: 60.0, Y: 40.0}
+                    b1574b3ff8e9c72c32197f9e60a1875f: !ModelComponent
+                        Id: d15af486-dd32-4edf-872d-f970d9438e3c
+                        Model: 51c882fb-9ab5-46df-9544-209fc1be5b29:MaterialModel
+                        Materials: {}
+        -   Folder: 100
+            Entity:
+                Id: f443a56a-9ef0-4757-84ab-55f2366c06ef
+                Name: Sphere
+                Components:
+                    20c2704f61050ce396f34d9ba8ec5ab4: !TransformComponent
+                        Id: 7c707f35-bd08-4a28-949d-a3738f22f663
+                        Position: {X: 0.0, Y: 1.60153508, Z: 1.98573673}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    3f0799586e9b48e32a4d3d84b5289252: !ModelComponent
+                        Id: 58d81660-3eae-4165-a204-fc187d8085a6
+                        Model: f1dab258-cf36-4649-9666-d7523db86341:Sphere
+                        Materials: {}
+        -   Folder: 100
+            Entity:
+                Id: f586b596-c1aa-4fa5-b5f1-c4f70f30fb0f
+                Name: box
+                Components:
+                    b7fb4533b4dd9e834cbbbf9d58c7a740: !TransformComponent
+                        Id: 098aeb68-cef1-4b4d-9062-d9b4f608028c
+                        Position: {X: 3.821816, Y: 0.3815001, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    88c1579a73d992eaa157a57ae7c538d6: !ModelComponent
+                        Id: 7d63ff7d-9e70-4f6b-b9b8-0b0de320dc80
+                        Model: a8a4c85d-3bbd-412f-a11f-c53fb3504f4c:box
+                        Materials: {}
