@@ -8,18 +8,14 @@ Hierarchy:
     RootParts:
         - ref!! 8fce8da4-da36-40f6-a3b8-8e6de95f19ba
         - ref!! 2401dfa1-ccfc-4314-a920-87db266b1c7e
-        - ref!! 24e73305-b9c3-452a-9ea6-da3a8f8a9b47
-        - ref!! 5ff4d46a-0163-4ef1-a0b2-cc9477e46a1c
-        - ref!! 9ab674b4-a79a-429a-a4d6-d6fd0ba3d902
-        - ref!! f586b596-c1aa-4fa5-b5f1-c4f70f30fb0f
-        - ref!! 26ba01af-882a-431e-9dfe-3209e2518789
-        - ref!! 6556b6fe-5966-4c84-8c45-67b89fadc908
-        - ref!! f443a56a-9ef0-4757-84ab-55f2366c06ef
         - ref!! 0230cda6-cdf5-4bff-a008-a8401ac352a1
+        - ref!! 4657f04e-839b-4427-95c6-d7b8d03660d9
+        - ref!! 30a08c2d-2abd-4750-a85a-28cce4466a0a
+        - ref!! 454139e1-b2d3-40a5-badc-9507da1accb4
     Parts:
         -   Entity:
                 Id: 0230cda6-cdf5-4bff-a008-a8401ac352a1
-                Name: TimeScrolller
+                Name: TimeController
                 Components:
                     9fd389cf56fe6bdeb16a901f4d1ee4f8: !TransformComponent
                         Id: 7019fa1e-c215-4d19-acab-91bd784e2973
@@ -27,9 +23,9 @@ Hierarchy:
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
-                    da249101588ba4a6fb10aaa2a5fe6ada: !TimeNexus.TimeController,TimeNexus.Game
-                        Id: dd08bb82-ead2-44c4-8cb0-88f25ad0aefe
-                        ShowModel: 1
+                    e3768d340305a4ce152cd795ac759477: !TimeNexus.Time.GameStudioTimeController,TimeNexus.Game
+                        Id: ee636e53-36c7-4898-abb0-6512c5f34150
+                        Time: FarFuture
         -   Entity:
                 Id: 2401dfa1-ccfc-4314-a920-87db266b1c7e
                 Name: Skybox
@@ -48,64 +44,67 @@ Hierarchy:
                         Type: !LightSkybox
                             Skybox: 377c2a27-0867-4fe1-8f27-227eb0eac5f1:Skybox
         -   Entity:
-                Id: 24e73305-b9c3-452a-9ea6-da3a8f8a9b47
-                Name: Sphere
-                Components:
-                    f57001152af6390cbcd7b8a8fcdc0832: !TransformComponent
-                        Id: 4d94c352-bf01-4810-8304-780a3e09bb72
-                        Position: {X: 0.0, Y: 0.5, Z: 0.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children: {}
-                    f4a41883ea6897cf03ed3833c8cd2838: !ModelComponent
-                        Id: fa06a0a4-ecf3-4952-be11-5ec08c2ac43f
-                        Model: f1dab258-cf36-4649-9666-d7523db86341:Sphere
-                        Materials: {}
-        -   Folder: -100
-            Entity:
-                Id: 26ba01af-882a-431e-9dfe-3209e2518789
-                Name: box
-                Components:
-                    9bd01bd7dc49e722e56c56075b6efefe: !TransformComponent
-                        Id: ffd77799-f177-4102-9142-df81ca27e3d0
-                        Position: {X: -1.15195465, Y: 1.241122, Z: 0.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children: {}
-                    b2f7f5d68514b83e1170be6266664f2d: !ModelComponent
-                        Id: 59b20621-a873-4a3f-93f4-e8799ccd0776
-                        Model: a8a4c85d-3bbd-412f-a11f-c53fb3504f4c:box
-                        Materials: {}
-        -   Folder: 100
-            Entity:
-                Id: 5ff4d46a-0163-4ef1-a0b2-cc9477e46a1c
-                Name: Sphere
-                Components:
-                    42a6d43bf677f9f0e44d36b167efe054: !TransformComponent
-                        Id: b7a2609c-bc55-474a-8edc-858f6ffd7db8
-                        Position: {X: 3.77048, Y: 2.24897838, Z: 0.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children: {}
-                    873e167ea9ce992ebf79239c8ed3f78c: !ModelComponent
-                        Id: f071fbd2-5e1e-4be6-95be-aece8cabfb07
-                        Model: f1dab258-cf36-4649-9666-d7523db86341:Sphere
-                        Materials: {}
-        -   Folder: 100
-            Entity:
-                Id: 6556b6fe-5966-4c84-8c45-67b89fadc908
+                Id: 30a08c2d-2abd-4750-a85a-28cce4466a0a
                 Name: Ground
                 Components:
-                    4a924924d568217df5ac4986b8aaa647: !TransformComponent
-                        Id: dce8c624-6c8c-4f57-be8e-3d376e49167e
+                    c330801d33e39031450d50ba2968c8af: !TransformComponent
+                        Id: db670663-e431-43bd-a2ff-eacb7a0b927f
                         Position: {X: 0.0, Y: 0.0, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
-                    990a1b2329c653d2b6151f4e248f92e6: !ModelComponent
-                        Id: 674a8548-3970-4a09-9dee-2c3b6c3c7c57
+                    0182a6f196790f96c80835b67e7086f0: !ModelComponent
+                        Id: 423d3e78-1b54-465d-80de-d1c0ef5494d8
                         Model: c5a24f74-2fd2-4118-9829-295cf37636b0:Ground
                         Materials: {}
+        -   Entity:
+                Id: 4449132a-c3ff-4e52-8135-9fda7cb3dbe5
+                Name: MaterialModel
+                Components:
+                    e8e8bcb410f9b7096dc10a63bc70c863: !TransformComponent
+                        Id: 6a3dd8c8-0cc9-4d69-9b45-7a6e2e053268
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    8148002676523941760fdd5dc3eb5d81: !ModelComponent
+                        Id: 16019db2-8956-4212-bfc1-6024a5ab1f4a
+                        Model: 51c882fb-9ab5-46df-9544-209fc1be5b29:MaterialModel
+                        Materials: {}
+                    e0a577aa36123988a2bbe2088d400589: !TimeNexus.Time.TimeComponent,TimeNexus.Game
+                        Id: 9ab31db8-48f2-4e97-a65b-76d97d4683b7
+                        Time: FarFuture
+        -   Entity:
+                Id: 454139e1-b2d3-40a5-badc-9507da1accb4
+                Name: Sphere
+                Components:
+                    231ea215d13fc61bcd1cadd65fe05006: !TransformComponent
+                        Id: 40918d42-5a85-4519-bf72-36e66da67fc5
+                        Position: {X: 0.0, Y: 0.232434213, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            c23995b0eb27b8f08638137204053b08: ref!! 6a3dd8c8-0cc9-4d69-9b45-7a6e2e053268
+                            b93d8e7ab298610074f8442a9ad48161: ref!! dbc14ca2-b877-40c6-93d3-dd33a44693ca
+                            0f99f02e3dd5e9a9f9088b2b3cd45655: ref!! 2f43e459-ffe3-4188-9741-84916fc9a0c2
+                    00827100b9962361d88738f54d474682: !TimeControllerComponent
+                        Id: c6554371-f505-4114-b20d-7eee3727bf01
+                        Time: Modern
+        -   Entity:
+                Id: 4657f04e-839b-4427-95c6-d7b8d03660d9
+                Name: Camera
+                Components:
+                    b220465ca389742fb3cf83ac9ecd9dd2: !TransformComponent
+                        Id: 4c4649c5-7e41-4948-a322-ebab0177c6bc
+                        Position: {X: 2.27959442, Y: 1.35785437, Z: 6.672082}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    548145a3e19e5bd75d0ab114d2ba69ee: !CameraComponent
+                        Id: ff68b089-464f-4978-8c28-100c7f94b75f
+                        Name: null
+                        Projection: Perspective
+                        Slot: 2ace6a4c-7e1b-491b-9f4a-5e02be4d59b5
         -   Entity:
                 Id: 8fce8da4-da36-40f6-a3b8-8e6de95f19ba
                 Name: Directional light
@@ -130,48 +129,38 @@ Hierarchy:
                                 PartitionMode: !LightDirectionalShadowMap.PartitionLogarithmic {}
                                 BiasParameters: {}
                         Intensity: 20.0
-        -   Folder: 100
-            Entity:
-                Id: 9ab674b4-a79a-429a-a4d6-d6fd0ba3d902
-                Name: MaterialModel
-                Components:
-                    7340a629932a48898955d019ba8b76d3: !TransformComponent
-                        Id: 76fefbee-fe34-453a-9699-e1a03cf6cf97
-                        Position: {X: 3.05809617, Y: 2.74005985, Z: 0.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children: {}
-                    b1574b3ff8e9c72c32197f9e60a1875f: !ModelComponent
-                        Id: d15af486-dd32-4edf-872d-f970d9438e3c
-                        Model: 51c882fb-9ab5-46df-9544-209fc1be5b29:MaterialModel
-                        Materials: {}
-        -   Folder: 100
-            Entity:
-                Id: f443a56a-9ef0-4757-84ab-55f2366c06ef
-                Name: Sphere
-                Components:
-                    20c2704f61050ce396f34d9ba8ec5ab4: !TransformComponent
-                        Id: 7c707f35-bd08-4a28-949d-a3738f22f663
-                        Position: {X: 0.0, Y: 1.60153508, Z: 1.98573673}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children: {}
-                    3f0799586e9b48e32a4d3d84b5289252: !ModelComponent
-                        Id: 58d81660-3eae-4165-a204-fc187d8085a6
-                        Model: f1dab258-cf36-4649-9666-d7523db86341:Sphere
-                        Materials: {}
-        -   Folder: 100
-            Entity:
-                Id: f586b596-c1aa-4fa5-b5f1-c4f70f30fb0f
+        -   Entity:
+                Id: a42f7db0-a8d8-430c-ac70-778eb7e00de1
                 Name: box
                 Components:
-                    b7fb4533b4dd9e834cbbbf9d58c7a740: !TransformComponent
-                        Id: 098aeb68-cef1-4b4d-9062-d9b4f608028c
-                        Position: {X: 3.821816, Y: 0.3815001, Z: 0.0}
+                    ae17a25065ffc0d284d14f5cec4e6c8e: !TransformComponent
+                        Id: 2f43e459-ffe3-4188-9741-84916fc9a0c2
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
-                    88c1579a73d992eaa157a57ae7c538d6: !ModelComponent
-                        Id: 7d63ff7d-9e70-4f6b-b9b8-0b0de320dc80
+                    88ab2c77b2abc18952f8d35cc2644e86: !ModelComponent
+                        Id: d4400f82-444f-4a71-8515-72378fa93cb4
+                        Enabled: false
                         Model: a8a4c85d-3bbd-412f-a11f-c53fb3504f4c:box
                         Materials: {}
+                    0bce8f5b3a0fcace0f42f62a432b07c8: !TimeNexus.Time.TimeComponent,TimeNexus.Game
+                        Id: b4974ef4-a1dd-473a-8552-f2a624436a7d
+                        Time: AncientHistory
+        -   Entity:
+                Id: ea6e4518-8a3f-4def-8322-4c7979b67d9e
+                Name: Sphere
+                Components:
+                    42407b037fdd28c8c610c4b40b0a7e9c: !TransformComponent
+                        Id: dbc14ca2-b877-40c6-93d3-dd33a44693ca
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    6fd7849bf8ee9c98d6152182164cb833: !ModelComponent
+                        Id: d3bf64ac-7386-4fac-878d-661333f94ec0
+                        Model: f1dab258-cf36-4649-9666-d7523db86341:Sphere
+                        Materials: {}
+                    4868582dd21d6f1822b92e76d50c4d12: !TimeNexus.Time.TimeComponent,TimeNexus.Game
+                        Id: 6cf3e8bb-0d8d-4960-a833-ee52f6d329c1
+                        Time: Modern
