@@ -10,19 +10,14 @@ using SiliconStudio.Core;
 
 namespace TimeNexus.Time
 {
+	[DataContract("TimeComponent")]
 	[Display("Time Component")]
-	public class TimeComponent : SyncScript
+	public class TimeComponent : EntityComponent
 	{
-		//Well, C# is pretty cool. :)
-
 		/// <summary>
 		/// WARNING: This property should NOT be modified outside the game studio
 		/// </summary>
 		[DataMember]
 		public Time Time { get; set; }
-
-		public override void Update()
-		{
-		}
 	}
 }
