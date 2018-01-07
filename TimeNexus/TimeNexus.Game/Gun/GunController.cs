@@ -11,6 +11,9 @@ using SiliconStudio.Xenko.Graphics;
 using SiliconStudio.Xenko.Rendering;
 using TimeNexus.Time;
 using SiliconStudio.Xenko.Engine.Processors;
+using SiliconStudio.Xenko.Rendering.Materials;
+using SiliconStudio.Xenko.Rendering.Materials.ComputeColors;
+using SiliconStudio.Xenko.Shaders;
 
 namespace Gun
 {
@@ -18,11 +21,9 @@ namespace Gun
 	{
 		// Declared public member fields and properties will show in the game studio
 		private Simulation simulation;
-		public int RayLength { get; set; } = 20;
-		private const float Offset = 0.3f;
 		public CameraComponent camera { get; set; }
 
-		public MeshTransparentRenderStageSelector RenderStageSelector { get; } = new MeshTransparentRenderStageSelector();
+		//public MeshTransparentRenderStageSelector RenderStageSelector { get; } = new MeshTransparentRenderStageSelector();
 
 		private ModelComponent _model;
 
@@ -31,6 +32,9 @@ namespace Gun
 			simulation = this.GetSimulation();
 			if (camera == null) Log.Error("No camera attached to the gun script");
 
+
+
+			/*
 			RenderStageSelector.TransparentRenderStage = SceneSystem.GraphicsCompositor.RenderStages.First(renderStage => renderStage.Name == "Transparent");
 			RenderStageSelector.RenderGroup = RenderGroupMask.Group10;
 
@@ -42,24 +46,14 @@ namespace Gun
 				}
 
 				//rootRenderFeature.RenderStageSelectors.Add(RenderStageSelector);
-			} 
-
-
-			//SceneSystem.SceneInstance.Processors.Add(new TimeProcessor());
-			/*SceneSystem.GraphicsCompositor.RenderFeatures.First() .Add(new MeshTransparentRenderStageSelector()
-			{
-
-			})*/
-			//SceneSystem.GraphicsCompositor.RenderSystem.AddRenderObject
-			//SceneSystem.GraphicsCompositor.RenderFeatures.First().
-
+			} */
 		}
 
 		public override void Update()
 		{
 			if (_model != null)
 			{
-				_model.RenderGroup = RenderGroup.Group0;
+				//_model.RenderGroup = RenderGroup.Group0;
 			}
 			var backBuffer = GraphicsDevice.Presenter.BackBuffer;
 
@@ -92,23 +86,102 @@ namespace Gun
 					}
 
 					var entity = result.Collider.Entity;
-					//entity.Tags.
-					//entity.EntityManager.Processors.Add(EntityProcessor);
-					//new EntityProcessor<TimeComponent>().
-					//EntityManager
 
 					_model = entity?.Get<ModelComponent>();
 
 					if (_model != null)
 					{
-						_model.RenderGroup = RenderGroup.Group10;
+						//var clonedModel = _model.Model.Instantiate();
+						for (int i = 0; i < _model.GetMaterialCount(); i++)
+						{
+							var clonedMaterial = new Material();
+							foreach (var pass in _model.GetMaterial(i).Passes)
+							{
+								var clonedPass = new MaterialPass(pass.Parameters);
+								clonedPass.HasTransparency = pass.HasTransparency;
+								clonedPass.BlendState = pass.BlendState;
+								clonedPass.CullMode = pass.CullMode;
+								clonedPass.IsLightDependent = pass.IsLightDependent;
+								ShaderMixinSource x = (ShaderMixinSource)clonedPass.Parameters.Get(MaterialKeys.PixelStageSurfaceShaders);
+								foreach(var composition in x.Compositions.Values)
+								{
+									if(composition is ShaderArraySource)
+									{
+										ShaderArraySource shaderArraySource = composition as ShaderArraySource;
+										((ShaderMixinSource)shaderArraySource.Values[0]).Compositions["diffuseMap"] = (SiliconStudio.Xenko.Shaders.ShaderClassSource)@"DAB";
+									}
+								}
+								/*x.AddComposition("SWAG", (SiliconStudio.Xenko.Shaders.ShaderClassSource)@" namespace MyGame
+ {
+    shader SWAG : ComputeColor
+     {
+        override float4 Compute()
+        {
+            return float4(1, 0, 0, 1);
+        }
+
+     };
+}
+
+");*/
+								//x.Mixins.Add("hi");// SiliconStudio.Xenko.Shaders.ShaderClassSource
+								//SiliconStudio.Xenko.Shaders.ShaderClassSource y = x.Mixins[0];
+								//x.Mixins[0] = "";//"mixin MaterialSurfaceArray [{layers = [mixin MaterialSurfaceDiffuse [{diffuseMap = SWAG}], mixin MaterialSurfaceGlossinessMap<false> [{glossinessMap = ComputeColorConstantFloatLink<Material.GlossinessValue>}], mixin MaterialSurfaceMetalness [{metalnessMap = ComputeColorConstantFloatLink<Material.MetalnessValue>}], mixin MaterialSurfaceLightingAndShading [{surfaces = [MaterialSurfaceShadingDiffuseLambert<false>, mixin MaterialSurfaceShadingSpecularMicrofacet [{environmentFunction = MaterialSpecularMicrofacetEnvironmentGGXLUT}, {fresnelFunction = MaterialSpecularMicrofacetFresnelSchlick}, {geometricShadowingFunction = MaterialSpecularMicrofacetVisibilitySmithSchlickGGX}, {normalDistributionFunction = MaterialSpecularMicrofacetNormalDistributionGGX}]]}]]}]";
+
+								//clonedPass.Parameters.Set(MaterialKeys.PixelStageSurfaceShaders, x);
+								//ShaderMixinManager.Generate("SWAG");
+
+								//var shaders = new ShaderArraySource();
+
+								//shaders.Add(clonedPass.Parameters.Get(MaterialKeys.PixelStageSurfaceShaders));
+
+								//shaders.Add()
+								//clonedPass.Parameters.Set(MaterialKeys.PixelStageSurfaceShaders, shaders);
+
+								clonedMaterial.Passes.Add(clonedPass);
+							}
+
+							/*var parCol = new ParameterCollection();
+							//parCol.Set(MaterialKeys.PixelStageSurfaceShaders, (SiliconStudio.Xenko.Shaders.ShaderClassSource)"hi");
+							parCol.Set(MaterialKeys.DiffuseValue, Color4.White);
+							clonedMaterial.Passes.Add(new MaterialPass(parCol)
+								{
+								HasTransparency = true,
+								BlendState = new BlendStateDescription(Blend.One, Blend.Zero),
+								IsLightDependent = true
+							});*/
+
+							_model.Materials[i] = clonedMaterial;
+								/*.Passes.First().
+							var newMaterial = (Material)_model.GetMaterial(i).MemberwiseClone();
+							//newMaterial.Parameters = new ParameterCollection(material.Parameters);
+							newMaterial.Passes = new MaterialPassCollection(_model.GetMaterial(i).Passes);
+
+							var clonedMaterial = Material.New(GraphicsDevice, new MaterialDescriptor()
+							{
+								Attributes =
+								{
+									Diffuse = new MaterialDiffuseMapFeature(new ComputeColor(Color.White)),
+									DiffuseModel = new MaterialDiffuseLambertModelFeature()
+								}
+							});
+							_model.Materials[i] = clonedMaterial;*/
+						}
+
 						//_model.RenderGroup = RenderGroup.Group10;
 						//_model.Materials.
 
 
 					}
-					new MaterialInstance()
-					_model.Model.Materials.First().
+					/*foreach(Entity e in entity.GetChildren()) {
+						var mod = e.Get<ModelComponent>();
+					}*/
+					//new MaterialInstance()
+					//_model.Model.Materials.First().
+
+
+
+
 					/*if(result.Collider.Entity.Get<ModelComponent>()?.Materials != null)
 					{
 						foreach(var material in result.Collider.Entity.Get<ModelComponent>()?.Materials.Values)
