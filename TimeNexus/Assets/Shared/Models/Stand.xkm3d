@@ -14,3 +14,5 @@ Materials:
         Name: ground_1
         MaterialInstance:
             Material: 595c88ab-8139-4d6f-be10-cb4651df3f22:Materials/RedCoating
+~SourceHashes:
+    77a87a767f96dc9e986333a31a69a06d~../../../Resources/Stand/Pd_ground.FBX: c170a2977ef51a92b83f375a71be5f26

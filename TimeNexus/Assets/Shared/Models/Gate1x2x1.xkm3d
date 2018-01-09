@@ -10,3 +10,5 @@ Materials:
         Name: GridMT
         MaterialInstance:
             Material: cbe74d29-cfdf-4912-b7b8-b7fd102f8d4d:Materials/GridMT
+~SourceHashes:
+    48a4c21d49c41479f6a4f1aa38a70c1d~../../../Resources/Models/Gate1x2x1.fbx: f59702a2cf214fed3d2358f4328a66cb

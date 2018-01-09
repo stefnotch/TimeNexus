@@ -10,3 +10,5 @@ Materials:
         Name: GridMT
         MaterialInstance:
             Material: cbe74d29-cfdf-4912-b7b8-b7fd102f8d4d:Materials/GridMT
+~SourceHashes:
+    b48ed143fec00352ce2f96608695d2fe~../../../Resources/Models/Stairs2x2x4.fbx: e7e7d26c6877b8b66117f9a7b86d3c37

@@ -22,3 +22,5 @@ Materials:
         Name: semiGlossMT
         MaterialInstance:
             Material: e2edc06a-2d77-465e-9b21-1ee41e42d24f:Materials/BodyGray
+~SourceHashes:
+    fa7fe9548d0ceffa00ba5fda33bdf0d3~../../../Resources/Models/MachinegunModel.fbx: f681403f434781ff4a4b3139aa4f6471

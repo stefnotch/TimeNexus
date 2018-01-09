@@ -10,3 +10,5 @@ Materials:
         Name: GridMTx10
         MaterialInstance:
             Material: 46fa58e9-c6a3-4b5e-bbdd-d232356958eb:Materials/GridMTx10
+~SourceHashes:
+    cd6aae53f950fba9432770b7f72cac0b~../../../Resources/Models/GridBase10x10.fbx: d2129581a243c7487569fddcb4f9d938

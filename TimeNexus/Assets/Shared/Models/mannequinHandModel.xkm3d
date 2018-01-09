@@ -22,3 +22,5 @@ Materials:
         Name: upperMatteMT
         MaterialInstance:
             Material: 88189689-209f-48b2-b4e3-745772a112be:Materials/MattBlackUpper
+~SourceHashes:
+    da68d225744d5c0489cf5a01215dbcc9~../../../Resources/Models/mannequinHandModel.fbx: db1befd09793cb26baaafc47576b4e4f

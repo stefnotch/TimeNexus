@@ -105,11 +105,46 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
+    <None Include="Effects\AShader.xksl">
+      <Generator>XenkoShaderKeyGenerator</Generator>
+      <LastGenOutput>AShader.cs</LastGenOutput>
+    </None>
+    <None Include="Effects\BShader.xksl">
+      <Generator>XenkoShaderKeyGenerator</Generator>
+      <LastGenOutput>BShader.cs</LastGenOutput>
+    </None>
+    <None Include="Effects\Shader1.xkfx">
+      <Generator>XenkoShaderKeyGenerator</Generator>
+      <LastGenOutput>Shader1.cs</LastGenOutput>
+    </None>
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BasicCameraController.cs" />
+    <Compile Include="DebugPhysicsShapes.cs" />
+    <Compile Include="Effects\AShader.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>AShader.xksl</DependentUpon>
+    </Compile>
+    <Compile Include="Effects\BShader.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>BShader.xksl</DependentUpon>
+    </Compile>
+    <Compile Include="Gun\GunController.cs" />
+    <Compile Include="Effects\Shader1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Shader1.xkfx</DependentUpon>
+    </Compile>
+    <Compile Include="Time\TimeUtils.cs" />
+    <Compile Include="Player\PlayerController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings\KeyboardSetup.cs" />
     <Compile Include="Time\Time.cs" />
     <Compile Include="Time\TimeComponent.cs" />
     <Compile Include="Time\GameStudioTimeController.cs" />

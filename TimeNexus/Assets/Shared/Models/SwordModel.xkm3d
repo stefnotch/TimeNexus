@@ -22,3 +22,5 @@ Materials:
         Name: glossMT
         MaterialInstance:
             Material: 089b2e7b-3d47-4885-8134-eca202a64b87:Materials/BodyWhite
+~SourceHashes:
+    99861ea69ee8f5a7f01fa14d8ee9cb65~../../../Resources/Models/SwordModel.fbx: f21eb0d2f6563aa8f6a26b74477d96d5

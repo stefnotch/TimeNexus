@@ -51,3 +51,5 @@ Nodes:
     7bb44ba048176a8881b022f9e4a8d483: {Name: CATRigRArmDigit53, Depth: 9}
     03e237740e7e0f2dcb716c0f625130ef: {Name: MachinegunBone, Depth: 2}
     ad4be2b5f6a7fe7a48a3c9571d457d91: {Name: MagazineBone, Depth: 3}
+~SourceHashes:
+    78f681dea8a1505e84ecd76aafeaed7e~../../../Resources/Models/mannequinHandModel.fbx: db1befd09793cb26baaafc47576b4e4f

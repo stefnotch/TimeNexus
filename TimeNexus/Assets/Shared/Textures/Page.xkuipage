@@ -1,0 +1,36 @@
+!UIPageAsset
+Id: bf1b1ef9-eebf-4f49-b4f7-c879b398379d
+SerializedVersion: {Xenko: 2.1.0.1}
+Tags: []
+Design:
+    Resolution: {X: 1280.0, Y: 720.0, Z: 1000.0}
+Hierarchy:
+    RootParts:
+        - !Grid ref!! 814ab727-6484-4c1a-8040-58eae6251252
+    Parts:
+        -   UIElement: !Grid
+                Id: 814ab727-6484-4c1a-8040-58eae6251252
+                DependencyProperties: {}
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                Margin: {}
+                Children:
+                    9c55bb3577c8bd1bf32e35461c3501f8: !ImageElement ref!! a2f77c8d-0c1b-406f-8e00-74ca5d2dfe1f
+                RowDefinitions: {}
+                ColumnDefinitions: {}
+                LayerDefinitions: {}
+        -   UIElement: !ImageElement
+                Id: a2f77c8d-0c1b-406f-8e00-74ca5d2dfe1f
+                DependencyProperties: {}
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                Width: 25.0
+                HorizontalAlignment: Center
+                VerticalAlignment: Center
+                DepthAlignment: Front
+                Margin: {}
+                MaximumWidth: 3.40282347E+38
+                MaximumHeight: 3.40282347E+38
+                MaximumDepth: 3.40282347E+38
+                Source: !SpriteFromTexture
+                    Texture: f0676245-0c37-4789-a2ba-eb2d10d41ba7:Textures/circle02
+                    Center: {X: 0.0, Y: 0.0}
+                Color: {R: 255, G: 255, B: 255, A: 255}

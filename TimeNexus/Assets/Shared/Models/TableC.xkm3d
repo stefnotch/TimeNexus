@@ -18,3 +18,5 @@ Materials:
         Name: board1
         MaterialInstance:
             Material: 21475d09-718f-47d7-9e08-29453c4aaa59:Materials/board1B
+~SourceHashes:
+    4bd259f47e9e36018110c7149802bda0~../../../Resources/Models/table.fbx: 75f2628b4f3fedec9a2277b336c5f756

@@ -22,3 +22,5 @@ Materials:
         Name: glossMT
         MaterialInstance:
             Material: 089b2e7b-3d47-4885-8134-eca202a64b87:Materials/BodyWhite
+~SourceHashes:
+    e0838dd9e794744e4873db186b67fb62~../../../Resources/Models/MagazineModel.fbx: 76bc45bc990ccc3a003c4aa1da508514
