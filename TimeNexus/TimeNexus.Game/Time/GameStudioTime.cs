@@ -10,22 +10,23 @@ using SiliconStudio.Core;
 
 namespace TimeNexus.Time
 {
-	[DataContract("TimeComponent")]
-	[Display("Time Component")]
-	public class TimeComponent : EntityComponent
+	[DataContract("GameStudioTime")]
+	[Display("GameStudioTime")]
+	public class GameStudioTime : Time
 	{
-		/// <summary>
-		/// Don't touch me! I'm a Game Studio specific thingy/hack!
-		/// </summary>
-		[DataMember]
-		public GameStudioTime GameStudioTime { get; } = new GameStudioTime();
+		public delegate void TimeChanged(Time t);
+		public event TimeChanged OnTimeChanged;
 
-		[DataMemberIgnore]
-		public Time Time
+		/// <summary>
+		/// The current Era
+		/// </summary>
+		public new Era Era
 		{
-			get
+			get => _era;
+			set
 			{
-				return GameStudioTime;
+				_era = value;
+				OnTimeChanged?.Invoke(this);
 			}
 		}
 	}

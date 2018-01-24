@@ -6,13 +6,13 @@ ChildrenIds: []
 Offset: {X: 0.0, Y: 0.0, Z: 0.0}
 Hierarchy:
     RootParts:
+        - ref!! 89d80467-2e8a-4061-ad71-0cdce87764f9
         - ref!! 8fce8da4-da36-40f6-a3b8-8e6de95f19ba
         - ref!! 2401dfa1-ccfc-4314-a920-87db266b1c7e
         - ref!! 0230cda6-cdf5-4bff-a008-a8401ac352a1
         - ref!! 30a08c2d-2abd-4750-a85a-28cce4466a0a
         - ref!! 454139e1-b2d3-40a5-badc-9507da1accb4
         - ref!! f24bf3c8-e782-4ace-a1b1-38656eab228c
-        - ref!! 89d80467-2e8a-4061-ad71-0cdce87764f9
         - ref!! ddc8bc75-4f12-4c93-8221-840ce294f552
     Parts:
         -   Entity:
@@ -25,9 +25,28 @@ Hierarchy:
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
-                    d6716d4d2945e3666bd98bb92d5567bf: !TimeNexus.Time.GameStudioTimeController,TimeNexus.Game
-                        Id: ee636e53-36c7-4898-abb0-6512c5f34150
-                        Time: Modern
+                    716c5277bc03496bac48d2af9e8967dd: !TimeNexus.Time.GameStudioTimeController,TimeNexus.Game
+                        Id: 0e79c994-d2b6-49c5-a5a5-e01238a36672
+                        GameStudioTime:
+                            Era: FarFuture
+        -   Entity:
+                Id: 21e8d9f2-3391-4062-abfb-656fa29c99c1
+                Name: MaterialModel
+                Components:
+                    9b3ae9ce94e46a0c2465b2c734f272c2: !TransformComponent
+                        Id: 9485bd89-88d3-4053-a9d0-c7a79ccbcc1b
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    1846057351f558e951cae947c5475ff2: !ModelComponent
+                        Id: 5d80be14-2cb3-46ca-a396-f71025e3cc28
+                        Model: 51c882fb-9ab5-46df-9544-209fc1be5b29:MaterialModel
+                        Materials: {}
+                    53d50deab3ab8a458ad57aaabe9966ca: !TimeComponent
+                        Id: b8ba72df-f05b-4d4d-aa0f-ce80c1927091
+                        GameStudioTime:
+                            Era: FarFuture
         -   Entity:
                 Id: 2401dfa1-ccfc-4314-a920-87db266b1c7e
                 Name: Skybox
@@ -75,23 +94,6 @@ Hierarchy:
                                 LocalOffset: {X: 0.0, Y: -0.5, Z: 0.0}
                                 LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
         -   Entity:
-                Id: 4449132a-c3ff-4e52-8135-9fda7cb3dbe5
-                Name: MaterialModel
-                Components:
-                    e8e8bcb410f9b7096dc10a63bc70c863: !TransformComponent
-                        Id: 6a3dd8c8-0cc9-4d69-9b45-7a6e2e053268
-                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children: {}
-                    8148002676523941760fdd5dc3eb5d81: !ModelComponent
-                        Id: 16019db2-8956-4212-bfc1-6024a5ab1f4a
-                        Model: 51c882fb-9ab5-46df-9544-209fc1be5b29:MaterialModel
-                        Materials: {}
-                    a7e0b52d27c5889feca896acf9ffcbf7: !TimeComponent
-                        Id: 5b85b25f-61d2-4dc0-9eb4-f2f86cc85407
-                        Time: FarFuture
-        -   Entity:
                 Id: 454139e1-b2d3-40a5-badc-9507da1accb4
                 Name: Sphere
                 Components:
@@ -101,12 +103,9 @@ Hierarchy:
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
-                            c23995b0eb27b8f08638137204053b08: ref!! 6a3dd8c8-0cc9-4d69-9b45-7a6e2e053268
                             b93d8e7ab298610074f8442a9ad48161: ref!! dbc14ca2-b877-40c6-93d3-dd33a44693ca
                             0f99f02e3dd5e9a9f9088b2b3cd45655: ref!! 2f43e459-ffe3-4188-9741-84916fc9a0c2
-                    5b31b981cb835cc571a7dc5dc9667a86: !TimeControllerComponent
-                        Id: c6554371-f505-4114-b20d-7eee3727bf01
-                        Time: Modern
+                            808c49c7fffddd57dd1ecb1eb7df3507: ref!! 9485bd89-88d3-4053-a9d0-c7a79ccbcc1b
                     5537d5c16fcd522bb3e0c4fe219e8348: !RigidbodyComponent
                         Id: 1497b5a9-6a34-4200-b6da-d860f529a27a
                         CanSleep: false
@@ -129,6 +128,9 @@ Hierarchy:
                                 Size: {X: 1.0, Y: 1.5, Z: 1.0}
                                 LocalOffset: {X: 0.0, Y: 0.5, Z: 0.0}
                                 LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                    8c3ded0cfd84f4b8f2b29a6dde5fc4f8: !TimeControllerComponent
+                        Id: 441de3f9-e3bf-4bc5-8b8b-e780a76f9745
+                        Time: {}
         -   Entity:
                 Id: 73a448ca-1c69-4d88-a2bf-e4b8245acba8
                 Name: Crosshair
@@ -208,9 +210,10 @@ Hierarchy:
                         Enabled: false
                         Model: a8a4c85d-3bbd-412f-a11f-c53fb3504f4c:box
                         Materials: {}
-                    f40a8c73951cb2de2bab376940ade222: !TimeComponent
-                        Id: b4974ef4-a1dd-473a-8552-f2a624436a7d
-                        Time: AncientHistory
+                    03b9698d35f24a8b55136e24395b05ee: !TimeComponent
+                        Id: cd687d8c-9b98-483a-ad61-84c0eb1af220
+                        GameStudioTime:
+                            Era: AncientHistory
         -   Entity:
                 Id: b642d039-b39e-469c-919f-7f49d3663153
                 Name: Camera
@@ -256,9 +259,10 @@ Hierarchy:
                         Id: d3bf64ac-7386-4fac-878d-661333f94ec0
                         Model: f1dab258-cf36-4649-9666-d7523db86341:Sphere
                         Materials: {}
-                    0dfb16cd193f6b52de024579fae44f3e: !TimeComponent
-                        Id: 6cf3e8bb-0d8d-4960-a833-ee52f6d329c1
-                        Time: Modern
+                    9ae3b96fca81ed0006e9b7035a150c95: !TimeComponent
+                        Id: 9ccd0cce-3a82-4797-9d94-b4b68de66d1f
+                        GameStudioTime:
+                            Era: Modern
         -   Entity:
                 Id: ec9bc9d0-368f-4581-842c-0aecb5615bea
                 Name: Gun

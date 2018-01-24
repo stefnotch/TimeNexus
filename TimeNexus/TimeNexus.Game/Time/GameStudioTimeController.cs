@@ -12,6 +12,9 @@ using System.IO;
 
 namespace TimeNexus.Time
 {
+	/// <summary>
+	/// Don't touch me! I'm a Game Studio specific thingy/hack!
+	/// </summary>
 	public class GameStudioTimeController : SyncScript
 	{
 		[DllImport("User32")]
@@ -22,46 +25,41 @@ namespace TimeNexus.Time
 		[return: MarshalAs(UnmanagedType.Bool)]
 		static extern bool AllocConsole();
 
+		private GameStudioTime _time = new GameStudioTime();
 
-		// Declared public member fields and properties will show in the game studio
-		private Time _time;
-
-		private bool x = false;
-
-		public Time Time
+		public GameStudioTimeController()
 		{
-			get => _time;
-			set
+			_time.OnTimeChanged += TimeChanged;
+			//AllocConsole();
+		}
+
+		/// <summary>
+		/// Don't touch me! I'm a Game Studio specific thingy/hack!
+		/// </summary>
+		public GameStudioTime GameStudioTime { get => _time; }
+
+		private void TimeChanged(Time t)
+		{
+			if (Entity?.Scene?.Entities != null)
 			{
-				/*if (!x)
+				foreach (Entity e in Entity.Scene.Entities)
 				{
-					AllocConsole();
-					x = true;
-				}*/
+					var timeController = e.Get<TimeControllerComponent>();
+					if (timeController != null) timeController.Time = t;
 
-				_time = value;
-
-				if (Entity?.Scene?.Entities != null)
-				{
-					foreach (Entity e in Entity.Scene.Entities)
-					{
-						var timeController = e.Get<TimeControllerComponent>();
-						if (timeController != null) timeController.Time = _time;
-						
-					}
-
-					/*using (var stream = new StreamWriter(Console.OpenStandardOutput()))
-					{
-						stream.WriteLine("Yo" + e);
-						stream.WriteLine("" + e.FindRoot());
-						stream.WriteLine("" + e.GetParent());
-						stream.WriteLine("" + e.Tags);
-						stream.Flush();
-					}*/
 				}
-				//MessageBox(0, "You are watching message box!", "Information", 5);
-
 			}
+
+			/*using (var stream = new StreamWriter(Console.OpenStandardOutput()))
+			{
+				stream.WriteLine("Yo" + e);
+				stream.WriteLine("" + e.FindRoot());
+				stream.WriteLine("" + e.GetParent());
+				stream.WriteLine("" + e.Tags);
+				stream.Flush();
+			}*/
+
+			//MessageBox(0, "You are watching message box!", "Information", 5);
 		}
 
 		public override void Update()

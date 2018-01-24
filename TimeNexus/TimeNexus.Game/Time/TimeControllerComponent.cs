@@ -7,6 +7,7 @@ using SiliconStudio.Core.Mathematics;
 using SiliconStudio.Xenko.Input;
 using SiliconStudio.Xenko.Engine;
 using SiliconStudio.Core;
+using Level;
 
 namespace TimeNexus.Time
 {
@@ -16,10 +17,9 @@ namespace TimeNexus.Time
 	public class TimeControllerComponent : SyncScript
 	{
 
-		[DataMember]
-		private Time _time;
+		private Time _time = new Time();
 
-		// Declared public member fields and properties will show in the game studio
+		private Entity previousEntity;
 
 		[DataMember]
 		public Time Time
@@ -28,33 +28,39 @@ namespace TimeNexus.Time
 			set
 			{
 				_time = value;
-				//A little serialisation guard...when serializing an object, Entity == null which leads to annoying errors
-				if (Entity == null) return;
-
-				var timeValue = (int)_time;
-				Entity minEntity = null;
-				var minTimeDelta = int.MaxValue;
-				
-				foreach (Entity e in GetChildrenWithTime())
-				{
-					var entityTime = (int)e.Get<TimeComponent>().Time;
-					var timeDelta = Math.Abs(entityTime - timeValue);
-					if (timeDelta < minTimeDelta)
-					{
-						minEntity = e;
-						minTimeDelta = timeDelta;
-					}
-				}
-
-				foreach (Entity e in GetChildrenWithTime())
-				{
-					if (e == minEntity) continue;
-					e.Enable<ModelComponent>(false);
-					e.Get<ModelComponent>().Enabled = false;
-				}
-
-				minEntity.Enable<ModelComponent>(true);
+				TimeChanged(value);
 			}
+		}
+
+		private void TimeChanged(Time t)
+		{
+			//A little serialisation guard...when serializing an object, Entity == null which leads to annoying errors
+			if (Entity == null) return;
+
+			var timeValue = t.ToNumber();
+			Entity minEntity = null;
+			var minTimeDelta = int.MaxValue;
+
+			foreach (Entity e in GetChildrenWithTime())
+			{
+				var entityTime = e.Get<TimeComponent>().Time.ToNumber();
+				var timeDelta = Math.Abs(entityTime - timeValue);
+				if (timeDelta < minTimeDelta)
+				{
+					minEntity = e;
+					minTimeDelta = timeDelta;
+				}
+			}
+
+			foreach (Entity e in GetChildrenWithTime())
+			{
+				if (e == minEntity) continue;
+				e?.Enable<ModelComponent>(false);
+			}
+
+			minEntity?.Enable<ModelComponent>(true);
+
+			previousEntity = minEntity;
 		}
 
 		private IEnumerable<Entity> GetChildrenWithTime()
@@ -70,7 +76,10 @@ namespace TimeNexus.Time
 
 		public override void Start()
 		{
-
+			foreach (Entity e in GetChildrenWithTime())
+			{
+				e.Get<ModelComponent>().Enabled = false;
+			}
 		}
 
 		public override void Update()
