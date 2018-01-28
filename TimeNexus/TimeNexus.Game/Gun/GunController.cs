@@ -92,15 +92,27 @@ namespace Gun
 				_selectedModel = newModel;
 			}
 
-			
 
-			if (entity?.Get<ModelComponent>() != null && Input.HasDownMouseButtons)
-			{
-				_selectedModel = entity?.Get<ModelComponent>();
-				_selectedModel.RenderGroup = RenderGroup.Group7;
-				
-				entity.Remove<ModelComponent>();
-				entity.Add(_selectedModel);
+			if (Input.HasDownMouseButtons) {
+				if (entity?.Get<ModelComponent>() != null)
+				{
+					_selectedModel = entity?.Get<ModelComponent>();
+					_selectedModel.RenderGroup = RenderGroup.Group7;
+
+					entity.Remove<ModelComponent>();
+					entity.Add(_selectedModel);
+				}
+				foreach(Entity e in entity.GetChildren())
+				{
+					if (e?.Get<ModelComponent>() != null && e.Get<ModelComponent>().Enabled)
+					{
+						_selectedModel = e?.Get<ModelComponent>();
+						_selectedModel.RenderGroup = RenderGroup.Group7;
+
+						e.Remove<ModelComponent>();
+						e.Add(_selectedModel);
+					}
+				}
 			}
 			return;
 
