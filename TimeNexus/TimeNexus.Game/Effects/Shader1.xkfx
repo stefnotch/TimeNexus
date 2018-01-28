@@ -62,8 +62,6 @@ namespace SiliconStudio.Xenko.Rendering
                 mixin (extensionPixelStageSurfaceFilter);
             }
 
-            mixin BShader;
-
             mixin child GBuffer;
         }
 
@@ -76,6 +74,8 @@ namespace SiliconStudio.Xenko.Rendering
         mixin child ShadowMapCasterParaboloid;
         mixin child ShadowMapCasterCubeMap;
 
-       // mixin AShader;
+
+
+        mixin BShader;
     };
 }

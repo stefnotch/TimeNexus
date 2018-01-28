@@ -7,18 +7,9 @@ namespace SiliconStudio.Xenko.Rendering
  {
         override stage void PSMain()
      {
-            streams.ColorTarget = float4(1, 1, 1, 0);//discard;
+            base.PSMain();
+            streams.ColorTarget = float4(streams.ColorTarget.rgb, 0.8);
      }
-/*
-
-
-     stage override float4 Shading()
-     {
-        
-            return float4(1,0,1,1);
-     }
-
-*/
 
  };
 }

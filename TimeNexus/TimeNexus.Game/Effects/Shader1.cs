@@ -98,7 +98,6 @@ namespace SiliconStudio.Xenko.Rendering
                     {
                         context.Mixin(mixin, (extensionPixelStageSurfaceFilter));
                     }
-                    context.Mixin(mixin, "BShader");
                     if (context.ChildEffectName == "GBuffer")
                     {
                         context.Mixin(mixin, "GBuffer");
@@ -121,6 +120,7 @@ namespace SiliconStudio.Xenko.Rendering
                     context.Mixin(mixin, "ShadowMapCasterCubeMap");
                     return;
                 }
+                context.Mixin(mixin, "BShader");
             }
 
             [ModuleInitializer]
