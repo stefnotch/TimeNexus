@@ -21,7 +21,7 @@ namespace TimeNexus
 			if (forwardRenderer == null)
 				return;
 
-			var shapesRenderState = forwardRenderer.OpaqueRenderStage;//new RenderStage("PhysicsDebugShapes", "Main");
+			var shapesRenderState = forwardRenderer.TransparentRenderStage;//new RenderStage("PhysicsDebugShapes", "Main");
 			compositor.RenderStages.Add(shapesRenderState);
 			var meshRenderFeature = compositor.RenderFeatures.OfType<MeshRenderFeature>().First();
 			meshRenderFeature.RenderStageSelectors.Add(new SimpleGroupToRenderStageSelector
