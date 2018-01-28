@@ -33,9 +33,6 @@ namespace TimeNexus.Time
 			//AllocConsole();
 		}
 
-		/// <summary>
-		/// Don't touch me! I'm a Game Studio specific thingy/hack!
-		/// </summary>
 		public GameStudioTime GameStudioTime { get => _time; }
 
 		private void TimeChanged(Time t)

@@ -13,21 +13,18 @@ namespace Level
 	public class LevelSettings : StartupScript
 	{
 		// Declared public member fields and properties will show in the game studio
+		public GameStudioTime DefaultTime { get; } = new GameStudioTime();
+
+
+		public override void Start()
+		{
+			//Check out LevelLoaded!
+			//Entity.Scene
+		}
+
 		public static LevelSettings GetLevelSettings(Scene s)
 		{
 			return s.Entities.First(e => e.Get<LevelSettings>() != null)?.Get<LevelSettings>();
 		}
-
-		public GameStudioTime DefaultTime { get; } = new GameStudioTime();
-
-		public override void Start()
-		{
-			//Entity.Scene
-		}
-	}
-
-	public static class LevelSetting
-	{
-
 	}
 }

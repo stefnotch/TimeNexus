@@ -51,15 +51,8 @@ namespace TimeNexus.Time
 					minTimeDelta = timeDelta;
 				}
 			}
-
-			foreach (Entity e in GetChildrenWithTime())
-			{
-				if (e == minEntity) continue;
-				e?.Enable<ModelComponent>(false);
-			}
-
+			previousEntity?.Enable<ModelComponent>(false);
 			minEntity?.Enable<ModelComponent>(true);
-
 			previousEntity = minEntity;
 		}
 

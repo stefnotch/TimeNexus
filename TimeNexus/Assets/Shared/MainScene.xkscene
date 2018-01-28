@@ -156,7 +156,6 @@ Hierarchy:
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
-                            990c1e82b28ed00c24d251a255f46798: ref!! 33e39d22-7ae4-48b9-a508-08b2cc32a364
                             e011a4029110910906689929efad72c5: ref!! 25939e13-c242-442e-8ee7-5250b50bb21e
         -   Entity:
                 Id: 8fce8da4-da36-40f6-a3b8-8e6de95f19ba
@@ -280,19 +279,6 @@ Hierarchy:
                     4ce2ffaf6ec2efae1164490fc9612726: !Gun.GunController,TimeNexus.Game
                         Id: 7d5039de-3a19-4137-b4bb-4122a295c0ee
                         camera: ref!! 04b83457-6f0d-4fa7-9bff-a31acf7485b1
-        -   Entity:
-                Id: f1fee0b0-961c-41fa-8d24-41d24cec94ab
-                Name: KeyboardSetup
-                Components:
-                    ccaa5e7294ab93ff5cb6a58ca6ea1e3e: !TransformComponent
-                        Id: 33e39d22-7ae4-48b9-a508-08b2cc32a364
-                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children: {}
-                    6036c81b25b3b8f16d3658d87f296989: !Settings.KeyboardSetup,TimeNexus.Game
-                        Id: 586f3559-5f7b-40f2-8d95-479f4178cdea
-                        Priority: -9999
         -   Entity:
                 Id: f24bf3c8-e782-4ace-a1b1-38656eab228c
                 Name: Player

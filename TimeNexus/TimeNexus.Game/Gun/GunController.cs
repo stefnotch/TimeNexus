@@ -25,24 +25,14 @@ namespace Gun
 
 		//public MeshTransparentRenderStageSelector RenderStageSelector { get; } = new MeshTransparentRenderStageSelector();
 
-		private ModelComponent _currentModel;
+		private ModelComponent _selectedModel;
 
-		private ModelComponent copyFromHere;
+		public Material effectMaterial;
 
 		public override void Start()
 		{
 			simulation = this.GetSimulation();
 			if (camera == null) Log.Error("No camera attached to the gun script");
-
-			if (Entity?.Scene?.Entities != null)
-			{
-				foreach (Entity e in Entity.Scene.Entities)
-				{
-					if (e.Name.Contains("HAI")) copyFromHere = e.Get<ModelComponent>();
-
-
-				}
-			}
 
 			/*
 			RenderStageSelector.TransparentRenderStage = SceneSystem.GraphicsCompositor.RenderStages.First(renderStage => renderStage.Name == "Transparent");
@@ -97,11 +87,9 @@ namespace Gun
 			}
 
 			var newModel = entity.Get<ModelComponent>();
-			if (newModel != null && _currentModel != newModel)
+			if (newModel != null && _selectedModel != newModel)
 			{
-
-
-				_currentModel = newModel;
+				_selectedModel = newModel;
 			}
 
 			return;
@@ -109,23 +97,23 @@ namespace Gun
 
 			if (entity?.Get<ModelComponent>() != null && false)
 			{
-				_currentModel = entity?.Get<ModelComponent>();
-				_currentModel.RenderGroup = RenderGroup.Group7;
+				_selectedModel = entity?.Get<ModelComponent>();
+				_selectedModel.RenderGroup = RenderGroup.Group7;
 
 				entity.Remove<ModelComponent>();
-				entity.Add(_currentModel);
+				entity.Add(_selectedModel);
 			}
 			//entity.Add(_model);
 
 			if (entity?.Get<ModelComponent>() != null)
 			{
-				_currentModel = entity?.Get<ModelComponent>();
+				_selectedModel = entity?.Get<ModelComponent>();
 				//var clonedModel = _model.Model.Instantiate();
 
-				for (int i = 0; i < _currentModel.GetMaterialCount(); i++)
+				for (int i = 0; i < _selectedModel.GetMaterialCount(); i++)
 				{
 					var clonedMaterial = new Material();
-					foreach (var pass in _currentModel.GetMaterial(i).Passes)
+					foreach (var pass in _selectedModel.GetMaterial(i).Passes)
 					{
 						var clonedPass = new MaterialPass(pass.Parameters);
 						clonedPass.HasTransparency = pass.HasTransparency;
@@ -172,7 +160,7 @@ shader SWAG : ComputeColor
 						clonedMaterial.Passes.Add(clonedPass);
 
 
-						var clonedPass1 = new MaterialPass(copyFromHere.GetMaterial(0).Passes[0].Parameters);
+						var clonedPass1 = new MaterialPass(effectMaterial.Passes[0].Parameters);
 						clonedPass1.HasTransparency = pass.HasTransparency;
 						clonedPass1.BlendState = pass.BlendState;
 						clonedPass1.CullMode = pass.CullMode;
@@ -191,7 +179,7 @@ shader SWAG : ComputeColor
 						IsLightDependent = true
 					});*/
 
-					_currentModel.Materials[i] = clonedMaterial;
+					_selectedModel.Materials[i] = clonedMaterial;
 					//entity.Remove<ModelComponent>();
 					//entity.Add(_model);
 					/*.Passes.First().
