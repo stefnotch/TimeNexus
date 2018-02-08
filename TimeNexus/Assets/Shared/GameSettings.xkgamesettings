@@ -36,8 +36,8 @@ Defaults:
         FixedTimeStep: 0.0166666675
     - !SiliconStudio.Xenko.Graphics.RenderingSettings,SiliconStudio.Xenko.Graphics
         DefaultBackBufferWidth: 1280
-        DefaultBackBufferHeight: 720
-        AdaptBackBufferToScreen: false
+        DefaultBackBufferHeight: 690
+        AdaptBackBufferToScreen: true
         DefaultGraphicsProfile: Level_11_0
         ColorSpace: Linear
         DisplayOrientation: LandscapeRight

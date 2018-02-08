@@ -10,3 +10,5 @@ Materials:
         Name: GridMT
         MaterialInstance:
             Material: cbe74d29-cfdf-4912-b7b8-b7fd102f8d4d:Materials/GridMT
+~SourceHashes:
+    e4057f9b5d7f958c85b3dc5648ecdedf~../../../Resources/Models/Pendilum0x2x0Ball.fbx: f1049b864923d2791106d77325e8da6d

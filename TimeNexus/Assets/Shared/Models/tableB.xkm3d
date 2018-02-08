@@ -18,3 +18,5 @@ Materials:
         Name: pole
         MaterialInstance:
             Material: 21475d09-718f-47d7-9e08-29453c4aaa59:Materials/board1B
+~SourceHashes:
+    7620222e9c6a3438f0d691daeade0b59~../../../Resources/Models/tableB.fbx: f4739af3b3a5eee04b8f16c84110a638

@@ -30,3 +30,5 @@ Materials:
         Name: lambert1
         MaterialInstance:
             Material: 6f6d6039-f007-4726-8bc5-ac504dabd4a0:Materials/LambertMT
+~SourceHashes:
+    cc1186b0b2a16ac8ad1e3ec0c80ec8a7~../../../Resources/Models/mannequinModel.fbx: 41531d1299044bd0f0b265374610fb1d

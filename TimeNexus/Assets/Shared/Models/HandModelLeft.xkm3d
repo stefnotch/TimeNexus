@@ -22,3 +22,5 @@ Materials:
         Name: lambert1
         MaterialInstance:
             Material: 88189689-209f-48b2-b4e3-745772a112be:Materials/MattBlackUpper
+~SourceHashes:
+    b5a27034edc192ce3c2ec0999b3c9cc5~../../../Resources/Models/HandModelLeft.fbx: 335e0e2de46ea68c9918da4ae7680215

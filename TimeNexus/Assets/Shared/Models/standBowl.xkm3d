@@ -10,3 +10,5 @@ Materials:
         Name: blinn1
         MaterialInstance:
             Material: 3bc1fe40-fd77-4b41-9cff-e5aca8e7ac85:Materials/PolishedStone
+~SourceHashes:
+    cf4b9f042404685f1622aa1b949d49ac~../../../Resources/Stand/standBowl.fbx: 3a9256a73afacbf5bc0852d6ae92a196

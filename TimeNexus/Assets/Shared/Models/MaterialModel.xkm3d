@@ -14,3 +14,5 @@ Materials:
         Name: MaterialB
         MaterialInstance:
             Material: 7d83b06c-67ac-4347-858d-25871693139f:Materials/MaterialB
+~SourceHashes:
+    1dcb3aabad60c19213bcb53dfab0cdfc~../../../Resources/Models/MaterialModel.fbx: 2af68f6f63000a4c8b6f9af14e7d0962

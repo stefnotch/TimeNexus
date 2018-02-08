@@ -10,3 +10,5 @@ Materials:
         Name: blinn2
         MaterialInstance:
             Material: 3bc1fe40-fd77-4b41-9cff-e5aca8e7ac85:Materials/PolishedStone
+~SourceHashes:
+    9d637ed07e13aeff69760ca04279b4d9~../../../Resources/Stand/plateC.fbx: b1ae603bb597856abb9e8d4bc846fb1e

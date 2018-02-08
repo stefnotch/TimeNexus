@@ -6,12 +6,47 @@ ChildrenIds: []
 Offset: {X: 0.0, Y: 0.0, Z: 0.0}
 Hierarchy:
     RootParts:
-        - ref!! 92956ce7-79ad-4908-9791-ba35d69a475d
+        - ref!! 89d80467-2e8a-4061-ad71-0cdce87764f9
         - ref!! 8fce8da4-da36-40f6-a3b8-8e6de95f19ba
         - ref!! 2401dfa1-ccfc-4314-a920-87db266b1c7e
-        - ref!! 6556b6fe-5966-4c84-8c45-67b89fadc908
-        - ref!! 24e73305-b9c3-452a-9ea6-da3a8f8a9b47
+        - ref!! 0230cda6-cdf5-4bff-a008-a8401ac352a1
+        - ref!! 30a08c2d-2abd-4750-a85a-28cce4466a0a
+        - ref!! 454139e1-b2d3-40a5-badc-9507da1accb4
+        - ref!! f24bf3c8-e782-4ace-a1b1-38656eab228c
+        - ref!! ddc8bc75-4f12-4c93-8221-840ce294f552
     Parts:
+        -   Entity:
+                Id: 0230cda6-cdf5-4bff-a008-a8401ac352a1
+                Name: TimeController
+                Components:
+                    9fd389cf56fe6bdeb16a901f4d1ee4f8: !TransformComponent
+                        Id: 7019fa1e-c215-4d19-acab-91bd784e2973
+                        Position: {X: -3.22749281, Y: 2.1146872, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    716c5277bc03496bac48d2af9e8967dd: !TimeNexus.Time.GameStudioTimeController,TimeNexus.Game
+                        Id: 0e79c994-d2b6-49c5-a5a5-e01238a36672
+                        GameStudioTime:
+                            Era: FarFuture
+        -   Entity:
+                Id: 21e8d9f2-3391-4062-abfb-656fa29c99c1
+                Name: MaterialModel
+                Components:
+                    9b3ae9ce94e46a0c2465b2c734f272c2: !TransformComponent
+                        Id: 9485bd89-88d3-4053-a9d0-c7a79ccbcc1b
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    1846057351f558e951cae947c5475ff2: !ModelComponent
+                        Id: 5d80be14-2cb3-46ca-a396-f71025e3cc28
+                        Model: 51c882fb-9ab5-46df-9544-209fc1be5b29:MaterialModel
+                        Materials: {}
+                    53d50deab3ab8a458ad57aaabe9966ca: !TimeComponent
+                        Id: b8ba72df-f05b-4d4d-aa0f-ce80c1927091
+                        GameStudioTime:
+                            Era: FarFuture
         -   Entity:
                 Id: 2401dfa1-ccfc-4314-a920-87db266b1c7e
                 Name: Skybox
@@ -30,33 +65,98 @@ Hierarchy:
                         Type: !LightSkybox
                             Skybox: 377c2a27-0867-4fe1-8f27-227eb0eac5f1:Skybox
         -   Entity:
-                Id: 24e73305-b9c3-452a-9ea6-da3a8f8a9b47
-                Name: Sphere
+                Id: 30a08c2d-2abd-4750-a85a-28cce4466a0a
+                Name: Ground
                 Components:
-                    f57001152af6390cbcd7b8a8fcdc0832: !TransformComponent
-                        Id: 4d94c352-bf01-4810-8304-780a3e09bb72
-                        Position: {X: 0.0, Y: 0.5, Z: 0.0}
+                    c330801d33e39031450d50ba2968c8af: !TransformComponent
+                        Id: db670663-e431-43bd-a2ff-eacb7a0b927f
+                        Position: {X: -0.330228746, Y: 0.0, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
-                    f4a41883ea6897cf03ed3833c8cd2838: !ModelComponent
-                        Id: fa06a0a4-ecf3-4952-be11-5ec08c2ac43f
-                        Model: f1dab258-cf36-4649-9666-d7523db86341:Sphere
+                    0182a6f196790f96c80835b67e7086f0: !ModelComponent
+                        Id: 423d3e78-1b54-465d-80de-d1c0ef5494d8
+                        Model: c5a24f74-2fd2-4118-9829-295cf37636b0:Ground
                         Materials: {}
+                    a447bc31c495e7fb6ea82cb5dcdaabc5: !StaticColliderComponent
+                        Id: c2272637-5598-4a1b-8f6a-30da852660a5
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: false
+                        ColliderShapes:
+                            d2ad0c4277e218eab88b3b9719759c86: !BoxColliderShapeDesc
+                                Is2D: false
+                                Size: {X: 10.0, Y: 1.0, Z: 10.0}
+                                LocalOffset: {X: 0.0, Y: -0.5, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
         -   Entity:
-                Id: 6556b6fe-5966-4c84-8c45-67b89fadc908
-                Name: Ground
+                Id: 454139e1-b2d3-40a5-badc-9507da1accb4
+                Name: Sphere
                 Components:
-                    4a924924d568217df5ac4986b8aaa647: !TransformComponent
-                        Id: dce8c624-6c8c-4f57-be8e-3d376e49167e
+                    231ea215d13fc61bcd1cadd65fe05006: !TransformComponent
+                        Id: 40918d42-5a85-4519-bf72-36e66da67fc5
+                        Position: {X: 0.0, Y: 0.232434213, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            b93d8e7ab298610074f8442a9ad48161: ref!! dbc14ca2-b877-40c6-93d3-dd33a44693ca
+                            0f99f02e3dd5e9a9f9088b2b3cd45655: ref!! 2f43e459-ffe3-4188-9741-84916fc9a0c2
+                            808c49c7fffddd57dd1ecb1eb7df3507: ref!! 9485bd89-88d3-4053-a9d0-c7a79ccbcc1b
+                    5537d5c16fcd522bb3e0c4fe219e8348: !RigidbodyComponent
+                        Id: 1497b5a9-6a34-4200-b6da-d860f529a27a
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: false
+                        IsKinematic: false
+                        Mass: 1.0
+                        LinearDamping: 0.0
+                        AngularDamping: 0.0
+                        OverrideGravity: false
+                        Gravity: {X: 0.0, Y: 0.0, Z: 0.0}
+                        NodeName: null
+                        ColliderShapes:
+                            d35c5835c8836d7ed92025e139acfe7a: !BoxColliderShapeDesc
+                                Is2D: false
+                                Size: {X: 1.0, Y: 1.5, Z: 1.0}
+                                LocalOffset: {X: 0.0, Y: 0.5, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                    8c3ded0cfd84f4b8f2b29a6dde5fc4f8: !TimeControllerComponent
+                        Id: 441de3f9-e3bf-4bc5-8b8b-e780a76f9745
+                        Time: {}
+        -   Entity:
+                Id: 73a448ca-1c69-4d88-a2bf-e4b8245acba8
+                Name: Crosshair
+                Components:
+                    7ab38dff5cf01128f7d587a6ce78189d: !TransformComponent
+                        Id: 7360e464-f72e-4f51-8ebb-d0c7e04b7853
                         Position: {X: 0.0, Y: 0.0, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
-                    990a1b2329c653d2b6151f4e248f92e6: !ModelComponent
-                        Id: 674a8548-3970-4a09-9dee-2c3b6c3c7c57
-                        Model: c5a24f74-2fd2-4118-9829-295cf37636b0:Ground
-                        Materials: {}
+                    2e8c806d12cdc3c3a3f1301040f7d8cf: !UIComponent
+                        Id: aaa5f58b-afe7-4881-9b99-c22686f4a63b
+                        Page: bf1b1ef9-eebf-4f49-b4f7-c879b398379d:Textures/Page
+                        Resolution: {X: 1280.0, Y: 720.0, Z: 1000.0}
+                        Size: {X: 1.0, Y: 1.0, Z: 1.0}
+        -   Entity:
+                Id: 89d80467-2e8a-4061-ad71-0cdce87764f9
+                Name: Startup
+                Components:
+                    02321a96b584192baa3a613f69832704: !TransformComponent
+                        Id: 9655883c-e167-42c2-b300-3e70e00b2770
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            e011a4029110910906689929efad72c5: ref!! 25939e13-c242-442e-8ee7-5250b50bb21e
         -   Entity:
                 Id: 8fce8da4-da36-40f6-a3b8-8e6de95f19ba
                 Name: Directional light
@@ -82,25 +182,144 @@ Hierarchy:
                                 BiasParameters: {}
                         Intensity: 20.0
         -   Entity:
-                Id: 92956ce7-79ad-4908-9791-ba35d69a475d
-                Name: Camera
+                Id: 9b330679-148c-402e-a0ac-5cc186ce5655
+                Name: DebugPhysicsShapes
                 Components:
-                    232b759d34e6bee3e1d0c734bca9aed1: !TransformComponent
-                        Id: 62ea2215-af70-4ec7-bf90-64a0ee95c89e
-                        Position: {X: 2.6, Y: 0.6, Z: -1.0}
-                        Rotation: {X: 0.0, Y: 0.829037547, Z: 0.0, W: 0.5591929}
+                    5d8221e115f2fbd97ca58a8532acc9dc: !TransformComponent
+                        Id: 25939e13-c242-442e-8ee7-5250b50bb21e
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
-                    e3d77feba104b66ed402667ef2f52ac1: !CameraComponent
-                        Id: 1abe0a46-e800-401c-a33e-149fe3ff8bf2
+                    900a8bb77192937ed8d52b7a882cb10e: !TimeNexus.DebugPhysicsShapes,TimeNexus.Game
+                        Id: a1acdc98-a160-4f53-81d4-3ec770cee368
+                        RenderGroup: Group7
+        -   Entity:
+                Id: a42f7db0-a8d8-430c-ac70-778eb7e00de1
+                Name: box
+                Components:
+                    ae17a25065ffc0d284d14f5cec4e6c8e: !TransformComponent
+                        Id: 2f43e459-ffe3-4188-9741-84916fc9a0c2
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    88ab2c77b2abc18952f8d35cc2644e86: !ModelComponent
+                        Id: d4400f82-444f-4a71-8515-72378fa93cb4
+                        Enabled: false
+                        Model: a8a4c85d-3bbd-412f-a11f-c53fb3504f4c:box
+                        Materials: {}
+                    03b9698d35f24a8b55136e24395b05ee: !TimeComponent
+                        Id: cd687d8c-9b98-483a-ad61-84c0eb1af220
+                        GameStudioTime:
+                            Era: AncientHistory
+        -   Entity:
+                Id: b642d039-b39e-469c-919f-7f49d3663153
+                Name: Camera
+                Components:
+                    b6778ed1fecf9c05f8d20b538d00d87f: !TransformComponent
+                        Id: 770491b1-c8eb-40a4-a062-884e9c688cf1
+                        Position: {X: 0.0, Y: 1.614, Z: 0.2}
+                        Rotation: {X: 0.0, Y: 1.0, Z: 0.0, W: -4.371139E-08}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            61ee5fe1a0e1670baeedc8d53d7773bc: ref!! c500a4fa-0464-4307-9fa8-f09a69f0a916
+                            256b96b6d9efaf3de50ccf471a74bcbe: ref!! 7360e464-f72e-4f51-8ebb-d0c7e04b7853
+                    b880614dbc52ea5d08568f7501d8307c: !CameraComponent
+                        Id: 04b83457-6f0d-4fa7-9bff-a31acf7485b1
                         Name: null
                         Projection: Perspective
                         Slot: 2ace6a4c-7e1b-491b-9f4a-5e02be4d59b5
-                    55800a249df03c874a1f7c6335b9746e: !TimeNexus.BasicCameraController,TimeNexus.Game
-                        Id: c60d4782-86c5-4b61-9532-72641e72c329
-                        KeyboardMovementSpeed: {X: 5.0, Y: 5.0, Z: 5.0}
-                        TouchMovementSpeed: {X: 40.0, Y: 40.0, Z: 20.0}
-                        SpeedFactor: 5.0
-                        KeyboardRotationSpeed: {X: 3.0, Y: 3.0}
-                        MouseRotationSpeed: {X: 90.0, Y: 60.0}
-                        TouchRotationSpeed: {X: 60.0, Y: 40.0}
+        -   Entity:
+                Id: ddc8bc75-4f12-4c93-8221-840ce294f552
+                Name: HAI
+                Components:
+                    3613ee3905bd433cafae211e87e96c38: !TransformComponent
+                        Id: b42dec05-778b-4ad1-9e40-5efec2865acf
+                        Position: {X: 0.0, Y: 1.51990306, Z: 1.52025545}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    0b3d5da37a82b722459bf82c0389b498: !ModelComponent
+                        Id: d6adaff5-bb80-4cc6-9031-cf57421500fe
+                        Model: 51c882fb-9ab5-46df-9544-209fc1be5b29:MaterialModel
+                        Materials: {}
+        -   Entity:
+                Id: ea6e4518-8a3f-4def-8322-4c7979b67d9e
+                Name: Sphere
+                Components:
+                    42407b037fdd28c8c610c4b40b0a7e9c: !TransformComponent
+                        Id: dbc14ca2-b877-40c6-93d3-dd33a44693ca
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    6fd7849bf8ee9c98d6152182164cb833: !ModelComponent
+                        Id: d3bf64ac-7386-4fac-878d-661333f94ec0
+                        Model: f1dab258-cf36-4649-9666-d7523db86341:Sphere
+                        Materials: {}
+                    9ae3b96fca81ed0006e9b7035a150c95: !TimeComponent
+                        Id: 9ccd0cce-3a82-4797-9d94-b4b68de66d1f
+                        GameStudioTime:
+                            Era: Modern
+        -   Entity:
+                Id: ec9bc9d0-368f-4581-842c-0aecb5615bea
+                Name: Gun
+                Components:
+                    17398b50743f87ecbc84dff2ea0e9406: !TransformComponent
+                        Id: c500a4fa-0464-4307-9fa8-f09a69f0a916
+                        Position: {X: 0.575527966, Y: -0.310986847, Z: -0.5586258}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    e6a031496340b987bea16194e9420371: !ModelComponent
+                        Id: 11dc9500-5814-4da7-941e-c9d9f76357b3
+                        Model: 1f4fe54e-8726-4c75-aa3a-03331cb29a43:Models/MachinegunModel
+                        Materials: {}
+                    4ce2ffaf6ec2efae1164490fc9612726: !Gun.GunController,TimeNexus.Game
+                        Id: 7d5039de-3a19-4137-b4bb-4122a295c0ee
+                        camera: ref!! 04b83457-6f0d-4fa7-9bff-a31acf7485b1
+        -   Entity:
+                Id: f24bf3c8-e782-4ace-a1b1-38656eab228c
+                Name: Player
+                Components:
+                    9fa1fb0239a8577eab637e5643094c76: !TransformComponent
+                        Id: a7884c4e-c49c-4134-adfd-d3f10eeda80c
+                        Position: {X: 0.0, Y: 0.0, Z: -3.0}
+                        Rotation: {X: 0.0, Y: 1.0, Z: 0.0, W: -4.371139E-08}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            3ce204f614b90b853d691f40035f8b9f: ref!! 770491b1-c8eb-40a4-a062-884e9c688cf1
+                    cb90ecab4988001f3e1679c16f8f157d: !CharacterComponent
+                        Id: 77ac123c-55bb-48ac-874d-f7f02891df98
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        FallSpeed: 10.0
+                        MaxSlope: {Radians: 0.7853982}
+                        JumpSpeed: 5.0
+                        Gravity: -10.0
+                        ColliderShapes:
+                            573903c526cff2a94702f1e6ee107688: !CapsuleColliderShapeDesc
+                                Length: 1.5
+                                Radius: 0.2
+                                LocalOffset: {X: 0.0, Y: 0.9, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                    1bc8008e97ebb7862ef99b275600019a: !Player.PlayerController,TimeNexus.Game
+                        Id: 87da1347-d695-49ef-84a5-7e63d49440f6
+                        Speed: 300.0
+                        CameraEntity: ref!! b642d039-b39e-469c-919f-7f49d3663153
+                        RotationAdaptationSpeed: 5.0
+                        RotationSpeed: 2.355
+                    f305a22a147abb09a69ea02a90658400: !ModelComponent
+                        Id: 6c5609de-ed32-4c2d-9014-8a6fc985bb92
+                        Model: d9803ca0-438f-4b16-91fe-dec8011a7ddd:Models/mannequinModel
+                        Materials: {}
+                    cc16a8ea1f9fcdacccffaa66720702b3: !AnimationComponent
+                        Id: 3e31e4c3-5b4f-40ce-bafb-d025c690ebc1
+                        Animations:
+                            52206d9760b141dbc592d9122aac34b1~Walk: 17fe64b7-e59d-4ed5-8229-620797ba840f:Animations/Walk
+                            39539b1c54b535b3f1ea4941983bf14c~Idle: 8e5ccf44-8816-4236-af39-590563183381:Animations/Idle
