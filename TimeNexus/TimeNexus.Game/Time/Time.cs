@@ -11,6 +11,10 @@ namespace TimeNexus.Time
 	public class Time
 	{
 		protected Era _era = Era.Modern;
+
+		private static Era[] eraArray = Enum.GetValues(typeof(Era)).Cast<Era>().OrderBy(era=>(int)era).ToArray();
+
+
 		public Time()
 		{
 
@@ -28,15 +32,15 @@ namespace TimeNexus.Time
 
 		public Time GetNext()
 		{
-			var eraArray = Enum.GetValues(typeof(Era));
+			int eraIndex = Array.IndexOf(eraArray, _era);
 			//This doesn't look very pretty......but it (probably) works
-			return new Time((Era)eraArray.GetValue(Math.Min(Array.IndexOf(eraArray, this.Era) + 1, eraArray.Length - 1)));
+			return new Time(eraArray[Math.Min(eraIndex + 1, eraArray.Length - 1)]);
 		}
 
 		public Time GetPrevious()
 		{
-			var eraArray = Enum.GetValues(typeof(Era));
-			return new Time((Era)eraArray.GetValue(Math.Max(Array.IndexOf(eraArray, this.Era) - 1, 0)));
+			int eraIndex = Array.IndexOf(eraArray, _era);
+			return new Time(eraArray[Math.Max(eraIndex - 1, 0)]);
 		}
 
 		public int ToNumber()

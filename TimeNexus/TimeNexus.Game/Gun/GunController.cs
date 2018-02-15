@@ -78,6 +78,7 @@ namespace Gun
 
 			if (Input.MouseWheelDelta != 0)
 			{
+				Console.WriteLine(Input.MouseWheelDelta);
 				var timeComponent = entity.Get<TimeControllerComponent>() ?? entity.GetParent()?.Get<TimeControllerComponent>();
 				if (timeComponent != null)
 				{
