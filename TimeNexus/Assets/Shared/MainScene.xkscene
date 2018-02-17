@@ -278,6 +278,7 @@ Hierarchy:
                         Materials: {}
                     4ce2ffaf6ec2efae1164490fc9612726: !Gun.GunController,TimeNexus.Game
                         Id: 7d5039de-3a19-4137-b4bb-4122a295c0ee
+                        effectMaterial: null
                         camera: ref!! 04b83457-6f0d-4fa7-9bff-a31acf7485b1
         -   Entity:
                 Id: f24bf3c8-e782-4ace-a1b1-38656eab228c
