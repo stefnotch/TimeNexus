@@ -7,24 +7,43 @@ using SiliconStudio.Core.Mathematics;
 using SiliconStudio.Xenko.Input;
 using SiliconStudio.Xenko.Engine;
 using TimeNexus.Time;
+using SiliconStudio.Core;
 
 namespace Level
 {
 	public class LevelSettings : StartupScript
 	{
-		// Declared public member fields and properties will show in the game studio
+		private static readonly PropertyKey<LevelSettings> levelSettingsPropertyKey = new PropertyKey<LevelSettings>("LevelSettings", typeof(LevelSettings));
+		private static readonly LevelSettings defaultLevelSettings = new LevelSettings(); //TODO: Make this readonly
+
+		//Add the level settings here!
 		public GameStudioTime DefaultTime { get; } = new GameStudioTime();
 
 
+		/// <summary>
+		/// Adds the level settings to the scene
+		/// </summary>
 		public override void Start()
 		{
-			//Check out LevelLoaded!
-			//Entity.Scene
+			Entity?.Scene.Tags.Add(levelSettingsPropertyKey, this);
 		}
 
+		/// <summary>
+		/// Gets the level settings 
+		/// Tip: You can use "this.Entity.Scene" to get the current scene
+		/// </summary>
+		/// <param name="s">the scene</param>
 		public static LevelSettings GetLevelSettings(Scene s)
 		{
-			return s.Entities.First(e => e.Get<LevelSettings>() != null)?.Get<LevelSettings>();
+			LevelSettings levelSettings = null;
+			if (s.Tags.TryGetValue(levelSettingsPropertyKey, out levelSettings))
+			{
+				return levelSettings;
+			}
+			else
+			{
+				return defaultLevelSettings;
+			}
 		}
 	}
 }

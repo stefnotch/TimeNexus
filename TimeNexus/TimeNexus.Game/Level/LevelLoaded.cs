@@ -10,22 +10,18 @@ using TimeNexus.Time;
 
 namespace Level
 {
+
+	/// <summary>
+	/// THIS CLASS DOESN'T WORK YET!
+	/// </summary>
 	public class LevelLoaded : StartupScript
 	{
-		// Declared public member fields and properties will show in the game studio
+		// THIS CLASS DOESN'T WORK YET! DO NOT USE
 
 		public override void Start()
 		{
-			if (Entity?.Scene?.Entities == null) return;
-
-			var levelSettings = LevelSettings.GetLevelSettings(Entity.Scene);
-			foreach (Entity e in Entity.Scene.Entities)
-			{
-				var timeController = e.Get<TimeControllerComponent>();
-				if (timeController != null) timeController.Time = levelSettings?.DefaultTime ?? new Time();
-
-			}
 
 		}
+		// THIS CLASS DOESN'T WORK YET!
 	}
 }

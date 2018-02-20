@@ -42,7 +42,8 @@ Hierarchy:
                     1846057351f558e951cae947c5475ff2: !ModelComponent
                         Id: 5d80be14-2cb3-46ca-a396-f71025e3cc28
                         Model: 51c882fb-9ab5-46df-9544-209fc1be5b29:MaterialModel
-                        Materials: {}
+                        Materials:
+                            c5fb465e40a4dd6a5b58d8a5ce6148bd~1: f4dc08d8-4811-49e9-95ea-16c33c9e390a:MaterialTestB
                     53d50deab3ab8a458ad57aaabe9966ca: !TimeComponent
                         Id: b8ba72df-f05b-4d4d-aa0f-ce80c1927091
                         GameStudioTime:
@@ -147,6 +148,21 @@ Hierarchy:
                         Resolution: {X: 1280.0, Y: 720.0, Z: 1000.0}
                         Size: {X: 1.0, Y: 1.0, Z: 1.0}
         -   Entity:
+                Id: 828da6ed-0399-4b6f-b788-735cde7f41d8
+                Name: LevelSettings
+                Components:
+                    6f73a03ffac0dd775f0124857c1f0450: !TransformComponent
+                        Id: a26e6532-559d-4872-9c25-d76e31b35bd6
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    faef8a624ac29504787167924f1b30fb: !Level.LevelSettings,TimeNexus.Game
+                        Id: dcc6aa01-9106-4ce6-ac39-395e284d0618
+                        Priority: -100
+                        DefaultTime:
+                            Era: Modern
+        -   Entity:
                 Id: 89d80467-2e8a-4061-ad71-0cdce87764f9
                 Name: Startup
                 Components:
@@ -156,7 +172,7 @@ Hierarchy:
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
-                            e011a4029110910906689929efad72c5: ref!! 25939e13-c242-442e-8ee7-5250b50bb21e
+                            c0b8ed8b00da7700933e01bc74f797f9: ref!! a26e6532-559d-4872-9c25-d76e31b35bd6
         -   Entity:
                 Id: 8fce8da4-da36-40f6-a3b8-8e6de95f19ba
                 Name: Directional light
@@ -181,19 +197,6 @@ Hierarchy:
                                 PartitionMode: !LightDirectionalShadowMap.PartitionLogarithmic {}
                                 BiasParameters: {}
                         Intensity: 20.0
-        -   Entity:
-                Id: 9b330679-148c-402e-a0ac-5cc186ce5655
-                Name: DebugPhysicsShapes
-                Components:
-                    5d8221e115f2fbd97ca58a8532acc9dc: !TransformComponent
-                        Id: 25939e13-c242-442e-8ee7-5250b50bb21e
-                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children: {}
-                    900a8bb77192937ed8d52b7a882cb10e: !TimeNexus.DebugPhysicsShapes,TimeNexus.Game
-                        Id: a1acdc98-a160-4f53-81d4-3ec770cee368
-                        RenderGroup: Group7
         -   Entity:
                 Id: a42f7db0-a8d8-430c-ac70-778eb7e00de1
                 Name: box
@@ -279,6 +282,7 @@ Hierarchy:
                     4ce2ffaf6ec2efae1164490fc9612726: !Gun.GunController,TimeNexus.Game
                         Id: 7d5039de-3a19-4137-b4bb-4122a295c0ee
                         camera: ref!! 04b83457-6f0d-4fa7-9bff-a31acf7485b1
+                        effectMaterial: f4dc08d8-4811-49e9-95ea-16c33c9e390a:MaterialTestB
         -   Entity:
                 Id: f24bf3c8-e782-4ace-a1b1-38656eab228c
                 Name: Player

@@ -16,7 +16,6 @@ namespace TimeNexus.Time
 	[DataContract("TimeControllerComponent")]
 	public class TimeControllerComponent : SyncScript
 	{
-
 		private Time _time = new Time();
 
 		private Entity previousEntity;
@@ -73,6 +72,8 @@ namespace TimeNexus.Time
 			{
 				e.Get<ModelComponent>().Enabled = false;
 			}
+
+			Time = LevelSettings.GetLevelSettings(Entity.Scene).DefaultTime;
 		}
 
 		public override void Update()

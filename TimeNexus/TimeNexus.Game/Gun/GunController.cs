@@ -23,30 +23,17 @@ namespace Gun
 		private Simulation simulation;
 		public CameraComponent camera { get; set; }
 
-		//public MeshTransparentRenderStageSelector RenderStageSelector { get; } = new MeshTransparentRenderStageSelector();
-
 		private ModelComponent _selectedModel;
 
-		public Material effectMaterial;
+		public Material effectMaterial { get; set; }
+		private MaterialPass effectRenderPass;
 
 		public override void Start()
 		{
 			simulation = this.GetSimulation();
+			effectRenderPass = effectMaterial?.Passes?.First();
+
 			if (camera == null) Log.Error("No camera attached to the gun script");
-
-			/*
-			RenderStageSelector.TransparentRenderStage = SceneSystem.GraphicsCompositor.RenderStages.First(renderStage => renderStage.Name == "Transparent");
-			RenderStageSelector.RenderGroup = RenderGroupMask.Group10;
-
-			foreach(MeshRenderFeature rootRenderFeature in SceneSystem.GraphicsCompositor.RenderFeatures.OfType<MeshRenderFeature>()){ 
-
-				foreach (TransparentRenderStageSelector renderStageSelector in rootRenderFeature.RenderStageSelectors.OfType<TransparentRenderStageSelector>())
-				{
-					renderStageSelector.RenderGroup = RenderGroupMask.All & ~RenderGroupMask.Group10;
-				}
-
-				//rootRenderFeature.RenderStageSelectors.Add(RenderStageSelector);
-			} */
 		}
 
 		private HitResult Raycast(CameraComponent camera)
@@ -71,14 +58,17 @@ namespace Gun
 		public override void Update()
 		{
 			var result = Raycast(camera);
-			if (!result.Succeeded || result.Collider.Entity == null) return;
+			if (!result.Succeeded || result.Collider.Entity == null)
+			{
+				_selectedModel?.Materials.Clear();
+				return;
+			}
 
 
 			var entity = result.Collider.Entity;
 
 			if (Input.MouseWheelDelta != 0)
 			{
-				Console.WriteLine(Input.MouseWheelDelta);
 				var timeComponent = entity.Get<TimeControllerComponent>() ?? entity.GetParent()?.Get<TimeControllerComponent>();
 				if (timeComponent != null)
 				{
@@ -87,88 +77,35 @@ namespace Gun
 				}
 			}
 
+			
+
 			var newModel = entity.Get<ModelComponent>();
-			if (newModel != null && _selectedModel != newModel)
+			//if (_selectedModel != newModel) _selectedModel?.Materials
+			if (newModel != null && _selectedModel != newModel && effectMaterial != null)
 			{
 				_selectedModel = newModel;
-			}
-
-			return;
-
-
-			if (entity?.Get<ModelComponent>() != null && false)
-			{
-				_selectedModel = entity?.Get<ModelComponent>();
-				_selectedModel.RenderGroup = RenderGroup.Group7;
-
-				entity.Remove<ModelComponent>();
-				entity.Add(_selectedModel);
-			}
-			//entity.Add(_model);
-
-			if (entity?.Get<ModelComponent>() != null)
-			{
-				_selectedModel = entity?.Get<ModelComponent>();
-				//var clonedModel = _model.Model.Instantiate();
 
 				for (int i = 0; i < _selectedModel.GetMaterialCount(); i++)
 				{
-					var clonedMaterial = new Material();
-					foreach (var pass in _selectedModel.GetMaterial(i).Passes)
-					{
-						var clonedPass = new MaterialPass(pass.Parameters);
-						clonedPass.HasTransparency = pass.HasTransparency;
-						clonedPass.BlendState = pass.BlendState;
-						clonedPass.CullMode = pass.CullMode;
-						clonedPass.IsLightDependent = pass.IsLightDependent;
-						//ShaderMixinSource x = (ShaderMixinSource)clonedPass.Parameters.Get(MaterialKeys.PixelStageSurfaceShaders);
-						//var y = clonedPass.Parameters.Get(MaterialKeys.PixelStageSurfaceFilter);
-						/*foreach(var composition in x.Compositions.Values)
-						{
-							if(composition is ShaderArraySource)
-							{
-								ShaderArraySource shaderArraySource = composition as ShaderArraySource;
-								((ShaderMixinSource)shaderArraySource.Values[0]).Compositions["diffuseMap"] = (SiliconStudio.Xenko.Shaders.ShaderClassSource)@"DAB";
-							}
-						}*/
-						/*x.AddComposition("SWAG", (SiliconStudio.Xenko.Shaders.ShaderClassSource)@" namespace MyGame
-{
-shader SWAG : ComputeColor
-{
-  override float4 Compute()
-  {
-		return float4(1, 0, 0, 1);
-  }
+					//Remove the effect render pass from that other material
+					//TODO: This will lead to issues when the model has multiple materials
+					effectRenderPass.Material.Passes.Remove(effectRenderPass);
+					
+					//Clone the material
+					var clonedMaterial = CloneMaterial(_selectedModel.GetMaterial(i));
+					//Layers ~= render passes
+					//Add the effect render pass to the material
+					clonedMaterial.Passes.Add(
+						effectRenderPass
+					  );
+					/* 
+					var clonedPass1 = new MaterialPass(effectMaterial.Passes[0].Parameters); 
+					clonedPass1.HasTransparency = pass.HasTransparency; 
+					clonedPass1.BlendState = pass.BlendState; 
+					clonedPass1.IsLightDependent = pass.IsLightDependent; 
 
-};
-}
-
-");*/
-						//x.Mixins.Add("hi");// SiliconStudio.Xenko.Shaders.ShaderClassSource
-						//SiliconStudio.Xenko.Shaders.ShaderClassSource y = x.Mixins[0];
-						//x.Mixins[0] = "";//"mixin MaterialSurfaceArray [{layers = [mixin MaterialSurfaceDiffuse [{diffuseMap = SWAG}], mixin MaterialSurfaceGlossinessMap<false> [{glossinessMap = ComputeColorConstantFloatLink<Material.GlossinessValue>}], mixin MaterialSurfaceMetalness [{metalnessMap = ComputeColorConstantFloatLink<Material.MetalnessValue>}], mixin MaterialSurfaceLightingAndShading [{surfaces = [MaterialSurfaceShadingDiffuseLambert<false>, mixin MaterialSurfaceShadingSpecularMicrofacet [{environmentFunction = MaterialSpecularMicrofacetEnvironmentGGXLUT}, {fresnelFunction = MaterialSpecularMicrofacetFresnelSchlick}, {geometricShadowingFunction = MaterialSpecularMicrofacetVisibilitySmithSchlickGGX}, {normalDistributionFunction = MaterialSpecularMicrofacetNormalDistributionGGX}]]}]]}]";
-
-						//clonedPass.Parameters.Set(MaterialKeys.PixelStageSurfaceShaders, x);
-						//ShaderMixinManager.Generate("SWAG");
-
-						//var shaders = new ShaderArraySource();
-
-						//shaders.Add(clonedPass.Parameters.Get(MaterialKeys.PixelStageSurfaceShaders));
-
-						//shaders.Add()
-						//clonedPass.Parameters.Set(MaterialKeys.PixelStageSurfaceShaders, shaders);
-
-						clonedMaterial.Passes.Add(clonedPass);
-
-
-						var clonedPass1 = new MaterialPass(effectMaterial.Passes[0].Parameters);
-						clonedPass1.HasTransparency = pass.HasTransparency;
-						clonedPass1.BlendState = pass.BlendState;
-						clonedPass1.CullMode = pass.CullMode;
-						clonedPass1.IsLightDependent = pass.IsLightDependent;
-
-						clonedMaterial.Passes.Add(clonedPass1);
-					}
+					clone.Passes.Add(clonedPass1); 
+					*/
 
 					/*var parCol = new ParameterCollection();
 					//parCol.Set(MaterialKeys.PixelStageSurfaceShaders, (SiliconStudio.Xenko.Shaders.ShaderClassSource)"hi");
@@ -180,50 +117,27 @@ shader SWAG : ComputeColor
 						IsLightDependent = true
 					});*/
 
+					//Override the default materials 
 					_selectedModel.Materials[i] = clonedMaterial;
-					//entity.Remove<ModelComponent>();
-					//entity.Add(_model);
-					/*.Passes.First().
-				var newMaterial = (Material)_model.GetMaterial(i).MemberwiseClone();
-				//newMaterial.Parameters = new ParameterCollection(material.Parameters);
-				newMaterial.Passes = new MaterialPassCollection(_model.GetMaterial(i).Passes);
-
-				var clonedMaterial = Material.New(GraphicsDevice, new MaterialDescriptor()
-				{
-					Attributes =
-					{
-						Diffuse = new MaterialDiffuseMapFeature(new ComputeColor(Color.White)),
-						DiffuseModel = new MaterialDiffuseLambertModelFeature()
-					}
-				});
-				_model.Materials[i] = clonedMaterial;*/
 				}
-
-				//_model.RenderGroup = RenderGroup.Group10;
-				//_model.Materials.
-
 
 			}
-			/*foreach(Entity e in entity.GetChildren()) {
-				var mod = e.Get<ModelComponent>();
-			}*/
-			//new MaterialInstance()
-			//_model.Model.Materials.First().
+		}
 
-
-
-
-			/*if(result.Collider.Entity.Get<ModelComponent>()?.Materials != null)
+		private Material CloneMaterial(Material material)
+		{
+			var clone = new Material();
+			foreach (var pass in material.Passes)
 			{
-				foreach(var material in result.Collider.Entity.Get<ModelComponent>()?.Materials.Values)
+				clone.Passes.Add(new MaterialPass(pass.Parameters)
 				{
-					//material.Passes.Last().HasTransparency = true;
-					material.Descriptor.Attributes.Transparency = 
-				}
-			}*/
-			//result.Collider.Entity.Get<ModelComponent>()?.GetMaterial(0)?.Descriptor
-			//result.Collider.Entity.Get<ModelComponent>()?.GetMaterial(0)?.Passes?.First()?.HasTransparency = true;
-			//result.Collider.Entity.Get<ModelComponent>().Materials.Add(5, new SiliconStudio.Xenko.Rendering.Material)
+					HasTransparency = pass.HasTransparency,
+					BlendState = pass.BlendState,
+					CullMode = pass.CullMode,
+					IsLightDependent = pass.IsLightDependent
+				});
+			}
+			return clone;
 		}
 	}
 }
