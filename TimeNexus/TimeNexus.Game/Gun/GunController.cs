@@ -77,51 +77,13 @@ namespace Gun
 				}
 			}
 
-
-			if (Input.HasDownMouseButtons)
-			{
-				if (entity?.Get<ModelComponent>() != null)
-				{
-					_selectedModel = entity?.Get<ModelComponent>();
-					_selectedModel.RenderGroup = RenderGroup.Group7;
-					for (int i = 0; i < _selectedModel.GetMaterialCount(); i++)
-					{
-						var m = _selectedModel.GetMaterial(i);
-						m.Passes.First().HasTransparency = true;
-						m.Passes.First().CullMode = CullMode.None;
-					}
-					entity.Remove<ModelComponent>();
-					entity.Add(_selectedModel);
-				}
-				foreach (Entity e in entity.GetChildren())
-				{
-					if (e?.Get<ModelComponent>() != null && e.Get<ModelComponent>().Enabled)
-					{
-						_selectedModel = e?.Get<ModelComponent>();
-						_selectedModel.RenderGroup = RenderGroup.Group7;
-
-						for (int i = 0; i < _selectedModel.GetMaterialCount(); i++)
-						{
-							var m = _selectedModel.GetMaterial(i);
-							m.Passes.First().HasTransparency = true;
-							m.Passes.First().CullMode = CullMode.None;
-							//m.Passes.First().Parameters.Set(Parameter)
-							//m.Passes.First().BlendState = BlendFunction.
-						}
-						
-						e.Remove<ModelComponent>();
-						e.Add(_selectedModel);
-					}
-				}
-			}
-			return;
+			
 
 			var newModel = entity.Get<ModelComponent>();
 			//if (_selectedModel != newModel) _selectedModel?.Materials
 			if (newModel != null && _selectedModel != newModel && effectMaterial != null)
 			{
 				_selectedModel = newModel;
-
 
 				for (int i = 0; i < _selectedModel.GetMaterialCount(); i++)
 				{

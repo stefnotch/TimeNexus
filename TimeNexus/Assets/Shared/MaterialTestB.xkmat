@@ -7,8 +7,10 @@ Attributes:
         GlossinessMap: !ComputeFloat
             Value: 0.75
     Diffuse: !MaterialDiffuseMapFeature
-        DiffuseMap: !ComputeColor
-            Value: {R: 0.0, G: 0.0, B: 0.0, A: 1.0}
+        DiffuseMap: !ComputeShaderClassColor
+            MixinReference: AShader
+            Generics: {}
+            CompositionNodes: {}
     DiffuseModel: !MaterialDiffuseLambertModelFeature {}
     Specular: !MaterialSpecularMapFeature
         SpecularMap: !ComputeFloat4
@@ -16,14 +18,14 @@ Attributes:
         Intensity: !ComputeFloat
             Value: 0.271698
     SpecularModel: !MaterialSpecularMicrofacetModelFeature
+        Enabled: false
         Fresnel: !MaterialSpecularMicrofacetFresnelSchlick {}
         Visibility: !MaterialSpecularMicrofacetVisibilitySmithSchlickGGX {}
         NormalDistribution: !MaterialSpecularMicrofacetNormalDistributionGGX {}
         Environment: !MaterialSpecularMicrofacetEnvironmentGGXLUT {}
     Transparency: !MaterialTransparencyBlendFeature
-        Enabled: false
         Alpha: !ComputeFloat
-            Value: 0.6
+            Value: 1.0
         Tint: !ComputeColor
             Value: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
     Overrides:
