@@ -14,6 +14,7 @@ Hierarchy:
         - ref!! 454139e1-b2d3-40a5-badc-9507da1accb4
         - ref!! f24bf3c8-e782-4ace-a1b1-38656eab228c
         - ref!! ddc8bc75-4f12-4c93-8221-840ce294f552
+        - ref!! 5e36f111-9171-4b75-8ea5-046e86778950
     Parts:
         -   Entity:
                 Id: 0230cda6-cdf5-4bff-a008-a8401ac352a1
@@ -42,8 +43,7 @@ Hierarchy:
                     1846057351f558e951cae947c5475ff2: !ModelComponent
                         Id: 5d80be14-2cb3-46ca-a396-f71025e3cc28
                         Model: 51c882fb-9ab5-46df-9544-209fc1be5b29:MaterialModel
-                        Materials:
-                            c5fb465e40a4dd6a5b58d8a5ce6148bd~1: f4dc08d8-4811-49e9-95ea-16c33c9e390a:MaterialTestB
+                        Materials: {}
                     53d50deab3ab8a458ad57aaabe9966ca: !TimeComponent
                         Id: b8ba72df-f05b-4d4d-aa0f-ce80c1927091
                         GameStudioTime:
@@ -132,6 +132,19 @@ Hierarchy:
                     8c3ded0cfd84f4b8f2b29a6dde5fc4f8: !TimeControllerComponent
                         Id: 441de3f9-e3bf-4bc5-8b8b-e780a76f9745
                         Time: {}
+        -   Entity:
+                Id: 5e36f111-9171-4b75-8ea5-046e86778950
+                Name: DebugPhysicsShapes
+                Components:
+                    e75dac2ab5d3cd71e391961c04ad0fed: !TransformComponent
+                        Id: 0187ac0d-1462-47c2-ac66-032e266f035d
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    4ef54cd67d2a18249003791ad2818872: !TimeNexus.DebugPhysicsShapes,TimeNexus.Game
+                        Id: 99935d1a-b46e-4586-b5e4-c9ff150b4d7b
+                        RenderGroup: Group7
         -   Entity:
                 Id: 73a448ca-1c69-4d88-a2bf-e4b8245acba8
                 Name: Crosshair
@@ -246,6 +259,7 @@ Hierarchy:
                     0b3d5da37a82b722459bf82c0389b498: !ModelComponent
                         Id: d6adaff5-bb80-4cc6-9031-cf57421500fe
                         Model: 51c882fb-9ab5-46df-9544-209fc1be5b29:MaterialModel
+                        RenderGroup: Group7
                         Materials: {}
         -   Entity:
                 Id: ea6e4518-8a3f-4def-8322-4c7979b67d9e

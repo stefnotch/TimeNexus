@@ -17,7 +17,7 @@ RenderStages:
         Id: 48c714c2-6b20-441d-8984-2c31a8747b72
         Name: Transparent
         EffectSlotName: Main
-        SortMode: !BackToFrontSortMode {}
+        SortMode*: !BackToFrontSortMode {}
     554e52c061404d4684dd7c4c70f70e0e:
         Id: afbff5c0-5891-4c07-b182-f9caec7083d1
         Name: ShadowMapCaster
@@ -42,28 +42,33 @@ RenderFeatures:
     d8fb80b0e7995140a46bca8dc36ee8a2: !SiliconStudio.Xenko.Rendering.MeshRenderFeature,SiliconStudio.Xenko.Engine
         RenderStageSelectors:
             44cf4a95ef82544e9ce3c6507d5569a9: !SiliconStudio.Xenko.Rendering.MeshTransparentRenderStageSelector,SiliconStudio.Xenko.Engine
-                RenderGroup*: Group0
-                OpaqueRenderStage: ref!! aff15cf0-eda9-4fae-92f9-36a5fb25b301
+                RenderGroup*: Group0, Group1, Group2, Group3, Group4, Group5, Group6, Group8, Group9, Group10, Group11, Group12, Group13, Group14, Group15, Group16, Group17, Group18, Group19, Group20, Group21, Group22, Group23, Group24, Group25, Group26, Group27, Group28, Group29, Group30, Group31
+                OpaqueRenderStage*: ref!! aff15cf0-eda9-4fae-92f9-36a5fb25b301
                 TransparentRenderStage: ref!! 48c714c2-6b20-441d-8984-2c31a8747b72
-                EffectName: XenkoForwardShadingEffect
+                EffectName*: XenkoForwardShadingEffect
             6f7224048750e7260ea87c444f74b32c: !SiliconStudio.Xenko.Rendering.Shadows.ShadowMapRenderStageSelector,SiliconStudio.Xenko.Engine
                 ShadowMapRenderStage: ref!! afbff5c0-5891-4c07-b182-f9caec7083d1
                 EffectName: XenkoForwardShadingEffect.ShadowMapCaster
+                RenderGroup*: Group0, Group1, Group2, Group3, Group4, Group5, Group6, Group8, Group9, Group10, Group11, Group12, Group13, Group14, Group15, Group16, Group17, Group18, Group19, Group20, Group21, Group22, Group23, Group24, Group25, Group26, Group27, Group28, Group29, Group30, Group31
             b60663d7cb46417a94341a39c3bc1a12: !SiliconStudio.Xenko.Rendering.Shadows.ShadowMapRenderStageSelector,SiliconStudio.Xenko.Engine
                 ShadowMapRenderStage: ref!! 0cbd2f5f-3722-432d-bea1-0bff29ebbe4d
                 EffectName: XenkoForwardShadingEffect.ShadowMapCasterParaboloid
+                RenderGroup*: Group0, Group1, Group2, Group3, Group4, Group5, Group6, Group8, Group9, Group10, Group11, Group12, Group13, Group14, Group15, Group16, Group17, Group18, Group19, Group20, Group21, Group22, Group23, Group24, Group25, Group26, Group27, Group28, Group29, Group30, Group31
             f5533b1249b942df8a8aba311cd79532: !SiliconStudio.Xenko.Rendering.Shadows.ShadowMapRenderStageSelector,SiliconStudio.Xenko.Engine
                 ShadowMapRenderStage: ref!! 6fb6a938-2e1c-456c-a3bd-7fd7c7cce30f
                 EffectName: XenkoForwardShadingEffect.ShadowMapCasterCubeMap
-            106341b76db9fcda6a033dad16aa708b: !SiliconStudio.Xenko.Rendering.MeshTransparentRenderStageSelector,SiliconStudio.Xenko.Engine
-                RenderGroup*: Group0
-                OpaqueRenderStage: ref!! 59ea6332-5630-4be9-9805-38e6adfda624
-                EffectName: XenkoForwardShadingEffect.ShadowMapCaster
+                RenderGroup*: Group0, Group1, Group2, Group3, Group4, Group5, Group6, Group8, Group9, Group10, Group11, Group12, Group13, Group14, Group15, Group16, Group17, Group18, Group19, Group20, Group21, Group22, Group23, Group24, Group25, Group26, Group27, Group28, Group29, Group30, Group31
+            bb090fff4953b2229752e2bdc93aef1e*: !SiliconStudio.Xenko.Rendering.SimpleGroupToRenderStageSelector,SiliconStudio.Xenko.Engine
+                RenderGroup: Group7
+                RenderStage: ref!! 48c714c2-6b20-441d-8984-2c31a8747b72
+                EffectName: Shader1
+            106341b76db9fcda6a033dad16aa708b: ~(Deleted)
         PipelineProcessors:
             d70f5aee0616e4ab25081ceaf643290c: !SiliconStudio.Xenko.Rendering.MeshPipelineProcessor,SiliconStudio.Xenko.Engine
-                TransparentRenderStage: ref!! 48c714c2-6b20-441d-8984-2c31a8747b72
+                TransparentRenderStage*: ref!! 48c714c2-6b20-441d-8984-2c31a8747b72
             26c899b17f88c21ab13bf60a7220ccd1: !SiliconStudio.Xenko.Rendering.ShadowMeshPipelineProcessor,SiliconStudio.Xenko.Engine
                 ShadowMapRenderStage: ref!! afbff5c0-5891-4c07-b182-f9caec7083d1
+                DepthClipping*: false
             ff51170a7d1a4761b73ef6a5c9f0cba2: !SiliconStudio.Xenko.Rendering.ShadowMeshPipelineProcessor,SiliconStudio.Xenko.Engine
                 ShadowMapRenderStage: ref!! 0cbd2f5f-3722-432d-bea1-0bff29ebbe4d
                 DepthClipping: true
@@ -124,12 +129,12 @@ SharedRenderers:
             Id: 4bc4b2ca-027e-4e4a-94cb-2912709bef5f
             Color: {R: 0.40491876, G: 0.411895424, B: 0.43775, A: 1.0}
         LightProbes: true
-        OpaqueRenderStage: ref!! aff15cf0-eda9-4fae-92f9-36a5fb25b301
+        OpaqueRenderStage*: ref!! aff15cf0-eda9-4fae-92f9-36a5fb25b301
         TransparentRenderStage: ref!! 48c714c2-6b20-441d-8984-2c31a8747b72
         ShadowMapRenderStages:
             fc4d1e0de5c2b0bbc27bcf96e9a848fd: ref!! afbff5c0-5891-4c07-b182-f9caec7083d1
         GBufferRenderStage: ref!! 59ea6332-5630-4be9-9805-38e6adfda624
-        PostEffects: !PostProcessingEffects ref!! 53f91dd6-f964-4e25-ab9d-8ef14d214087
+        PostEffects*: !PostProcessingEffects ref!! 53f91dd6-f964-4e25-ab9d-8ef14d214087
         LightShafts: null
         VRSettings:
             Enabled: false
@@ -137,6 +142,7 @@ SharedRenderers:
             Overlays: {}
         MSAALevel: None
         MSAAResolver: {}
+        BindDepthAsResourceDuringTransparentRendering*: true
     d5b2e71c088247e21556decdce138d96: !SiliconStudio.Xenko.Rendering.Compositing.ForwardRenderer,SiliconStudio.Xenko.Engine
         Id: b4f89a14-898b-43ba-8b1e-8deae6ee6f1c
         Clear:
@@ -148,7 +154,7 @@ SharedRenderers:
         ShadowMapRenderStages:
             2323a99a8a983e182f318e55604659b0: ref!! afbff5c0-5891-4c07-b182-f9caec7083d1
         GBufferRenderStage: ref!! 59ea6332-5630-4be9-9805-38e6adfda624
-        PostEffects: null
+        PostEffects*: null
         LightShafts: null
         VRSettings:
             Enabled: false
@@ -179,6 +185,7 @@ SharedRenderers:
         ColorTransforms:
             Transforms:
                 1e06f805f8b2e949a06c30d45fe413ef: !ToneMap
+                    Enabled*: false
                     Operator: !ToneMapHejl2Operator {}
                 c57351444609d14ea258b3f511ec8a74: !FilmGrain
                     Enabled: false
