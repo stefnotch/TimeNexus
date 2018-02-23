@@ -117,14 +117,6 @@
       <Generator>XenkoShaderKeyGenerator</Generator>
       <LastGenOutput>Shader1.cs</LastGenOutput>
     </None>
-    <None Include="Effects\SMC.xkfx">
-      <Generator>XenkoShaderKeyGenerator</Generator>
-      <LastGenOutput>SMC.cs</LastGenOutput>
-    </None>
-    <None Include="Effects\SMC1.xksl">
-      <Generator>XenkoShaderKeyGenerator</Generator>
-      <LastGenOutput>SMC11.cs</LastGenOutput>
-    </None>
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
@@ -140,18 +132,6 @@
       <DesignTime>True</DesignTime>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>BShader.xksl</DependentUpon>
-    </Compile>
-    <Compile Include="Effects\SMC.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>SMC.xkfx</DependentUpon>
-    </Compile>
-    <Compile Include="Effects\SMC11.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>SMC1.xksl</DependentUpon>
     </Compile>
     <Compile Include="Gun\GunController.cs" />
     <Compile Include="Effects\Shader1.cs">

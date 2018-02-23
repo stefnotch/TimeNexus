@@ -62,9 +62,7 @@ namespace SiliconStudio.Xenko.Rendering
                 mixin (extensionPixelStageSurfaceFilter);
             }
 
-
-
-            //mixin BShader;
+            mixin BShader;
 
             mixin child GBuffer;
         }
