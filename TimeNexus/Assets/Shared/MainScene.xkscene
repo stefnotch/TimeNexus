@@ -14,6 +14,8 @@ Hierarchy:
         - ref!! 454139e1-b2d3-40a5-badc-9507da1accb4
         - ref!! f24bf3c8-e782-4ace-a1b1-38656eab228c
         - ref!! ddc8bc75-4f12-4c93-8221-840ce294f552
+        - ref!! 177e6553-bf4a-4ea6-9876-9bcc1371c83f
+        - ref!! dd3b88bb-efa5-498a-9a00-eae799e9f196
     Parts:
         -   Entity:
                 Id: 0230cda6-cdf5-4bff-a008-a8401ac352a1
@@ -29,6 +31,21 @@ Hierarchy:
                         Id: 0e79c994-d2b6-49c5-a5a5-e01238a36672
                         GameStudioTime:
                             Era: FarFuture
+        -   Entity:
+                Id: 177e6553-bf4a-4ea6-9876-9bcc1371c83f
+                Name: Box3x3x3
+                Components:
+                    94a8d59b1e06235501b763b3c7d0bee3: !TransformComponent
+                        Id: 7605a779-7480-42a1-a800-df10ca8ee001
+                        Position: {X: 1.64623761, Y: 1.40034425, Z: 0.433610439}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            8e880782da58adc511d3f1b431f7f78e: ref!! 6c800f6e-7d9d-4612-9487-012aea9dbe67
+                    c297f25541804b05667af4d037c63de0: !ModelComponent
+                        Id: d85e5bb6-b6a5-4bf5-8bbf-3e94e8a153f1
+                        Model: 548c5a86-2d4b-4255-932a-19154ccce25a:Models/Box3x3x3
+                        Materials: {}
         -   Entity:
                 Id: 21e8d9f2-3391-4062-abfb-656fa29c99c1
                 Name: MaterialModel
@@ -133,6 +150,20 @@ Hierarchy:
                         Id: 441de3f9-e3bf-4bc5-8b8b-e780a76f9745
                         Time: {}
         -   Entity:
+                Id: 691631a6-328e-4759-84c4-ee9cf9280cc6
+                Name: Box3x3x3
+                Components:
+                    94a8d59b1e06235501b763b3c7d0bee3: !TransformComponent
+                        Id: 6c800f6e-7d9d-4612-9487-012aea9dbe67
+                        Position: {X: -1.94380772, Y: -1.55667329, Z: -0.0814287663}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    c297f25541804b05667af4d037c63de0: !ModelComponent
+                        Id: e7fbfe6b-39f3-4caf-87dc-08d3dd734bab
+                        Model: 548c5a86-2d4b-4255-932a-19154ccce25a:Models/Box3x3x3
+                        Materials: {}
+        -   Entity:
                 Id: 73a448ca-1c69-4d88-a2bf-e4b8245acba8
                 Name: Crosshair
                 Components:
@@ -234,6 +265,23 @@ Hierarchy:
                         Projection: Perspective
                         Slot: 2ace6a4c-7e1b-491b-9f4a-5e02be4d59b5
         -   Entity:
+                Id: dd3b88bb-efa5-498a-9a00-eae799e9f196
+                Name: mannequinModel
+                Components:
+                    e8796cf6f1dbfba251c383daa9b64218: !TransformComponent
+                        Id: d6e7d273-f714-47ce-ad80-dd4a02237f98
+                        Position: {X: 0.8377254, Y: 0.0, Z: -2.52781582}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    a2aa35fd053670578f83b398c062a517: !ModelComponent
+                        Id: d80eacf7-3d70-4041-9c5d-625f1e04236f
+                        Model: d9803ca0-438f-4b16-91fe-dec8011a7ddd:Models/mannequinModel
+                        Materials:
+                            5fd9868ce0911fd2a9e025215f52e82a~3: e2edc06a-2d77-465e-9b21-1ee41e42d24f:Materials/BodyGray
+                            4110fb2431b31b9057f0013ea08fe07b~4: e2edc06a-2d77-465e-9b21-1ee41e42d24f:Materials/BodyGray
+                            359d6f569f6f356b154e16bca02758d7~5: e2edc06a-2d77-465e-9b21-1ee41e42d24f:Materials/BodyGray
+        -   Entity:
                 Id: ddc8bc75-4f12-4c93-8221-840ce294f552
                 Name: HAI
                 Components:
@@ -246,7 +294,9 @@ Hierarchy:
                     0b3d5da37a82b722459bf82c0389b498: !ModelComponent
                         Id: d6adaff5-bb80-4cc6-9031-cf57421500fe
                         Model: 51c882fb-9ab5-46df-9544-209fc1be5b29:MaterialModel
-                        Materials: {}
+                        RenderGroup: Group1
+                        Materials:
+                            3465b1da64aca1aa6028dba7442c15dc~0: f4dc08d8-4811-49e9-95ea-16c33c9e390a:MaterialTestB
         -   Entity:
                 Id: ea6e4518-8a3f-4def-8322-4c7979b67d9e
                 Name: Sphere

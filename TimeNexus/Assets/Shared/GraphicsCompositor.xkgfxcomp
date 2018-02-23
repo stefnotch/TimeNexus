@@ -42,23 +42,30 @@ RenderFeatures:
     d8fb80b0e7995140a46bca8dc36ee8a2: !SiliconStudio.Xenko.Rendering.MeshRenderFeature,SiliconStudio.Xenko.Engine
         RenderStageSelectors:
             44cf4a95ef82544e9ce3c6507d5569a9: !SiliconStudio.Xenko.Rendering.MeshTransparentRenderStageSelector,SiliconStudio.Xenko.Engine
-                RenderGroup*: Group0
+                RenderGroup*: Group0, Group1
                 OpaqueRenderStage: ref!! aff15cf0-eda9-4fae-92f9-36a5fb25b301
                 TransparentRenderStage: ref!! 48c714c2-6b20-441d-8984-2c31a8747b72
-                EffectName: XenkoForwardShadingEffect
+                EffectName*: XenkoForwardShadingEffect
             6f7224048750e7260ea87c444f74b32c: !SiliconStudio.Xenko.Rendering.Shadows.ShadowMapRenderStageSelector,SiliconStudio.Xenko.Engine
                 ShadowMapRenderStage: ref!! afbff5c0-5891-4c07-b182-f9caec7083d1
                 EffectName: XenkoForwardShadingEffect.ShadowMapCaster
+                RenderGroup*: All
             b60663d7cb46417a94341a39c3bc1a12: !SiliconStudio.Xenko.Rendering.Shadows.ShadowMapRenderStageSelector,SiliconStudio.Xenko.Engine
                 ShadowMapRenderStage: ref!! 0cbd2f5f-3722-432d-bea1-0bff29ebbe4d
                 EffectName: XenkoForwardShadingEffect.ShadowMapCasterParaboloid
+                RenderGroup*: All
             f5533b1249b942df8a8aba311cd79532: !SiliconStudio.Xenko.Rendering.Shadows.ShadowMapRenderStageSelector,SiliconStudio.Xenko.Engine
                 ShadowMapRenderStage: ref!! 6fb6a938-2e1c-456c-a3bd-7fd7c7cce30f
                 EffectName: XenkoForwardShadingEffect.ShadowMapCasterCubeMap
+                RenderGroup*: All
             106341b76db9fcda6a033dad16aa708b: !SiliconStudio.Xenko.Rendering.MeshTransparentRenderStageSelector,SiliconStudio.Xenko.Engine
-                RenderGroup*: Group0
-                OpaqueRenderStage: ref!! 59ea6332-5630-4be9-9805-38e6adfda624
-                EffectName: XenkoForwardShadingEffect.ShadowMapCaster
+                RenderGroup*: All
+                OpaqueRenderStage*: ref!! 59ea6332-5630-4be9-9805-38e6adfda624
+                TransparentRenderStage*: null
+                EffectName*: XenkoForwardShadingEffect.ShadowMapCaster
+            77d9f6f8326d574db19fbc0edd79dc76*: !SiliconStudio.Xenko.Rendering.MeshTransparentRenderStageSelector,SiliconStudio.Xenko.Engine
+                TransparentRenderStage: ref!! 59ea6332-5630-4be9-9805-38e6adfda624
+                EffectName: SMC
         PipelineProcessors:
             d70f5aee0616e4ab25081ceaf643290c: !SiliconStudio.Xenko.Rendering.MeshPipelineProcessor,SiliconStudio.Xenko.Engine
                 TransparentRenderStage: ref!! 48c714c2-6b20-441d-8984-2c31a8747b72

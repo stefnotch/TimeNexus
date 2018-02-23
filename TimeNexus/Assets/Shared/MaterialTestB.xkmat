@@ -18,14 +18,13 @@ Attributes:
         Intensity: !ComputeFloat
             Value: 0.271698
     SpecularModel: !MaterialSpecularMicrofacetModelFeature
-        Enabled: false
         Fresnel: !MaterialSpecularMicrofacetFresnelSchlick {}
         Visibility: !MaterialSpecularMicrofacetVisibilitySmithSchlickGGX {}
         NormalDistribution: !MaterialSpecularMicrofacetNormalDistributionGGX {}
         Environment: !MaterialSpecularMicrofacetEnvironmentGGXLUT {}
     Transparency: !MaterialTransparencyBlendFeature
         Alpha: !ComputeFloat
-            Value: 1.0
+            Value: 0.41
         Tint: !ComputeColor
             Value: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
     Overrides:
