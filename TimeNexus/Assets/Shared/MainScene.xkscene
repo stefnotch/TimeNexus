@@ -42,8 +42,7 @@ Hierarchy:
                     1846057351f558e951cae947c5475ff2: !ModelComponent
                         Id: 5d80be14-2cb3-46ca-a396-f71025e3cc28
                         Model: 51c882fb-9ab5-46df-9544-209fc1be5b29:MaterialModel
-                        Materials:
-                            c5fb465e40a4dd6a5b58d8a5ce6148bd~1: f4dc08d8-4811-49e9-95ea-16c33c9e390a:MaterialTestB
+                        Materials: {}
                     53d50deab3ab8a458ad57aaabe9966ca: !TimeComponent
                         Id: b8ba72df-f05b-4d4d-aa0f-ce80c1927091
                         GameStudioTime:
@@ -133,6 +132,19 @@ Hierarchy:
                         Id: 441de3f9-e3bf-4bc5-8b8b-e780a76f9745
                         Time: {}
         -   Entity:
+                Id: 4c4658c8-65de-4bc6-91e0-4286dd0ff5c8
+                Name: ShaderLoader
+                Components:
+                    14ced4443a4ae0afd0ffe4c4f9195306: !TransformComponent
+                        Id: 8b85917d-05ca-41d5-b651-7af6cf3da823
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    76253e415b109030733b695374ee8089: !TimeNexus.ShaderLoader,TimeNexus.Game
+                        Id: 2e782f22-e0f9-4fa1-901c-acf7c3e82c72
+                        Texture: null
+        -   Entity:
                 Id: 73a448ca-1c69-4d88-a2bf-e4b8245acba8
                 Name: Crosshair
                 Components:
@@ -173,6 +185,7 @@ Hierarchy:
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
                             c0b8ed8b00da7700933e01bc74f797f9: ref!! a26e6532-559d-4872-9c25-d76e31b35bd6
+                            04066eb774a3d1d98f0fc0a378b747a1: ref!! 8b85917d-05ca-41d5-b651-7af6cf3da823
         -   Entity:
                 Id: 8fce8da4-da36-40f6-a3b8-8e6de95f19ba
                 Name: Directional light
@@ -281,7 +294,7 @@ Hierarchy:
                         Materials: {}
                     4ce2ffaf6ec2efae1164490fc9612726: !Gun.GunController,TimeNexus.Game
                         Id: 7d5039de-3a19-4137-b4bb-4122a295c0ee
-                        camera: ref!! 04b83457-6f0d-4fa7-9bff-a31acf7485b1
+                        Camera: ref!! 04b83457-6f0d-4fa7-9bff-a31acf7485b1
                         effectMaterial: f4dc08d8-4811-49e9-95ea-16c33c9e390a:MaterialTestB
         -   Entity:
                 Id: f24bf3c8-e782-4ace-a1b1-38656eab228c

@@ -15,3 +15,5 @@ RootMotion: false
 PreviewModel: d9803ca0-438f-4b16-91fe-dec8011a7ddd:Models/mannequinModel
 AnimationTimeMinimum: 0:00:00:00.0000000
 AnimationTimeMaximum: 0:00:00:00.6330000
+~SourceHashes:
+    529e47bb55cc43c8d5accef6cd80cc1b~../../../Resources/Animation/Ladder_Loop.fbx: 49e13ab8e9422167841a16c4d58654d8

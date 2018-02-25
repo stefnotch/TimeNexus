@@ -15,3 +15,5 @@ RootMotion: false
 PreviewModel: 54892587-725b-4306-b1e5-efc2b9d3363d:Models/mannequinHandModel
 AnimationTimeMinimum: 0:00:00:00.0000000
 AnimationTimeMaximum: 0:00:00:01.3330000
+~SourceHashes:
+    b47ef7b3b334d73810017bf71954d04d~../../../Resources/Animation/Gun_Idle.fbx: 96380ed1ae981ead11578112b7295f0b

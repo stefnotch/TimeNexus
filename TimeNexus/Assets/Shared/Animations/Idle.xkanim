@@ -15,3 +15,5 @@ RootMotion: false
 PreviewModel: d9803ca0-438f-4b16-91fe-dec8011a7ddd:Models/mannequinModel
 AnimationTimeMinimum: 0:00:00:00.0000000
 AnimationTimeMaximum: 0:00:00:02.6330000
+~SourceHashes:
+    fd51070c4edc4724a365f7f41660257c~../../../Resources/Animation/Idle.fbx: 425da9e0d3fa578a8427ead97d6200b6

@@ -15,3 +15,5 @@ RootMotion: false
 PreviewModel: d9803ca0-438f-4b16-91fe-dec8011a7ddd:Models/mannequinModel
 AnimationTimeMinimum: 0:00:00:00.0000000
 AnimationTimeMaximum: 0:00:00:00.8330000
+~SourceHashes:
+    694342c069d5aa3177e8c23bf1dba611~../../../Resources/Animation/Sword_R.fbx: 140c2370216a7c9bac337b9b2e47e5d8

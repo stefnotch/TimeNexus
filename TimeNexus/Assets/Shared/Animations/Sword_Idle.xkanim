@@ -15,3 +15,5 @@ RootMotion: false
 PreviewModel: d9803ca0-438f-4b16-91fe-dec8011a7ddd:Models/mannequinModel
 AnimationTimeMinimum: 0:00:00:00.0000000
 AnimationTimeMaximum: 0:00:00:02.6670000
+~SourceHashes:
+    190e46583a9bb7a22cd79ff0f71d51c4~../../../Resources/Animation/Sword_Idle.fbx: 18d165982c8d2be02e635cacd1de4b8d

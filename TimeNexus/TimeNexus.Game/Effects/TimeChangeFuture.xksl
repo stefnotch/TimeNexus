@@ -1,0 +1,41 @@
+﻿namespace TimeNexus.Effects
+{
+     shader TimeChangeFuture: ComputeColor
+    {
+    /*
+        //stage stream float4 Position : POSITION; 
+        //stage stream float2 TexCoord : TStream;
+        compose Texture2D Frequency;
+
+        override float4 Compute()
+        {
+            //return MatrixTexture.Sample(Texturing.Sampler, streams.Position.xy);
+
+            //return base.Compute();
+            //return float4(1.0,0.0,0.0, frac(sin(dot(streams.Position.xy, float2(12.9898, 78.233))) * 43758.5453) );
+            return float4(0, 0, 1, 1);
+        }
+*/
+
+        rgroup PerMaterial
+        {
+            stage Texture2D MyTexture;
+        }
+
+        stage stream float2 TexCoord : TEXCOORD0;
+
+        SamplerState MySampler
+        {
+            Filter = ANISOTROPIC;
+            AddressU = Wrap;
+            AddressV = Wrap;
+            MaxAnisotropy = 16;
+        };
+
+        override float4 Compute()
+        {
+            //return MyTexture.Sample(MySampler, streams.TexCoord);
+            return float4(0, 0, 1, 1);
+        }
+    };
+}

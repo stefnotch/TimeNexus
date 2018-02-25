@@ -10,3 +10,5 @@ Materials:
         Name: Coin
         MaterialInstance:
             Material: 705033c3-a034-4eac-8bf5-3cca5b599cf6:Materials/coin
+~SourceHashes:
+    fa033528ccfc9612b56c6d2c80126681~../../../Resources/Models/XenkoCoin.fbx: f00d518ee22cd1edef712f91c53faceb

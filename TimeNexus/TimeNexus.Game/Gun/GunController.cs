@@ -21,7 +21,7 @@ namespace Gun
 	{
 		// Declared public member fields and properties will show in the game studio
 		private Simulation simulation;
-		public CameraComponent camera { get; set; }
+		public CameraComponent Camera { get; set; }
 
 		private ModelComponent _selectedModel;
 
@@ -33,7 +33,7 @@ namespace Gun
 			simulation = this.GetSimulation();
 			effectRenderPass = effectMaterial?.Passes?.First();
 
-			if (camera == null) Log.Error("No camera attached to the gun script");
+			if (Camera == null) Log.Error("No camera attached to the gun script");
 		}
 
 		private HitResult Raycast(CameraComponent camera)
@@ -57,7 +57,7 @@ namespace Gun
 
 		public override void Update()
 		{
-			var result = Raycast(camera);
+			var result = Raycast(Camera);
 			if (!result.Succeeded || result.Collider.Entity == null)
 			{
 				_selectedModel?.Materials.Clear();

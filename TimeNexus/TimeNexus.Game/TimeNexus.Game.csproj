@@ -113,9 +113,17 @@
       <Generator>XenkoShaderKeyGenerator</Generator>
       <LastGenOutput>BShader.cs</LastGenOutput>
     </None>
+    <None Include="Effects\ComputeColorWeve.xksl">
+      <Generator>XenkoShaderKeyGenerator</Generator>
+      <LastGenOutput>ComputeColorWeve.cs</LastGenOutput>
+    </None>
     <None Include="Effects\Shader1.xkfx">
       <Generator>XenkoShaderKeyGenerator</Generator>
       <LastGenOutput>Shader1.cs</LastGenOutput>
+    </None>
+    <None Include="Effects\TimeChangeFuture.xksl">
+      <Generator>XenkoShaderKeyGenerator</Generator>
+      <LastGenOutput>TimeChangeFuture.cs</LastGenOutput>
     </None>
     <None Include="project.json" />
   </ItemGroup>
@@ -133,6 +141,18 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>BShader.xksl</DependentUpon>
     </Compile>
+    <Compile Include="Effects\ComputeColorWeve.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>ComputeColorWeve.xksl</DependentUpon>
+    </Compile>
+    <Compile Include="Effects\TimeChangeFuture.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>TimeChangeFuture.xksl</DependentUpon>
+    </Compile>
     <Compile Include="Gun\GunController.cs" />
     <Compile Include="Effects\Shader1.cs">
       <AutoGen>True</AutoGen>
@@ -143,6 +163,7 @@
     <Compile Include="Input\KeyBindings.cs" />
     <Compile Include="Level\LevelLoaded.cs" />
     <Compile Include="Level\LevelSettings.cs" />
+    <Compile Include="ShaderLoader.cs" />
     <Compile Include="Time\Era.cs" />
     <Compile Include="Player\PlayerController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

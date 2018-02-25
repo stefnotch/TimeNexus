@@ -1,0 +1,9 @@
+﻿shader ComputeColorWeve : ComputeColor, Texturing
+{
+    compose ComputeColor Frequency;
+
+    override float4 Compute()
+    {
+        return sin(( Global.Time ) * 2 * 3.14 * Frequency.Compute().r);
+    }
+};

@@ -8,9 +8,11 @@ Attributes:
             Value: 0.75
     Diffuse: !MaterialDiffuseMapFeature
         DiffuseMap: !ComputeShaderClassColor
-            MixinReference: AShader
+            MixinReference: ComputeColorWeve
             Generics: {}
-            CompositionNodes: {}
+            CompositionNodes:
+                a237c9d8cc5f1f24f0df7b80b805823a~Frequency: !ComputeFloat4
+                    Value: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
     DiffuseModel: !MaterialDiffuseLambertModelFeature {}
     Specular: !MaterialSpecularMapFeature
         SpecularMap: !ComputeFloat4
@@ -24,6 +26,7 @@ Attributes:
         NormalDistribution: !MaterialSpecularMicrofacetNormalDistributionGGX {}
         Environment: !MaterialSpecularMicrofacetEnvironmentGGXLUT {}
     Transparency: !MaterialTransparencyBlendFeature
+        Enabled: false
         Alpha: !ComputeFloat
             Value: 1.0
         Tint: !ComputeColor
