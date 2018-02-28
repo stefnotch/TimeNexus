@@ -14,6 +14,8 @@ using SiliconStudio.Xenko.Engine.Processors;
 using SiliconStudio.Xenko.Rendering.Materials;
 using SiliconStudio.Xenko.Rendering.Materials.ComputeColors;
 using SiliconStudio.Xenko.Shaders;
+using TimeNexus.ExtensionMethods;
+using TimeNexus.Effects;
 
 namespace Gun
 {
@@ -22,6 +24,10 @@ namespace Gun
 		// Declared public member fields and properties will show in the game studio
 		private Simulation simulation;
 		public CameraComponent Camera { get; set; }
+
+		public Entity GunBeamContainer { get; set; }
+		public ModelComponent GunBeam { get; set; }
+
 
 		private ModelComponent _selectedModel;
 
@@ -32,6 +38,19 @@ namespace Gun
 		{
 			simulation = this.GetSimulation();
 			effectRenderPass = effectMaterial?.Passes?.First();
+
+
+			if (GunBeam == null)
+			{
+				GunBeam = new ModelComponent();
+			}
+			if (GunBeamContainer == null)
+			{
+				GunBeamContainer = new Entity();
+				Log.Error("No gun beam container attached to the gun script");
+			}
+			GunBeam.Enabled = false;
+
 
 			if (Camera == null) Log.Error("No camera attached to the gun script");
 		}
@@ -72,14 +91,16 @@ namespace Gun
 				var timeComponent = entity.Get<TimeControllerComponent>() ?? entity.GetParent()?.Get<TimeControllerComponent>();
 				if (timeComponent != null)
 				{
+					ShootBeam(result.Point);
 					if (Input.MouseWheelDelta < 0) timeComponent.Time = timeComponent.Time.GetPrevious();
 					else timeComponent.Time = timeComponent.Time.GetNext();
 				}
 			}
 
-			
+			return;
 
 			var newModel = entity.Get<ModelComponent>();
+
 			//if (_selectedModel != newModel) _selectedModel?.Materials
 			if (newModel != null && _selectedModel != newModel && effectMaterial != null)
 			{
@@ -90,7 +111,7 @@ namespace Gun
 					//Remove the effect render pass from that other material
 					//TODO: This will lead to issues when the model has multiple materials
 					effectRenderPass.Material.Passes.Remove(effectRenderPass);
-					
+
 					//Clone the material
 					var clonedMaterial = CloneMaterial(_selectedModel.GetMaterial(i));
 					//Layers ~= render passes
@@ -122,6 +143,30 @@ namespace Gun
 				}
 
 			}
+		}
+
+		private void ShootBeam(Vector3 target)
+		{
+			if (GunBeam == null || GunBeamContainer == null) return;
+
+			const float EXTRA_LENGTH = 0.0f;
+			Vector3 direction = (target - GunBeamContainer.Transform.GetWorldPosition());
+			float distanceToTarget = Math.Abs(direction.Length()) + EXTRA_LENGTH;
+
+			GunBeamContainer.Transform.LookAt(ref target);
+
+			GunBeam.Entity.Transform.Scale.Y = distanceToTarget;
+			GunBeam.Entity.Transform.Position.Z = -distanceToTarget / 2;
+
+			GunBeam.GetMaterial(0).Passes[0].Parameters.Set(GunBeamKeys.BeamLength, distanceToTarget);
+
+			GunBeam.Enabled = true;
+
+
+			//TODO: Change this, it doesn't work very well when the user scrolls a lot
+			// (Store the latest shooting time and make the beam invisible if n seconds have passed since then)
+			//Task.Delay(300).ContinueWith(_ => GunBeam.Enabled = false);
+
 		}
 
 		private Material CloneMaterial(Material material)

@@ -1,0 +1,10 @@
+!ProceduralModelAsset
+Id: 99c5c9d0-3fd4-41f7-9f76-4462574b2000
+SerializedVersion: {Xenko: 2.0.0.0}
+Tags: []
+Type: !CylinderProceduralModel
+    Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+    UvScale: {X: 1.0, Y: 1.0}
+    LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
+    MaterialInstance:
+        Material: 60c0f17f-d468-4bc7-bde4-e3c115660c35:Materials/gun/GunBeam

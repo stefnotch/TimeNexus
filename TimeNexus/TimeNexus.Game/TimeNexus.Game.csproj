@@ -117,6 +117,14 @@
       <Generator>XenkoShaderKeyGenerator</Generator>
       <LastGenOutput>ComputeColorWeve.cs</LastGenOutput>
     </None>
+    <None Include="Effects\CoolVortex.xksl">
+      <Generator>XenkoShaderKeyGenerator</Generator>
+      <LastGenOutput>CoolVortex.cs</LastGenOutput>
+    </None>
+    <None Include="Effects\GunBeam.xksl">
+      <Generator>XenkoShaderKeyGenerator</Generator>
+      <LastGenOutput>GunBeam.cs</LastGenOutput>
+    </None>
     <None Include="Effects\Shader1.xkfx">
       <Generator>XenkoShaderKeyGenerator</Generator>
       <LastGenOutput>Shader1.cs</LastGenOutput>
@@ -147,12 +155,25 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>ComputeColorWeve.xksl</DependentUpon>
     </Compile>
+    <Compile Include="Effects\CoolVortex.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>CoolVortex.xksl</DependentUpon>
+    </Compile>
+    <Compile Include="Effects\GunBeam.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>GunBeam.xksl</DependentUpon>
+    </Compile>
     <Compile Include="Effects\TimeChangeFuture.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>TimeChangeFuture.xksl</DependentUpon>
     </Compile>
+    <Compile Include="ExtensionMethods\TransformComponentExtensions.cs" />
     <Compile Include="Gun\GunController.cs" />
     <Compile Include="Effects\Shader1.cs">
       <AutoGen>True</AutoGen>
@@ -163,7 +184,6 @@
     <Compile Include="Input\KeyBindings.cs" />
     <Compile Include="Level\LevelLoaded.cs" />
     <Compile Include="Level\LevelSettings.cs" />
-    <Compile Include="ShaderLoader.cs" />
     <Compile Include="Time\Era.cs" />
     <Compile Include="Player\PlayerController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
