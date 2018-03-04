@@ -9,7 +9,7 @@ using SiliconStudio.Xenko.Engine;
 using TimeNexus.Time;
 using SiliconStudio.Core;
 
-namespace Level
+namespace TimeNexus.Level
 {
 	public class LevelSettings : StartupScript
 	{

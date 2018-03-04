@@ -21,7 +21,7 @@ namespace TimeNexus.Effects
 
         override float4 Compute()
         {
-            float2 xy = (streams.TexCoord.xy + float2(Global.Time * 0.1, 0)) * float2(7, 30 * BeamLength);
+            float2 xy = (streams.TexCoord.xy + float2(Global.Time * 0.1, -Global.Time*0.1)) * float2(7, 30 * BeamLength);
             xy = floor(xy);
 
             float n = floor(Random(xy) + 0.1);

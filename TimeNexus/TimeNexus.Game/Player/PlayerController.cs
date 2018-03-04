@@ -6,7 +6,7 @@ using SiliconStudio.Xenko.Physics;
 using System;
 using System.Linq;
 
-namespace Player
+namespace TimeNexus.Player
 {
 	public class PlayerController : SyncScript
 	{
@@ -143,7 +143,7 @@ namespace Player
 
 			//Well, animations.......me lazy
 
-			if (Input.IsKeyPressed(Keys.Space))
+			if (Input.IsKeyPressed(Keys.Space) && character.IsGrounded)
 			{
 				character.Jump();
 			}
