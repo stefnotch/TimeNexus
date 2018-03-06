@@ -345,6 +345,21 @@ Hierarchy:
                         RotationSpeed: 2.355
                     a212cb9038af0c97cc8cc0e11f7243b1: !TimeNexus.Player.EdgeTilt,TimeNexus.Game
                         Id: 5005167e-f7fb-4712-8eef-fa2a28ed1afb
+                    271f8b8165e709abcb7055eb30244095: !StaticColliderComponent
+                        Id: d574a667-1da8-4723-8d93-9e73b9d78c4c
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: true
+                        ColliderShapes:
+                            f59e33090ca714970a2318c301d62081: !BoxColliderShapeDesc
+                                Is2D: false
+                                Size: {X: 0.2, Y: 0.4, Z: 0.2}
+                                LocalOffset: {X: 0.0, Y: -0.1, Z: 0.4}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
         -   Entity:
                 Id: f658b184-5e73-4699-9eba-0194ca1386a7
                 Name: GunBeam

@@ -1,4 +1,5 @@
-﻿using SiliconStudio.Core.Mathematics;
+﻿using SiliconStudio.Core.Collections;
+using SiliconStudio.Core.Mathematics;
 using SiliconStudio.Xenko.Engine;
 using SiliconStudio.Xenko.Physics;
 using System;
@@ -16,62 +17,50 @@ namespace TimeNexus.Player
 	/// </summary>
 	public class EdgeTilt : SyncScript
 	{
-		RigidbodyComponent[] triggers = new RigidbodyComponent[2];
+
+		/*Vector3 baseOffset = new Vector3(0, -0.1f, 0);
+		float baseDistance = 0.3f;
+		float rayCount = 8;
+		*/
+
+		Matrix baseOffset = Matrix.Translation(0, -0.1f, 0.4f);
+
+		readonly FastList<HitResult> collisions = new FastList<HitResult>();
+		readonly Vector3 _colliderSize = new Vector3(0.2f, 0.4f, 0.2f);
+
+		ColliderShape _collider;
+		Simulation _simulation;
+
 		public override void Start()
 		{
-			this.GetSimulation().ColliderShapesRendering = true;
-
-			var baseSize = new Vector3(0.2f, 0.4f, 0.2f);
-			var baseOffset = new Vector3(0, -0.1f, 0);
-
-			//var trigger = Entity.GetOrCreate<RigidbodyComponent>();
-			for (var i = 0; i < 2; i++)
-			{
-				triggers[i] = new RigidbodyComponent
-				{
-					ProcessCollisions = true,
-					IsTrigger = true,
-					CanSleep = false,
-
-					//TODO: Can be improved by updating the PhysicsWorldTransform it in the PlayerController (every Update())
-					RigidBodyType = RigidBodyTypes.Kinematic,
-					IsKinematic = true
+			//this.GetSimulation().ColliderShapesRendering = true;
 
 
-				};
+			_simulation = this.GetSimulation();
 
-				if(i == 0)triggers[i].ColliderShapes.Add(new BoxColliderShapeDesc() { Size = baseSize + new Vector3(0.3f, 0, 0), LocalOffset = baseOffset + new Vector3(0, 0, 0.3f) });
-				else triggers[i].ColliderShapes.Add(new BoxColliderShapeDesc() { Size = baseSize + new Vector3(0.3f, 0, 0), LocalOffset = baseOffset + new Vector3(0, 0, -0.3f) });
+			_collider = new BoxColliderShape(false, _colliderSize);
 
-				this.Entity.Add(triggers[i]);
-			}
-			
-			
-			//trigger.ColliderShapes.Add(new BoxColliderShapeDesc() { Size = baseSize + new Vector3(), LocalOffset = new Vector3(0, 0.1f, 0) });
-			//trigger.ColliderShapes.Add(new BoxColliderShapeDesc() { Size = baseSize + new Vector3(), LocalOffset = new Vector3(0, 0.1f, 0) });
-
-			
 		}
 
 		public override void Update()
 		{
 			//Hell yeah, I'm going to raycast.
+			//Actually, I changed my mind. XD
 			var rotation = Quaternion.Identity;
-			Console.WriteLine("0: " + triggers[0].Collisions.Count);
+			//this.GetSimulation().Raycast()
+			//_simulation.ShapeSweepPenetrating(_collider, Matrix.Identity, Matrix.Identity);
+			Matrix startMatrix = this.Entity.Transform.WorldMatrix ;
+			Matrix rotationMatrix = Matrix.RotationY(180);
 
-			Console.WriteLine("1: " + triggers[1].Collisions.Count);
-			/*foreach (var collision in trigger.Collisions)
-			{
-				foreach (var contact in collision.Contacts)
-				{
-					Console.WriteLine("Dist: " + contact.Distance);
-					Console.WriteLine($"Normal: {contact.Normal}");
-					Console.WriteLine($"PosOnA: {contact.PositionOnA}");
-					Console.WriteLine($"PosOnB: {contact.PositionOnB}");
-					//contact.
-					//rotation *= Quaternion.BetweenDirections(contact.Normal, -Vector3.UnitY);
-				}
-			}*/
+			DebugText.Print(
+				_simulation.ShapeSweepPenetrating(_collider,
+					startMatrix * baseOffset,
+					startMatrix * rotationMatrix * baseOffset
+				).Count + "",
+				
+				new Int2(10,10));
+
+
 			this.Entity.Transform.Rotation *= rotation;
 
 		}
