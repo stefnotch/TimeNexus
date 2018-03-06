@@ -305,8 +305,8 @@ Hierarchy:
                 Components:
                     9fa1fb0239a8577eab637e5643094c76: !TransformComponent
                         Id: a7884c4e-c49c-4134-adfd-d3f10eeda80c
-                        Position: {X: 0.0, Y: 0.0, Z: -3.0}
-                        Rotation: {X: 2.58218016E-08, Y: -0.9396926, Z: 0.342020124, W: 7.094482E-08}
+                        Position: {X: 0.0, Y: 0.224833161, Z: -3.24407482}
+                        Rotation: {X: 0.0, Y: -1.0, Z: 0.0, W: 7.54979E-08}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
                             3ce204f614b90b853d691f40035f8b9f: ref!! 770491b1-c8eb-40a4-a062-884e9c688cf1
@@ -320,7 +320,7 @@ Hierarchy:
                         CcdSweptSphereRadius: 0.0
                         FallSpeed: 10.0
                         MaxSlope: {Radians: 0.7853982}
-                        JumpSpeed: 5.0
+                        JumpSpeed: 7.0
                         Gravity: -10.0
                         ColliderShapes:
                             573903c526cff2a94702f1e6ee107688: !CapsuleColliderShapeDesc
@@ -343,6 +343,8 @@ Hierarchy:
                         CameraEntity: ref!! b642d039-b39e-469c-919f-7f49d3663153
                         RotationAdaptationSpeed: 5.0
                         RotationSpeed: 2.355
+                    a212cb9038af0c97cc8cc0e11f7243b1: !TimeNexus.Player.EdgeTilt,TimeNexus.Game
+                        Id: 5005167e-f7fb-4712-8eef-fa2a28ed1afb
         -   Entity:
                 Id: f658b184-5e73-4699-9eba-0194ca1386a7
                 Name: GunBeam
