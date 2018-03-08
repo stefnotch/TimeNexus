@@ -19,6 +19,8 @@ namespace TimeNexus.Player
 		private CharacterComponent character;
 		private Quaternion baseCameraRotation;
 
+		private EdgeTilt edgeTilter;
+
 		public override void Start()
 		{
 			desiredYaw =
@@ -59,6 +61,8 @@ namespace TimeNexus.Player
 			{
 				baseCameraRotation = CameraEntity.Transform.Rotation;
 			}
+
+			edgeTilter = this.Entity.Get<EdgeTilt>();
 		}
 
 		private float yaw, desiredYaw;
@@ -106,6 +110,9 @@ namespace TimeNexus.Player
 				//we need to pitch only the camera node
 				CameraEntity.Transform.Rotation = baseCameraRotation * Quaternion.RotationYawPitchRoll(0, pitch, 0);
 			}
+
+			Vector2 pitchRoll = edgeTilter?.CalculatePitchRoll() ?? Vector2.Zero;
+
 			Entity.Transform.Rotation = Quaternion.RotationYawPitchRoll(yaw, 0, 0); //do not apply pitch to our controller
 
 			var move = new Vector3();
