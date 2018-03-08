@@ -21,7 +21,7 @@ namespace TimeNexus.Player
 	/// </summary>
 	public class EdgeTilt : StartupScript
 	{
-		const float radius = 0.7f;
+		const float radius = 1.0f;
 		const int rayCount = 16;
 
 		Vector3[] offsets = new Vector3[rayCount];
@@ -77,9 +77,9 @@ namespace TimeNexus.Player
 				}
 			}
 
-			DebugText.Print(averageDirection + "", new Int2(10, 10));
+			//Vector3 n = Vector3.Transform(averageDirection, Quaternion.RotationY(yaw));
 
-			DebugDraw.Line(this, averageDirection * 3.0f, Vector3.Zero);
+			//DebugDraw.Line(this, averageDirection * 3.0f, Vector3.Zero);
 			return averageDirection.XZ() * 0.2f;
 		}
 	}

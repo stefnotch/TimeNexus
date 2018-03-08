@@ -113,7 +113,14 @@ namespace TimeNexus.Player
 
 			Vector2 pitchRoll = edgeTilter?.CalculatePitchRoll() ?? Vector2.Zero;
 
-			Entity.Transform.Rotation = Quaternion.RotationYawPitchRoll(yaw, 0, 0); //do not apply pitch to our controller
+			Vector2 no = Vector2.Transform(pitchRoll, Quaternion.RotationZ(yaw));
+
+			DebugText.Print(Math.Round(no.X, 2) + "", new Int2(10, 10 + 40));
+			DebugText.Print(Math.Round(no.Y, 2) + "", new Int2(10, 25 + 40));
+
+			//Vector2.Transform(pitchRoll, Quaternion.RotationY(yaw));
+			//DebugText.Print(n + "", new Int2(10, 10));
+			Entity.Transform.Rotation = Quaternion.RotationYawPitchRoll(yaw, 0, -no.X); //do not apply pitch to our controller
 
 			var move = new Vector3();
 
