@@ -358,5 +358,6 @@ Hierarchy:
                     994e32f9349d1ee4e0ec0654ca4f4268: !ModelComponent
                         Id: b7bd2afd-ff00-4108-803d-01fda44ba3fa
                         Model: 99c5c9d0-3fd4-41f7-9f76-4462574b2000:Models/GunBeam
+                        IsShadowCaster: false
                         Materials:
                             19278de58c2f8e7b379806e8c8416e9f~0: 60c0f17f-d468-4bc7-bde4-e3c115660c35:Materials/gun/GunBeam

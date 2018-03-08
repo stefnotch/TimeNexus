@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TimeNexus.Debug;
 
 namespace TimeNexus.Player
 {
@@ -20,7 +21,7 @@ namespace TimeNexus.Player
 	/// </summary>
 	public class EdgeTilt : StartupScript
 	{
-		const float radius = 0.5f;
+		const float radius = 0.7f;
 		const int rayCount = 16;
 
 		Vector3[] offsets = new Vector3[rayCount];
@@ -35,16 +36,16 @@ namespace TimeNexus.Player
 
 			_simulation = this.GetSimulation();
 
-			_collider = new BoxColliderShape(false, new Vector3(0.1f, 0.1f, 0.1f));
+			_collider = new SphereColliderShape(false, 0.2f);
 
 			for (var i = 0; i < rayCount; i++)
 			{
 				// Offset Vector, from 0 to some place on a circle
 
 				offsets[i] = Vector3.Transform(
-									Vector3.UnitZ,
-									Quaternion.RotationY((i / rayCount) * MathUtil.TwoPi)
-							) * radius;
+									Vector3.UnitZ * radius,
+									Quaternion.RotationY((i / (float)rayCount) * MathUtil.TwoPi)
+							);
 			}
 		}
 
@@ -57,8 +58,6 @@ namespace TimeNexus.Player
 			}
 			//Hell yeah, I'm going to raycast.
 			//Ok, it's kinda a perf killer but whatever
-
-			//
 
 			var averageDirection = Vector3.Zero;
 
@@ -78,9 +77,9 @@ namespace TimeNexus.Player
 				}
 			}
 
+			DebugText.Print(averageDirection + "", new Int2(10, 10));
 
-
-
+			DebugDraw.Line(this, averageDirection * 3.0f, Vector3.Zero);
 			return averageDirection.XZ() * 0.2f;
 		}
 	}
