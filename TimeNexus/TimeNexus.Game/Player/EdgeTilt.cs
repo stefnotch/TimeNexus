@@ -30,6 +30,7 @@ namespace TimeNexus.Player
 
 
 		ColliderShape _collider;
+
 		public override void Start()
 		{
 			//this.GetSimulation().ColliderShapesRendering = true;
@@ -41,7 +42,6 @@ namespace TimeNexus.Player
 			for (var i = 0; i < rayCount; i++)
 			{
 				// Offset Vector, from 0 to some place on a circle
-
 				offsets[i] = Vector3.Transform(
 									Vector3.UnitZ * radius,
 									Quaternion.RotationY((i / (float)rayCount) * MathUtil.TwoPi)
@@ -52,35 +52,36 @@ namespace TimeNexus.Player
 
 		public Vector2 CalculatePitchRoll()
 		{
-			if (Entity.Get<CharacterComponent>()?.IsGrounded == false)
+			/*if (Entity.Get<CharacterComponent>()?.IsGrounded == false)
 			{
 				return Vector2.Zero;
-			}
+			}*/
 			//Hell yeah, I'm going to raycast.
-			//Ok, it's kinda a perf killer but whatever
 
 			var averageDirection = Vector3.Zero;
-
-
+			
 			//This code assumes that Y goes to the sky (instead of using the player's up vector)
 			var entityPosition = Entity.Transform.WorldMatrix * Matrix.Translation(0, -0.3f, 0);
 			for (var i = 0; i < rayCount; i++)
 			{
-				// Offset Vector, from 0 to some place on a circle
-				
-				var result = _simulation.ShapeSweep(_collider, entityPosition * Matrix.Translation(offsets[i]), entityPosition);
+
+				//WHAT THE HELL!? WHY DO I NEED   Matrix.RotationY(0.01f)  !!??
+				var result = _simulation.ShapeSweep(_collider, entityPosition * Matrix.Translation(offsets[i]) * Matrix.RotationY(0.01f), entityPosition);
+
+				//DebugText.Print(result.Collider + "", new Int2(10, 10 + 15 * i));
 
 				if (result.Succeeded)
 				{
-
 					averageDirection += offsets[i] * result.HitFraction;
+				} else
+				{
+
+					averageDirection += offsets[i] * 1;
 				}
 			}
-
-			//Vector3 n = Vector3.Transform(averageDirection, Quaternion.RotationY(yaw));
-
+						
 			//DebugDraw.Line(this, averageDirection * 3.0f, Vector3.Zero);
-			return averageDirection.XZ() * 0.2f;
+			return averageDirection.XZ() * 0.1f;
 		}
 	}
 }

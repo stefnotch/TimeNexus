@@ -20,6 +20,8 @@ namespace TimeNexus.Player
 		private Quaternion baseCameraRotation;
 
 		private EdgeTilt edgeTilter;
+		private float EdgeTiltSmoothAmount = 0.2f;
+		private Vector2 _smoothPitchRoll = Vector2.Zero;
 
 		public override void Start()
 		{
@@ -107,20 +109,16 @@ namespace TimeNexus.Player
 
 			if (CameraEntity != null)
 			{
+				Vector2 pitchRoll = edgeTilter?.CalculatePitchRoll() ?? Vector2.Zero;
+				pitchRoll = Vector2.Transform(pitchRoll, Quaternion.RotationZ(yaw));
+
+				_smoothPitchRoll = Vector2.SmoothStep(_smoothPitchRoll, pitchRoll, EdgeTiltSmoothAmount);
+
 				//we need to pitch only the camera node
-				CameraEntity.Transform.Rotation = baseCameraRotation * Quaternion.RotationYawPitchRoll(0, pitch, 0);
+				CameraEntity.Transform.Rotation = baseCameraRotation * Quaternion.RotationYawPitchRoll(0, pitch + _smoothPitchRoll.Y, -_smoothPitchRoll.X);
 			}
 
-			Vector2 pitchRoll = edgeTilter?.CalculatePitchRoll() ?? Vector2.Zero;
-
-			Vector2 no = Vector2.Transform(pitchRoll, Quaternion.RotationZ(yaw));
-
-			DebugText.Print(Math.Round(no.X, 2) + "", new Int2(10, 10 + 40));
-			DebugText.Print(Math.Round(no.Y, 2) + "", new Int2(10, 25 + 40));
-
-			//Vector2.Transform(pitchRoll, Quaternion.RotationY(yaw));
-			//DebugText.Print(n + "", new Int2(10, 10));
-			Entity.Transform.Rotation = Quaternion.RotationYawPitchRoll(yaw, 0, -no.X); //do not apply pitch to our controller
+			Entity.Transform.Rotation = Quaternion.RotationYawPitchRoll(yaw, 0, 0); //do not apply pitch to our controller
 
 			var move = new Vector3();
 
