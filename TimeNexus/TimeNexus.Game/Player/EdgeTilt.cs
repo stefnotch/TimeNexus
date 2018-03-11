@@ -59,12 +59,11 @@ namespace TimeNexus.Player
 			//Hell yeah, I'm going to raycast.
 
 			var averageDirection = Vector3.Zero;
-			
+
 			//This code assumes that Y goes to the sky (instead of using the player's up vector)
 			var entityPosition = Entity.Transform.WorldMatrix * Matrix.Translation(0, -0.3f, 0);
 			for (var i = 0; i < rayCount; i++)
 			{
-
 				//WHAT THE HELL!? WHY DO I NEED   Matrix.RotationY(0.01f)  !!??
 				var result = _simulation.ShapeSweep(_collider, entityPosition * Matrix.Translation(offsets[i]) * Matrix.RotationY(0.01f), entityPosition);
 
@@ -73,13 +72,14 @@ namespace TimeNexus.Player
 				if (result.Succeeded)
 				{
 					averageDirection += offsets[i] * result.HitFraction;
-				} else
+				}
+				else
 				{
 
 					averageDirection += offsets[i] * 1;
 				}
 			}
-						
+
 			//DebugDraw.Line(this, averageDirection * 3.0f, Vector3.Zero);
 			return averageDirection.XZ() * 0.1f;
 		}
