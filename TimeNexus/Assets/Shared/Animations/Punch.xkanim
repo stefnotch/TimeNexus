@@ -15,3 +15,5 @@ RootMotion: false
 PreviewModel: d9803ca0-438f-4b16-91fe-dec8011a7ddd:Models/mannequinModel
 AnimationTimeMinimum: 0:00:00:00.0000000
 AnimationTimeMaximum: 0:00:00:00.6670000
+~SourceHashes:
+    3b80a0f2f6e5e5f0f7398fca931b57b9~../../../Resources/Animation/Punch.fbx: f5ddaffca51f1fab08b1de37a112e7b4

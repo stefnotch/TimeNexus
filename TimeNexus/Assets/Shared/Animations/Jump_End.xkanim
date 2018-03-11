@@ -15,3 +15,5 @@ RootMotion: false
 PreviewModel: d9803ca0-438f-4b16-91fe-dec8011a7ddd:Models/mannequinModel
 AnimationTimeMinimum: 0:00:00:00.0000000
 AnimationTimeMaximum: 0:00:00:00.4830000
+~SourceHashes:
+    ff6b1098bf21e0bcb4c3b2cd544d9a7e~../../../Resources/Animation/Jump_End.fbx: 818906ede58fbbe43135bfd20ba0fea4

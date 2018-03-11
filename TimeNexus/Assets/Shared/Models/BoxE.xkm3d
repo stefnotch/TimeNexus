@@ -14,3 +14,5 @@ Materials:
         Name: Fame
         MaterialInstance:
             Material: 496b5dc7-bf37-4e8b-8a3b-58d98e094b59:Materials/MaskD
+~SourceHashes:
+    2f0a3dd97e6f2bf12d993450c58f235b~../../../Resources/Models/XenkoCrate.fbx: 6e3a5526c1cdb7001c9b7ea51ac583a0

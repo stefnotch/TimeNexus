@@ -15,3 +15,5 @@ RootMotion: false
 PreviewModel: 54892587-725b-4306-b1e5-efc2b9d3363d:Models/mannequinHandModel
 AnimationTimeMinimum: 0:00:00:00.0000000
 AnimationTimeMaximum: 0:00:00:00.5330000
+~SourceHashes:
+    b2158f6bf322961f7d99812ef3b27415~../../../Resources/Animation/Gun_Run.fbx: 8a3be5e2d526a0abb8e2309f8c779456

@@ -6,7 +6,7 @@ using SiliconStudio.Xenko.Physics;
 using System;
 using System.Linq;
 
-namespace Player
+namespace TimeNexus.Player
 {
 	public class PlayerController : SyncScript
 	{
@@ -18,6 +18,10 @@ namespace Player
 		private AnimationComponent animation;
 		private CharacterComponent character;
 		private Quaternion baseCameraRotation;
+
+		private EdgeTilt edgeTilter;
+		private float EdgeTiltSmoothAmount = 0.2f;
+		private Vector2 _smoothPitchRoll = Vector2.Zero;
 
 		public override void Start()
 		{
@@ -59,6 +63,8 @@ namespace Player
 			{
 				baseCameraRotation = CameraEntity.Transform.Rotation;
 			}
+
+			edgeTilter = this.Entity.Get<EdgeTilt>();
 		}
 
 		private float yaw, desiredYaw;
@@ -103,9 +109,15 @@ namespace Player
 
 			if (CameraEntity != null)
 			{
+				Vector2 pitchRoll = edgeTilter?.CalculatePitchRoll() ?? Vector2.Zero;
+				pitchRoll = Vector2.Transform(pitchRoll, Quaternion.RotationZ(yaw));
+
+				_smoothPitchRoll = Vector2.SmoothStep(_smoothPitchRoll, pitchRoll, EdgeTiltSmoothAmount);
+
 				//we need to pitch only the camera node
-				CameraEntity.Transform.Rotation = baseCameraRotation * Quaternion.RotationYawPitchRoll(0, pitch, 0);
+				CameraEntity.Transform.Rotation = baseCameraRotation * Quaternion.RotationYawPitchRoll(0, pitch + _smoothPitchRoll.Y, -_smoothPitchRoll.X);
 			}
+
 			Entity.Transform.Rotation = Quaternion.RotationYawPitchRoll(yaw, 0, 0); //do not apply pitch to our controller
 
 			var move = new Vector3();
@@ -143,7 +155,7 @@ namespace Player
 
 			//Well, animations.......me lazy
 
-			if (Input.IsKeyPressed(Keys.Space))
+			if (Input.IsKeyPressed(Keys.Space) && character.IsGrounded)
 			{
 				character.Jump();
 			}

@@ -15,3 +15,5 @@ RootMotion: false
 PreviewModel: d3f02424-b5a7-4f9e-a757-be0dc12cc23c:Models/HandModelLeft
 AnimationTimeMinimum: 0:00:00:00.0000000
 AnimationTimeMaximum: 0:00:00:00.1670000
+~SourceHashes:
+    3b1bece6dfd7cea12b970aef6866557e~../../../Resources/Animation/release_L.fbx: 88817153358db4064992c4709736d51d

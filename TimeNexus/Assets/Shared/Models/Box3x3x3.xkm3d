@@ -10,3 +10,5 @@ Materials:
         Name: GridMT
         MaterialInstance:
             Material: cbe74d29-cfdf-4912-b7b8-b7fd102f8d4d:Materials/GridMT
+~SourceHashes:
+    468cf8ef13c0c03f200368d44e6c47ca~../../../Resources/Models/Box3x3x3.fbx: 3285229ee21f2b628080b037d636344f

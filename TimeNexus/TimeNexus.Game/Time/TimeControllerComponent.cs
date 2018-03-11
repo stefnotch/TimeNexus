@@ -7,7 +7,7 @@ using SiliconStudio.Core.Mathematics;
 using SiliconStudio.Xenko.Input;
 using SiliconStudio.Xenko.Engine;
 using SiliconStudio.Core;
-using Level;
+using TimeNexus.Level;
 
 namespace TimeNexus.Time
 {
@@ -16,7 +16,6 @@ namespace TimeNexus.Time
 	[DataContract("TimeControllerComponent")]
 	public class TimeControllerComponent : SyncScript
 	{
-
 		private Time _time = new Time();
 
 		private Entity previousEntity;
@@ -73,6 +72,8 @@ namespace TimeNexus.Time
 			{
 				e.Get<ModelComponent>().Enabled = false;
 			}
+
+			Time = LevelSettings.GetLevelSettings(Entity.Scene).DefaultTime;
 		}
 
 		public override void Update()

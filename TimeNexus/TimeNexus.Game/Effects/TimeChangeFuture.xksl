@@ -1,0 +1,27 @@
+﻿namespace TimeNexus.Effects
+{
+
+    
+    shader TimeChangeFuture: ComputeColor, Camera
+    {
+        compose ComputeColor MatrixTexture;
+
+
+        //StartTime and Inverted (Global.Time - StartTime) (Inverted Opacity)
+    
+        stage stream float4 Position : SV_POSITION;
+        //stage stream float2 TexCoord : TStream;
+
+        override float4 Compute()
+        {
+            float2 uv = streams.Position.xy / Camera.ViewSize;
+            float slider = cos(Global.Time);
+            //return base.Compute();
+            //return float4(1.0,0.0,0.0, frac(sin(dot(streams.Position.xy, float2(12.9898, 78.233))) * 43758.5453) );
+            //return MatrixTexture.Compute();
+            float opacity = slider;
+            return float4(1, 0, 0, opacity);
+            
+        }
+    };
+}

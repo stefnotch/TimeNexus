@@ -1,0 +1,44 @@
+﻿namespace TimeNexus.Effects
+{
+    shader CoolVortex: ComputeColor, Camera
+    {
+    //Or should I let the shader run in world space????
+        stream float4 SV_Position: SV_Position;
+
+        //Use the normals to improve the effect
+
+        //StartTime and Inverted (Global.Time - StartTime) (Inverted Opacity)
+        stream float Time: VortexShaderTime;
+        stream float3 Offset : VortexShaderOffset;
+
+        override float4 Compute()
+        {
+            float2 uv = streams.SV_Position.xy / Camera.ViewSize.x;
+            //Center = (0,0)
+            uv.x -= 0.5;
+            uv.y -= Camera.ViewSize.y / Camera.ViewSize.x * 0.5;
+            uv*=4;
+            //uv = (uv + streams.Offset.xy) * streams.Offset.z;
+
+            const float count = 3;
+
+            float angle = atan2(uv.y, uv.x);
+            float dist = length(uv);
+            
+            float time = ((Global.Time - streams.Time) * 0.1) % 4; //Use Time instead
+
+            //Things that are further away have a larger angle
+            float twirl = dist * dist * 50;
+            float angleDelta = time * 3.5 - twirl;
+
+            float whirl = sin(dist * 100. - angle * 10.) * 0.5;
+            float vortex = sin(count * angle + angleDelta) - whirl;
+
+            vortex += (dist + 0.3) * (time) * 3.5 - 1.0;
+
+            //return float4(Global.Time,0,0,1);
+            //Makes things invisible
+            return float4(1,0,0, 1.0-vortex);
+        }
+    };
+}

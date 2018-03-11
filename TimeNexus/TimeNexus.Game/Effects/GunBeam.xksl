@@ -1,0 +1,33 @@
+﻿// Copyright (c) 2016-2017 Silicon Studio Corp. All rights reserved. (https://www.siliconstudio.co.jp)
+// See LICENSE.md for full license information.
+
+namespace TimeNexus.Effects
+{
+     shader GunBeam: ComputeColor, Texturing
+    {
+
+        stage stream float4 Position : POSITION; //I could use PositionH... (It looks weird)
+
+        cbuffer PerMaterial {
+            stage float BeamLength = 1.0f;
+        }
+        //TODO: Add a length (which is tied to the actual length of the beam)
+
+        float Random(in float2 uv)
+        {
+            float2 noise = (frac(sin(dot(uv,float2(12.9898,78.233)*2.0)) * 43758.5453));
+            return abs(noise.x + noise.y) * 0.5;
+        }
+
+        override float4 Compute()
+        {
+            float2 xy = (streams.TexCoord.xy + float2(Global.Time * 0.1, -Global.Time*0.1)) * float2(7, 30 * BeamLength);
+            xy = floor(xy);
+
+            float n = floor(Random(xy) + 0.1);
+
+            return float4(0.2, 0.2, 10 * n, n);
+        }
+
+    };
+}
