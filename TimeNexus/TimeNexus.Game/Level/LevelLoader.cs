@@ -5,40 +5,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TimeNexus.Objects;
 
 namespace TimeNexus.Level
 {
-	public class LevelLoader : AsyncScript
+	public class LevelLoader : ObjectInteraction
 	{
 		private const String CorridorBaseURL = "Corridors";
 		private const String LevelBaseURL = "Levels";
-		public const float AsyncLoadRadius = 2.0f;
 
 		private Scene _corridor;
-
 		private Scene _nextLevel;
 
-		public override async Task Execute()
+		public LevelLoader()
 		{
-			var trigger = new StaticColliderComponent()
-			{
-				IsTrigger = true,
-				ProcessCollisions = true,
-				CanCollideWith = CollisionFilterGroupFlags.CharacterFilter,
-				ColliderShape = new SphereColliderShape(false, AsyncLoadRadius)
-			};
-			Entity.Add(trigger);
+			InteractionRadius = 2.0f;
+		}
 
-			while (Game.IsRunning)
-			{
-				Collision collision = await trigger.NewCollision();
-				var otherCollider = (trigger == collision.ColliderA) ? collision.ColliderB : collision.ColliderA;
-				if (otherCollider.Entity.Get<CharacterComponent>() != null)
-				{
-					if (_corridor != null) LoadCorridor();
-					if (_nextLevel != null) LoadLevel();
-				}
-			}
+		public override void StartInteraction()
+		{
+
+			if (_corridor != null) LoadCorridor();
+			if (_nextLevel != null) LoadLevel();
+		}
+
+		public override void EndInteraction()
+		{
+
 		}
 
 		private async void LoadCorridor()
@@ -53,7 +46,7 @@ namespace TimeNexus.Level
 		{
 			if (_nextLevel != null) return;
 			_nextLevel = await Content.LoadAsync<Scene>($"{LevelBaseURL}/{GetRandomLevelName()}");
-			
+
 			//TODO: Make sure that the levels also get unloaded when they aren't needed anymore!!!!
 		}
 
