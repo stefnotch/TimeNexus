@@ -312,6 +312,7 @@ Hierarchy:
                             3ce204f614b90b853d691f40035f8b9f: ref!! 770491b1-c8eb-40a4-a062-884e9c688cf1
                     cb90ecab4988001f3e1679c16f8f157d: !CharacterComponent
                         Id: 77ac123c-55bb-48ac-874d-f7f02891df98
+                        CollisionGroup: CharacterFilter
                         CanSleep: false
                         Restitution: 0.0
                         Friction: 0.5

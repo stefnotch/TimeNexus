@@ -185,6 +185,7 @@
     </Compile>
     <Compile Include="Input\KeyBindings.cs" />
     <Compile Include="Level\LevelLoaded.cs" />
+    <Compile Include="Level\LevelLoader.cs" />
     <Compile Include="Level\LevelSettings.cs" />
     <Compile Include="Player\EdgeTilt.cs" />
     <Compile Include="Time\Era.cs" />
