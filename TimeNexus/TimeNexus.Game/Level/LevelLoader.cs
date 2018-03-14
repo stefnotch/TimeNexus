@@ -9,7 +9,7 @@ using TimeNexus.Objects;
 
 namespace TimeNexus.Level
 {
-	public class LevelLoader : ObjectInteraction
+	public class LevelLoader : StartupScript
 	{
 		private const String CorridorBaseURL = "Corridors";
 		private const String LevelBaseURL = "Levels";
@@ -17,23 +17,23 @@ namespace TimeNexus.Level
 		private Scene _corridor;
 		private Scene _nextLevel;
 
-		public LevelLoader()
+		private NearbyTrigger _nearbyTrigger;
+
+		public override void Start()
 		{
-			InteractionRadius = 2.0f;
+			_nearbyTrigger = this.Entity.GetOrCreate<NearbyTrigger>();
+			_nearbyTrigger.InteractionRadius = 2.0f;
+			_nearbyTrigger.OnTrigger += StartLoading;
+			//_nearbyTrigger.OnTriggerEnd += HMMM...;
 		}
 
-		public override void StartInteraction()
+		public void StartLoading(Entity triggerEntity, Entity other)
 		{
 
 			if (_corridor != null) LoadCorridor();
 			if (_nextLevel != null) LoadLevel();
 		}
-
-		public override void EndInteraction()
-		{
-
-		}
-
+		
 		private async void LoadCorridor()
 		{
 			if (_corridor != null) return;

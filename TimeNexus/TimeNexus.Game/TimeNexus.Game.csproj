@@ -137,7 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BasicCameraController.cs" />
-    <Compile Include="Debug\DebugDraw.cs" />
+    <Compile Include="Debugging\DebugDraw.cs" />
     <Compile Include="Effects\AShader.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -187,7 +187,11 @@
     <Compile Include="Level\LevelLoaded.cs" />
     <Compile Include="Level\LevelLoader.cs" />
     <Compile Include="Level\LevelSettings.cs" />
+    <Compile Include="Objects\IPlayerTrigger.cs" />
+    <Compile Include="Objects\LookatTrigger.cs" />
+    <Compile Include="Objects\NearbyTrigger.cs" />
     <Compile Include="Player\EdgeTilt.cs" />
+    <Compile Include="Player\PlayerRaycaster.cs" />
     <Compile Include="Time\Era.cs" />
     <Compile Include="Player\PlayerController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

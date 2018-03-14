@@ -18,14 +18,14 @@ using TimeNexus.ExtensionMethods;
 using TimeNexus.Effects;
 using TimeNexus.Gun;
 using SiliconStudio.Core.Annotations;
+using SiliconStudio.Core;
+using TimeNexus.Player;
 
 namespace TimeNexus.Gun
 {
 	public class GunController : SyncScript
 	{
-		// Declared public member fields and properties will show in the game studio
-		private Simulation simulation;
-		public CameraComponent Camera { get; set; }
+
 
 		[CanBeNull]
 		public GunBeam GunBeam { get; set; }
@@ -37,60 +37,39 @@ namespace TimeNexus.Gun
 
 		public override void Start()
 		{
-			simulation = this.GetSimulation();
 			effectRenderPass = effectMaterial?.Passes?.First();
-			
-			if (Camera == null) Log.Error("No camera attached to the gun script");
+
+			PlayerRaycaster.OnRaycastHit += (player, hitResult) =>
+			{
+				var entity = hitResult.Collider.Entity;
+
+				if (Input.MouseWheelDelta != 0)
+				{
+					var timeComponent = entity.Get<TimeControllerComponent>() ?? entity.GetParent()?.Get<TimeControllerComponent>();
+					if (timeComponent != null)
+					{
+						GunBeam?.UpdateBeam(true, hitResult.Point);
+						if (Input.MouseWheelDelta < 0) timeComponent.Time = timeComponent.Time.GetPrevious();
+						else timeComponent.Time = timeComponent.Time.GetNext();
+					}
+				}
+				else
+				{
+					GunBeam?.UpdateBeam(false);
+				}
+			};
 		}
 
-		private HitResult Raycast(CameraComponent camera)
-		{
-			Matrix invViewProj = Matrix.Invert(camera.ViewProjectionMatrix);
-			var sPos = new Vector3(0, 0, 0);
-			sPos.Z = 0f;
-			var vectorNear = Vector3.Transform(sPos, invViewProj);
-			vectorNear /= vectorNear.W;
 
-			// Compute the far (end) point for the raycast
-			// It's assumed to have the same projection space (x,y) coordinates and z = 1 (lying on the far plane)
-			// We need to unproject it to world space
-			sPos.Z = 1f;
-			var vectorFar = Vector3.Transform(sPos, invViewProj);
-			vectorFar /= vectorFar.W;
-
-			// Raycast from the point on the near plane to the point on the far plane and get the collision result
-			return simulation.Raycast(vectorNear.XYZ(), vectorFar.XYZ());
-		}
 
 		public override void Update()
 		{
-			var result = Raycast(Camera);
-			if (!result.Succeeded || result.Collider.Entity == null)
-			{
-				_selectedModel?.Materials.Clear();
-				return;
-			}
 
 
-			var entity = result.Collider.Entity;
-
-			if (Input.MouseWheelDelta != 0)
-			{
-				var timeComponent = entity.Get<TimeControllerComponent>() ?? entity.GetParent()?.Get<TimeControllerComponent>();
-				if (timeComponent != null)
-				{
-					GunBeam?.UpdateBeam(true, result.Point);
-					if (Input.MouseWheelDelta < 0) timeComponent.Time = timeComponent.Time.GetPrevious();
-					else timeComponent.Time = timeComponent.Time.GetNext();
-				}
-			}
-			else
-			{
-				GunBeam?.UpdateBeam(false);
-			}
 
 			return;
 
+			Entity entity = null;
 			var newModel = entity.Get<ModelComponent>();
 
 			//if (_selectedModel != newModel) _selectedModel?.Materials

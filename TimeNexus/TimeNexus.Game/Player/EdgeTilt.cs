@@ -1,4 +1,5 @@
-﻿using SiliconStudio.Core.Collections;
+﻿using SiliconStudio.Core;
+using SiliconStudio.Core.Collections;
 using SiliconStudio.Core.Diagnostics;
 using SiliconStudio.Core.Mathematics;
 using SiliconStudio.Xenko.Engine;
@@ -10,7 +11,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TimeNexus.Debug;
 
 namespace TimeNexus.Player
 {
@@ -24,11 +24,13 @@ namespace TimeNexus.Player
 		const float Radius = 1.0f;
 		const int RayCount = 16;
 
+		[DataMemberIgnore]
 		Vector3[] _offsets = new Vector3[RayCount];
 
+		[DataMemberIgnore]
 		Simulation _simulation;
 
-
+		[DataMemberIgnore]
 		ColliderShape _collider;
 
 		public override void Start()

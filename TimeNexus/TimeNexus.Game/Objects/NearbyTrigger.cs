@@ -8,11 +8,14 @@ using System.Threading.Tasks;
 
 namespace TimeNexus.Objects
 {
-	public abstract class ObjectInteraction : AsyncScript
+	public class NearbyTrigger : AsyncScript, IPlayerTrigger
 	{
 		public float InteractionRadius { get; set; } = 1.0f;
 
-		public sealed override async Task Execute()
+		public event TriggerEventArgs OnTrigger;
+		public event TriggerEventArgs OnTriggerEnd;
+
+		public override async Task Execute()
 		{
 			//Make sure that it's possible to instantly swap this out with a more efficient variant!
 			//(Actually, I have no clue how efficient it is to have a bazillion colliders)
@@ -21,6 +24,7 @@ namespace TimeNexus.Objects
 				IsTrigger = true,
 				ProcessCollisions = true,
 				CanCollideWith = CollisionFilterGroupFlags.CharacterFilter,
+				CollisionGroup = CollisionFilterGroups.SensorTrigger,
 				ColliderShape = new SphereColliderShape(false, InteractionRadius),
 				IsKinematic = true
 			};
@@ -32,15 +36,12 @@ namespace TimeNexus.Objects
 				var otherCollider = (trigger == collision.ColliderA) ? collision.ColliderB : collision.ColliderA;
 				if (otherCollider.Entity.Get<CharacterComponent>() != null)
 				{
-					StartInteraction();
+					OnTrigger?.Invoke(Entity, otherCollider.Entity);
 #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
-					collision.Ended().ContinueWith((_) => EndInteraction());
+					collision.Ended().ContinueWith((_) => OnTriggerEnd?.Invoke(Entity, otherCollider.Entity));
 #pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
 				}
 			}
 		}
-		public abstract void StartInteraction();
-
-		public abstract void EndInteraction();
 	}
 }
