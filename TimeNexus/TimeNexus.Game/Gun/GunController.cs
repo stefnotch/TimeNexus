@@ -64,9 +64,6 @@ namespace TimeNexus.Gun
 
 		public override void Update()
 		{
-
-
-
 			return;
 
 			Entity entity = null;

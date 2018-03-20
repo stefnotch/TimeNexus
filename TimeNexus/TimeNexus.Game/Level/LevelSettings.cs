@@ -28,6 +28,7 @@ namespace TimeNexus.Level
 			Entity?.Scene.Tags.Add(levelSettingsPropertyKey, this);
 		}
 
+		//TODO: Turn this into an extension method
 		/// <summary>
 		/// Gets the level settings 
 		/// Tip: You can use "this.Entity.Scene" to get the current scene

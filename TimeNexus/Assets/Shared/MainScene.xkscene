@@ -249,7 +249,7 @@ Hierarchy:
                 Components:
                     3613ee3905bd433cafae211e87e96c38: !TransformComponent
                         Id: b42dec05-778b-4ad1-9e40-5efec2865acf
-                        Position: {X: 0.0, Y: 1.51990306, Z: 2.00858068}
+                        Position: {X: 0.9483988, Y: 0.628576, Z: 2.64315}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
@@ -257,6 +257,10 @@ Hierarchy:
                         Id: d6adaff5-bb80-4cc6-9031-cf57421500fe
                         Model: 51c882fb-9ab5-46df-9544-209fc1be5b29:MaterialModel
                         Materials: {}
+                    76c83cd4ddd96d1758a7fff8260e5ace: !TimeNexus.Objects.Door,TimeNexus.Game
+                        Id: bf65c96c-f92d-438c-a3bb-e4bf93a7c5e0
+                        DoorUI: a756b6bf-4d37-4b68-87a4-555067def877:PressAKey
+                        Offset: {X: 0.0, Y: 0.0, Z: 0.0}
         -   Entity:
                 Id: ea6e4518-8a3f-4def-8322-4c7979b67d9e
                 Name: Sphere
