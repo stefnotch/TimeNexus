@@ -132,6 +132,19 @@ Hierarchy:
                         Id: 441de3f9-e3bf-4bc5-8b8b-e780a76f9745
                         Time: {}
         -   Entity:
+                Id: 7381b3f8-2197-4476-9331-a9467dfbbca2
+                Name: Pause
+                Components:
+                    b3ffecac67c9bf4b677e20f9d42e3a83: !TransformComponent
+                        Id: d1d76f19-7ea8-4eb5-a871-2d96cf1bd4c2
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    b4471ab3e7053d401bbddaf0c5728f0e: !ThirdPersonPlatformer.Pause,TimeNexus.Game
+                        Id: 2237e1d8-4af2-4132-a968-6f72de978a75
+                        PauseMenu: ref!! f94978cd-4dfd-40e1-a7a7-ddf944e6ef3c
+        -   Entity:
                 Id: 73a448ca-1c69-4d88-a2bf-e4b8245acba8
                 Name: Crosshair
                 Components:
@@ -310,6 +323,8 @@ Hierarchy:
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
                             3ce204f614b90b853d691f40035f8b9f: ref!! 770491b1-c8eb-40a4-a062-884e9c688cf1
+                            a3d84e93a3e09e596d8e1e84e8dcfe80: ref!! d1d76f19-7ea8-4eb5-a871-2d96cf1bd4c2
+                            f5de2efe5eb428c1c2510fdb9a0027a7: ref!! af1d868d-f6b4-4021-b4df-6e50f14f1aa3
                     cb90ecab4988001f3e1679c16f8f157d: !CharacterComponent
                         Id: 77ac123c-55bb-48ac-874d-f7f02891df98
                         CanSleep: false
@@ -345,6 +360,21 @@ Hierarchy:
                         RotationSpeed: 2.355
                     a212cb9038af0c97cc8cc0e11f7243b1: !TimeNexus.Player.EdgeTilt,TimeNexus.Game
                         Id: 5005167e-f7fb-4712-8eef-fa2a28ed1afb
+        -   Entity:
+                Id: f6445f51-c391-4e83-a002-44105bb2813a
+                Name: PauseMenu
+                Components:
+                    ab4c8ab5b85638150703651dcbda2377: !TransformComponent
+                        Id: af1d868d-f6b4-4021-b4df-6e50f14f1aa3
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    1904f92c1b18a71223cfaf8cd829ab9d: !UIComponent
+                        Id: f94978cd-4dfd-40e1-a7a7-ddf944e6ef3c
+                        Page: 781dbda1-1f82-47a6-8b1d-abaffbebb662:PauseMainPage
+                        Resolution: {X: 1280.0, Y: 720.0, Z: 1000.0}
+                        Size: {X: 1.0, Y: 1.0, Z: 1.0}
         -   Entity:
                 Id: f658b184-5e73-4699-9eba-0194ca1386a7
                 Name: GunBeam

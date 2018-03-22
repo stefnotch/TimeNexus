@@ -1,0 +1,144 @@
+!UIPageAsset
+Id: 781dbda1-1f82-47a6-8b1d-abaffbebb662
+SerializedVersion: {Xenko: 2.1.0.1}
+Tags: []
+Design:
+    Resolution: {X: 1280.0, Y: 720.0, Z: 1000.0}
+Hierarchy:
+    RootParts:
+        - !Grid ref!! 2feb3572-ef48-4783-9f13-6eab7febfaa1
+    Parts:
+        -   UIElement: !Button
+                Id: 1da0b73a-70bd-4bf4-83ed-970fbb4dba72
+                DependencyProperties:
+                    f8aced87b7cb9ba7372c10b4972c3743~GridBase.RowPropertyKey: 1
+                    63bb07cbfedcae359e2b649499a9bfad~GridBase.RowSpanPropertyKey: 1
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                DrawLayerNumber: 2
+                CanBeHitByUser: true
+                HorizontalAlignment: Center
+                VerticalAlignment: Center
+                Margin: {Top: 500.0}
+                MaximumWidth: 3.40282347E+38
+                MaximumHeight: 3.40282347E+38
+                MaximumDepth: 3.40282347E+38
+                Padding: {Left: 10.0, Top: 5.0, Right: 10.0, Bottom: 7.0}
+                Content: !TextBlock ref!! 73235838-ff85-4a47-9b99-84cdde2c5ebc
+                PressedImage: !SpriteFromSheet
+                    Sheet: 1be3340c-b797-4557-bff7-d9be92dfdb42:XenkoUIDesigns
+                    CurrentFrame: 2
+                NotPressedImage: !SpriteFromSheet
+                    Sheet: 1be3340c-b797-4557-bff7-d9be92dfdb42:XenkoUIDesigns
+                    CurrentFrame: 1
+                MouseOverImage: !SpriteFromSheet
+                    Sheet: 1be3340c-b797-4557-bff7-d9be92dfdb42:XenkoUIDesigns
+        -   UIElement: !TextBlock
+                Id: 25c354c2-af46-4904-b7c7-72ff44775634
+                DependencyProperties: {}
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                Width: 596.4053
+                Height: 226.5625
+                VerticalAlignment: Top
+                Margin: {Left: 339.0, Right: 344.594727}
+                MaximumWidth: 3.40282347E+38
+                MaximumHeight: 3.40282347E+38
+                MaximumDepth: 3.40282347E+38
+                Text: Pause
+                Font: c90f3988-0544-4cbe-993f-13af7d9c23c6:XenkoDefaultFont
+                TextSize: 200.0
+                TextColor: {R: 255, G: 0, B: 0, A: 255}
+                TextAlignment: Center
+        -   UIElement: !Button
+                Id: 2bbe4c28-0d6d-414e-aa6e-d6c5ce3edd9e
+                DependencyProperties:
+                    f8aced87b7cb9ba7372c10b4972c3743~GridBase.RowPropertyKey: 1
+                    63bb07cbfedcae359e2b649499a9bfad~GridBase.RowSpanPropertyKey: 1
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                DrawLayerNumber: 2
+                CanBeHitByUser: true
+                HorizontalAlignment: Center
+                VerticalAlignment: Center
+                Margin: {Bottom: 100.0}
+                MaximumWidth: 3.40282347E+38
+                MaximumHeight: 3.40282347E+38
+                MaximumDepth: 3.40282347E+38
+                Padding: {Left: 10.0, Top: 5.0, Right: 10.0, Bottom: 7.0}
+                Content: !TextBlock ref!! 98c24ab2-b70c-4802-918a-8fd263031fd4
+                PressedImage: !SpriteFromSheet
+                    Sheet: 1be3340c-b797-4557-bff7-d9be92dfdb42:XenkoUIDesigns
+                    CurrentFrame: 2
+                NotPressedImage: !SpriteFromSheet
+                    Sheet: 1be3340c-b797-4557-bff7-d9be92dfdb42:XenkoUIDesigns
+                    CurrentFrame: 1
+                MouseOverImage: !SpriteFromSheet
+                    Sheet: 1be3340c-b797-4557-bff7-d9be92dfdb42:XenkoUIDesigns
+        -   UIElement: !Button
+                Id: 2ee545a2-cf6e-447e-a687-967b74124e0c
+                DependencyProperties:
+                    f8aced87b7cb9ba7372c10b4972c3743~GridBase.RowPropertyKey: 1
+                    63bb07cbfedcae359e2b649499a9bfad~GridBase.RowSpanPropertyKey: 1
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                DrawLayerNumber: 2
+                CanBeHitByUser: true
+                HorizontalAlignment: Center
+                VerticalAlignment: Center
+                Margin: {Top: 200.0}
+                MaximumWidth: 3.40282347E+38
+                MaximumHeight: 3.40282347E+38
+                MaximumDepth: 3.40282347E+38
+                Padding: {Left: 10.0, Top: 5.0, Right: 10.0, Bottom: 7.0}
+                Content: !TextBlock ref!! 96ca2b44-23af-4aa8-8971-dbbae7465d0a
+                PressedImage: !SpriteFromSheet
+                    Sheet: 1be3340c-b797-4557-bff7-d9be92dfdb42:XenkoUIDesigns
+                    CurrentFrame: 2
+                NotPressedImage: !SpriteFromSheet
+                    Sheet: 1be3340c-b797-4557-bff7-d9be92dfdb42:XenkoUIDesigns
+                    CurrentFrame: 1
+                MouseOverImage: !SpriteFromSheet
+                    Sheet: 1be3340c-b797-4557-bff7-d9be92dfdb42:XenkoUIDesigns
+        -   UIElement: !Grid
+                Id: 2feb3572-ef48-4783-9f13-6eab7febfaa1
+                DependencyProperties: {}
+                BackgroundColor: {R: 125, G: 128, B: 132, A: 170}
+                Margin: {}
+                Children:
+                    961237d17a2cd5cfeb687c61ae9c9788: !TextBlock ref!! 25c354c2-af46-4904-b7c7-72ff44775634
+                    54840485cd4213b5de1e902691baaf04: !Button ref!! 2bbe4c28-0d6d-414e-aa6e-d6c5ce3edd9e
+                    56a4e13c40d171bb11ead0a28d0c9370: !Button ref!! 2ee545a2-cf6e-447e-a687-967b74124e0c
+                    3b21a829ba40c5d1e886a8d5e9889754: !Button ref!! 1da0b73a-70bd-4bf4-83ed-970fbb4dba72
+                RowDefinitions: {}
+                ColumnDefinitions: {}
+                LayerDefinitions: {}
+        -   UIElement: !TextBlock
+                Id: 73235838-ff85-4a47-9b99-84cdde2c5ebc
+                DependencyProperties: {}
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                HorizontalAlignment: Center
+                VerticalAlignment: Center
+                Margin: {}
+                Text: Exit
+                Font: c90f3988-0544-4cbe-993f-13af7d9c23c6:XenkoDefaultFont
+                TextSize: 100.0
+                TextColor: {R: 240, G: 240, B: 240, A: 255}
+        -   UIElement: !TextBlock
+                Id: 96ca2b44-23af-4aa8-8971-dbbae7465d0a
+                DependencyProperties: {}
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                HorizontalAlignment: Center
+                VerticalAlignment: Center
+                Margin: {}
+                Text: Options
+                Font: c90f3988-0544-4cbe-993f-13af7d9c23c6:XenkoDefaultFont
+                TextSize: 100.0
+                TextColor: {R: 240, G: 240, B: 240, A: 255}
+        -   UIElement: !TextBlock
+                Id: 98c24ab2-b70c-4802-918a-8fd263031fd4
+                DependencyProperties: {}
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                HorizontalAlignment: Center
+                VerticalAlignment: Center
+                Margin: {}
+                Text: Resume
+                Font: c90f3988-0544-4cbe-993f-13af7d9c23c6:XenkoDefaultFont
+                TextSize: 100.0
+                TextColor: {R: 240, G: 240, B: 240, A: 255}

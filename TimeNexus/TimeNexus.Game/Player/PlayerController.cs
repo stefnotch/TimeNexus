@@ -5,10 +5,11 @@ using SiliconStudio.Xenko.Input;
 using SiliconStudio.Xenko.Physics;
 using System;
 using System.Linq;
+using ThirdPersonPlatformer;
 
 namespace TimeNexus.Player
 {
-	public class PlayerController : SyncScript
+	public class PlayerController : SyncScript, IPausable
 	{
 		private static readonly Vector3 UpVector = new Vector3(0, 1, 0);
 		private static readonly Vector3 ForwardVector = new Vector3(0, 0, -1);
@@ -69,14 +70,15 @@ namespace TimeNexus.Player
 
 		private float yaw, desiredYaw;
 		private float pitch, desiredPitch;
+        private bool _isPaused;
 
-		/// <summary>
-		/// Gets or sets the rate at which orientation is adapted to a target value.
-		/// </summary>
-		/// <value>
-		/// The adaptation rate.
-		/// </value>
-		public float RotationAdaptationSpeed { get; set; } = 5.0f;
+        /// <summary>
+        /// Gets or sets the rate at which orientation is adapted to a target value.
+        /// </summary>
+        /// <value>
+        /// The adaptation rate.
+        /// </value>
+        public float RotationAdaptationSpeed { get; set; } = 5.0f;
 
 		/// <summary>
 		/// Gets or sets the rotation speed of the camera (in radian/screen units)
@@ -85,6 +87,9 @@ namespace TimeNexus.Player
 
 		public override void Update()
 		{
+            if (this._isPaused)
+                return;
+
 			var rotationDelta = Input.MouseDelta;
 			rotationDelta.Y = -rotationDelta.Y;
 			// Compute translation speed according to framerate and modifiers
@@ -159,12 +164,11 @@ namespace TimeNexus.Player
 			{
 				character.Jump();
 			}
-
-			if (Input.IsKeyReleased(Keys.Escape))
-			{
-				var game = (Game)Game;
-				game.Exit();
-			}
 		}
-	}
+
+        public void Pause(bool val)
+        {
+            this._isPaused = val;
+        }
+    }
 }
