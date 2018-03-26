@@ -6,6 +6,8 @@ using SiliconStudio.Xenko.Physics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reactive.Subjects;
+using System.Reactive.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,22 +20,53 @@ namespace TimeNexus.Player
 	/// </summary>
 	public class PlayerRaycaster : SyncScript
 	{
+		//Testing out some fancy REACTIVE stuff! OwO
+
+		//I suppose making this static is fine...
+		private static Subject<HitResult> _onRaycast = new Subject<HitResult>();
+		private static Subject<HitResult> _onRaycastStart = new Subject<HitResult>();
+		private static Subject<HitResult> _onRaycastEnd = new Subject<HitResult>();
+
 		[DataMemberIgnore]
 		private Simulation _simulation;
 
+		[DataMemberIgnore]
+		private HitResult _previousRay;
+
+		/// <summary>
+		/// Subscribe to this to get notified of every raycast
+		/// </summary>
+		public static IObservable<HitResult> OnRaycast
+		{
+			get => _onRaycast;
+		}
+
+		public static IObservable<IObservable<HitResult>> OnRaycastHit
+		{
+			get => _onRaycast
+				.Where(ray => ray.Succeeded)
+				.GroupBy(ray => ray.Collider.Entity)
+				.AsObservable();
+		}
+
+		public static IObservable<IObservable<HitResult>> OnRaycastStart
+		{
+			get => _onRaycastStart
+				//.Where(ray => ray.Succeeded)
+				.GroupBy(ray => ray.Collider.Entity)
+				.AsObservable();
+		}
+
+		public static IObservable<IObservable<HitResult>> OnRaycastEnd
+		{
+			get => _onRaycastEnd
+				//.Where(ray => ray.Succeeded)
+				.GroupBy(ray => ray.Collider.Entity)
+				.AsObservable();
+		}
+
+
 		public CameraComponent Camera { get; set; }
-
-		//I suppose making this static is fine...
-		/// <summary>
-		/// Every time a player-raycast happens, this event is fired
-		/// </summary>
-		public static event PlayerRaycastEventArgs OnRaycast;
-
-		/// <summary>
-		/// If the raycast actually hit something, this event is fired as well
-		/// </summary>
-		public static event PlayerRaycastEventArgs OnRaycastHit;
-
 
 		public override void Start()
 		{
@@ -64,13 +97,28 @@ namespace TimeNexus.Player
 
 		public override void Update()
 		{
-			var result = Raycast(Camera);
+			var ray = Raycast(Camera);
+			var currentEntity = ray.Collider.Entity;
+			var previousEntity = _previousRay.Collider.Entity;
 
-			OnRaycast?.Invoke(Entity, result);
-			if (result.Succeeded && result.Collider.Entity != null)
+			//If the entity has changed
+			//One raycast started, one raycast stopped
+			if (currentEntity != previousEntity)
 			{
-				OnRaycastHit?.Invoke(Entity, result);
+				if (currentEntity != null) _onRaycastStart.OnNext(ray);
+				if (previousEntity != null) _onRaycastEnd.OnNext(_previousRay);
+
+				_previousRay = ray;
 			}
+
+			_onRaycast.OnNext(ray);
+		}
+
+		public override void Cancel()
+		{
+			_onRaycast.Dispose();
+			_onRaycastStart.Dispose();
+			_onRaycastEnd.Dispose();
 		}
 	}
 }
