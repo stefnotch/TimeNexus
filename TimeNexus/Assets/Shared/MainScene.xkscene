@@ -260,7 +260,22 @@ Hierarchy:
                     76c83cd4ddd96d1758a7fff8260e5ace: !TimeNexus.Objects.Door,TimeNexus.Game
                         Id: bf65c96c-f92d-438c-a3bb-e4bf93a7c5e0
                         DoorUI: a756b6bf-4d37-4b68-87a4-555067def877:PressAKey
-                        Offset: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Offset: {X: 0.0, Y: 0.5, Z: 0.0}
+                    e1108841096c05dad0e07e73c63f829c: !StaticColliderComponent
+                        Id: b5a8b3ec-495a-4dd3-8715-3acbc946728d
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: false
+                        ColliderShapes:
+                            c9b23c5d084bc270aa3bd248b73e2374: !CapsuleColliderShapeDesc
+                                Length: 0.6
+                                Radius: 0.5
+                                LocalOffset: {X: 0.0, Y: 0.5, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
         -   Entity:
                 Id: ea6e4518-8a3f-4def-8322-4c7979b67d9e
                 Name: Sphere

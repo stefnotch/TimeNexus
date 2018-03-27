@@ -20,18 +20,9 @@ namespace TimeNexus.Player
 	/// </summary>
 	public class PlayerRaycaster : SyncScript
 	{
-		//Testing out some fancy REACTIVE stuff! OwO
-
-		//I suppose making this static is fine...
 		private static Subject<HitResult> _onRaycast = new Subject<HitResult>();
-		private static Subject<HitResult> _onRaycastStart = new Subject<HitResult>();
-		private static Subject<HitResult> _onRaycastEnd = new Subject<HitResult>();
 
-		[DataMemberIgnore]
 		private Simulation _simulation;
-
-		[DataMemberIgnore]
-		private HitResult _previousRay;
 
 		/// <summary>
 		/// Subscribe to this to get notified of every raycast
@@ -40,32 +31,6 @@ namespace TimeNexus.Player
 		{
 			get => _onRaycast;
 		}
-
-
-		public static IObservable<IGroupedObservable<Entity, HitResult>> OnRaycastStart
-		{
-			get => _onRaycastStart
-				//.Where(ray => ray.Succeeded)
-				.GroupBy(ray => ray.Collider.Entity)
-				.AsObservable();
-		}
-
-		public static IObservable<IGroupedObservable<Entity, HitResult>> OnRaycastStay
-		{
-			get => _onRaycast
-				.Where(ray => ray.Succeeded)
-				.GroupBy(ray => ray.Collider.Entity)
-				.AsObservable();
-		}
-
-		public static IObservable<IGroupedObservable<Entity, HitResult>> OnRaycastEnd
-		{
-			get => _onRaycastEnd
-				//.Where(ray => ray.Succeeded)
-				.GroupBy(ray => ray.Collider.Entity)
-				.AsObservable();
-		}
-
 
 		public CameraComponent Camera { get; set; }
 
@@ -99,27 +64,12 @@ namespace TimeNexus.Player
 		public override void Update()
 		{
 			var ray = Raycast(Camera);
-			var currentEntity = ray.Collider.Entity;
-			var previousEntity = _previousRay.Collider.Entity;
-
-			//If the entity has changed
-			//One raycast started, one raycast stopped
-			if (currentEntity != previousEntity)
-			{
-				if (currentEntity != null) _onRaycastStart.OnNext(ray);
-				if (previousEntity != null) _onRaycastEnd.OnNext(_previousRay);
-
-				_previousRay = ray;
-			}
-
 			_onRaycast.OnNext(ray);
 		}
 
 		public override void Cancel()
 		{
 			_onRaycast.Dispose();
-			_onRaycastStart.Dispose();
-			_onRaycastEnd.Dispose();
 		}
 	}
 }

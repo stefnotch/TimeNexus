@@ -343,3 +343,5 @@ routerlog.txt
 !Others/NativeLinking/NativeLibs/**/*
 
 TimeNexus/Cache/
+
+connectionrouter\.lock

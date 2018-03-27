@@ -10,6 +10,8 @@ namespace TimeNexus.Player
 {
 	public class PlayerController : SyncScript
 	{
+		public static Entity Player { get; private set; }
+
 		private static readonly Vector3 UpVector = new Vector3(0, 1, 0);
 		private static readonly Vector3 ForwardVector = new Vector3(0, 0, -1);
 
@@ -65,6 +67,9 @@ namespace TimeNexus.Player
 			}
 
 			edgeTilter = this.Entity.Get<EdgeTilt>();
+
+			if (Player != null) Log.Error("Multiple player entities?? OwO");
+			Player = this.Entity;
 		}
 
 		private float yaw, desiredYaw;

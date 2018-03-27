@@ -1,66 +1,44 @@
-﻿using SiliconStudio.Core;
-using SiliconStudio.Core.Mathematics;
-using SiliconStudio.Xenko.Engine;
+﻿using SiliconStudio.Xenko.Engine;
 using SiliconStudio.Xenko.Physics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reactive.Linq;
+using System.Reactive.Subjects;
 using System.Text;
 using System.Threading.Tasks;
 using TimeNexus.Player;
 
 namespace TimeNexus.Objects
 {
-	public class LookatTrigger : StartupScript
+	public partial class LookatTrigger : ScriptComponent
 	{
-		private Entity _previousHit;
+		private static RaycastDistributor _raycastDistributor = new RaycastDistributor(PlayerRaycaster.OnRaycast);
 
-		public override void Start()
+		private readonly Subject<HitResult> _onLookatStart = new Subject<HitResult>();
+		private readonly Subject<HitResult> _onLookatStay = new Subject<HitResult>();
+		private readonly Subject<HitResult> _onLookatEnd = new Subject<HitResult>();
+
+		public IObservable<HitResult> OnLookatStart
 		{
-			/*var boundingSphere = (this.Entity.Get<ModelComponent>()?.Model?.BoundingSphere).GetValueOrDefault(new BoundingSphere(Vector3.Zero, 0.01f));
-
-			var trigger = new RigidbodyComponent()
-			{
-				IsTrigger = true,
-				ProcessCollisions = true,
-				//CanCollideWith = CollisionFilterGroupFlags.CharacterFilter,
-				//CollisionGroup = CollisionFilterGroups.SensorTrigger,
-				IsKinematic = true
-			};
-			trigger.ColliderShapes.Add(new SphereColliderShapeDesc() { Radius = boundingSphere.Radius * 0.9f, LocalOffset = boundingSphere.Center });
-			Entity.Add(trigger);*/
-
-
-			//What if I have an entity that I can move through? (Trigger)
-			//I still want to be able to see the trigger in the game studio!
-
-			//What if the entity doesn't even have a collider? Auto-generate? Game studio...?
-			var trigger = this.Entity.Get<PhysicsComponent>();
-
-			PlayerRaycaster.OnRaycast += (player, hitResult) =>
-			{
-				var hit = hitResult.Collider?.Entity;
-
-				//if (Vector3.Distance(player.Transform.Position, this.Entity.Transform.Position) > InteractionRadius) hit = null;
-				if (hit == _previousHit) return;
-				else _previousHit = hit;
-
-				//The hit entity has changed:
-				if (hit == this.Entity)
-				{
-					OnTrigger?.Invoke(this.Entity, player);
-				}
-				else
-				{
-					OnTriggerEnd?.Invoke(this.Entity, player);
-				}
-			};
+			get => _onLookatStart;
 		}
 
-		public async Task<RaycastRay> OnRaycast()
+		public IObservable<HitResult> OnLookatStay
 		{
-
+			get => _onLookatStay;
 		}
 
+		public IObservable<HitResult> OnLookatEnd
+		{
+			get => _onLookatEnd;
+		}
+
+		public override void Cancel()
+		{
+			_onLookatStart.OnCompleted();
+			_onLookatStay.OnCompleted();
+			_onLookatEnd.OnCompleted();
+		}
 	}
 }

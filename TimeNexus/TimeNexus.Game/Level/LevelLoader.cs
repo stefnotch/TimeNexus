@@ -17,14 +17,13 @@ namespace TimeNexus.Level
 		private Scene _corridor;
 		private Scene _nextLevel;
 
-		private NearbyTrigger _nearbyTrigger;
+		public NearbyTrigger NearbyTrigger { get; set; } = new NearbyTrigger();
 
 		public override void Start()
 		{
-			_nearbyTrigger = this.Entity.GetOrCreate<NearbyTrigger>();
-			_nearbyTrigger.InteractionRadius = 2.0f;
-			_nearbyTrigger.OnTrigger += StartLoading;
-			//_nearbyTrigger.OnTriggerEnd += HMMM...;
+			this.Entity.Add(NearbyTrigger);
+
+			//NearbyTrigger.OnTriggerEnter += StartLoading;
 		}
 
 		public void StartLoading(Entity triggerEntity, Entity other)

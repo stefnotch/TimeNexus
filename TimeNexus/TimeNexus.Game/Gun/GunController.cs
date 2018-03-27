@@ -25,8 +25,6 @@ namespace TimeNexus.Gun
 {
 	public class GunController : SyncScript
 	{
-
-
 		[CanBeNull]
 		public GunBeam GunBeam { get; set; }
 
@@ -39,9 +37,15 @@ namespace TimeNexus.Gun
 		{
 			effectRenderPass = effectMaterial?.Passes?.First();
 
-			PlayerRaycaster.OnRaycastHit += (player, hitResult) =>
+			this.DisposeLater(
+			PlayerRaycaster.OnRaycast.Subscribe(hitResult =>
 			{
-				var entity = hitResult.Collider.Entity;
+				var entity = hitResult.Collider?.Entity;
+				if(entity == null)
+				{
+					GunBeam?.UpdateBeam(false);
+					return;
+				}
 
 				if (Input.MouseWheelDelta != 0)
 				{
@@ -57,7 +61,7 @@ namespace TimeNexus.Gun
 				{
 					GunBeam?.UpdateBeam(false);
 				}
-			};
+			}));
 		}
 
 
