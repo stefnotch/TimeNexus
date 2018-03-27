@@ -41,15 +41,8 @@ namespace TimeNexus.Player
 			get => _onRaycast;
 		}
 
-		public static IObservable<IObservable<HitResult>> OnRaycastHit
-		{
-			get => _onRaycast
-				.Where(ray => ray.Succeeded)
-				.GroupBy(ray => ray.Collider.Entity)
-				.AsObservable();
-		}
 
-		public static IObservable<IObservable<HitResult>> OnRaycastStart
+		public static IObservable<IGroupedObservable<Entity, HitResult>> OnRaycastStart
 		{
 			get => _onRaycastStart
 				//.Where(ray => ray.Succeeded)
@@ -57,7 +50,15 @@ namespace TimeNexus.Player
 				.AsObservable();
 		}
 
-		public static IObservable<IObservable<HitResult>> OnRaycastEnd
+		public static IObservable<IGroupedObservable<Entity, HitResult>> OnRaycastStay
+		{
+			get => _onRaycast
+				.Where(ray => ray.Succeeded)
+				.GroupBy(ray => ray.Collider.Entity)
+				.AsObservable();
+		}
+
+		public static IObservable<IGroupedObservable<Entity, HitResult>> OnRaycastEnd
 		{
 			get => _onRaycastEnd
 				//.Where(ray => ray.Succeeded)
