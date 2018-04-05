@@ -20,6 +20,7 @@ namespace TimeNexus.Player
 	/// </summary>
 	public class PlayerRaycaster : SyncScript
 	{
+		[DataMemberIgnore]
 		private static Subject<HitResult> _onRaycast = new Subject<HitResult>();
 
 		private Simulation _simulation;
@@ -27,6 +28,7 @@ namespace TimeNexus.Player
 		/// <summary>
 		/// Subscribe to this to get notified of every raycast
 		/// </summary>
+		[DataMemberIgnore]
 		public static IObservable<HitResult> OnRaycast
 		{
 			get => _onRaycast;

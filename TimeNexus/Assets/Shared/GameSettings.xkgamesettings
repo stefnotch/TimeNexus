@@ -22,14 +22,7 @@ Defaults:
             MaxEdgeError: 1.3
             DetailSamplingDistance: 6.0
             MaxDetailSamplingError: 1.0
-        Groups:
-            -   Id: 6e228c8c-d9d4-45cc-8cdd-48436176e5eb
-                Name: New group
-                AgentSettings:
-                    Height: 1.0
-                    MaxClimb: 0.25
-                    MaxSlope: {Radians: 0.7853982}
-                    Radius: 0.5
+        Groups: []
     - !SiliconStudio.Xenko.Physics.PhysicsSettings,SiliconStudio.Xenko.Physics
         Flags: None
         MaxSubSteps: 1

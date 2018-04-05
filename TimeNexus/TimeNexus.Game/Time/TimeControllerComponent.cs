@@ -7,7 +7,7 @@ using SiliconStudio.Core.Mathematics;
 using SiliconStudio.Xenko.Input;
 using SiliconStudio.Xenko.Engine;
 using SiliconStudio.Core;
-using TimeNexus.Level;
+using TimeNexus.Levels;
 
 namespace TimeNexus.Time
 {

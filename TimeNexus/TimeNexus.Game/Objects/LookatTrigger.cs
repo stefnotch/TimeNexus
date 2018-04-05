@@ -1,4 +1,5 @@
-﻿using SiliconStudio.Xenko.Engine;
+﻿using SiliconStudio.Core;
+using SiliconStudio.Xenko.Engine;
 using SiliconStudio.Xenko.Physics;
 using System;
 using System.Collections.Generic;
@@ -14,21 +15,26 @@ namespace TimeNexus.Objects
 	public partial class LookatTrigger : ScriptComponent
 	{
 		private static RaycastDistributor _raycastDistributor = new RaycastDistributor(PlayerRaycaster.OnRaycast);
-
+		[DataMemberIgnore]
 		private readonly Subject<HitResult> _onLookatStart = new Subject<HitResult>();
+		[DataMemberIgnore]
 		private readonly Subject<HitResult> _onLookatStay = new Subject<HitResult>();
+		[DataMemberIgnore]
 		private readonly Subject<HitResult> _onLookatEnd = new Subject<HitResult>();
 
+		[DataMemberIgnore]
 		public IObservable<HitResult> OnLookatStart
 		{
 			get => _onLookatStart;
 		}
 
+		[DataMemberIgnore]
 		public IObservable<HitResult> OnLookatStay
 		{
 			get => _onLookatStay;
 		}
 
+		[DataMemberIgnore]
 		public IObservable<HitResult> OnLookatEnd
 		{
 			get => _onLookatEnd;

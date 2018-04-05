@@ -37,7 +37,6 @@ namespace TimeNexus.Gun
 		{
 			effectRenderPass = effectMaterial?.Passes?.First();
 
-			this.DisposeLater(
 			PlayerRaycaster.OnRaycast.Subscribe(hitResult =>
 			{
 				var entity = hitResult.Collider?.Entity;
@@ -61,7 +60,8 @@ namespace TimeNexus.Gun
 				{
 					GunBeam?.UpdateBeam(false);
 				}
-			}));
+			})
+			.DisposeLater(this);
 		}
 
 

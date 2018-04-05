@@ -8,7 +8,7 @@ using SiliconStudio.Xenko.Input;
 using SiliconStudio.Xenko.Engine;
 using TimeNexus.Time;
 
-namespace TimeNexus.Level
+namespace TimeNexus.Levels
 {
 
 	/// <summary>

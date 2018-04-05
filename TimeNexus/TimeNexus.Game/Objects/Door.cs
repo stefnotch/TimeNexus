@@ -8,17 +8,31 @@ using System.Threading.Tasks;
 using TimeNexus.ExtensionMethods;
 using TimeNexus.Player;
 using System.Reactive.Linq;
+using SiliconStudio.Xenko.Input;
+using TimeNexus.Input;
+using SiliconStudio.Assets;
+using System.Reflection;
 
 namespace TimeNexus.Objects
 {
 	public class Door : StartupScript
 	{
+		private readonly float MinDistance = 5f;
+
+		private Entity _UIEntity;
+		private bool _open = false;
+
 		public UIPage DoorUI { get; set; }
 		public Vector3 Offset { get; set; }
 
-		private Entity _UIEntity;
-
-		private readonly float MinDistance = 5f;
+		public bool Open {
+			get => _open;
+			set
+			{
+				//TODO: Open the door
+				_open = value;
+			}
+		}
 
 		public override void Start()
 		{
@@ -41,6 +55,66 @@ namespace TimeNexus.Objects
 			this.Entity.AddChild(_UIEntity);
 
 
+			//Console.WriteLine(Content.IsLoaded("MainScene"));
+			//var s = SiliconStudio.Assets.AssetCloner.Clone();
+			/*
+			var x = Content.Load<Scene>("MainScene");
+
+
+			var no = Content.GetType().GetTypeInfo().GetDeclaredMethods("DeserializeObject").Where(s => s.GetParameters().First().ParameterType == typeof(string)).First();
+			var test = no
+				//string initialUrl, string newUrl, Type type, object obj, ContentManagerLoaderSettings settings 
+				.Invoke(Content, new object[] { "MainScene", "MainScene", typeof(Scene), null, SiliconStudio.Core.Serialization.Contents.ContentManagerLoaderSettings.Default });
+
+			Scene testScene = (Scene)test;
+			testScene.Offset.X = 10;*/
+
+
+
+
+			//Content.Save("Nope", this.Entity.Scene);
+			//Scene testScene = Content.Load<Scene>("Nope");
+			//testScene.Offset.X = -10;
+
+			//this.Entity.Scene.Children.Add(testScene);
+
+			//Prefab xx = new Prefab();
+			//SiliconStudio.Xenko.Engine.Design.EntityCloner.
+			//MemoryFileProvider
+			//x.
+
+			//Content.Reload(null, "MainScene");
+			//Content.Unload()
+			//var s = Content.Load<Scene>("MainScene");
+			//s.Entities.Remove(s.Entities.First());
+
+
+			//Content.Load<Scene>("MainScene");
+
+			//Kinda works:
+			/*
+			Scene customScene = new Scene();
+			foreach(Entity e in Entity.Scene.Entities)
+			{
+				//e.Scene = null;
+				Entity.Scene.Entities.Remove(e);
+				customScene.Entities.Add(e);
+			}
+
+			
+			//this.Entity.Scene.Entities.Clear();
+			//customScene.Entities.AddRange(entities);
+			Content.Unload("MainScene");
+
+			Scene newScene = Content.Load<Scene>("MainScene");
+			*/
+			Vector3 test = this.Entity.Transform.GetWorldPosition();
+			/*this.Entity.Scene.Offset.X += 10;
+			this.Entity.Scene.Offset.Z -= 0.6f;
+			*/
+
+			
+
 			this.Entity.GetOrCreate<LookatTrigger>()
 				.OnLookatStay
 				.Subscribe(hitResult =>
@@ -48,7 +122,13 @@ namespace TimeNexus.Objects
 					var dist = (hitResult.Point - PlayerController.Player.Transform.GetWorldPosition()).Length();
 					if (dist < MinDistance)
 					{
+						Vector3 test2 = this.Entity.Transform.GetWorldPosition();
+
+						Vector3 testD = test - test2; //{X:-10 Y:0 Z:0.6000001}
+													  //Includes the Scene offset!
 						DisplayUI(true);
+						HandleInput();
+						//Console.WriteLine(this.Entity.Transform.Parent);
 					}
 					else
 					{
@@ -68,6 +148,14 @@ namespace TimeNexus.Objects
 
 			_UIVisible = visible;
 			_UIEntity.Enable<UIComponent>(_UIVisible);
+		}
+
+		private void HandleInput()
+		{
+			if(Input.IsKeyReleased(KeyBindings.Interact))
+			{
+				Open = !Open;
+			}
 		}
 	}
 }

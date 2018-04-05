@@ -33,20 +33,21 @@ namespace TimeNexus.Objects
 
 		[DataMemberIgnore]
 		private readonly Subject<Collision> _onTriggerStart = new Subject<Collision>();
-		//[DataMemberIgnore]
-		//private Subject<Collision> _onTriggerStay;
 		[DataMemberIgnore]
 		private readonly Subject<Collision> _onTriggerEnd = new Subject<Collision>();
 
+		[DataMemberIgnore]
 		public IObservable<Collision> OnTriggerStart { get => _onTriggerStart; }
 		//public IObservable<Collision> OnTriggerStay { get => _onTriggerStay; }
+
+		[DataMemberIgnore]
 		public IObservable<Collision> OnTriggerEnd { get => _onTriggerEnd; }
 
 		public override async Task Execute()
 		{
 			//Make sure that it's possible to instantly swap this out with a more efficient variant!
 			//(Actually, I have no clue how efficient it is to have a bazillion colliders)
-
+			_trigger.ColliderShapes.Add(new SphereColliderShapeDesc() { Radius = 0f });
 			Entity.Add(_trigger);
 
 			// = new SphereColliderShape(false, DefaultInteractionRadius)
