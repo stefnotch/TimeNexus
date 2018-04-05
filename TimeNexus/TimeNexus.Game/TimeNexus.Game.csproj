@@ -187,6 +187,7 @@
     <Compile Include="Level\LevelLoaded.cs" />
     <Compile Include="Level\LevelLoader.cs" />
     <Compile Include="Level\LevelSettings.cs" />
+    <Compile Include="ObjectInteraction.cs" />
     <Compile Include="Player\EdgeTilt.cs" />
     <Compile Include="Time\Era.cs" />
     <Compile Include="Player\PlayerController.cs" />
