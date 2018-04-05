@@ -24,6 +24,9 @@ Profiles:
             -   Id: afe04b3a-4fb6-4d0e-85f7-35a1ad6e3590
                 Location: TimeNexus.Game/TimeNexus.Game.csproj
                 Type: Library
+            -   Id: edf9baa3-8426-4a8f-879a-4de269ec4e25
+                Location: Levels/Levels.csproj
+                Type: Library
     -   Name: Windows
         Platform: Windows
         InheritProfiles: []

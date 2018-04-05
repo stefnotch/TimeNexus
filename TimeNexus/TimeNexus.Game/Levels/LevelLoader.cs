@@ -12,6 +12,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TimeNexus.Levels.Management;
 using TimeNexus.Objects;
 
 namespace TimeNexus.Levels
@@ -30,36 +31,13 @@ namespace TimeNexus.Levels
 
 		/// <summary>
 		/// TODO: The NearbyTrigger should actually show up in the gamestudio!!!
-		/// Also, it doesn't seem to get created?
 		/// </summary>
 		//[Display(category: "Name")]
 		public NearbyTrigger NearbyTrigger { get; set; }
 
 		//[Display(category: "Name")]
-		[NotNull]
+		//[NotNull]
 		public Gateway Gateway { get; set; }
-
-		public Entity e;
-
-		protected virtual void OnAttach()
-		{
-			e = this.Entity;
-			if (NearbyTrigger == null)
-			{
-				NearbyTrigger = new NearbyTrigger();
-				if (this.Entity != null)
-				{
-					this.Entity.Add(NearbyTrigger);
-				}
-			}
-		}
-
-		public LevelLoader()
-		{
-
-
-			var x = typeof(RequireComponentAttribute);
-		}
 
 		public override void Start()
 		{
@@ -115,7 +93,7 @@ namespace TimeNexus.Levels
 
 
 		public List<string> GetAssetUrls(string path)
-		{
+		{ 
 			if (path.Length == 0) throw new ArgumentException("Path may not be an empty string");
 
 			if (!path.EndsWith("/")) path += "/";

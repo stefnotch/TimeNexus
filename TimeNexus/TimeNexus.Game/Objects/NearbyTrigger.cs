@@ -26,7 +26,7 @@ namespace TimeNexus.Objects
 			CollisionGroup = CollisionFilterGroups.SensorTrigger,
 			IsKinematic = true
 		};
-
+		
 		//TODO: Fill this with a sphere by default!
 		//TODO: Check out the Xenko source code (CharacterComponent) --> How do they manage to get the colliders to show up in the game studio!?
 		public TrackingCollection<IInlineColliderShapeDesc> ColliderShapes { get => _trigger.ColliderShapes; }
@@ -45,6 +45,7 @@ namespace TimeNexus.Objects
 
 		public override async Task Execute()
 		{
+			//PhysicsColliderShape.New
 			//Make sure that it's possible to instantly swap this out with a more efficient variant!
 			//(Actually, I have no clue how efficient it is to have a bazillion colliders)
 			_trigger.ColliderShapes.Add(new SphereColliderShapeDesc() { Radius = 0f });

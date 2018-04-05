@@ -155,8 +155,7 @@ Hierarchy:
                         Position: {X: 0.0, Y: 0.0, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children:
-                            2e9148f8096afd99eff2cf68be52e953: ref!! 3a25ebfd-38be-4939-b006-d13d02ad89d8
+                        Children: {}
         -   Entity:
                 Id: 8fce8da4-da36-40f6-a3b8-8e6de95f19ba
                 Name: Directional light
@@ -228,21 +227,6 @@ Hierarchy:
                         Name: null
                         Projection: Perspective
                         Slot: 2ace6a4c-7e1b-491b-9f4a-5e02be4d59b5
-        -   Entity:
-                Id: d9f4e5a1-aaa1-4b7e-a3b8-6c3394f3fc13
-                Name: LevelSettings
-                Components:
-                    b2b9b615b8b2b24b0639c206d57b645a: !TransformComponent
-                        Id: 3a25ebfd-38be-4939-b006-d13d02ad89d8
-                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children: {}
-                    f8e6dde08af5fc42a0e96f5628a5c3e9: !TimeNexus.Level.LevelSettings,TimeNexus.Game
-                        Id: a917d36b-de76-409b-94fb-97819d85e91f
-                        Priority: -100
-                        DefaultTime:
-                            Era: Modern
         -   Entity:
                 Id: ddc8bc75-4f12-4c93-8221-840ce294f552
                 Name: HAI

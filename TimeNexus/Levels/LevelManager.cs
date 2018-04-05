@@ -5,15 +5,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SiliconStudio.Core;
 
-namespace TimeNexus.Levels.LabyrinthLevelManager
+namespace Levels
 {
 	public class LevelManager : ScriptComponent
 	{
 		public const int DefaultDimension = 0;
+
+		[DataMemberIgnore]
 		public static LevelManager Instance { get; set; }
 
-		private readonly List<Level> _levels = new List<Level>();
+		[DataMemberIgnore]
+		public Dictionary<Scene, Level> Levels { get; } = new Dictionary<Scene, Level>();
 
 		public LevelManager()
 		{
@@ -30,7 +34,7 @@ namespace TimeNexus.Levels.LabyrinthLevelManager
 		public async Task<Level> LoadLevel(string url)
 		{
 			var level = new Level(await Content.LoadAsync<Scene>(url));
-			_levels.Add(level);
+			Levels.Add(level.Scene, level);
 			return level;
 		}
 
@@ -44,7 +48,7 @@ namespace TimeNexus.Levels.LabyrinthLevelManager
 			HashSet<int> collidingDimensions = new HashSet<int>();
 
 			var boundingBox = s.BoundingBox;
-			foreach (var scene in _levels)
+			foreach (var scene in Levels.Values)
 			{
 				if (scene == s) continue;
 

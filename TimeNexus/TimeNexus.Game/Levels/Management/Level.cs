@@ -6,12 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TimeNexus.Levels.LabyrinthLevelManager
+namespace TimeNexus.Levels.Management
 {
 	public class Level
 	{
 		private BoundingBox _boundingBox = BoundingBox.Empty;
-		private readonly List<Gateway> _gateways = new List<Gateway>();
+		internal readonly List<Gateway> _gateways = new List<Gateway>();
 
 		/// <summary>
 		/// The scene

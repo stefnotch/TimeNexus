@@ -13,7 +13,9 @@ namespace TimeNexus.Levels
 {
 	public class LevelSettings : StartupScript
 	{
+		[DataMemberIgnore]
 		private static readonly PropertyKey<LevelSettings> levelSettingsPropertyKey = new PropertyKey<LevelSettings>("LevelSettings", typeof(LevelSettings));
+		[DataMemberIgnore]
 		private static readonly LevelSettings defaultLevelSettings = new LevelSettings(); //TODO: Make this readonly
 
 		//Add the level settings here!

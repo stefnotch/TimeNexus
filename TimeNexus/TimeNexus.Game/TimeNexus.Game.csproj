@@ -186,12 +186,15 @@
       <DependentUpon>Shader1.xkfx</DependentUpon>
     </Compile>
     <Compile Include="Input\KeyBindings.cs" />
-    <Compile Include="Levels\Gateway.cs" />
+    <Compile Include="Levels\Management\Gateway.cs" />
+    <Compile Include="Levels\Management\GatewayChooser.cs" />
+    <Compile Include="Levels\Management\LevelChooser.cs" />
     <Compile Include="Levels\LevelLoaded.cs" />
     <Compile Include="Levels\LevelLoader.cs" />
-    <Compile Include="Levels\LabyrinthLevelManager\LevelManager.cs" />
-    <Compile Include="Levels\LabyrinthLevelManager\Level.cs" />
+    <Compile Include="Levels\Management\LevelManager.cs" />
+    <Compile Include="Levels\Management\Level.cs" />
     <Compile Include="Levels\LevelSettings.cs" />
+    <Compile Include="Objects\InteractionPopup.cs" />
     <Compile Include="Objects\Door.cs" />
     <Compile Include="Objects\LookatTrigger.cs" />
     <Compile Include="Objects\NearbyTrigger.cs" />

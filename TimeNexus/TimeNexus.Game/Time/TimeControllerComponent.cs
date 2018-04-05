@@ -19,8 +19,7 @@ namespace TimeNexus.Time
 		private Time _time = new Time();
 
 		private Entity previousEntity;
-
-		[DataMember]
+		
 		public Time Time
 		{
 			get => _time;
