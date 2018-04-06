@@ -377,7 +377,13 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Gateway.cs" />
+    <Compile Include="GatewayChooser.cs" />
+    <Compile Include="Level.cs" />
+    <Compile Include="LevelChooser.cs" />
+    <Compile Include="LevelManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="EntityComponentExtensions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="$(SiliconStudioPackageProps)" Condition="Exists('$(SiliconStudioPackageProps)')" />

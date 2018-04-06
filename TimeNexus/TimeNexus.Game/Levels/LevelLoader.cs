@@ -1,4 +1,5 @@
-﻿using SiliconStudio.Core;
+﻿using Levels;
+using SiliconStudio.Core;
 using SiliconStudio.Core.Annotations;
 using SiliconStudio.Core.IO;
 using SiliconStudio.Core.MicroThreading;
@@ -11,8 +12,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using TimeNexus.Levels.Management;
 using TimeNexus.Objects;
 
 namespace TimeNexus.Levels

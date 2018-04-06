@@ -186,13 +186,7 @@
       <DependentUpon>Shader1.xkfx</DependentUpon>
     </Compile>
     <Compile Include="Input\KeyBindings.cs" />
-    <Compile Include="Levels\Management\Gateway.cs" />
-    <Compile Include="Levels\Management\GatewayChooser.cs" />
-    <Compile Include="Levels\Management\LevelChooser.cs" />
-    <Compile Include="Levels\LevelLoaded.cs" />
     <Compile Include="Levels\LevelLoader.cs" />
-    <Compile Include="Levels\Management\LevelManager.cs" />
-    <Compile Include="Levels\Management\Level.cs" />
     <Compile Include="Levels\LevelSettings.cs" />
     <Compile Include="Objects\InteractionPopup.cs" />
     <Compile Include="Objects\Door.cs" />
@@ -209,6 +203,12 @@
     <Compile Include="Time\TimeComponent.cs" />
     <Compile Include="Time\GameStudioTimeController.cs" />
     <Compile Include="Time\TimeControllerComponent.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Levels\Levels.csproj">
+      <Project>{EDF9BAA3-8426-4A8F-879A-4DE269EC4E25}</Project>
+      <Name>Levels</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="$(SiliconStudioPackageProps)" Condition="Exists('$(SiliconStudioPackageProps)')" />
