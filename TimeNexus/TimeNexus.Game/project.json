@@ -1,9 +1,9 @@
-{
+﻿{
   "supports": {},
   "dependencies": {
-    "System.Reactive": "4.0.0-preview00001",
-	"Microsoft.NETCore.Portable.Compatibility": "1.0.1",
-    "NETStandard.Library": "1.6.0"
+    "Microsoft.NETCore.Portable.Compatibility": "1.0.1",
+    "NETStandard.Library": "2.0.1",
+    "System.Reactive": "4.0.0-preview00001"
   },
   "frameworks": {
     "netstandard1.4": {}

@@ -12,10 +12,17 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using TimeNexus.Objects;
 
 namespace TimeNexus.Levels
 {
+	public enum LevelType
+	{
+		Corridor,
+		Level
+	}
+
 	//[AllowMultipleComponents]
 	//[RequireComponent(typeof(Gateway))]
 	public class LevelLoader : StartupScript
@@ -24,78 +31,72 @@ namespace TimeNexus.Levels
 		private const String LevelBaseURL = "Levels";
 
 		[DataMemberIgnore]
+		private Random _rng = new Random();
+		[DataMemberIgnore]
+		private bool _levelLoaded;
+		[DataMemberIgnore]
 		private List<string> _corridorUrls;
 		[DataMemberIgnore]
 		private List<string> _levelUrls;
 
 		/// <summary>
-		/// TODO: The NearbyTrigger should actually show up in the gamestudio!!!
+		/// The type of the level which will get loaded (corridor, actual level, etc.)
 		/// </summary>
-		//[Display(category: "Name")]
-		public NearbyTrigger NearbyTrigger { get; set; }
-
+		public LevelType LevelType { get; set; } = LevelType.Level;
+		public RigidbodyComponent TriggerVolume { get; set; }
 		//[Display(category: "Name")]
 		//[NotNull]
 		public Gateway Gateway { get; set; }
 
 		public override void Start()
 		{
-
-			if (NearbyTrigger == null)
-			{
-				NearbyTrigger = new NearbyTrigger();
-				this.Log.Error("Dafug? NearbyTrigger shouldn't be null");
-			}
-			this.Entity.Add(NearbyTrigger);
-
 			_corridorUrls = this.GetAssetUrls(CorridorBaseURL);
 			_levelUrls = this.GetAssetUrls(LevelBaseURL);
 
-			NearbyTrigger.OnTriggerStart.Subscribe(_ => StartLoading());
-			//NearbyTrigger.OnTriggerEnter += StartLoading;
-
-
+			new NearbyTrigger(TriggerVolume).OnTriggerStart.Subscribe(_ => LoadLevelAsync());
 		}
 
-		public void StartLoading()
+		private async Task LoadLevelAsync()
 		{
 
-			//if (_corridor != null) LoadCorridor();
-			//if (_nextLevel != null) LoadLevel();
-		}
+			if (_levelLoaded) return;
+			else _levelLoaded = true;
 
-		private async void LoadCorridor()
-		{
-			//if (_corridor != null) return;
+			string levelName;
+			switch(LevelType)
+			{
+				case LevelType.Level:
+					levelName = GetRandomLevelName();
+					break;
+				case LevelType.Corridor:
+					levelName = GetRandomCorridorName();
+					break;
+				default:
+					levelName = GetRandomLevelName();
+					break;
+			}
 
-			//_corridor = await Content.LoadAsync<Scene>($"{CorridorBaseURL}/{GetRandomCorridorName()}");
-
-		}
-
-		private async void LoadLevel()
-		{
-			//if (_nextLevel != null) return;
-			//_nextLevel = await Content.LoadAsync<Scene>($"{LevelBaseURL}/{GetRandomLevelName()}");
-
-			//TODO: Make sure that the levels also get unloaded when they aren't needed anymore!!!!
+			await Gateway.AttachLevel(levelName);
 		}
 
 		private String GetRandomLevelName()
 		{
-			throw new NotImplementedException();
+			return _levelUrls[_rng.Next(_levelUrls.Count)];
 		}
 
 		private String GetRandomCorridorName()
 		{
-			throw new NotImplementedException();
+			return _corridorUrls[_rng.Next(_levelUrls.Count)];
 		}
 
 
 		public List<string> GetAssetUrls(string path)
-		{ 
+		{
 			if (path.Length == 0) throw new ArgumentException("Path may not be an empty string");
 
 			if (!path.EndsWith("/")) path += "/";
+			var n = ContentManager.FileProvider.ContentIndexMap
+				.SearchValues(s => s.Key.StartsWith(path));
 			return ContentManager.FileProvider.ContentIndexMap
 				.SearchValues(s => s.Key.StartsWith(path))
 				.Select(s => s.Key)

@@ -30,12 +30,13 @@ namespace TimeNexus.Gun
 
 		private ModelComponent _selectedModel;
 
-		public Material effectMaterial { get; set; }
+		public Material EffectMaterial { get; set; }
 		private MaterialPass effectRenderPass;
 
 		public override void Start()
 		{
-			effectRenderPass = effectMaterial?.Passes?.First();
+			//Input.AddListener(new Test());
+			effectRenderPass = EffectMaterial?.Passes?.First();
 
 			PlayerRaycaster.OnRaycast.Subscribe(hitResult =>
 			{
@@ -74,7 +75,7 @@ namespace TimeNexus.Gun
 			var newModel = entity.Get<ModelComponent>();
 
 			//if (_selectedModel != newModel) _selectedModel?.Materials
-			if (newModel != null && _selectedModel != newModel && effectMaterial != null)
+			if (newModel != null && _selectedModel != newModel && EffectMaterial != null)
 			{
 				_selectedModel = newModel;
 
@@ -117,14 +118,20 @@ namespace TimeNexus.Gun
 			}
 		}
 
-
+		/*public class Test : IInputEventListener<KeyEvent>
+		{
+			public void ProcessEvent(KeyEvent inputEvent)
+			{
+				throw new NotImplementedException();
+			}
+		}*/
 
 		private Material CloneMaterial(Material material)
 		{
 			var clone = new Material();
 			foreach (var pass in material.Passes)
 			{
-				clone.Passes.Add(new MaterialPass(pass.Parameters)
+				clone.Passes.Add(new MaterialPass(new ParameterCollection(pass.Parameters))
 				{
 					HasTransparency = pass.HasTransparency,
 					BlendState = pass.BlendState,

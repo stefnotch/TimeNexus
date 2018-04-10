@@ -14,6 +14,7 @@ Hierarchy:
         - ref!! 454139e1-b2d3-40a5-badc-9507da1accb4
         - ref!! f24bf3c8-e782-4ace-a1b1-38656eab228c
         - ref!! ddc8bc75-4f12-4c93-8221-840ce294f552
+        - ref!! 9fa3c9b7-a93d-4789-8c28-438d8dbc6ce0
     Parts:
         -   Entity:
                 Id: 0230cda6-cdf5-4bff-a008-a8401ac352a1
@@ -192,6 +193,51 @@ Hierarchy:
                         Children:
                             66fc57038f1f4bb8cee3125307ce048c: ref!! 940ae80b-cea8-4f3b-bca6-c477076318d6
         -   Entity:
+                Id: 9fa3c9b7-a93d-4789-8c28-438d8dbc6ce0
+                Name: Gate2x3x1
+                Components:
+                    9aef70a25110b9b0a399abdf97fdf3c3: !TransformComponent
+                        Id: 42b7d68b-19a3-4cd6-b39a-a177fdde579e
+                        Position: {X: 0.0, Y: 1.5, Z: 9.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    ee3dc9fe8dbde4263bc696a794204346: !ModelComponent
+                        Id: fbf6e6c8-fa00-4499-9a60-b9c22e703b46
+                        Model: 7fd34173-3f6c-4384-b033-f97392d1fc89:Models/Gate2x3x1
+                        Materials: {}
+                    46add7ddbcf7670d9e653fef5bbc1077: !TimeNexus.Levels.LevelLoader,TimeNexus.Game
+                        Id: 6460c18f-4682-4f13-8a5a-1db0051a791f
+                        LevelType: Level
+                        TriggerVolume: ref!! 2699d985-cfa5-4225-9177-6932563bb308
+                        Gateway: ref!! ed3b4ad0-3004-4b7d-a6cc-c0d4fb719334
+                    26252074418b5b4096f72a044cf856a3: !Levels.Gateway,Levels
+                        Id: ed3b4ad0-3004-4b7d-a6cc-c0d4fb719334
+                        Direction: {X: 1.0, Y: 0.0, Z: 0.0}
+                        IsExit: false
+                    925400c2edd16825ff4b0a4db499eb4d: !RigidbodyComponent
+                        Id: 2699d985-cfa5-4225-9177-6932563bb308
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: false
+                        IsKinematic: false
+                        Mass: 1.0
+                        LinearDamping: 0.0
+                        AngularDamping: 0.0
+                        OverrideGravity: false
+                        Gravity: {X: 0.0, Y: 0.0, Z: 0.0}
+                        NodeName: null
+                        ColliderShapes:
+                            2905319886735958ae040836d002d7c9: !BoxColliderShapeDesc
+                                Is2D: false
+                                Size: {X: 3.0, Y: 3.0, Z: 3.0}
+                                LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+        -   Entity:
                 Id: a42f7db0-a8d8-430c-ac70-778eb7e00de1
                 Name: box
                 Components:
@@ -261,22 +307,6 @@ Hierarchy:
                         DoorUI: a756b6bf-4d37-4b68-87a4-555067def877:PressAKey
                         Offset: {X: 0.0, Y: 0.0, Z: 0.0}
                         Open: false
-                    abe64fda0443ee890beaba5bfca6769a: !NearbyTrigger
-                        Id: 1fba1f47-072e-4f8c-bc65-de82c876faf8
-                        CollisionGroup: SensorTrigger
-                        CanCollideWith: CharacterFilter
-                        CanSleep: false
-                        Restitution: 0.0
-                        Friction: 0.5
-                        RollingFriction: 0.0
-                        CcdMotionThreshold: 0.0
-                        CcdSweptSphereRadius: 0.0
-                        ColliderShapes:
-                            48866361719dde43d9da9ae3e57295c9: !BoxColliderShapeDesc
-                                Is2D: false
-                                Size: {X: 1.0, Y: 1.0, Z: 1.0}
-                                LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
-                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
         -   Entity:
                 Id: ea6e4518-8a3f-4def-8322-4c7979b67d9e
                 Name: Sphere
@@ -313,7 +343,7 @@ Hierarchy:
                     2872470ec1e4f3e9d8a9eba3d3d57b56: !TimeNexus.Gun.GunController,TimeNexus.Game
                         Id: 050df0d5-bc2f-4685-a215-8d1b22781642
                         GunBeam: ref!! 6059f766-4a16-482b-a5d5-67dc0328d508
-                        effectMaterial: 60c0f17f-d468-4bc7-bde4-e3c115660c35:Materials/gun/GunBeam
+                        EffectMaterial: null
                     bbab3b170ba8a5150674bb9bcfa8d6ab: !TimeNexus.Gun.GunBeam,TimeNexus.Game
                         Id: 6059f766-4a16-482b-a5d5-67dc0328d508
                         GunBeamEntity: ref!! 920b5211-7de5-4ed2-8079-0a5e3d85a6a7

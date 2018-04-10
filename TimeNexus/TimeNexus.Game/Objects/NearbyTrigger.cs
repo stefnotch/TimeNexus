@@ -1,20 +1,33 @@
 ﻿using SiliconStudio.Core;
+using SiliconStudio.Core.Collections;
+using SiliconStudio.Core.Diagnostics;
+using SiliconStudio.Xenko.Engine;
+using SiliconStudio.Xenko.Engine.Design;
 using SiliconStudio.Xenko.Physics;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
-using System.Reactive.Linq;
 using System.Reactive.Subjects;
 using System.Text;
 using System.Threading.Tasks;
+using TimeNexus.ExtensionMethods;
 
 namespace TimeNexus.Objects
 {
-	[DataContract("NearbyTrigger")]
-	[Display("Nearby Trigger")]
-	public class NearbyTrigger : PhysicsTriggerComponentBase
+	/// <summary>
+	/// Triggers events when a player is nearby
+	/// 
+	/// Not an EntityComponent
+	/// It's a wrapper around an EntityComponent (Because I can't inherit from RigidbodyComponent)
+	/// </summary>
+	public class NearbyTrigger : IDisposable
 	{
+		[DataMemberIgnore]
+		private static Logger Logger = GlobalLogger.GetLogger("NearbyTrigger");
+
+		public RigidbodyComponent RigidbodyComponent { get; private set; }
+
 		[DataMemberIgnore]
 		private readonly Subject<Collision> _onTriggerStart = new Subject<Collision>();
 		[DataMemberIgnore]
@@ -25,6 +38,8 @@ namespace TimeNexus.Objects
 		/// </summary>
 		[DataMemberIgnore]
 		public IObservable<Collision> OnTriggerStart { get => _onTriggerStart; }
+
+
 		//public IObservable<Collision> OnTriggerStay { get => _onTriggerStay; }
 
 		/// <summary>
@@ -33,26 +48,28 @@ namespace TimeNexus.Objects
 		[DataMemberIgnore]
 		public IObservable<Collision> OnTriggerEnd { get => _onTriggerEnd; }
 
-		[DataMemberIgnore]
-		public new bool IsTrigger
+		public NearbyTrigger(RigidbodyComponent physicsComponent)
 		{
-			get => base.IsTrigger;
-			set => base.IsTrigger = value;
-		}
-
-		public NearbyTrigger()
-		{
-			IsTrigger = true;
-			ProcessCollisions = true;
+			RigidbodyComponent = physicsComponent;
+			//Is a trigger with collison events
+			RigidbodyComponent.IsTrigger = true;
+			RigidbodyComponent.ProcessCollisions = true;
 			//Collides with characters
-			CanCollideWith = CollisionFilterGroupFlags.CharacterFilter;
+			RigidbodyComponent.CanCollideWith = CollisionFilterGroupFlags.CharacterFilter;
 			//Is a sensor
-			CollisionGroup = CollisionFilterGroups.SensorTrigger;
-			//IsKinematic = true;
-			Collisions.CollectionChanged += OnCollision;
+			RigidbodyComponent.CollisionGroup = CollisionFilterGroups.SensorTrigger;
+			RigidbodyComponent.IsKinematic = true;
+			RigidbodyComponent.Collisions.CollectionChanged += OnCollision;
+
+			this.DisposeLater(RigidbodyComponent.Entity);
 		}
 
-		private void OnCollision(object sender, SiliconStudio.Core.Collections.TrackingCollectionChangedEventArgs args)
+		public static NearbyTrigger From(RigidbodyComponent physicsComponent)
+		{
+			return new NearbyTrigger(physicsComponent);
+		}
+
+		private void OnCollision(object sender, TrackingCollectionChangedEventArgs args)
 		{
 			if (args.Action == NotifyCollectionChangedAction.Add)
 			{
@@ -68,13 +85,31 @@ namespace TimeNexus.Objects
 			}
 		}
 
-		protected override void OnDetach()
-		{
-			_onTriggerStart.OnCompleted();
-			//_onTriggerStay.OnCompleted();
-			_onTriggerEnd.OnCompleted();
 
-			Collisions.CollectionChanged -= OnCollision;
+		#region IDisposable Support
+		private bool disposedValue = false; // To detect redundant calls
+
+		protected virtual void Dispose(bool disposing)
+		{
+			if (!disposedValue)
+			{
+				if (disposing)
+				{
+					_onTriggerStart.OnCompleted();
+					//_onTriggerStay.OnCompleted();
+					_onTriggerEnd.OnCompleted();
+
+					RigidbodyComponent.Collisions.CollectionChanged -= OnCollision;
+				}
+				disposedValue = true;
+			}
 		}
+		public void Dispose()
+		{
+			// Do not change this code. Put cleanup code in Dispose(bool disposing) above.
+			Dispose(true);
+		}
+		#endregion
+
 	}
 }

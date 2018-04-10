@@ -15,7 +15,15 @@ namespace TimeNexus.ExtensionMethods
 		/// </summary>
 		public static void DisposeLater(this IDisposable disposable, ScriptComponent script)
 		{
-			script.Entity.GetOrCreate<Disposer>().Disposables.Add(disposable);
+			DisposeLater(disposable, script.Entity);
+		}
+
+		/// <summary>
+		/// Disposes of an IDisposeable when the entity gets removed
+		/// </summary>
+		public static void DisposeLater(this IDisposable disposable, Entity entity)
+		{
+			entity.GetOrCreate<Disposer>().Disposables.Add(disposable);
 		}
 
 		private class Disposer : ScriptComponent

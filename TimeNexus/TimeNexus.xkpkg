@@ -40,4 +40,5 @@ Profiles:
 ExplicitFolders: []
 Bundles: []
 TemplateFolders: []
-RootAssets: []
+RootAssets:
+    - 7d35cfcf-d4b3-4a25-9969-e1ea6bcc9a1c:Levels/MainScene

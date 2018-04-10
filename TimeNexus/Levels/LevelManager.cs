@@ -14,17 +14,19 @@ namespace Levels
 		public const int DefaultDimension = 0;
 
 		[DataMemberIgnore]
-		public static LevelManager Instance { get; set; }
+		private static LevelManager _instance;
+		[DataMemberIgnore]
+		public static LevelManager Instance
+		{
+			get
+			{
+				if (_instance == null) _instance = new LevelManager();
+				return _instance;
+			}
+		}
 
 		[DataMemberIgnore]
 		public Dictionary<Scene, Level> Levels { get; } = new Dictionary<Scene, Level>();
-
-		public LevelManager()
-		{
-			if (Instance != null) Log.Error("You can't have 2 level managers at the same time!\n" + Instance + ":" + this);
-
-			Instance = this;
-		}
 
 		/// <summary>
 		/// Loads a scene using a url
@@ -33,7 +35,8 @@ namespace Levels
 		/// <returns></returns>
 		public async Task<Level> LoadLevel(string url)
 		{
-			var level = new Level(await Content.LoadAsync<Scene>(url));
+			var scene = Content.Load<Scene>(url);//.ConfigureAwait(false);
+			var level = new Level(scene);
 			Levels.Add(level.Scene, level);
 			return level;
 		}

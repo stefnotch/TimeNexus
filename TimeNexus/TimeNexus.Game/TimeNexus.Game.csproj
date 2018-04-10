@@ -113,6 +113,10 @@
       <Generator>XenkoShaderKeyGenerator</Generator>
       <LastGenOutput>BShader.cs</LastGenOutput>
     </None>
+    <None Include="Effects\CompositionShader.xksl">
+      <Generator>XenkoShaderKeyGenerator</Generator>
+      <LastGenOutput>CompositionShader.cs</LastGenOutput>
+    </None>
     <None Include="Effects\ComputeColorWeve.xksl">
       <Generator>XenkoShaderKeyGenerator</Generator>
       <LastGenOutput>ComputeColorWeve.cs</LastGenOutput>
@@ -149,6 +153,12 @@
       <DesignTime>True</DesignTime>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>BShader.xksl</DependentUpon>
+    </Compile>
+    <Compile Include="Effects\CompositionShader.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>CompositionShader.xksl</DependentUpon>
     </Compile>
     <Compile Include="Effects\ComputeColorWeve.cs">
       <AutoGen>True</AutoGen>
@@ -195,6 +205,7 @@
     <Compile Include="Objects\RaycastDistributor.cs" />
     <Compile Include="Player\EdgeTilt.cs" />
     <Compile Include="Player\PlayerRaycaster.cs" />
+    <Compile Include="Player\PlayerRx.cs" />
     <Compile Include="Time\Era.cs" />
     <Compile Include="Player\PlayerController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

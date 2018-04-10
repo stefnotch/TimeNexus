@@ -30,12 +30,13 @@ namespace Levels
 		/// </summary>
 		[DataMemberIgnore]
 		public Gateway AttachedGateway { get; private set; }
-		
+
 		/// <summary>
 		/// Attaches a scene to this gateway
 		/// Will magically take care of everything.
 		/// </summary>
 		/// <param name="url">URL of the scene asset</param>
+		/// <param name="gatewayChooser"></param>
 		/// <param name="attachedGatewayChooser">Which gateway(s) should it attach current scene to</param>
 		/// <returns></returns>
 		public async Task AttachLevel(string url, GatewayChooser gatewayChooser = null)

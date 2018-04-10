@@ -18,7 +18,7 @@
             float slider = cos(Global.Time);
             //return base.Compute();
             //return float4(1.0,0.0,0.0, frac(sin(dot(streams.Position.xy, float2(12.9898, 78.233))) * 43758.5453) );
-            //return MatrixTexture.Compute();
+            return MatrixTexture.Compute();
             float opacity = slider;
             return float4(1, 0, 0, opacity);
             
