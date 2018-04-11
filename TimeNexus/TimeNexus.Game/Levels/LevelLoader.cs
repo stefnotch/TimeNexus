@@ -33,8 +33,6 @@ namespace TimeNexus.Levels
 		[DataMemberIgnore]
 		private Random _rng = new Random();
 		[DataMemberIgnore]
-		private bool _levelLoaded;
-		[DataMemberIgnore]
 		private List<string> _corridorUrls;
 		[DataMemberIgnore]
 		private List<string> _levelUrls;
@@ -50,7 +48,6 @@ namespace TimeNexus.Levels
 
 		public override void Start()
 		{
-			var x = Content.Load<Scene>("Levels/MainScene");
 			_corridorUrls = this.GetAssetUrls(CorridorBaseURL);
 			_levelUrls = this.GetAssetUrls(LevelBaseURL);
 
@@ -60,8 +57,7 @@ namespace TimeNexus.Levels
 		private async Task LoadLevelAsync()
 		{
 
-			if (_levelLoaded) return;
-			else _levelLoaded = true;
+			if (Gateway.AttachedLevel != null || Gateway.IsLoading) return;
 
 			string levelName;
 			switch(LevelType)

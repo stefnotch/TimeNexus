@@ -30,6 +30,9 @@ namespace TimeNexus.LevelManagement
 		[DataMemberIgnore]
 		public Gateway AttachedGateway { get; private set; }
 
+		[DataMemberIgnore]
+		public bool IsLoading { get; private set; }
+
 		/// <summary>
 		/// Attaches a scene to this gateway
 		/// Will magically take care of everything.
@@ -40,6 +43,7 @@ namespace TimeNexus.LevelManagement
 		/// <returns></returns>
 		public async Task AttachLevel(string url, GatewayChooser gatewayChooser = null)
 		{
+			IsLoading = true;
 			Level other = await LevelManager.Instance.LoadLevel(url);
 			
 			if(other.Gateways.Count == 0)
@@ -79,7 +83,10 @@ namespace TimeNexus.LevelManagement
 				Log.Error("Level dimension: " + AttachedLevel.Dimension + "");
 				//TODO:
 			}
-			
+
+			IsLoading = false;
+
+
 		}
 	}
 }

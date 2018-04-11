@@ -38,5 +38,6 @@ ExplicitFolders: []
 Bundles: []
 TemplateFolders: []
 RootAssets:
+    - 44d32239-571d-44ae-8afa-45d3432998ac:Levels/TestScene
     - de46e442-f5b7-4ea8-93c4-d4081978c424:MainScene
     - de63a6df-5f5e-4949-8c8a-6c323e196bcd:RootScene
