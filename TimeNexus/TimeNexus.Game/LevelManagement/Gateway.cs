@@ -43,8 +43,13 @@ namespace TimeNexus.LevelManagement
 		/// <returns></returns>
 		public async Task AttachLevel(string url, GatewayChooser gatewayChooser = null)
 		{
+			if(AttachedLevel != null)
+			{
+				//TODO: Take care of this case
+				Log.Error("already has an attached level");
+			}
 			IsLoading = true;
-			Level other = await LevelManager.Instance.LoadLevel(url);
+			Level other = await LevelManager.Instance.LoadLevel(url).ConfigureAwait(false);
 			
 			if(other.Gateways.Count == 0)
 			{
@@ -54,7 +59,7 @@ namespace TimeNexus.LevelManagement
 			AttachedLevel = other;
 
 			if (gatewayChooser == null) gatewayChooser = GatewayChoosers.NonExit;
-			AttachedGateway = gatewayChooser(other);
+			AttachedGateway = gatewayChooser(AttachedLevel);
 			
 			//Position the scene
 			var thisTransform = this.Entity.Transform;
@@ -65,20 +70,20 @@ namespace TimeNexus.LevelManagement
 			thisTransform.GetWorldTransformation(out Vector3 thisPosition, out Quaternion desiredRotation, out _);
 			desiredRotation.Invert();
 
-			attachedTransform.GetWorldTransformation(out Vector3 otherPosition, out Quaternion otherRotation, out _);
+			attachedTransform.UpdateWorldMatrix();
+			attachedTransform.GetWorldTransformation(out _, out Quaternion otherRotation, out _);
 			otherRotation.Invert();
 			//Rotate the scene
-			
+
 			AttachedLevel.Rotate(desiredRotation * otherRotation);
 
-			//
 			attachedTransform.UpdateWorldMatrix();
+			attachedTransform.GetWorldTransformation(out Vector3 otherPosition, out _, out _);
 			//Calculate the position of the attached scene & move it
-			AttachedLevel.Scene.Offset = thisPosition - (otherPosition - AttachedLevel.Scene.Offset);
-
+			AttachedLevel.Translate(thisPosition - (otherPosition - AttachedLevel.Scene.Offset));
 
 			//Place the level
-			if(!LevelManager.Instance.PlaceLevel(AttachedLevel))
+			if (!LevelManager.Instance.PlaceLevel(AttachedLevel))
 			{
 				Log.Error("Level dimension: " + AttachedLevel.Dimension + "");
 				//TODO:

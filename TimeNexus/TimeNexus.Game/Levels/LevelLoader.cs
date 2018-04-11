@@ -73,7 +73,7 @@ namespace TimeNexus.Levels
 					break;
 			}
 
-			await Gateway.AttachLevel(levelName);
+			await Gateway.AttachLevel(levelName).ConfigureAwait(false);
 		}
 
 		private String GetRandomLevelName()

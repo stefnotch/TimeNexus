@@ -61,7 +61,17 @@ namespace TimeNexus.LevelManagement
 			}
 			ComputeBoundingBox(Scene);
 		}
-		
+
+		public void Translate(Vector3 vector)
+		{
+
+			foreach (Entity e in this.Scene.Entities)
+			{
+				e.Transform.Position += vector;
+			}
+			ComputeBoundingBox(Scene);
+		}
+
 		private IEnumerable<T> GetRootComponents<T>(Scene s) where T:EntityComponent
 		{
 			foreach (Entity e in s.Entities)

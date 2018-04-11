@@ -16,7 +16,7 @@ Hierarchy:
                 Components:
                     a45c47c143d6727f3230a1b5eea49db4: !TransformComponent
                         Id: 73f5ca03-999b-4aa3-9ea7-b150da227e28
-                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Position: {X: -4.37399769, Y: 0.169712469, Z: 4.19214535}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
@@ -122,6 +122,10 @@ Hierarchy:
                                             ForceVortex: 0.0
                                             ForceRepulsive: 0.0
                                             ForceFixed: {X: 0.0, Y: -9.81, Z: 0.0}
+                    50079d9d900c34a49e2e0ed3179ba427: !TimeNexus.LevelManagement.Gateway,TimeNexus.Game
+                        Id: 9fe06567-29a5-47cb-99ec-6b1af7e628c4
+                        Direction: {X: 1.0, Y: 0.0, Z: 0.0}
+                        IsExit: false
         -   Entity:
                 Id: 93609a4b-6aaa-4d25-9dd0-b5c31700f410
                 Name: Directional light
@@ -171,7 +175,3 @@ Hierarchy:
                                 Size: {X: 10.0, Y: 1.0, Z: 10.0}
                                 LocalOffset: {X: 0.0, Y: -0.5, Z: 0.0}
                                 LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                    3fb7af3084cc113a85a59133dc0c5f30: !TimeNexus.LevelManagement.Gateway,TimeNexus.Game
-                        Id: 2fd65978-26d2-4bb2-871e-954abb5d9937
-                        Direction: {X: 1.0, Y: 0.0, Z: 0.0}
-                        IsExit: false
