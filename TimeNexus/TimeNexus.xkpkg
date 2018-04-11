@@ -24,9 +24,6 @@ Profiles:
             -   Id: afe04b3a-4fb6-4d0e-85f7-35a1ad6e3590
                 Location: TimeNexus.Game/TimeNexus.Game.csproj
                 Type: Library
-            -   Id: edf9baa3-8426-4a8f-879a-4de269ec4e25
-                Location: Levels/Levels.csproj
-                Type: Library
     -   Name: Windows
         Platform: Windows
         InheritProfiles: []
@@ -41,4 +38,5 @@ ExplicitFolders: []
 Bundles: []
 TemplateFolders: []
 RootAssets:
-    - 7d35cfcf-d4b3-4a25-9969-e1ea6bcc9a1c:Levels/MainScene
+    - de46e442-f5b7-4ea8-93c4-d4081978c424:MainScene
+    - de63a6df-5f5e-4949-8c8a-6c323e196bcd:RootScene
