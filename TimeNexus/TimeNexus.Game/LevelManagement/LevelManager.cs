@@ -7,22 +7,23 @@ using System.Text;
 using System.Threading.Tasks;
 using SiliconStudio.Core;
 
-namespace Levels
+namespace TimeNexus.LevelManagement
 {
-	public class LevelManager : ScriptComponent
+	public class LevelManager : StartupScript
 	{
 		public const int DefaultDimension = 0;
+		
+		/// <summary>
+		/// Gets the LevelManager
+		/// Note: This is NOT a Singleton, it's a root scene ScriptComponent
+		/// </summary>
+		[DataMemberIgnore]
+		public static LevelManager Instance { get; private set; }
 
-		[DataMemberIgnore]
-		private static LevelManager _instance;
-		[DataMemberIgnore]
-		public static LevelManager Instance
+		public override void Start()
 		{
-			get
-			{
-				if (_instance == null) _instance = new LevelManager();
-				return _instance;
-			}
+			if (Instance != null) Log.Warning("Multiple LevelManagers exist:" + Instance + "\n\n" + this);
+			Instance = this;
 		}
 
 		[DataMemberIgnore]
@@ -35,10 +36,22 @@ namespace Levels
 		/// <returns></returns>
 		public async Task<Level> LoadLevel(string url)
 		{
-			var scene = Content.Load<Scene>(url);//.ConfigureAwait(false);
+			var scene = await Content.LoadAsync<Scene>(url).ConfigureAwait(false);
 			var level = new Level(scene);
 			Levels.Add(level.Scene, level);
 			return level;
+		}
+
+		/// <summary>
+		/// Places a level
+		/// </summary>
+		/// <param name="level"></param>
+		/// <returns>if the level's dimension is the default dimension</returns>
+		public bool PlaceLevel(Level level)
+		{
+			this.SceneSystem.SceneInstance.RootScene.Children.Add(level.Scene);
+			level.Dimension = GetFreeDimension(level);
+			return level.Dimension == DefaultDimension;
 		}
 
 		/// <summary>
@@ -46,18 +59,18 @@ namespace Levels
 		/// </summary>
 		/// <param name="s"></param>
 		/// <returns></returns>
-		public int GetFreeDimension(Level s)
+		private int GetFreeDimension(Level s)
 		{
 			HashSet<int> collidingDimensions = new HashSet<int>();
 
 			var boundingBox = s.BoundingBox;
-			foreach (var scene in Levels.Values)
+			foreach (var level in Levels.Values)
 			{
-				if (scene == s) continue;
+				if (level == s) continue;
 
-				if (scene.BoundingBox.Intersects(ref boundingBox))
+				if (level.BoundingBox.Intersects(ref boundingBox))
 				{
-					collidingDimensions.Add(scene.Dimension);
+					collidingDimensions.Add(level.Dimension);
 				}
 			}
 

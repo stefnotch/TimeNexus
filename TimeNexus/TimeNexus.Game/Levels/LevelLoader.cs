@@ -1,4 +1,4 @@
-﻿using Levels;
+﻿using TimeNexus.LevelManagement;
 using SiliconStudio.Core;
 using SiliconStudio.Core.Annotations;
 using SiliconStudio.Core.IO;
@@ -50,6 +50,7 @@ namespace TimeNexus.Levels
 
 		public override void Start()
 		{
+			var x = Content.Load<Scene>("Levels/MainScene");
 			_corridorUrls = this.GetAssetUrls(CorridorBaseURL);
 			_levelUrls = this.GetAssetUrls(LevelBaseURL);
 

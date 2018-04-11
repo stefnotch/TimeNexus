@@ -7,11 +7,10 @@ using System.Text;
 using System.Threading.Tasks;
 using SiliconStudio.Core;
 
-namespace Levels
+namespace TimeNexus.LevelManagement
 {
 	public class Gateway : ScriptComponent
 	{
-		
 		public Vector3 Direction { get; set; } = Vector3.UnitX;
 
 		/// <summary>
@@ -65,7 +64,7 @@ namespace Levels
 			attachedTransform.GetWorldTransformation(out Vector3 otherPosition, out Quaternion otherRotation, out _);
 			otherRotation.Invert();
 			//Rotate the scene
-
+			
 			AttachedLevel.Rotate(desiredRotation * otherRotation);
 
 			//
@@ -75,12 +74,12 @@ namespace Levels
 
 
 			//Place the level
-			Entity.Scene.Children.Add(AttachedLevel.Scene);
-			AttachedLevel.Dimension = LevelManager.Instance.GetFreeDimension(AttachedLevel);
-			if(AttachedLevel.Dimension != LevelManager.DefaultDimension)
+			if(!LevelManager.Instance.PlaceLevel(AttachedLevel))
 			{
-				//TODO
+				Log.Error("Level dimension: " + AttachedLevel.Dimension + "");
+				//TODO:
 			}
+			
 		}
 	}
 }

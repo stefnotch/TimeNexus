@@ -1,0 +1,164 @@
+!SceneAsset
+Id: de63a6df-5f5e-4949-8c8a-6c323e196bcd
+SerializedVersion: {Xenko: 2.1.0.1}
+Tags: []
+ChildrenIds: []
+Offset: {X: 0.0, Y: 0.0, Z: 0.0}
+Hierarchy:
+    RootParts:
+        - ref!! 50c025e0-c118-4422-9a0d-4784f0bb5d4e
+        - ref!! bc62fdf4-5308-4d81-9926-d45456285d06
+    Parts:
+        -   Entity:
+                Id: 50c025e0-c118-4422-9a0d-4784f0bb5d4e
+                Name: RootSceneEntity
+                Components:
+                    ed7d4c0c64472a0a067b7c442db102e4: !TransformComponent
+                        Id: bce6fda5-ebb8-460b-b836-2f08a0cdc83f
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    79e5f4567b9e5a69cd6915d56bc89c84: !TimeNexus.Levels.DefaultLevelLoader,TimeNexus.Game
+                        Id: 5d560bd4-7ea6-43ee-9c5a-6bec249b8368
+                        DefaultLevelUrl: MainScene
+                    51c901785bb8211d2317a75071650a91: !TimeNexus.LevelManagement.LevelManager,TimeNexus.Game
+                        Id: 66bc7eea-68e8-4b68-b407-47a05bf9f185
+                        Priority: -50
+        -   Folder: null
+            Entity:
+                Id: 6a376e1a-a655-44b8-9c8a-875c4ee0424e
+                Name: GunBeamContainer
+                Components:
+                    eac1e0d8715148226a0df3e415584274: !TransformComponent
+                        Id: a3d68064-da1b-4a4e-9996-2b0dae9ad323
+                        Position: {X: -1.31957885E-08, Y: 0.154314548, Z: -0.6956058}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            66fc57038f1f4bb8cee3125307ce048c: ref!! ed9623e8-52b4-42e1-8a0f-20f904027306
+        -   Folder: null
+            Entity:
+                Id: 841f22f2-3022-498c-92cc-5f437db968bf
+                Name: Gun
+                Components:
+                    17398b50743f87ecbc84dff2ea0e9406: !TransformComponent
+                        Id: 85495c53-14da-49c1-a015-9b725505c0ca
+                        Position: {X: 0.575527966, Y: -0.310986847, Z: -0.5586258}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            724bec33eb7bdb9931c607d28c7d7856: ref!! a3d68064-da1b-4a4e-9996-2b0dae9ad323
+                    e6a031496340b987bea16194e9420371: !ModelComponent
+                        Id: eac282a6-ae3f-44d9-b3f5-fa7b422a2b1b
+                        Model: 1f4fe54e-8726-4c75-aa3a-03331cb29a43:Models/MachinegunModel
+                        Materials: {}
+                    2872470ec1e4f3e9d8a9eba3d3d57b56: !TimeNexus.Gun.GunController,TimeNexus.Game
+                        Id: 3924a161-dd1f-4cd5-9f4a-51c662d11523
+                        GunBeam: ref!! 2a7edde7-1c83-4b0a-90bc-d59bee58a8e6
+                        EffectMaterial: null
+                    bbab3b170ba8a5150674bb9bcfa8d6ab: !TimeNexus.Gun.GunBeam,TimeNexus.Game
+                        Id: 2a7edde7-1c83-4b0a-90bc-d59bee58a8e6
+                        GunBeamEntity: ref!! 6a376e1a-a655-44b8-9c8a-875c4ee0424e
+                        GunBeamModel: ref!! adc06f49-fdc7-4c08-a393-3dfe82247fbc
+        -   Folder: null
+            Entity:
+                Id: 882ee514-cb29-4555-97d8-a0c01fc99b88
+                Name: GunBeam
+                Components:
+                    8e090b9b4cd180a08171965dd37ead60: !TransformComponent
+                        Id: ed9623e8-52b4-42e1-8a0f-20f904027306
+                        Position: {X: 6.590338E-08, Y: 0.0, Z: -0.5}
+                        Rotation: {X: 0.707106769, Y: 0.0, Z: 0.0, W: 0.707106769}
+                        Scale: {X: 0.15, Y: 1.0, Z: 0.15}
+                        Children: {}
+                    994e32f9349d1ee4e0ec0654ca4f4268: !ModelComponent
+                        Id: adc06f49-fdc7-4c08-a393-3dfe82247fbc
+                        Model: 99c5c9d0-3fd4-41f7-9f76-4462574b2000:Models/GunBeam
+                        IsShadowCaster: false
+                        Materials:
+                            19278de58c2f8e7b379806e8c8416e9f~0: 60c0f17f-d468-4bc7-bde4-e3c115660c35:Materials/gun/GunBeam
+        -   Folder: null
+            Entity:
+                Id: 95d01df7-de0c-4e7e-aa8c-dca95fcea3cd
+                Name: Camera
+                Components:
+                    b6778ed1fecf9c05f8d20b538d00d87f: !TransformComponent
+                        Id: 722553db-4932-47d9-9f68-ffa9d9517529
+                        Position: {X: 0.0, Y: 1.614, Z: 0.2}
+                        Rotation: {X: 0.0, Y: 1.0, Z: 0.0, W: -4.371139E-08}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            61ee5fe1a0e1670baeedc8d53d7773bc: ref!! 85495c53-14da-49c1-a015-9b725505c0ca
+                            256b96b6d9efaf3de50ccf471a74bcbe: ref!! 2174b360-293b-4051-9fae-e80c8b56345d
+                    b880614dbc52ea5d08568f7501d8307c: !CameraComponent
+                        Id: 89142c72-1616-401c-9232-02d689eb7535
+                        Name: null
+                        Projection: Perspective
+                        Slot: 2ace6a4c-7e1b-491b-9f4a-5e02be4d59b5
+        -   Entity:
+                Id: bc62fdf4-5308-4d81-9926-d45456285d06
+                Name: Player
+                Components:
+                    9fa1fb0239a8577eab637e5643094c76: !TransformComponent
+                        Id: 30578e4a-460f-42de-a77c-c48713317717
+                        Position: {X: 0.0, Y: 0.09855248, Z: -3.24407482}
+                        Rotation: {X: 0.0, Y: -1.0, Z: 0.0, W: 7.54979E-08}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            3ce204f614b90b853d691f40035f8b9f: ref!! 722553db-4932-47d9-9f68-ffa9d9517529
+                    cb90ecab4988001f3e1679c16f8f157d: !CharacterComponent
+                        Id: cfbf4f39-5a6d-4b67-bdb2-9f2447142ec5
+                        CollisionGroup: CharacterFilter
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        FallSpeed: 10.0
+                        MaxSlope: {Radians: 0.7853982}
+                        JumpSpeed: 7.0
+                        Gravity: -10.0
+                        ColliderShapes:
+                            573903c526cff2a94702f1e6ee107688: !CapsuleColliderShapeDesc
+                                Length: 1.5
+                                Radius: 0.2
+                                LocalOffset: {X: 0.0, Y: 0.9, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                    f305a22a147abb09a69ea02a90658400: !ModelComponent
+                        Id: c84a48c0-feaa-414f-a81f-02eb3a7478b8
+                        Model: d9803ca0-438f-4b16-91fe-dec8011a7ddd:Models/mannequinModel
+                        Materials: {}
+                    cc16a8ea1f9fcdacccffaa66720702b3: !AnimationComponent
+                        Id: 093c4ff7-f529-4dd4-a78e-76f1ad4a4b8a
+                        Animations:
+                            52206d9760b141dbc592d9122aac34b1~Walk: 17fe64b7-e59d-4ed5-8229-620797ba840f:Animations/Walk
+                            39539b1c54b535b3f1ea4941983bf14c~Idle: 8e5ccf44-8816-4236-af39-590563183381:Animations/Idle
+                    f6e8a02622c35759c1554c577d50adec: !TimeNexus.Player.PlayerController,TimeNexus.Game
+                        Id: 5fd700e9-7eb2-4f84-a882-0a08fb0938cd
+                        Speed: 300.0
+                        CameraEntity: ref!! 95d01df7-de0c-4e7e-aa8c-dca95fcea3cd
+                        RotationAdaptationSpeed: 5.0
+                        RotationSpeed: 2.355
+                    a212cb9038af0c97cc8cc0e11f7243b1: !TimeNexus.Player.EdgeTilt,TimeNexus.Game
+                        Id: 43e50a9d-6be4-42f2-b7d4-c04617a7f38f
+                    f46446da73e35b740225b0793cab9bd7: !TimeNexus.Player.PlayerRaycaster,TimeNexus.Game
+                        Id: d336c44b-a0b4-4dea-8933-b37f8526a66d
+                        Camera: ref!! 89142c72-1616-401c-9232-02d689eb7535
+        -   Folder: null
+            Entity:
+                Id: dfd93150-6c5e-436e-a6a4-79ea5856f091
+                Name: Crosshair
+                Components:
+                    7ab38dff5cf01128f7d587a6ce78189d: !TransformComponent
+                        Id: 2174b360-293b-4051-9fae-e80c8b56345d
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    2e8c806d12cdc3c3a3f1301040f7d8cf: !UIComponent
+                        Id: 351baf7e-7fba-456f-b2b9-e53f39595833
+                        Page: bf1b1ef9-eebf-4f49-b4f7-c879b398379d:Textures/Page
+                        Resolution: {X: 1280.0, Y: 720.0, Z: 1000.0}
+                        Size: {X: 1.0, Y: 1.0, Z: 1.0}

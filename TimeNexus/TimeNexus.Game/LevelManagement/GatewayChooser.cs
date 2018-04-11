@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Levels
+namespace TimeNexus.LevelManagement
 {
 	public delegate Gateway GatewayChooser(Level level);
 	public static class GatewayChoosers

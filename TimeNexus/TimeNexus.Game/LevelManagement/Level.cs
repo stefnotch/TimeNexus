@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Levels
+namespace TimeNexus.LevelManagement
 {
 	public class Level
 	{
@@ -31,6 +31,7 @@ namespace Levels
 		/// </summary>
 		public int Dimension { get; set; }
 
+		public LevelSettings Settings { get; }
 
 		/// <summary>
 		/// A <list type="Gateway">list of level entrances/exits</list>
@@ -43,7 +44,8 @@ namespace Levels
 		{
 			Scene = scene;
 			ComputeBoundingBox(Scene);
-			_gateways.AddRange(GetGateways(Scene));
+			_gateways.AddRange(GetRootComponents<Gateway>(Scene));
+			Settings = GetRootComponents<LevelSettings>(Scene).DefaultIfEmpty(new LevelSettings()).FirstOrDefault();
 		}
 
 		public void Rotate(Quaternion rotation) {
@@ -59,14 +61,15 @@ namespace Levels
 			}
 			ComputeBoundingBox(Scene);
 		}
-
-		private IEnumerable<Gateway> GetGateways(Scene s)
+		
+		private IEnumerable<T> GetRootComponents<T>(Scene s) where T:EntityComponent
 		{
 			foreach (Entity e in s.Entities)
 			{
-				var gateway = e.Get<Gateway>();
-				if (gateway != null) yield return gateway;
+				var component = e.Get<T>();
+				if (component != null) yield return component;
 			}
+
 		}
 
 		/// <summary>

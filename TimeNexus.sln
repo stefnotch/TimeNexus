@@ -12,8 +12,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeNexus.Windows", "TimeNe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeNexus.Game", "TimeNexus\TimeNexus.Game\TimeNexus.Game.csproj", "{AFE04B3A-4FB6-4D0E-85F7-35A1AD6E3590}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Levels", "TimeNexus\Levels\Levels.csproj", "{EDF9BAA3-8426-4A8F-879A-4DE269EC4E25}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		AppStore|Any CPU = AppStore|Any CPU
@@ -126,52 +124,9 @@ Global
 		{AFE04B3A-4FB6-4D0E-85F7-35A1AD6E3590}.Testing|Mixed Platforms.Build.0 = Testing|Any CPU
 		{AFE04B3A-4FB6-4D0E-85F7-35A1AD6E3590}.Testing|Windows.ActiveCfg = Testing|Any CPU
 		{AFE04B3A-4FB6-4D0E-85F7-35A1AD6E3590}.Testing|Windows.Build.0 = Testing|Any CPU
-		{EDF9BAA3-8426-4A8F-879A-4DE269EC4E25}.AppStore|Any CPU.ActiveCfg = AppStore|Any CPU
-		{EDF9BAA3-8426-4A8F-879A-4DE269EC4E25}.AppStore|Any CPU.Build.0 = AppStore|Any CPU
-		{EDF9BAA3-8426-4A8F-879A-4DE269EC4E25}.AppStore|Mixed Platforms.ActiveCfg = AppStore|Any CPU
-		{EDF9BAA3-8426-4A8F-879A-4DE269EC4E25}.AppStore|Mixed Platforms.Build.0 = AppStore|Any CPU
-		{EDF9BAA3-8426-4A8F-879A-4DE269EC4E25}.AppStore|Windows.ActiveCfg = AppStore|Any CPU
-		{EDF9BAA3-8426-4A8F-879A-4DE269EC4E25}.AppStore|Windows.Build.0 = AppStore|Any CPU
-		{EDF9BAA3-8426-4A8F-879A-4DE269EC4E25}.CoreCLR_Debug|Any CPU.ActiveCfg = CoreCLR_Debug|Any CPU
-		{EDF9BAA3-8426-4A8F-879A-4DE269EC4E25}.CoreCLR_Debug|Any CPU.Build.0 = CoreCLR_Debug|Any CPU
-		{EDF9BAA3-8426-4A8F-879A-4DE269EC4E25}.CoreCLR_Debug|Mixed Platforms.ActiveCfg = CoreCLR_Debug|Any CPU
-		{EDF9BAA3-8426-4A8F-879A-4DE269EC4E25}.CoreCLR_Debug|Mixed Platforms.Build.0 = CoreCLR_Debug|Any CPU
-		{EDF9BAA3-8426-4A8F-879A-4DE269EC4E25}.CoreCLR_Debug|Windows.ActiveCfg = CoreCLR_Debug|Any CPU
-		{EDF9BAA3-8426-4A8F-879A-4DE269EC4E25}.CoreCLR_Debug|Windows.Build.0 = CoreCLR_Debug|Any CPU
-		{EDF9BAA3-8426-4A8F-879A-4DE269EC4E25}.CoreCLR_Release|Any CPU.ActiveCfg = CoreCLR_Release|Any CPU
-		{EDF9BAA3-8426-4A8F-879A-4DE269EC4E25}.CoreCLR_Release|Any CPU.Build.0 = CoreCLR_Release|Any CPU
-		{EDF9BAA3-8426-4A8F-879A-4DE269EC4E25}.CoreCLR_Release|Mixed Platforms.ActiveCfg = CoreCLR_Release|Any CPU
-		{EDF9BAA3-8426-4A8F-879A-4DE269EC4E25}.CoreCLR_Release|Mixed Platforms.Build.0 = CoreCLR_Release|Any CPU
-		{EDF9BAA3-8426-4A8F-879A-4DE269EC4E25}.CoreCLR_Release|Windows.ActiveCfg = CoreCLR_Release|Any CPU
-		{EDF9BAA3-8426-4A8F-879A-4DE269EC4E25}.CoreCLR_Release|Windows.Build.0 = CoreCLR_Release|Any CPU
-		{EDF9BAA3-8426-4A8F-879A-4DE269EC4E25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EDF9BAA3-8426-4A8F-879A-4DE269EC4E25}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EDF9BAA3-8426-4A8F-879A-4DE269EC4E25}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{EDF9BAA3-8426-4A8F-879A-4DE269EC4E25}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{EDF9BAA3-8426-4A8F-879A-4DE269EC4E25}.Debug|Windows.ActiveCfg = Debug|Any CPU
-		{EDF9BAA3-8426-4A8F-879A-4DE269EC4E25}.Debug|Windows.Build.0 = Debug|Any CPU
-		{EDF9BAA3-8426-4A8F-879A-4DE269EC4E25}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EDF9BAA3-8426-4A8F-879A-4DE269EC4E25}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EDF9BAA3-8426-4A8F-879A-4DE269EC4E25}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{EDF9BAA3-8426-4A8F-879A-4DE269EC4E25}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{EDF9BAA3-8426-4A8F-879A-4DE269EC4E25}.Release|Windows.ActiveCfg = Release|Any CPU
-		{EDF9BAA3-8426-4A8F-879A-4DE269EC4E25}.Release|Windows.Build.0 = Release|Any CPU
-		{EDF9BAA3-8426-4A8F-879A-4DE269EC4E25}.Testing|Any CPU.ActiveCfg = Testing|Any CPU
-		{EDF9BAA3-8426-4A8F-879A-4DE269EC4E25}.Testing|Any CPU.Build.0 = Testing|Any CPU
-		{EDF9BAA3-8426-4A8F-879A-4DE269EC4E25}.Testing|Mixed Platforms.ActiveCfg = Testing|Any CPU
-		{EDF9BAA3-8426-4A8F-879A-4DE269EC4E25}.Testing|Mixed Platforms.Build.0 = Testing|Any CPU
-		{EDF9BAA3-8426-4A8F-879A-4DE269EC4E25}.Testing|Windows.ActiveCfg = Testing|Any CPU
-		{EDF9BAA3-8426-4A8F-879A-4DE269EC4E25}.Testing|Windows.Build.0 = Testing|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{0D2AF89C-E1ED-41C8-B28E-A0A0160A1AC7} = {6E6868AD-1E33-43FB-8BF3-1AB87163E5B4}
 		{AFE04B3A-4FB6-4D0E-85F7-35A1AD6E3590} = {6E6868AD-1E33-43FB-8BF3-1AB87163E5B4}
-		{EDF9BAA3-8426-4A8F-879A-4DE269EC4E25} = {6E6868AD-1E33-43FB-8BF3-1AB87163E5B4}
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {95EDBAF8-F8E4-477E-B594-7176B1B13AD3}
 	EndGlobalSection
 EndGlobal
