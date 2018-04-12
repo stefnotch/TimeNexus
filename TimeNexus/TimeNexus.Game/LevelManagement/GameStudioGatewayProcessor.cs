@@ -62,22 +62,24 @@ namespace TimeNexus.LevelManagement
 		protected override void OnEntityComponentAdding(Entity entity, Gateway component, AssociatedData data)
 		{
 			if (data.DebugEntity == null) return;
+			entity.AddChild(data.DebugEntity);
 			//debugScene.Entities.Add(data.DebugEntity);
-			entity.Add(data.DebugModel);
+			//entity.Add(data.DebugModel);
 
 		}
 
 		protected override void OnEntityComponentRemoved(Entity entity, Gateway component, AssociatedData data)
 		{
 			if (data.DebugEntity == null) return;
+			entity.RemoveChild(data.DebugEntity);
 			//debugScene.Entities.Remove(data.DebugEntity);
-			entity.Remove(data.DebugModel);
+			//entity.Remove(data.DebugModel);
 		}
 
 		protected override AssociatedData GenerateComponentData([NotNull] Entity entity, [NotNull] Gateway component)
 		{
 
-			var debugEntity = new Entity(entity.Transform.Position)
+			var debugEntity = new Entity()
 			{
 				new ModelComponent(gameStudioGatewayRendering.CreateArrow())
 			};
