@@ -6,9 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SiliconStudio.Core;
+using SiliconStudio.Xenko.Rendering;
+using SiliconStudio.Xenko.Engine.Design;
 
 namespace TimeNexus.LevelManagement
 {
+	[DefaultEntityComponentProcessor(typeof(GameStudioGatewayProcessor), ExecutionMode = ExecutionMode.All)]
 	public class Gateway : ScriptComponent
 	{
 		public Vector3 Direction { get; set; } = Vector3.UnitX;

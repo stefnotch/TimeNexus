@@ -12,6 +12,10 @@ using SiliconStudio.Xenko.Input;
 using TimeNexus.Input;
 using SiliconStudio.Assets;
 using System.Reflection;
+using SiliconStudio.Xenko.Rendering;
+using SiliconStudio.Xenko.Graphics;
+using SiliconStudio.Xenko.Rendering.Materials;
+using SiliconStudio.Xenko.Rendering.Materials.ComputeColors;
 
 namespace TimeNexus.Objects
 {
@@ -53,7 +57,6 @@ namespace TimeNexus.Objects
 			_UIEntity.Transform.Position = Offset;
 
 			this.Entity.AddChild(_UIEntity);
-
 
 			//Console.WriteLine(Content.IsLoaded("MainScene"));
 			//var s = SiliconStudio.Assets.AssetCloner.Clone();

@@ -197,8 +197,10 @@
     </Compile>
     <Compile Include="Input\KeyBindings.cs" />
     <Compile Include="LevelManagement\EntityComponentExtensions.cs" />
+    <Compile Include="LevelManagement\GameStudioGatewayRenderingService.cs" />
     <Compile Include="LevelManagement\Gateway.cs" />
     <Compile Include="LevelManagement\GatewayChooser.cs" />
+    <Compile Include="LevelManagement\GatewayProcessor.cs" />
     <Compile Include="LevelManagement\Level.cs" />
     <Compile Include="LevelManagement\LevelChooser.cs" />
     <Compile Include="LevelManagement\LevelManager.cs" />
