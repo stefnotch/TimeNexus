@@ -32,10 +32,12 @@ namespace TimeNexus.LevelManagement
 			{
 				Attributes =
 				{
-					Diffuse = new MaterialDiffuseMapFeature(new ComputeColor(new Color4(0.8f, 0.8f, 0.8f, 1)))
+					Diffuse = new MaterialDiffuseMapFeature(new ComputeColor(new Color4(1f, 1f, 1f, 1))),
+					DiffuseModel = new MaterialDiffuseLambertModelFeature(),
+					Emissive = new MaterialEmissiveMapFeature(new ComputeColor(new Color4(1f, 1f, 1f, 1)))
 				}
 			});
-
+			
 			arrowMesh = new Mesh()
 			{
 				Draw = GeometricPrimitive.Cone.New(graphicsDevice, radius: 0.1f, height: 0.3f).ToMeshDraw()
@@ -45,12 +47,8 @@ namespace TimeNexus.LevelManagement
 		public Model CreateArrow()
 		{
 			var arrowModel = new Model();
-			arrowModel.Meshes.Add(new Mesh()
-			{
-				Draw = GeometricPrimitive.Cone.New(graphicsDevice, radius: 0.1f, height: 0.3f).ToMeshDraw()
-			});
+			arrowModel.Meshes.Add(arrowMesh);
 			arrowModel.Materials.Add(arrowMaterial);
-
 			/*		new MaterialDescriptor()
 					{
 						Attributes =

@@ -212,7 +212,7 @@ Hierarchy:
                         Gateway: ref!! 56796a2e-86df-4ced-9a04-b49b4b70204e
                     be1ca3f41165bc9554db627788617911: !TimeNexus.LevelManagement.Gateway,TimeNexus.Game
                         Id: 56796a2e-86df-4ced-9a04-b49b4b70204e
-                        Direction: {X: 1.0, Y: 0.0, Z: 0.0}
+                        Direction: {X: 1.0, Y: 0.0, Z: 0.0, W: 1.0}
                         IsExit: false
         -   Entity:
                 Id: a42f7db0-a8d8-430c-ac70-778eb7e00de1

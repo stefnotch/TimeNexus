@@ -11,10 +11,10 @@ using SiliconStudio.Xenko.Engine.Design;
 
 namespace TimeNexus.LevelManagement
 {
-	[DefaultEntityComponentProcessor(typeof(GameStudioGatewayProcessor), ExecutionMode = ExecutionMode.All)]
+	[DefaultEntityComponentProcessor(typeof(GameStudioGatewayProcessor), ExecutionMode = ExecutionMode.Editor)]
 	public class Gateway : ScriptComponent
 	{
-		public Vector3 Direction { get; set; } = Vector3.UnitX;
+		public Quaternion Rotation { get; set; } = Quaternion.Identity;
 
 		/// <summary>
 		/// Is the gateway an exit?

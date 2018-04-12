@@ -9,14 +9,29 @@ Hierarchy:
         - ref!! fded444c-7b1e-4dcd-9093-b6a718d6d9a1
         - ref!! 93609a4b-6aaa-4d25-9dd0-b5c31700f410
         - ref!! 42872442-fce2-4e37-9b7b-022595352bda
+        - ref!! 26ed16a8-e5d5-4ad2-b2b1-c47462d3931e
     Parts:
+        -   Entity:
+                Id: 26ed16a8-e5d5-4ad2-b2b1-c47462d3931e
+                Name: Entity
+                Components:
+                    5753a4668485dd193aa312d63959c76e: !TransformComponent
+                        Id: f9feb59c-7b34-4e0f-b0e4-05e0abb7b218
+                        Position: {X: -3.95140362, Y: 0.144550726, Z: 4.52001953}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    21e41ff7bc86d06233cfe32b8f8396ab: !TimeNexus.LevelManagement.Gateway,TimeNexus.Game
+                        Id: 6b66703a-811d-46ce-a5da-6dbb6ed6b9da
+                        Direction: {X: 0.0, Y: 0.258819044, Z: 0.0, W: 0.9659258}
+                        IsExit: false
         -   Entity:
                 Id: 42872442-fce2-4e37-9b7b-022595352bda
                 Name: Simple particle system
                 Components:
                     a45c47c143d6727f3230a1b5eea49db4: !TransformComponent
                         Id: 73f5ca03-999b-4aa3-9ea7-b150da227e28
-                        Position: {X: -4.37399769, Y: 0.210734576, Z: 4.19214535}
+                        Position: {X: -4.37399769, Y: 0.210734576, Z: 4.214494}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
@@ -122,9 +137,9 @@ Hierarchy:
                                             ForceVortex: 0.0
                                             ForceRepulsive: 0.0
                                             ForceFixed: {X: 0.0, Y: -9.81, Z: 0.0}
-                    50079d9d900c34a49e2e0ed3179ba427: !TimeNexus.LevelManagement.Gateway,TimeNexus.Game
-                        Id: 9fe06567-29a5-47cb-99ec-6b1af7e628c4
-                        Direction: {X: 1.0, Y: 0.0, Z: 0.0}
+                    af5e27ec794f9ff3cf0ddc942ede325e: !TimeNexus.LevelManagement.Gateway,TimeNexus.Game
+                        Id: 4e0db399-2853-482b-a51c-88c44eb4846e
+                        Direction: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         IsExit: false
         -   Entity:
                 Id: 93609a4b-6aaa-4d25-9dd0-b5c31700f410

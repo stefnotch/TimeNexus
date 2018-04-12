@@ -22,18 +22,14 @@ namespace TimeNexus.LevelManagement
 		public class AssociatedData
 		{
 			public Entity DebugEntity;
-			public ModelComponent DebugModel;
 		}
 
-		private Scene debugScene;
-
-		private SceneSystem sceneSystem;
+		private List<Entity> debugEntities = new List<Entity>();
 		private GameStudioGatewayRenderingService gameStudioGatewayRendering;
+		private readonly Quaternion DefaultRotation = Quaternion.RotationX(MathUtil.PiOverTwo);
 
 		protected override void OnSystemAdd()
 		{
-			sceneSystem = Services.GetSafeServiceAs<SceneSystem>();
-
 			gameStudioGatewayRendering = Services.GetService<GameStudioGatewayRenderingService>();
 			if (gameStudioGatewayRendering == null)
 			{
@@ -41,30 +37,13 @@ namespace TimeNexus.LevelManagement
 				var gameSystems = Services.GetSafeServiceAs<IGameSystemCollection>();
 				gameSystems.Add(gameStudioGatewayRendering);
 			}
-
-			if (debugScene == null)
-			{
-				debugScene = new Scene();
-				//sceneSystem.SceneInstance.RootScene.Children.Add(debugScene);
-			}
-		}
-
-		protected override void OnSystemRemove()
-		{
-			if (debugScene != null)
-			{
-				//Not sure about this:
-				//sceneSystem.SceneInstance.RootScene.Children.Remove(debugScene);
-				debugScene.Dispose();
-			}
 		}
 
 		protected override void OnEntityComponentAdding(Entity entity, Gateway component, AssociatedData data)
 		{
 			if (data.DebugEntity == null) return;
 			entity.AddChild(data.DebugEntity);
-			//debugScene.Entities.Add(data.DebugEntity);
-			//entity.Add(data.DebugModel);
+			debugEntities.Add(data.DebugEntity);
 
 		}
 
@@ -72,31 +51,38 @@ namespace TimeNexus.LevelManagement
 		{
 			if (data.DebugEntity == null) return;
 			entity.RemoveChild(data.DebugEntity);
-			//debugScene.Entities.Remove(data.DebugEntity);
-			//entity.Remove(data.DebugModel);
+			debugEntities.Remove(data.DebugEntity);
 		}
 
 		protected override AssociatedData GenerateComponentData([NotNull] Entity entity, [NotNull] Gateway component)
 		{
 
-			var debugEntity = new Entity()
+			var debugEntity = new Entity("GameStudioGatewayArrow")
 			{
 				new ModelComponent(gameStudioGatewayRendering.CreateArrow())
 			};
 
+			debugEntity.Transform.Rotation = DefaultRotation * component.Rotation;
+
 			return new AssociatedData()
 			{
 				DebugEntity = debugEntity,
-				DebugModel = new ModelComponent(gameStudioGatewayRendering.CreateArrow())
 			};
 
 			//MessageBox(0, "You are watching message box", "Information", 5);
 		}
 
-		/*public override void Update(GameTime time)
+		public override void Update(GameTime time)
 		{
-
-		}*/
+			foreach(Entity e in debugEntities)
+			{
+				Quaternion? rotation = e.GetParent()?.Get<Gateway>()?.Rotation;
+				if (rotation.HasValue)
+				{
+					e.Transform.Rotation = DefaultRotation * rotation.Value;
+				}
+			}
+		}
 
 
 	}
