@@ -61,7 +61,6 @@ namespace TimeNexus.LevelManagement
 			{
 				new ModelComponent(gameStudioGatewayRendering.CreateArrow())
 			};
-
 			debugEntity.Transform.Rotation = DefaultRotation * component.Rotation;
 
 			return new AssociatedData()
@@ -74,7 +73,7 @@ namespace TimeNexus.LevelManagement
 
 		public override void Update(GameTime time)
 		{
-			foreach(Entity e in debugEntities)
+			foreach (Entity e in debugEntities)
 			{
 				Quaternion? rotation = e.GetParent()?.Get<Gateway>()?.Rotation;
 				if (rotation.HasValue)

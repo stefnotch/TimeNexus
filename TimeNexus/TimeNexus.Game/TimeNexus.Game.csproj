@@ -205,7 +205,7 @@
     <Compile Include="LevelManagement\LevelChooser.cs" />
     <Compile Include="LevelManagement\LevelManager.cs" />
     <Compile Include="LevelManagement\LevelSettings.cs" />
-    <Compile Include="Levels\DefaultLevelLoader.cs" />
+    <Compile Include="Levels\RootSceneLevelLoader.cs" />
     <Compile Include="Levels\LevelLoader.cs" />
     <Compile Include="Objects\InteractionPopup.cs" />
     <Compile Include="Objects\Door.cs" />

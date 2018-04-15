@@ -71,14 +71,17 @@ namespace TimeNexus.LevelManagement
 			//diff * otherRot = desiredRot
 			//diff = desiredRot * inverse(otherRot)
 			thisTransform.GetWorldTransformation(out Vector3 thisPosition, out Quaternion desiredRotation, out _);
-			desiredRotation.Invert();
+			desiredRotation = this.Rotation * desiredRotation;
+			desiredRotation = Quaternion.RotationY(MathUtil.Pi) * desiredRotation;
 
 			attachedTransform.UpdateWorldMatrix();
 			attachedTransform.GetWorldTransformation(out _, out Quaternion otherRotation, out _);
+			otherRotation = AttachedGateway.Rotation * otherRotation;
 			otherRotation.Invert();
-			//Rotate the scene
 
-			AttachedLevel.Rotate(desiredRotation * otherRotation);
+			//Rotate the scene
+			AttachedLevel.Rotate(otherRotation * desiredRotation);
+
 
 			attachedTransform.UpdateWorldMatrix();
 			attachedTransform.GetWorldTransformation(out Vector3 otherPosition, out _, out _);
@@ -93,8 +96,6 @@ namespace TimeNexus.LevelManagement
 			}
 
 			IsLoading = false;
-
-
 		}
 	}
 }

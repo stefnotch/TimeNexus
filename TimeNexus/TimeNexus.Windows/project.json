@@ -1,6 +1,6 @@
 ﻿{
   "dependencies": {
-    "NETStandard.Library": "2.0.1",
+    "NETStandard.Library": "2.0.2",
     "System.Reactive": "4.0.0-preview00001"
   },
   "frameworks": {

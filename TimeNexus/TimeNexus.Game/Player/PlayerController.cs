@@ -120,7 +120,7 @@ namespace TimeNexus.Player
 				_smoothPitchRoll = Vector2.SmoothStep(_smoothPitchRoll, pitchRoll, EdgeTiltSmoothAmount);
 
 				//we need to pitch only the camera node
-				CameraEntity.Transform.Rotation = baseCameraRotation * Quaternion.RotationYawPitchRoll(0, pitch + _smoothPitchRoll.Y, -_smoothPitchRoll.X);
+				CameraEntity.Transform.Rotation = baseCameraRotation * Quaternion.RotationYawPitchRoll(0, pitch - _smoothPitchRoll.Y, _smoothPitchRoll.X);
 			}
 
 			Entity.Transform.Rotation = Quaternion.RotationYawPitchRoll(yaw, 0, 0); //do not apply pitch to our controller

@@ -212,7 +212,7 @@ Hierarchy:
                         Gateway: ref!! 56796a2e-86df-4ced-9a04-b49b4b70204e
                     be1ca3f41165bc9554db627788617911: !TimeNexus.LevelManagement.Gateway,TimeNexus.Game
                         Id: 56796a2e-86df-4ced-9a04-b49b4b70204e
-                        Direction: {X: 1.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Rotation: {X: -0.382683456, Y: 0.0, Z: 0.0, W: 0.9238795}
                         IsExit: false
         -   Entity:
                 Id: a42f7db0-a8d8-430c-ac70-778eb7e00de1
@@ -239,8 +239,8 @@ Hierarchy:
                 Components:
                     3613ee3905bd433cafae211e87e96c38: !TransformComponent
                         Id: b42dec05-778b-4ad1-9e40-5efec2865acf
-                        Position: {X: 0.9483988, Y: 0.628576, Z: 2.64315}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Position: {X: 0.9483988, Y: 0.628576, Z: 2.74585438}
+                        Rotation: {X: 0.0, Y: -0.861658633, Z: 0.0, W: 0.50748837}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
                     0b3d5da37a82b722459bf82c0389b498: !ModelComponent

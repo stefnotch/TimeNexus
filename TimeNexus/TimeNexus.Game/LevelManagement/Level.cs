@@ -1,5 +1,7 @@
 ﻿using SiliconStudio.Core.Mathematics;
 using SiliconStudio.Xenko.Engine;
+using SiliconStudio.Xenko.Particles;
+using SiliconStudio.Xenko.Particles.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,31 +50,49 @@ namespace TimeNexus.LevelManagement
 			Settings = GetRootComponents<LevelSettings>(Scene).DefaultIfEmpty(new LevelSettings()).FirstOrDefault();
 		}
 
-		public void Rotate(Quaternion rotation) {
-
+		public void Rotate(Quaternion rotation)
+		{
 			var rotMatrix = Matrix.RotationQuaternion(rotation);
 
 			foreach (Entity e in this.Scene.Entities)
 			{
-				e.Transform.LocalMatrix = rotMatrix * e.Transform.LocalMatrix;
+				e.Transform.UpdateLocalMatrix();
+				e.Transform.LocalMatrix =  e.Transform.LocalMatrix * rotMatrix; //Rightmost stuff happens first
 				e.Transform.LocalMatrix.Decompose(out _, out Quaternion outRotation, out Vector3 position);
+
 				e.Transform.Rotation = outRotation;
 				e.Transform.Position = position;
+				e.Transform.UpdateLocalMatrix();
+				UpdateTransformation(e);
 			}
 			ComputeBoundingBox(Scene);
 		}
 
 		public void Translate(Vector3 vector)
 		{
-
+			//Crashy-crashy, don't uncomment
+			//var p = this.Scene.Parent;
+			//p.Children.Remove(Scene);
 			foreach (Entity e in this.Scene.Entities)
 			{
 				e.Transform.Position += vector;
+				UpdateTransformation(e);
 			}
+			//p.Children.Add(Scene);
 			ComputeBoundingBox(Scene);
 		}
 
-		private IEnumerable<T> GetRootComponents<T>(Scene s) where T:EntityComponent
+		private void UpdateTransformation(Entity e)
+		{
+			if (Scene.Parent == null) return;//TODO: Check if this always works (e.g. When removing and reattaching a scene)
+			e.Get<PhysicsComponent>()?.UpdatePhysicsTransformation();
+			foreach (var child in e.GetChildren())
+			{
+				UpdateTransformation(child);
+			}
+		}
+
+		private IEnumerable<T> GetRootComponents<T>(Scene s) where T : EntityComponent
 		{
 			foreach (Entity e in s.Entities)
 			{

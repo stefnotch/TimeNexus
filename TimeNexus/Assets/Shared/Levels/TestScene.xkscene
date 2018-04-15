@@ -10,6 +10,8 @@ Hierarchy:
         - ref!! 93609a4b-6aaa-4d25-9dd0-b5c31700f410
         - ref!! 42872442-fce2-4e37-9b7b-022595352bda
         - ref!! 26ed16a8-e5d5-4ad2-b2b1-c47462d3931e
+        - ref!! 97d6574b-ff6b-4be5-8919-d5c7aa9f3635
+        - ref!! 662ff364-209d-4443-b53d-1c4efbe9f5c3
     Parts:
         -   Entity:
                 Id: 26ed16a8-e5d5-4ad2-b2b1-c47462d3931e
@@ -23,7 +25,7 @@ Hierarchy:
                         Children: {}
                     21e41ff7bc86d06233cfe32b8f8396ab: !TimeNexus.LevelManagement.Gateway,TimeNexus.Game
                         Id: 6b66703a-811d-46ce-a5da-6dbb6ed6b9da
-                        Direction: {X: 0.0, Y: 0.258819044, Z: 0.0, W: 0.9659258}
+                        Rotation: {X: 0.0, Y: 0.707106769, Z: 0.0, W: -0.707106769}
                         IsExit: false
         -   Entity:
                 Id: 42872442-fce2-4e37-9b7b-022595352bda
@@ -53,12 +55,8 @@ Hierarchy:
                                         SamplerSize: null
                                         SamplerRotation: null
                                     Material: !ParticleMaterialComputeColor
-                                        ComputeColor: !ComputeTextureColor
-                                            FallbackValue:
-                                                Value: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                                            Scale: {X: 1.0, Y: 1.0}
-                                            Offset: {X: 0.0, Y: 0.0}
-                                            Swizzle: null
+                                        ComputeColor: !ComputeVertexStreamColor
+                                            Stream: !ColorVertexStreamDefinition {}
                                         UVBuilder: null
                                         ForceTexCoords: false
                                     Spawners:
@@ -113,6 +111,21 @@ Hierarchy:
                                             DisplayParticleScaleUniform: true
                                             VelocityMin: {X: -0.5, Y: 1.0, Z: -0.5}
                                             VelocityMax: {X: 0.5, Y: 3.0, Z: 0.5}
+                                        1f4bda6346fcf3b558626539d4062fa0: !InitialColorSeed
+                                            InheritPosition: true
+                                            Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                                            InheritRotation: true
+                                            Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                                            InheritScale: true
+                                            Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                                            ScaleUniform: 1.0
+                                            SeedOffset: 0
+                                            DisplayParticlePosition: false
+                                            DisplayParticleRotation: false
+                                            DisplayParticleScale: false
+                                            DisplayParticleScaleUniform: false
+                                            ColorMin: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
+                                            ColorMax: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
                                     Updaters:
                                         cdd45dbefc10e3839d17ef0f3b0f0e71: !UpdaterForceField
                                             InheritPosition: true
@@ -137,10 +150,52 @@ Hierarchy:
                                             ForceVortex: 0.0
                                             ForceRepulsive: 0.0
                                             ForceFixed: {X: 0.0, Y: -9.81, Z: 0.0}
+                                        ece344d4047239d1c62704c5387da802: !UpdaterColorOverTime
+                                            InheritPosition: true
+                                            Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                                            InheritRotation: true
+                                            Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                                            InheritScale: true
+                                            Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                                            ScaleUniform: 1.0
+                                            DisplayParticlePosition: false
+                                            DisplayParticleRotation: false
+                                            DisplayParticleScale: false
+                                            DisplayParticleScaleUniform: false
+                                            SamplerMain: !ComputeCurveSamplerColor4
+                                                Curve: !ComputeAnimationCurveColor4
+                                                    KeyFrames:
+                                                        8ada6997621c93ce2ca274a7015bba11:
+                                                            Key: 0.03471306
+                                                            Value: {R: 1.469167, G: 0.0, B: 0.0, A: 10.0303364}
+                                                            TangentType: Linear
+                                                        767d6f078ceb64e900251aa804fd5fd3:
+                                                            Key: 21.6389847
+                                                            Value: {R: -1.4223628, G: 1.8607254, B: 1.917111, A: 9.637007}
+                                                            TangentType: Linear
+                                            SamplerOptional: null
+                                            SeedOffset: 0
                     af5e27ec794f9ff3cf0ddc942ede325e: !TimeNexus.LevelManagement.Gateway,TimeNexus.Game
                         Id: 4e0db399-2853-482b-a51c-88c44eb4846e
-                        Direction: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Rotation: {X: 0.0, Y: -0.382683456, Z: 0.0, W: 0.9238795}
                         IsExit: false
+        -   Entity:
+                Id: 662ff364-209d-4443-b53d-1c4efbe9f5c3
+                Name: Skybox light
+                Components:
+                    33d32c0fedf4c6f7e511ff4ef070f355: !TransformComponent
+                        Id: 17db6fce-1125-4f0f-adbb-bf5b6e0b9a8e
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    2810e33f214ddd72ae5fedb02909fc59: !LightComponent
+                        Id: ef0592d0-f5d0-4a2f-8b11-7c50e88d2a05
+                        Type: !LightSkybox
+                            Skybox: 377c2a27-0867-4fe1-8f27-227eb0eac5f1:Skybox
+                    1ee5ac54f5ba620f8ac584c0785a6374: !BackgroundComponent
+                        Id: 82d20dc5-b3d7-47b4-b756-a1ad8fd3502d
+                        Texture: fa985add-dab7-4519-ada2-69439f4a105b:Skybox texture
         -   Entity:
                 Id: 93609a4b-6aaa-4d25-9dd0-b5c31700f410
                 Name: Directional light
@@ -161,6 +216,16 @@ Hierarchy:
                                 DepthRange: {}
                                 PartitionMode: !LightDirectionalShadowMap.PartitionLogarithmic {}
                                 BiasParameters: {}
+        -   Entity:
+                Id: 97d6574b-ff6b-4be5-8919-d5c7aa9f3635
+                Name: Sphere
+                Components:
+                    eecd294861910b03d0155abd28a91330: !TransformComponent
+                        Id: b8e10ad4-cce4-4af5-9af9-1b09a8d24e73
+                        Position: {X: 0.0, Y: 0.74836725, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
         -   Entity:
                 Id: fded444c-7b1e-4dcd-9093-b6a718d6d9a1
                 Name: Ground

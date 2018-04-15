@@ -12,7 +12,12 @@ namespace TimeNexus.LevelManagement
 	public class LevelManager : StartupScript
 	{
 		public const int DefaultDimension = 0;
-		
+
+
+		[DataMemberIgnore]
+		public Dictionary<Scene, Level> Levels { get; } = new Dictionary<Scene, Level>();
+
+
 		/// <summary>
 		/// Gets the LevelManager
 		/// Note: This is NOT a Singleton, it's a root scene ScriptComponent
@@ -24,10 +29,13 @@ namespace TimeNexus.LevelManagement
 		{
 			if (Instance != null) Log.Warning("Multiple LevelManagers exist:" + Instance + "\n\n" + this);
 			Instance = this;
-		}
 
-		[DataMemberIgnore]
-		public Dictionary<Scene, Level> Levels { get; } = new Dictionary<Scene, Level>();
+			var rootScene = this.SceneSystem.SceneInstance.RootScene;
+			if (!Levels.ContainsKey(rootScene))
+			{
+				Levels.Add(rootScene, new Level(rootScene));
+			}
+		}
 
 		/// <summary>
 		/// Loads a scene using a url

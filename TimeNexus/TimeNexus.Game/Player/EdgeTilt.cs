@@ -33,6 +33,9 @@ namespace TimeNexus.Player
 		[DataMemberIgnore]
 		ColliderShape _collider;
 
+		[DataMemberIgnore]
+		Matrix offsetMatrix;
+
 		public override void Start()
 		{
 			//this.GetSimulation().ColliderShapesRendering = true;
@@ -49,6 +52,9 @@ namespace TimeNexus.Player
 									Quaternion.RotationY((i / (float)RayCount) * MathUtil.TwoPi)
 							);
 			}
+
+			//This code assumes that Y goes to the sky (instead of using the player's up vector)
+			offsetMatrix = Matrix.Translation(0, -0.3f, 0);
 		}
 
 
@@ -58,16 +64,15 @@ namespace TimeNexus.Player
 			{
 				return Vector2.Zero;
 			}*/
-			//Hell yeah, I'm going to raycast.
 
 			var averageDirection = Vector3.Zero;
-
-			//This code assumes that Y goes to the sky (instead of using the player's up vector)
-			var entityPosition = Entity.Transform.WorldMatrix * Matrix.Translation(0, -0.3f, 0);
+			
+			var entityPosition = offsetMatrix * Entity.Transform.WorldMatrix;
 			for (var i = 0; i < RayCount; i++)
 			{
 				//WHAT THE HELL!? WHY DO I NEED   Matrix.RotationY(0.01f)  !!??
-				var result = _simulation.ShapeSweep(_collider, entityPosition * Matrix.Translation(_offsets[i]) * Matrix.RotationY(0.01f), entityPosition);
+				Matrix from = Matrix.RotationY(0.01f) * Matrix.Translation(_offsets[i]) * entityPosition;
+				var result = _simulation.ShapeSweep(_collider, from, entityPosition);
 
 				//DebugText.Print(result.Collider + "", new Int2(10, 10 + 15 * i));
 

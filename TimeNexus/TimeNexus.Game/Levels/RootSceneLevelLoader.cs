@@ -17,7 +17,7 @@ using TimeNexus.Objects;
 
 namespace TimeNexus.Levels
 {
-	public class DefaultLevelLoader : StartupScript
+	public class RootSceneLevelLoader : StartupScript
 	{
 		public string DefaultLevelUrl { get; set; }
 
