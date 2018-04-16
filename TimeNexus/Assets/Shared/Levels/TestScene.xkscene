@@ -12,6 +12,7 @@ Hierarchy:
         - ref!! 26ed16a8-e5d5-4ad2-b2b1-c47462d3931e
         - ref!! 97d6574b-ff6b-4be5-8919-d5c7aa9f3635
         - ref!! 662ff364-209d-4443-b53d-1c4efbe9f5c3
+        - ref!! 4f58985f-e11f-4043-b9ef-b68bb4dfc374
     Parts:
         -   Entity:
                 Id: 26ed16a8-e5d5-4ad2-b2b1-c47462d3931e
@@ -180,6 +181,43 @@ Hierarchy:
                         Rotation: {X: 0.0, Y: -0.382683456, Z: 0.0, W: 0.9238795}
                         IsExit: false
         -   Entity:
+                Id: 4f58985f-e11f-4043-b9ef-b68bb4dfc374
+                Name: Gate2x3x1
+                Components:
+                    9aef70a25110b9b0a399abdf97fdf3c3: !TransformComponent
+                        Id: cdbd55d3-5b8e-4f2b-9bfe-ac6d83e75c93
+                        Position: {X: 4.5, Y: 1.5, Z: -2.0}
+                        Rotation: {X: 0.0, Y: 0.707106769, Z: 0.0, W: 0.707106769}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            6f5ec5ffe013189518fe82d9f3c4610f: ref!! b8d007f8-362d-447b-afd8-7917fe26023c
+                    ee3dc9fe8dbde4263bc696a794204346: !ModelComponent
+                        Id: 7cba15cd-97fd-4faa-84b2-aecfac277189
+                        Model: 7fd34173-3f6c-4384-b033-f97392d1fc89:Models/Gate2x3x1
+                        Materials: {}
+                    7a0698c3f656d342b3b20ccb617797bd: !RigidbodyComponent
+                        Id: 72db29df-3e1d-4031-87be-9ebd183ff292
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: false
+                        IsKinematic: false
+                        Mass: 1.0
+                        LinearDamping: 0.0
+                        AngularDamping: 0.0
+                        OverrideGravity: false
+                        Gravity: {X: 0.0, Y: 0.0, Z: 0.0}
+                        NodeName: null
+                        ColliderShapes:
+                            b0319f0b3f2fbba503de8b0a51b5f29d: !BoxColliderShapeDesc
+                                Is2D: false
+                                Size: {X: 2.0, Y: 3.0, Z: 1.0}
+                                LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+        -   Entity:
                 Id: 662ff364-209d-4443-b53d-1c4efbe9f5c3
                 Name: Skybox light
                 Components:
@@ -196,6 +234,26 @@ Hierarchy:
                     1ee5ac54f5ba620f8ac584c0785a6374: !BackgroundComponent
                         Id: 82d20dc5-b3d7-47b4-b756-a1ad8fd3502d
                         Texture: fa985add-dab7-4519-ada2-69439f4a105b:Skybox texture
+        -   Folder: null
+            Entity:
+                Id: 822affb8-354e-4700-9879-466ddd82e661
+                Name: Gateway
+                Components:
+                    ff6c6eea550a40d7b67d22b8642597f6: !TransformComponent
+                        Id: b8d007f8-362d-447b-afd8-7917fe26023c
+                        Position: {X: 0.0, Y: -1.5, Z: 0.5}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    dedf0d9e54f29e7506c0af07609ab74e: !TimeNexus.LevelManagement.Gateway,TimeNexus.Game
+                        Id: 6c2dc151-5c6b-4da8-9e1c-601ef4d9573c
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        IsExit: false
+                    8c8967788133e084dde269ce62c7166f: !TimeNexus.Levels.LevelLoader,TimeNexus.Game
+                        Id: 8d47bbb2-be82-46e4-90da-aca8402a1b08
+                        LevelType: Level
+                        TriggerVolume: ref!! 72db29df-3e1d-4031-87be-9ebd183ff292
+                        Gateway: ref!! 6c2dc151-5c6b-4da8-9e1c-601ef4d9573c
         -   Entity:
                 Id: 93609a4b-6aaa-4d25-9dd0-b5c31700f410
                 Name: Directional light

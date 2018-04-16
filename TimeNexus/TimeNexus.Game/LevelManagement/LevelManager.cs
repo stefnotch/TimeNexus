@@ -44,7 +44,14 @@ namespace TimeNexus.LevelManagement
 		/// <returns></returns>
 		public async Task<Level> LoadLevel(string url)
 		{
+			var previousScene = Content.Get<Scene>(url);
+			if (previousScene != null && Levels.ContainsKey(previousScene))
+			{
+				var newScene = new Scene();
+			}
+
 			var scene = await Content.LoadAsync<Scene>(url).ConfigureAwait(false);
+			
 			var level = new Level(scene);
 			Levels.Add(level.Scene, level);
 			return level;

@@ -1,0 +1,133 @@
+!SceneAsset
+Id: fed758c6-e303-4c97-9ff9-d70299fb0874
+SerializedVersion: {Xenko: 2.1.0.1}
+Tags: []
+ChildrenIds: []
+Offset: {X: 0.0, Y: 0.0, Z: 0.0}
+Hierarchy:
+    RootParts:
+        - ref!! ec4d55b6-3ef5-41eb-83c4-a4504bfe3d0b
+        - ref!! 835d2648-4be2-4ad5-87d8-dbe851522f7b
+        - ref!! feddea31-3040-40bc-92dd-7fdf20bd1c39
+        - ref!! afc358e4-21b1-409d-b3a4-308707edc28b
+        - ref!! cc62cd29-143a-45cc-977b-c2d5ddc8caef
+    Parts:
+        -   Entity:
+                Id: 835d2648-4be2-4ad5-87d8-dbe851522f7b
+                Name: Directional light
+                Components:
+                    1f56b7c09bac00608a312b6075084e1d: !TransformComponent
+                        Id: 4ad1de5b-1072-41bc-82ad-78a394bf048a
+                        Position: {X: 0.0, Y: 2.0, Z: 0.0}
+                        Rotation: {X: -0.57357645, Y: 0.0, Z: 0.0, W: 0.819152057}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    ffc9c26ce8acbd8bb2e5df5485596c82: !LightComponent
+                        Id: 3cbdeddb-6205-45aa-9ba4-dd06b1cc207b
+                        Type: !LightDirectional
+                            Color: !ColorRgbProvider
+                                Value: {R: 1.0, G: 1.0, B: 1.0}
+                            Shadow:
+                                Size: Large
+                                DepthRange: {}
+                                PartitionMode: !LightDirectionalShadowMap.PartitionLogarithmic {}
+                                BiasParameters: {}
+        -   Entity:
+                Id: afc358e4-21b1-409d-b3a4-308707edc28b
+                Name: Entrance
+                Components:
+                    7bf63ea86c7ffc7c90822037f2f8102e: !TransformComponent
+                        Id: 9a55015e-7c03-42c0-813e-a3bdbdddf43c
+                        Position: {X: 14.9816465, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    84aa7eb7507d6a794992bdd484c76457: !TimeNexus.LevelManagement.Gateway,TimeNexus.Game
+                        Id: 45facba7-fb0c-485a-a933-9aa1b74b6920
+                        Rotation: {X: 0.0, Y: 0.707106769, Z: 0.0, W: 0.707106769}
+                        IsExit: false
+        -   Entity:
+                Id: cc62cd29-143a-45cc-977b-c2d5ddc8caef
+                Name: Exit
+                Components:
+                    0549fd4a77addb788fbf924c02823aa2: !TransformComponent
+                        Id: 9f80d70a-afb9-4e99-93fe-8ed85392bb9a
+                        Position: {X: -15.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    f0df3596965d9e0c331737bb8e792c68: !TimeNexus.LevelManagement.Gateway,TimeNexus.Game
+                        Id: 5f6a5162-4b0e-471d-9edc-cba749bae5e1
+                        Rotation: {X: 0.0, Y: 0.707106769, Z: 0.0, W: -0.707106769}
+                        IsExit: true
+                    a1139f2921b90bd51bfa863001c5b42d: !RigidbodyComponent
+                        Id: ecde9412-15e2-4c52-93ca-7b1a098fcf79
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: false
+                        IsKinematic: false
+                        Mass: 1.0
+                        LinearDamping: 0.0
+                        AngularDamping: 0.0
+                        OverrideGravity: false
+                        Gravity: {X: 0.0, Y: 0.0, Z: 0.0}
+                        NodeName: null
+                        ColliderShapes:
+                            983f282a48b237e2366d1f5efeecf727: !SphereColliderShapeDesc
+                                Is2D: false
+                                Radius: 4.0
+                                LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
+                    8ea66c4d9e4558e99aee696623e05f80: !TimeNexus.Levels.LevelLoader,TimeNexus.Game
+                        Id: e6e1dfa1-ab63-47e4-b129-ea7dd37789e1
+                        LevelType: Level
+                        TriggerVolume: ref!! ecde9412-15e2-4c52-93ca-7b1a098fcf79
+                        Gateway: ref!! 5f6a5162-4b0e-471d-9edc-cba749bae5e1
+        -   Entity:
+                Id: ec4d55b6-3ef5-41eb-83c4-a4504bfe3d0b
+                Name: box
+                Components:
+                    fef1eb5976a28482085b84a6c21e99df: !TransformComponent
+                        Id: e56067fd-9fa0-4886-b565-2dbe69d846b4
+                        Position: {X: 0.0, Y: -1.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 30.0, Y: 1.0, Z: 2.0}
+                        Children: {}
+                    44e7879b91756d6194d945898e310992: !ModelComponent
+                        Id: 44b1d4d6-f351-4f1a-a89c-aecac5582911
+                        Model: a8a4c85d-3bbd-412f-a11f-c53fb3504f4c:box
+                        Materials: {}
+                    d9e7fb24a9db6071bc75afc974bf7c19: !StaticColliderComponent
+                        Id: 38c5bedc-0145-4a07-9c2d-58c67ad16368
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: false
+                        ColliderShapes:
+                            8cfeb69d4dc15a83813e1c6cc822450f: !BoxColliderShapeDesc
+                                Is2D: false
+                                Size: {X: 1.0, Y: 1.0, Z: 1.0}
+                                LocalOffset: {X: 0.0, Y: 0.5, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+        -   Entity:
+                Id: feddea31-3040-40bc-92dd-7fdf20bd1c39
+                Name: Ambient light
+                Components:
+                    25dcc99792decfd5f0c4078daf96d700: !TransformComponent
+                        Id: 441a7ea7-fda4-4ca6-814b-1b5e38a363f8
+                        Position: {X: 0.0, Y: 0.0, Z: -2.481445}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    e12151233cabfb54695a5c65cffe1394: !LightComponent
+                        Id: fcf6395c-8849-46e5-acfd-dcc48240961e
+                        Type: !LightAmbient
+                            Color: !ColorRgbProvider
+                                Value: {R: 1.0, G: 1.0, B: 1.0}
+                        Intensity: 0.2

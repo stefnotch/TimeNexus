@@ -37,10 +37,16 @@ namespace TimeNexus.LevelManagement
 					Emissive = new MaterialEmissiveMapFeature(new ComputeColor(new Color4(1f, 1f, 1f, 1)))
 				}
 			});
-			
+
+			var arrow = GeometricPrimitive.Cone.New(radius: 0.1f, height: 0.3f);
+			for(int i = 0; i < arrow.Vertices.Length; i++)
+			{
+				arrow.Vertices[i].Position.Y -= 0.15f;
+			}
+
 			arrowMesh = new Mesh()
 			{
-				Draw = GeometricPrimitive.Cone.New(graphicsDevice, radius: 0.1f, height: 0.3f).ToMeshDraw()
+				Draw = new GeometricPrimitive(graphicsDevice, arrow).ToMeshDraw()
 			};
 		}
 

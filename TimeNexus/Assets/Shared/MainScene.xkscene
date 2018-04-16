@@ -175,16 +175,17 @@ Hierarchy:
                 Components:
                     9aef70a25110b9b0a399abdf97fdf3c3: !TransformComponent
                         Id: 42b7d68b-19a3-4cd6-b39a-a177fdde579e
-                        Position: {X: 0.0, Y: 1.5, Z: 9.0}
+                        Position: {X: 0.0, Y: 1.5, Z: 14.4880686}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children: {}
+                        Children:
+                            6f5ec5ffe013189518fe82d9f3c4610f: ref!! acf00f36-a06f-4321-914c-bd33ac563024
                     ee3dc9fe8dbde4263bc696a794204346: !ModelComponent
                         Id: fbf6e6c8-fa00-4499-9a60-b9c22e703b46
                         Model: 7fd34173-3f6c-4384-b033-f97392d1fc89:Models/Gate2x3x1
                         Materials: {}
-                    925400c2edd16825ff4b0a4db499eb4d: !RigidbodyComponent
-                        Id: 2699d985-cfa5-4225-9177-6932563bb308
+                    7a0698c3f656d342b3b20ccb617797bd: !RigidbodyComponent
+                        Id: 3a56e7de-1308-4ba8-ba19-481336adf2c3
                         CanSleep: false
                         Restitution: 0.0
                         Friction: 0.5
@@ -200,20 +201,11 @@ Hierarchy:
                         Gravity: {X: 0.0, Y: 0.0, Z: 0.0}
                         NodeName: null
                         ColliderShapes:
-                            2905319886735958ae040836d002d7c9: !BoxColliderShapeDesc
+                            b0319f0b3f2fbba503de8b0a51b5f29d: !BoxColliderShapeDesc
                                 Is2D: false
-                                Size: {X: 3.0, Y: 3.0, Z: 3.0}
+                                Size: {X: 2.0, Y: 3.0, Z: 1.0}
                                 LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
                                 LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                    57fe2c6e18c72709a1526ca1ab5f956a: !TimeNexus.Levels.LevelLoader,TimeNexus.Game
-                        Id: c7c8f40a-1507-4b7a-9b0e-0d4725f94a6a
-                        LevelType: Level
-                        TriggerVolume: ref!! 2699d985-cfa5-4225-9177-6932563bb308
-                        Gateway: ref!! 56796a2e-86df-4ced-9a04-b49b4b70204e
-                    be1ca3f41165bc9554db627788617911: !TimeNexus.LevelManagement.Gateway,TimeNexus.Game
-                        Id: 56796a2e-86df-4ced-9a04-b49b4b70204e
-                        Rotation: {X: -0.382683456, Y: 0.0, Z: 0.0, W: 0.9238795}
-                        IsExit: false
         -   Entity:
                 Id: a42f7db0-a8d8-430c-ac70-778eb7e00de1
                 Name: box
@@ -285,3 +277,22 @@ Hierarchy:
                         Id: 9ccd0cce-3a82-4797-9d94-b4b68de66d1f
                         GameStudioTime:
                             Era: Modern
+        -   Entity:
+                Id: ec4ac2ac-d94f-4237-a81b-b48c001da424
+                Name: Gateway
+                Components:
+                    ff6c6eea550a40d7b67d22b8642597f6: !TransformComponent
+                        Id: acf00f36-a06f-4321-914c-bd33ac563024
+                        Position: {X: 0.0, Y: -1.5, Z: 0.5}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    dedf0d9e54f29e7506c0af07609ab74e: !TimeNexus.LevelManagement.Gateway,TimeNexus.Game
+                        Id: 20871f9a-4f2e-4faa-9ee6-2ae4ff900405
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        IsExit: false
+                    8c8967788133e084dde269ce62c7166f: !TimeNexus.Levels.LevelLoader,TimeNexus.Game
+                        Id: 2e41f6c8-e67b-48de-af24-1903842f2898
+                        LevelType: Level
+                        TriggerVolume: ref!! 3a56e7de-1308-4ba8-ba19-481336adf2c3
+                        Gateway: ref!! 20871f9a-4f2e-4faa-9ee6-2ae4ff900405
