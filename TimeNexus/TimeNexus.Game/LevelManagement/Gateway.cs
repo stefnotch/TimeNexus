@@ -22,13 +22,13 @@ namespace TimeNexus.LevelManagement
 		public bool IsExit { get; set; }
 
 		/// <summary>
-		/// The scene that comes after the gateway
+		/// The level that comes after the gateway
 		/// </summary>
 		[DataMemberIgnore]
 		public Level AttachedLevel { get; private set; }
 
 		/// <summary>
-		/// The gateway of the attached scene
+		/// The gateway of the attached level
 		/// </summary>
 		[DataMemberIgnore]
 		public Gateway AttachedGateway { get; private set; }
@@ -37,7 +37,7 @@ namespace TimeNexus.LevelManagement
 		public bool IsLoading { get; private set; }
 
 		/// <summary>
-		/// Attaches a scene to this gateway
+		/// Attaches a level to this gateway
 		/// Will magically take care of everything.
 		/// </summary>
 		/// <param name="url">URL of the scene asset</param>
@@ -49,14 +49,14 @@ namespace TimeNexus.LevelManagement
 			if(AttachedLevel != null)
 			{
 				//TODO: Take care of this case
-				Log.Error("already has an attached level");
+				Log.Error("already has an attached level: " + url);
 			}
 			IsLoading = true;
 			Level other = await LevelManager.Instance.LoadLevel(url).ConfigureAwait(false);
 			
 			if(other.Gateways.Count == 0)
 			{
-				throw new ArgumentException("You can't attach a scene with 0 gateways.");
+				throw new ArgumentException("You can't attach a scene with 0 gateways. Offending scene: " + url);
 			}
 
 			AttachedLevel = other;

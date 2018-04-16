@@ -22,7 +22,7 @@ namespace TimeNexus.Objects
 		private Entity _UIEntity;
 		private bool _open = false;
 
-		public UIPage DoorUI { get; set; }
+		public UIPage InteractionUI { get; set; }
 		public Vector3 Offset { get; set; }
 
 		public bool Open {
@@ -36,12 +36,12 @@ namespace TimeNexus.Objects
 
 		public override void Start()
 		{
-			if (DoorUI == null) this.Log.Error("No door UI attached to this entity");
+			if (InteractionUI == null) this.Log.Error("No interaction UI attached to this entity");
 			_UIEntity = new Entity();
 
-			var DoorUIComponent = new UIComponent()
+			var UIComponent = new UIComponent()
 			{
-				Page = DoorUI ?? new UIPage(),
+				Page = InteractionUI ?? new UIPage(),
 				Resolution = new Vector3(100, 100, 1000),
 				IsBillboard = true,
 				IsFullScreen = false,
@@ -49,7 +49,7 @@ namespace TimeNexus.Objects
 				SnapText = true
 			};
 
-			_UIEntity.Add(DoorUIComponent);
+			_UIEntity.Add(UIComponent);
 			_UIEntity.Transform.Position = Offset;
 
 			this.Entity.AddChild(_UIEntity);

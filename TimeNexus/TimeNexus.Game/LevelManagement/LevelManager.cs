@@ -44,17 +44,32 @@ namespace TimeNexus.LevelManagement
 		/// <returns></returns>
 		public async Task<Level> LoadLevel(string url)
 		{
-			var previousScene = Content.Get<Scene>(url);
-			if (previousScene != null && Levels.ContainsKey(previousScene))
-			{
-				var newScene = new Scene();
-			}
+			var scene = await LoadScene(url).ConfigureAwait(false);
 
-			var scene = await Content.LoadAsync<Scene>(url).ConfigureAwait(false);
-			
 			var level = new Level(scene);
 			Levels.Add(level.Scene, level);
 			return level;
+		}
+
+		//TODO: Very shitty, sometimes causes the GC to go crazy but I have no better idea
+		private async Task<Scene> LoadScene(string url)
+		{
+			bool alreadyLoaded = Content.IsLoaded(url);
+			var scene = await Content.LoadAsync<Scene>(url).ConfigureAwait(false);
+			var newScene = new Scene
+			{
+				Name = scene.Name,
+				Offset = scene.Offset
+			};
+
+			foreach (Entity e in scene.Entities)
+			{
+				newScene.Entities.Add(e.Clone());
+			}
+
+			if (alreadyLoaded) Content.Unload(url);
+
+			return newScene;
 		}
 
 		/// <summary>
