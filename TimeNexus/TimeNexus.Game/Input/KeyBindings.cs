@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SiliconStudio.Xenko.Input;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,6 @@ namespace TimeNexus.Input
 		 */
 	public static class KeyBindings
 	{
-		
+		public static Keys Interact = Keys.E;
 	}
 }

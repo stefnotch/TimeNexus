@@ -15,7 +15,7 @@ namespace TimeNexus.Time
 	/// <summary>
 	/// Don't touch me! I'm a Game Studio specific thingy/hack!
 	/// </summary>
-	public class GameStudioTimeController : SyncScript
+	public class GameStudioTimeController : StartupScript
 	{
 		[DllImport("User32")]
 		public static extern int MessageBox(int Hwnd, string text, string caption, int type);
@@ -57,11 +57,6 @@ namespace TimeNexus.Time
 			}*/
 
 			//MessageBox(0, "You are watching message box!", "Information", 5);
-		}
-
-		public override void Update()
-		{
-			// Do stuff every new frame
 		}
 	}
 }

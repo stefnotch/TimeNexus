@@ -1,0 +1,65 @@
+!UIPageAsset
+Id: a756b6bf-4d37-4b68-87a4-555067def877
+SerializedVersion: {Xenko: 2.1.0.1}
+Tags: []
+Design:
+    Resolution: {X: 100.0, Y: 30.0, Z: 1000.0}
+Hierarchy:
+    RootParts:
+        - !Grid ref!! 312305ee-a22b-484c-8c50-965a62c1e037
+    Parts:
+        -   UIElement: !Grid
+                Id: 312305ee-a22b-484c-8c50-965a62c1e037
+                DependencyProperties: {}
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                Margin: {}
+                MaximumWidth: 3.40282347E+38
+                MaximumHeight: 3.40282347E+38
+                MaximumDepth: 3.40282347E+38
+                Children:
+                    44c6ebf7680caabdd62cb40959305fcb: !TextBlock ref!! 900ea2d3-e971-4467-b6e6-462b40bb68ee
+                    fd2a24fcfc5ed2db4aecf51f75ee4490: !Border ref!! b6171b2d-28bd-48a0-84fa-ef257c38adc2
+                RowDefinitions: {}
+                ColumnDefinitions: {}
+                LayerDefinitions: {}
+        -   UIElement: !TextBlock
+                Id: 5eebc51c-f6f2-4c1a-9ad7-2139ff90563c
+                DependencyProperties: {}
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                Opacity: 0.75
+                Width: 11.0
+                Height: 24.0
+                Margin: {}
+                MaximumWidth: 3.40282347E+38
+                MaximumHeight: 3.40282347E+38
+                MaximumDepth: 3.40282347E+38
+                Text: E
+                Font: c90f3988-0544-4cbe-993f-13af7d9c23c6:XenkoDefaultFont
+                TextSize: 20.0
+                TextColor: {R: 240, G: 240, B: 240, A: 255}
+        -   UIElement: !TextBlock
+                Id: 900ea2d3-e971-4467-b6e6-462b40bb68ee
+                DependencyProperties: {}
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                Width: 71.0
+                Height: 20.0
+                Margin: {Left: 5.0, Right: 29.0}
+                MaximumWidth: 3.40282347E+38
+                MaximumHeight: 3.40282347E+38
+                MaximumDepth: 3.40282347E+38
+                Text: Press
+                Font: c90f3988-0544-4cbe-993f-13af7d9c23c6:XenkoDefaultFont
+                TextSize: 20.0
+                TextColor: {R: 255, G: 255, B: 255, A: 255}
+        -   UIElement: !Border
+                Id: b6171b2d-28bd-48a0-84fa-ef257c38adc2
+                DependencyProperties: {}
+                BackgroundColor: {R: 240, G: 240, B: 240, A: 0}
+                Width: 29.0
+                Height: 30.0
+                HorizontalAlignment: Right
+                Margin: {}
+                Padding: {}
+                Content: !TextBlock ref!! 5eebc51c-f6f2-4c1a-9ad7-2139ff90563c
+                BorderColor: {R: 222, G: 222, B: 222, A: 255}
+                BorderThickness: {Left: 3.0, Top: 3.0, Right: 3.0, Bottom: 3.0}

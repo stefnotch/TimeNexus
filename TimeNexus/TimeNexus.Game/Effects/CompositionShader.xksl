@@ -1,0 +1,11 @@
+﻿namespace TimeNexus.Effects
+{
+    shader CompositionShader: ComputeColor
+    {
+      compose ComputeColor ImAName;
+      override float4 Compute()
+      {
+        return ImAName.Compute();
+      }
+    };
+}

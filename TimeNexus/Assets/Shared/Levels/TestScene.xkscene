@@ -1,0 +1,315 @@
+!SceneAsset
+Id: 44d32239-571d-44ae-8afa-45d3432998ac
+SerializedVersion: {Xenko: 2.1.0.1}
+Tags: []
+ChildrenIds: []
+Offset: {X: 0.0, Y: 0.0, Z: 0.0}
+Hierarchy:
+    RootParts:
+        - ref!! fded444c-7b1e-4dcd-9093-b6a718d6d9a1
+        - ref!! 93609a4b-6aaa-4d25-9dd0-b5c31700f410
+        - ref!! 42872442-fce2-4e37-9b7b-022595352bda
+        - ref!! 26ed16a8-e5d5-4ad2-b2b1-c47462d3931e
+        - ref!! 97d6574b-ff6b-4be5-8919-d5c7aa9f3635
+        - ref!! 662ff364-209d-4443-b53d-1c4efbe9f5c3
+        - ref!! 4f58985f-e11f-4043-b9ef-b68bb4dfc374
+    Parts:
+        -   Entity:
+                Id: 26ed16a8-e5d5-4ad2-b2b1-c47462d3931e
+                Name: Entity
+                Components:
+                    5753a4668485dd193aa312d63959c76e: !TransformComponent
+                        Id: f9feb59c-7b34-4e0f-b0e4-05e0abb7b218
+                        Position: {X: -3.95140362, Y: 0.144550726, Z: 4.52001953}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    21e41ff7bc86d06233cfe32b8f8396ab: !TimeNexus.LevelManagement.Gateway,TimeNexus.Game
+                        Id: 6b66703a-811d-46ce-a5da-6dbb6ed6b9da
+                        Rotation: {X: 0.0, Y: 0.707106769, Z: 0.0, W: -0.707106769}
+                        IsExit: false
+        -   Entity:
+                Id: 42872442-fce2-4e37-9b7b-022595352bda
+                Name: Simple particle system
+                Components:
+                    a45c47c143d6727f3230a1b5eea49db4: !TransformComponent
+                        Id: 73f5ca03-999b-4aa3-9ea7-b150da227e28
+                        Position: {X: -4.37399769, Y: 0.210734576, Z: 4.214494}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    249dcbd03b2aa9a8f192d3bf9a5843db: !ParticleSystemComponent
+                        Id: 9189d940-9345-4520-bfe1-0d9f82ea1bc7
+                        Control:
+                            ResetSeconds: 5.0
+                            Control: Play
+                        Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
+                        Speed: 0.5
+                        ParticleSystem:
+                            Settings: {}
+                            BoundingShape: null
+                            Emitters:
+                                e8442b7a284da510da57d9e73242cce6:
+                                    ParticleLifetime: {X: 1.0, Y: 2.0}
+                                    ShapeBuilder: !ShapeBuilderHexagon
+                                        SamplerPosition: null
+                                        SamplerSize: null
+                                        SamplerRotation: null
+                                    Material: !ParticleMaterialComputeColor
+                                        ComputeColor: !ComputeVertexStreamColor
+                                            Stream: !ColorVertexStreamDefinition {}
+                                        UVBuilder: null
+                                        ForceTexCoords: false
+                                    Spawners:
+                                        05c057a6cd0e30d028e98905ad903130: !SpawnerPerSecond
+                                            LoopCondition: Looping
+                                            Delay: {X: 0.0, Y: 0.0}
+                                            Duration: {X: 1.0, Y: 1.0}
+                                            SpawnCount: 100.0
+                                    Initializers:
+                                        04a471472bf35bb0d04c73767c5decd3: !InitialSizeSeed
+                                            InheritPosition: true
+                                            Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                                            InheritRotation: true
+                                            Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                                            InheritScale: true
+                                            Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                                            ScaleUniform: 1.0
+                                            SeedOffset: 0
+                                            DisplayParticlePosition: false
+                                            DisplayParticleRotation: false
+                                            DisplayParticleScale: false
+                                            DisplayParticleScaleUniform: true
+                                            RandomSize: {X: 0.05, Y: 0.1}
+                                        58a790e71d4bdf789a7c58a5cc5bd019: !InitialPositionSeed
+                                            InheritPosition: true
+                                            Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                                            InheritRotation: true
+                                            Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                                            InheritScale: true
+                                            ScaleUniform: 1.0
+                                            Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                                            SeedOffset: 0
+                                            DisplayParticlePosition: false
+                                            DisplayParticleRotation: true
+                                            DisplayParticleScale: false
+                                            DisplayParticleScaleUniform: true
+                                            PositionMin: {X: -1.0, Y: 1.0, Z: -1.0}
+                                            PositionMax: {X: 1.0, Y: 1.0, Z: 1.0}
+                                            Interpolate: false
+                                        ab6920038b34f1837900d33f1578991d: !InitialVelocitySeed
+                                            InheritPosition: true
+                                            Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                                            InheritRotation: true
+                                            Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                                            InheritScale: true
+                                            Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                                            ScaleUniform: 1.0
+                                            SeedOffset: 0
+                                            DisplayParticlePosition: false
+                                            DisplayParticleRotation: true
+                                            DisplayParticleScale: false
+                                            DisplayParticleScaleUniform: true
+                                            VelocityMin: {X: -0.5, Y: 1.0, Z: -0.5}
+                                            VelocityMax: {X: 0.5, Y: 3.0, Z: 0.5}
+                                        1f4bda6346fcf3b558626539d4062fa0: !InitialColorSeed
+                                            InheritPosition: true
+                                            Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                                            InheritRotation: true
+                                            Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                                            InheritScale: true
+                                            Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                                            ScaleUniform: 1.0
+                                            SeedOffset: 0
+                                            DisplayParticlePosition: false
+                                            DisplayParticleRotation: false
+                                            DisplayParticleScale: false
+                                            DisplayParticleScaleUniform: false
+                                            ColorMin: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
+                                            ColorMax: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
+                                    Updaters:
+                                        cdd45dbefc10e3839d17ef0f3b0f0e71: !UpdaterForceField
+                                            InheritPosition: true
+                                            Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                                            InheritRotation: true
+                                            Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                                            InheritScale: true
+                                            ScaleUniform: 1.0
+                                            Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                                            DisplayParticleRotation: true
+                                            DisplayParticlePosition: true
+                                            FieldShape: null
+                                            DisplayParticleScale: true
+                                            DisplayParticleScaleUniform: false
+                                            FieldFalloff:
+                                                StrengthInside: 1.0
+                                                FalloffStart: 0.1
+                                                StrengthOutside: 1.0
+                                                FalloffEnd: 0.9
+                                            EnergyConservation: 1.0
+                                            ForceDirected: 0.0
+                                            ForceVortex: 0.0
+                                            ForceRepulsive: 0.0
+                                            ForceFixed: {X: 0.0, Y: -9.81, Z: 0.0}
+                                        ece344d4047239d1c62704c5387da802: !UpdaterColorOverTime
+                                            InheritPosition: true
+                                            Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                                            InheritRotation: true
+                                            Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                                            InheritScale: true
+                                            Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                                            ScaleUniform: 1.0
+                                            DisplayParticlePosition: false
+                                            DisplayParticleRotation: false
+                                            DisplayParticleScale: false
+                                            DisplayParticleScaleUniform: false
+                                            SamplerMain: !ComputeCurveSamplerColor4
+                                                Curve: !ComputeAnimationCurveColor4
+                                                    KeyFrames:
+                                                        8ada6997621c93ce2ca274a7015bba11:
+                                                            Key: 0.03471306
+                                                            Value: {R: 1.469167, G: 0.0, B: 0.0, A: 10.0303364}
+                                                            TangentType: Linear
+                                                        767d6f078ceb64e900251aa804fd5fd3:
+                                                            Key: 21.6389847
+                                                            Value: {R: -1.4223628, G: 1.8607254, B: 1.917111, A: 9.637007}
+                                                            TangentType: Linear
+                                            SamplerOptional: null
+                                            SeedOffset: 0
+                    af5e27ec794f9ff3cf0ddc942ede325e: !TimeNexus.LevelManagement.Gateway,TimeNexus.Game
+                        Id: 4e0db399-2853-482b-a51c-88c44eb4846e
+                        Rotation: {X: 0.0, Y: -0.382683456, Z: 0.0, W: 0.9238795}
+                        IsExit: false
+        -   Entity:
+                Id: 4f58985f-e11f-4043-b9ef-b68bb4dfc374
+                Name: Gate2x3x1
+                Components:
+                    9aef70a25110b9b0a399abdf97fdf3c3: !TransformComponent
+                        Id: cdbd55d3-5b8e-4f2b-9bfe-ac6d83e75c93
+                        Position: {X: 4.5, Y: 1.5, Z: -2.0}
+                        Rotation: {X: 0.0, Y: 0.707106769, Z: 0.0, W: 0.707106769}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            6f5ec5ffe013189518fe82d9f3c4610f: ref!! b8d007f8-362d-447b-afd8-7917fe26023c
+                    ee3dc9fe8dbde4263bc696a794204346: !ModelComponent
+                        Id: 7cba15cd-97fd-4faa-84b2-aecfac277189
+                        Model: 7fd34173-3f6c-4384-b033-f97392d1fc89:Models/Gate2x3x1
+                        Materials: {}
+                    7a0698c3f656d342b3b20ccb617797bd: !RigidbodyComponent
+                        Id: 72db29df-3e1d-4031-87be-9ebd183ff292
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: false
+                        IsKinematic: false
+                        Mass: 1.0
+                        LinearDamping: 0.0
+                        AngularDamping: 0.0
+                        OverrideGravity: false
+                        Gravity: {X: 0.0, Y: 0.0, Z: 0.0}
+                        NodeName: null
+                        ColliderShapes:
+                            b0319f0b3f2fbba503de8b0a51b5f29d: !BoxColliderShapeDesc
+                                Is2D: false
+                                Size: {X: 2.0, Y: 3.0, Z: 1.0}
+                                LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+        -   Entity:
+                Id: 662ff364-209d-4443-b53d-1c4efbe9f5c3
+                Name: Skybox light
+                Components:
+                    33d32c0fedf4c6f7e511ff4ef070f355: !TransformComponent
+                        Id: 17db6fce-1125-4f0f-adbb-bf5b6e0b9a8e
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    2810e33f214ddd72ae5fedb02909fc59: !LightComponent
+                        Id: ef0592d0-f5d0-4a2f-8b11-7c50e88d2a05
+                        Type: !LightSkybox
+                            Skybox: 377c2a27-0867-4fe1-8f27-227eb0eac5f1:Skybox
+                    1ee5ac54f5ba620f8ac584c0785a6374: !BackgroundComponent
+                        Id: 82d20dc5-b3d7-47b4-b756-a1ad8fd3502d
+                        Texture: fa985add-dab7-4519-ada2-69439f4a105b:Skybox texture
+        -   Folder: null
+            Entity:
+                Id: 822affb8-354e-4700-9879-466ddd82e661
+                Name: Gateway
+                Components:
+                    ff6c6eea550a40d7b67d22b8642597f6: !TransformComponent
+                        Id: b8d007f8-362d-447b-afd8-7917fe26023c
+                        Position: {X: 0.0, Y: -1.5, Z: 0.5}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    dedf0d9e54f29e7506c0af07609ab74e: !TimeNexus.LevelManagement.Gateway,TimeNexus.Game
+                        Id: 6c2dc151-5c6b-4da8-9e1c-601ef4d9573c
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        IsExit: false
+                    8c8967788133e084dde269ce62c7166f: !TimeNexus.Levels.LevelLoader,TimeNexus.Game
+                        Id: 8d47bbb2-be82-46e4-90da-aca8402a1b08
+                        LevelType: Level
+                        TriggerVolume: ref!! 72db29df-3e1d-4031-87be-9ebd183ff292
+                        Gateway: ref!! 6c2dc151-5c6b-4da8-9e1c-601ef4d9573c
+        -   Entity:
+                Id: 93609a4b-6aaa-4d25-9dd0-b5c31700f410
+                Name: Directional light
+                Components:
+                    e1a2a10b4c947ddcc702ee6e549612e0: !TransformComponent
+                        Id: a0eb51fa-ba91-4995-a220-2fc560dd0b9b
+                        Position: {X: 0.0, Y: 2.0, Z: 0.0}
+                        Rotation: {X: -0.57357645, Y: 0.0, Z: 0.0, W: 0.819152057}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    3cc9c8414ebe45fe70a160dd2cc374fa: !LightComponent
+                        Id: 778b1a02-c970-47f7-8b4c-2c5f32a4e63d
+                        Type: !LightDirectional
+                            Color: !ColorRgbProvider
+                                Value: {R: 1.0, G: 1.0, B: 1.0}
+                            Shadow:
+                                Size: Large
+                                DepthRange: {}
+                                PartitionMode: !LightDirectionalShadowMap.PartitionLogarithmic {}
+                                BiasParameters: {}
+        -   Entity:
+                Id: 97d6574b-ff6b-4be5-8919-d5c7aa9f3635
+                Name: Sphere
+                Components:
+                    eecd294861910b03d0155abd28a91330: !TransformComponent
+                        Id: b8e10ad4-cce4-4af5-9af9-1b09a8d24e73
+                        Position: {X: 0.0, Y: 0.74836725, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+        -   Entity:
+                Id: fded444c-7b1e-4dcd-9093-b6a718d6d9a1
+                Name: Ground
+                Components:
+                    8509713ee98e76f54ea856ad4b778a5e: !TransformComponent
+                        Id: 10185969-3ea7-4719-9fa9-d928d7d80b42
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    3d73219759e2378b22b77bc880c47574: !ModelComponent
+                        Id: f383e7b6-8223-4541-9203-a40f2473c248
+                        Model: c5a24f74-2fd2-4118-9829-295cf37636b0:Ground
+                        Materials: {}
+                    613cee07e8046248e6a74111407a78d9: !StaticColliderComponent
+                        Id: 9cb82a82-07b3-4acd-8235-612ca1ca4442
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: false
+                        ColliderShapes:
+                            38718cda9a4f18827a49ce201957b968: !BoxColliderShapeDesc
+                                Is2D: false
+                                Size: {X: 10.0, Y: 1.0, Z: 10.0}
+                                LocalOffset: {X: 0.0, Y: -0.5, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}

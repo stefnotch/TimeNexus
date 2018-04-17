@@ -10,6 +10,8 @@ namespace TimeNexus.Player
 {
 	public class PlayerController : SyncScript
 	{
+		public static Entity Player { get; private set; }
+
 		private static readonly Vector3 UpVector = new Vector3(0, 1, 0);
 		private static readonly Vector3 ForwardVector = new Vector3(0, 0, -1);
 
@@ -65,6 +67,9 @@ namespace TimeNexus.Player
 			}
 
 			edgeTilter = this.Entity.Get<EdgeTilt>();
+
+			if (Player != null) Log.Error("Multiple player entities?? OwO");
+			Player = this.Entity;
 		}
 
 		private float yaw, desiredYaw;
@@ -115,7 +120,7 @@ namespace TimeNexus.Player
 				_smoothPitchRoll = Vector2.SmoothStep(_smoothPitchRoll, pitchRoll, EdgeTiltSmoothAmount);
 
 				//we need to pitch only the camera node
-				CameraEntity.Transform.Rotation = baseCameraRotation * Quaternion.RotationYawPitchRoll(0, pitch + _smoothPitchRoll.Y, -_smoothPitchRoll.X);
+				CameraEntity.Transform.Rotation = baseCameraRotation * Quaternion.RotationYawPitchRoll(0, pitch - _smoothPitchRoll.Y, _smoothPitchRoll.X);
 			}
 
 			Entity.Transform.Rotation = Quaternion.RotationYawPitchRoll(yaw, 0, 0); //do not apply pitch to our controller

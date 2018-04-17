@@ -8,8 +8,10 @@ namespace TimeNexus.Time
 	/// A readonly class!
 	/// </summary>
 	[Display("Time")]
+	[DataContract]
 	public class Time
 	{
+		[DataMember]
 		protected Era _era = Era.Modern;
 
 		private static readonly Era[] eraArray = Enum.GetValues(typeof(Era)).Cast<Era>().OrderBy(era => (int)era).ToArray();
