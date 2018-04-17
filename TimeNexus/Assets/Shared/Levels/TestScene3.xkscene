@@ -11,7 +11,87 @@ Hierarchy:
         - ref!! feddea31-3040-40bc-92dd-7fdf20bd1c39
         - ref!! afc358e4-21b1-409d-b3a4-308707edc28b
         - ref!! cc62cd29-143a-45cc-977b-c2d5ddc8caef
+        - ref!! 343da502-f262-43ba-8f15-6540361e9d92
     Parts:
+        -   Entity:
+                Id: 081d269e-c227-48cf-84d0-9e0ff25b4fd2
+                Name: Loading
+                Components:
+                    801ac4abdeb9e57c2e718e8dbde23866: !TransformComponent
+                        Id: 248c22ae-d47a-4053-904f-141a2db97023
+                        Position: {X: 0.0, Y: 1.9, Z: -0.2}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    c43c9f90f251368cbc83dc00a8e43534: !SpriteComponent
+                        Id: b2029c12-ffef-48aa-89f7-07626abfb35f
+                        Enabled: false
+                        SpriteProvider: !SpriteFromTexture
+                            Texture: 316022cf-4d6e-4b46-a57b-736c2e01dbb3:Textures/loading
+                            PixelsPerUnit: 1000.0
+                            Center: {X: 0.0, Y: 0.0}
+                        Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
+                    90dc3e47f203c9a8437235f6288a8496: !TimeNexus.Objects.LoadingIconComponent,TimeNexus.Game
+                        Id: 1244fa4d-e9c1-4961-a131-653c4f991aa1
+                        LoadingIcon: ref!! b2029c12-ffef-48aa-89f7-07626abfb35f
+        -   Entity:
+                Id: 343da502-f262-43ba-8f15-6540361e9d92
+                Name: Door
+                Components:
+                    6234c3c370002d0e2ba9acfd7ac12d05: !TransformComponent
+                        Id: 2bd7818a-d601-46a9-9a9a-e817dfa9bce3
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.707106769, Z: 0.0, W: -0.707106769}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            8fcd867dd42b1e97d6a698c4f7666f63: ref!! 21d3c957-9139-4f04-9d16-6a0ddb37a0b0
+                            f630bb17555e3b898791a7c8977e5a1d: ref!! 248c22ae-d47a-4053-904f-141a2db97023
+                            dbb8ba4ec80de0136f7ef3c8dfe12a2e: ref!! db67d843-7664-4337-9cc9-19b505056a35
+                    dc6d00271e13e0c3ba88492c4cb43052: !TimeControllerComponent
+                        Id: a260aa85-c403-4082-8591-f09e62c237d3
+                        Time: {}
+        -   Entity:
+                Id: 5d1a0e7d-994c-4711-a875-38c72d23dd50
+                Name: Modern
+                Components:
+                    bcde2f19e2243e689db9552784148665: !TransformComponent
+                        Id: 21d3c957-9139-4f04-9d16-6a0ddb37a0b0
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    e91ec77fa6e7a23b77f9d3c6ca53df2b: !StaticColliderComponent
+                        Id: 26d4034e-58c0-487f-ac38-de10c0f2b233
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: false
+                        ColliderShapes:
+                            cbaacb709ad3b6d00ee1db9eb0b5318e: !BoxColliderShapeDesc
+                                Is2D: false
+                                Size: {X: 2.0, Y: 4.0, Z: 0.5}
+                                LocalOffset: {X: 0.0, Y: 2.0, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                    085fbf4f137c45781c669c1886344552: !ModelComponent
+                        Id: fad03171-cb0c-44db-9308-3f24a0b4a9f0
+                        Model: 17537b27-0c06-4a70-b44f-99284d06e9ca:NonCommercial/Door1
+                        Materials: {}
+                    2a669dd6d9ca643fda1dc7d5811cab01: !TimeComponent
+                        Id: 0684d7dd-fcb4-4147-819f-5a1e52bf5ada
+                        GameStudioTime:
+                            Era: Modern
+                    b76a15050d6b067c372b42b4e836af63: !TimeNexus.Objects.Level1.DoorInteraction,TimeNexus.Game
+                        Id: 865ff584-4e9f-4084-ae39-ac341fd7030e
+                        LoadingIcon: ref!! 1244fa4d-e9c1-4961-a131-653c4f991aa1
+                        Interaction: ref!! fb8607ca-f6b0-4752-a09c-b3d6102dc929
+                    621fb3b2fa6542253cf2371f1aea50bf: !TimeNexus.Objects.InteractionPopup,TimeNexus.Game
+                        Id: fb8607ca-f6b0-4752-a09c-b3d6102dc929
+                        InteractionUI: a756b6bf-4d37-4b68-87a4-555067def877:PressAKey
+                        Offset: {X: 0.0, Y: 2.0, Z: -0.3}
+                        Open: false
         -   Entity:
                 Id: 835d2648-4be2-4ad5-87d8-dbe851522f7b
                 Name: Directional light
@@ -38,7 +118,7 @@ Hierarchy:
                 Components:
                     7bf63ea86c7ffc7c90822037f2f8102e: !TransformComponent
                         Id: 9a55015e-7c03-42c0-813e-a3bdbdddf43c
-                        Position: {X: 14.9816465, Y: 0.0, Z: 0.0}
+                        Position: {X: 15.0, Y: 0.0, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
@@ -46,6 +126,24 @@ Hierarchy:
                         Id: 45facba7-fb0c-485a-a933-9aa1b74b6920
                         Rotation: {X: 0.0, Y: 0.707106769, Z: 0.0, W: 0.707106769}
                         IsExit: false
+        -   Entity:
+                Id: c4050051-b90c-4fea-aa89-6c58f47c31d7
+                Name: OpenDoor
+                Components:
+                    4501ca60aae39e9a3892aae696bfc5fa: !TransformComponent
+                        Id: db67d843-7664-4337-9cc9-19b505056a35
+                        Position: {X: 0.83, Y: 0.0, Z: 0.9}
+                        Rotation: {X: 0.0, Y: 0.707106769, Z: 0.0, W: 0.707106769}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    74b06d4c845da405cc184c48f7d4bc01: !TimeComponent
+                        Id: 16f10ba0-df3b-4076-8ab6-7434206ca93c
+                        GameStudioTime:
+                            Era: Future
+                    d62ff28d359c01e7f3ad497f66117ff9: !ModelComponent
+                        Id: 08d89492-1831-47ef-a804-4c523764b792
+                        Model: 17537b27-0c06-4a70-b44f-99284d06e9ca:NonCommercial/Door1
+                        Materials: {}
         -   Entity:
                 Id: cc62cd29-143a-45cc-977b-c2d5ddc8caef
                 Name: Exit

@@ -25,6 +25,8 @@ Hierarchy:
                     437e330335e68dd32fe99e2476110e43: !TimeNexus.Levels.RootSceneLevelLoader,TimeNexus.Game
                         Id: 0f261eaf-6ea9-4383-ac35-ace5b7084107
                         DefaultLevelUrl: MainScene
+                    8065e3ca2552808937eb1f8d3772e7bc: !TimeNexus.Pausing.GamePauser,TimeNexus.Game
+                        Id: 993bbde1-4d3f-45d6-a4f3-d9ddfebe0fdb
         -   Folder: null
             Entity:
                 Id: 6a376e1a-a655-44b8-9c8a-875c4ee0424e

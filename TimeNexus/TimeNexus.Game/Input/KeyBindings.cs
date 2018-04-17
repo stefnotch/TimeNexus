@@ -17,5 +17,6 @@ namespace TimeNexus.Input
 	public static class KeyBindings
 	{
 		public static Keys Interact = Keys.E;
+		public static Keys Pause = Keys.P;
 	}
 }
