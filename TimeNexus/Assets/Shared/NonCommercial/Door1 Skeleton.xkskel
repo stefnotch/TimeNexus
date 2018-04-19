@@ -1,0 +1,14 @@
+!Skeleton
+Id: 15effd1b-98c9-4761-99d5-20cbbda078b9
+SerializedVersion: {Xenko: 2.0.0.0}
+Tags: []
+Source: ../../Non commercial/Door1.fbx
+PivotPosition: {X: 0.0, Y: 0.0, Z: 0.0}
+ScaleImport: 9.0
+Nodes:
+    07c0f75a177d2a3cb9980be3b0c1ed41: {Name: RootNode, Depth: 0}
+    1e240056427239f2ca9425612de35c92: {Name: polySurface1, Depth: 1}
+    be5946c55d266ab880d42803324cd425: {Name: pCube5, Depth: 1}
+    3036fa6feb71693f6163f428026cf77d: {Name: Door, Depth: 1}
+~SourceHashes:
+    58ee1814847208bccf22dfdcae9f8ef2~../../Non commercial/Door1.fbx: 843df66b817a8801fcc8fcd5b1d4bf39

@@ -1,0 +1,38 @@
+!Model
+Id: 17537b27-0c06-4a70-b44f-99284d06e9ca
+SerializedVersion: {Xenko: 2.0.0.0}
+Tags: []
+Source: ../../Non commercial/Door1.fbx
+Skeleton: 15effd1b-98c9-4761-99d5-20cbbda078b9:NonCommercial/Door1 Skeleton
+PivotPosition: {X: 0.0, Y: 0.0, Z: 0.0}
+Materials:
+    17451d1ad62d5f9f2b68387a70791910:
+        Name: Wood
+        MaterialInstance:
+            Material: 26ea6cde-b47b-4358-b60d-7ef9325b0177:NonCommercial/Wood
+    f78f6786f9a3cfeb108b1819783124da:
+        Name: Wood1
+        MaterialInstance:
+            Material: 3b0776ef-38f7-461e-8178-ac7919ae04a8:NonCommercial/Wood1
+    806a598f86b70fe0aa1f91d335bba432:
+        Name: wood2
+        MaterialInstance:
+            Material: 415e50a0-9476-489f-b805-933f037eb436:NonCommercial/wood2
+    1f91ace1396d311a164111e5597ede05:
+        Name: gold
+        MaterialInstance:
+            Material: 7aec85fa-c708-45d8-80da-93f88e848e63:NonCommercial/gold
+    d18d56d588612afbe5c34dc3171261c5:
+        Name: blinn2
+        MaterialInstance:
+            Material: 8c936fb6-dc90-44bb-a901-502cbcaf3eac:NonCommercial/blinn2
+    08b47117e7573471c365bb5b308dae39:
+        Name: lambert2
+        MaterialInstance:
+            Material: e1499027-c442-4ddf-95ed-ecfe59e94095:NonCommercial/lambert2
+    d946b861a67d1c5a605d45f1021e1a1f:
+        Name: black
+        MaterialInstance:
+            Material: f6d47e50-8f12-48d5-905d-9cee3b6d993a:NonCommercial/black
+~SourceHashes:
+    57cc181c2f4e6077e195ec595cf1391d~../../Non commercial/Door1.fbx: 843df66b817a8801fcc8fcd5b1d4bf39

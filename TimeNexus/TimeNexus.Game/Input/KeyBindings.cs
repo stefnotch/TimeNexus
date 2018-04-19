@@ -1,4 +1,5 @@
-﻿using SiliconStudio.Xenko.Input;
+﻿using SiliconStudio.Core.Mathematics;
+using SiliconStudio.Xenko.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,28 @@ namespace TimeNexus.Input
 		 */
 	public static class KeyBindings
 	{
-		public static Keys Interact = Keys.E;
+		
+		private static Keys _interact = Keys.E;
+		private static Keys _pause = Keys.P;
+
+		public static Keys Interact
+		{
+			get { return Enabled ? _interact : Keys.None; }
+			set { _interact = value; }
+		}
+
+		public static Keys Pause
+		{
+			get { return Enabled ? _pause : Keys.None; }
+			set { _pause = value; }
+		}
+
+		private static Vector2 MouseDelta
+		{
+			//get { return Enabled ? //Input.MouseDelta : Vector2; }
+			get { return Vector2.Zero; }
+		}
+
+		public static bool Enabled { get; set; } = true;
 	}
 }

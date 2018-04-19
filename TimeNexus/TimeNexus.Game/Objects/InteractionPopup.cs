@@ -12,16 +12,22 @@ using SiliconStudio.Xenko.Input;
 using TimeNexus.Input;
 using SiliconStudio.Assets;
 using System.Reflection;
+using SiliconStudio.Core;
+using System.ComponentModel;
+using System.Reactive.Subjects;
 
 namespace TimeNexus.Objects
 {
 	public class InteractionPopup : StartupScript
 	{
-		private readonly float MinDistance = 5f;
-
+		[DataMemberIgnore]
 		private Entity _UIEntity;
+		
 		private bool _open = false;
 
+
+		[DefaultValue(5f)]
+		public float InteractionDistance { get; set; } = 5f;
 		public UIPage InteractionUI { get; set; }
 		public Vector3 Offset { get; set; }
 
@@ -29,11 +35,18 @@ namespace TimeNexus.Objects
 			get => _open;
 			set
 			{
-				//TODO: Open the door
 				_open = value;
+				_onOpen.OnNext(value);
 			}
 		}
 
+		[DataMemberIgnore]
+		private readonly Subject<bool> _onOpen = new Subject<bool>();
+		/// <summary>
+		/// Gets called when the door gets opened or closed
+		/// </summary>
+		[DataMemberIgnore]
+		public IObservable<bool> OnOpen { get => _onOpen; }
 		public override void Start()
 		{
 			if (InteractionUI == null) this.Log.Error("No interaction UI attached to this entity");
@@ -120,15 +133,10 @@ namespace TimeNexus.Objects
 				.Subscribe(hitResult =>
 				{
 					var dist = (hitResult.Point - PlayerController.Player.Transform.GetWorldPosition()).Length();
-					if (dist < MinDistance)
+					if (dist < InteractionDistance)
 					{
-						Vector3 test2 = this.Entity.Transform.GetWorldPosition();
-
-						Vector3 testD = test - test2; //{X:-10 Y:0 Z:0.6000001}
-													  //Includes the Scene offset!
 						DisplayUI(true);
 						HandleInput();
-						//Console.WriteLine(this.Entity.Transform.Parent);
 					}
 					else
 					{
@@ -156,6 +164,11 @@ namespace TimeNexus.Objects
 			{
 				Open = !Open;
 			}
+		}
+
+		public override void Cancel()
+		{
+			_onOpen.Dispose();
 		}
 	}
 }
