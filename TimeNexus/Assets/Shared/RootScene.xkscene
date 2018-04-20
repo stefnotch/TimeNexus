@@ -8,6 +8,7 @@ Hierarchy:
     RootParts:
         - ref!! 50c025e0-c118-4422-9a0d-4784f0bb5d4e
         - ref!! bc62fdf4-5308-4d81-9926-d45456285d06
+        - ref!! 61190276-efbf-41bd-b407-792d5eb637a1
     Parts:
         -   Entity:
                 Id: 50c025e0-c118-4422-9a0d-4784f0bb5d4e
@@ -25,8 +26,25 @@ Hierarchy:
                     437e330335e68dd32fe99e2476110e43: !TimeNexus.Levels.RootSceneLevelLoader,TimeNexus.Game
                         Id: 0f261eaf-6ea9-4383-ac35-ace5b7084107
                         DefaultLevelUrl: MainScene
-                    8065e3ca2552808937eb1f8d3772e7bc: !TimeNexus.Pausing.GamePauser,TimeNexus.Game
-                        Id: 993bbde1-4d3f-45d6-a4f3-d9ddfebe0fdb
+        -   Entity:
+                Id: 61190276-efbf-41bd-b407-792d5eb637a1
+                Name: Pause
+                Components:
+                    35a5713e03917825df4cbc7dbb4b5f72: !TransformComponent
+                        Id: 8e93ad6f-0ec3-4ff6-af81-3bd995a2305c
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    800418616432bf452bb6e27508b706db: !UIComponent
+                        Id: e215fe29-5d59-4f29-9c8c-a922d29c3380
+                        Enabled: false
+                        Page: ff5698a4-796a-4c93-bddc-d52636ad3fc2:PauseUI
+                        Resolution: {X: 1280.0, Y: 720.0, Z: 1000.0}
+                        Size: {X: 1.0, Y: 1.0, Z: 1.0}
+                    429279813b34d2a3063f2663cce37329: !TimeNexus.Pausing.GamePauser,TimeNexus.Game
+                        Id: 4993c267-ba4f-46b0-bba7-347ace106700
+                        PauseUI: ref!! e215fe29-5d59-4f29-9c8c-a922d29c3380
         -   Folder: null
             Entity:
                 Id: 6a376e1a-a655-44b8-9c8a-875c4ee0424e

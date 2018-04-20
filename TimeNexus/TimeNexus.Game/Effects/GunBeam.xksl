@@ -1,10 +1,10 @@
 ﻿//GunBeam.xksl
 namespace TimeNexus.Effects
 {
-     shader GunBeam: ComputeColor, Texturing
+     shader GunBeam: ComputeColor, Texturing, PositionStream4
     {
 
-        stage stream float4 Position : POSITION; //I could use PositionH... (It looks weird)
+        //stage stream float4 Position : POSITION; //I could use PositionH... (It looks weird)
 
         cbuffer PerMaterial {
             stage float BeamLength = 1.0f;
@@ -26,6 +26,5 @@ namespace TimeNexus.Effects
 
             return float4(0.2, 0.2, 10 * n, n);
         }
-
     };
 }
