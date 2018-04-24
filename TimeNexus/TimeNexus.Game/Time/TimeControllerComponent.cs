@@ -15,7 +15,7 @@ namespace TimeNexus.Time
 
 	[Display("Time Controller Component", Expand = ExpandRule.Once)]
 	[DataContract("TimeControllerComponent")]
-	public class TimeControllerComponent : SyncScript
+	public class TimeControllerComponent : StartupScript
 	{
 		private Time _time = new Time();
 
@@ -50,8 +50,21 @@ namespace TimeNexus.Time
 					minTimeDelta = timeDelta;
 				}
 			}
-			previousEntity?.Enable<ModelComponent>(false);
-			minEntity?.Enable<ModelComponent>(true);
+			if(previousEntity != null)
+			{
+				foreach(var component in previousEntity.GetAll<ActivableEntityComponent>())
+				{
+					component.Enabled = false;
+				}
+			}
+
+			if (minEntity != null)
+			{
+				foreach (var component in minEntity.GetAll<ActivableEntityComponent>())
+				{
+					component.Enabled = false;
+				}
+			}
 			previousEntity = minEntity;
 		}
 
@@ -75,10 +88,6 @@ namespace TimeNexus.Time
 
 			Time = this.GetLevel().Settings.DefaultTime;
 		}
-
-		public override void Update()
-		{
-			//MessageBox(0, "You are watching message box!", "Information", 5);
-		}
+		
 	}
 }
