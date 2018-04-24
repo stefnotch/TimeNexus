@@ -14,6 +14,9 @@ Hierarchy:
                 Id: 50c025e0-c118-4422-9a0d-4784f0bb5d4e
                 Name: RootSceneEntity
                 Components:
+                    46b9db3ea69be4ea0b51d828938b8fd6: !TimeNexus.Input.KeyBindings,TimeNexus.Game
+                        Id: 1b939fbc-c8fa-444c-a0b1-0fe8921611af
+                        Priority: -100
                     ed7d4c0c64472a0a067b7c442db102e4: !TransformComponent
                         Id: bce6fda5-ebb8-460b-b836-2f08a0cdc83f
                         Position: {X: 0.0, Y: 0.0, Z: 0.0}

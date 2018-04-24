@@ -5,6 +5,7 @@ using SiliconStudio.Xenko.Input;
 using SiliconStudio.Xenko.Physics;
 using System;
 using System.Linq;
+using TimeNexus.Input;
 
 namespace TimeNexus.Player
 {
@@ -90,7 +91,7 @@ namespace TimeNexus.Player
 
 		public override void Update()
 		{
-			var rotationDelta = Input.MouseDelta;
+			var rotationDelta = KeyBindings.MouseDelta;
 			rotationDelta.Y = -rotationDelta.Y;
 			// Compute translation speed according to framerate and modifiers
 			var translationSpeed = Speed * (float)Game.UpdateTime.Elapsed.TotalSeconds;
