@@ -62,7 +62,7 @@ namespace TimeNexus.Time
 			{
 				foreach (var component in minEntity.GetAll<ActivableEntityComponent>())
 				{
-					component.Enabled = false;
+					component.Enabled = true;
 				}
 			}
 			previousEntity = minEntity;

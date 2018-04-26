@@ -6,10 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SiliconStudio.Core;
+using System.Collections.Concurrent;
 
 namespace TimeNexus.LevelManagement
 {
-	public class LevelManager : StartupScript
+	public class LevelManager : SyncScript
 	{
 		public const int DefaultDimension = 0;
 
@@ -24,6 +25,9 @@ namespace TimeNexus.LevelManagement
 		/// </summary>
 		[DataMemberIgnore]
 		public static LevelManager Instance { get; private set; }
+
+		[DataMemberIgnore]
+		private readonly ConcurrentQueue<Level> levelsToAdd = new ConcurrentQueue<Level>();
 
 		public override void Start()
 		{
@@ -79,9 +83,10 @@ namespace TimeNexus.LevelManagement
 		/// <returns>if the level's dimension is the default dimension</returns>
 		public bool PlaceLevel(Level level)
 		{
-			this.SceneSystem.SceneInstance.RootScene.Children.Add(level.Scene);
-			level.Dimension = GetFreeDimension(level);
-			return level.Dimension == DefaultDimension;
+			levelsToAdd.Enqueue(level);
+			//TODO: Improve this
+			return false;
+			
 		}
 
 		/// <summary>
@@ -107,6 +112,15 @@ namespace TimeNexus.LevelManagement
 			for (int i = 0; ; i++)
 			{
 				if (!collidingDimensions.Contains(i)) return i;
+			}
+		}
+
+		public override void Update()
+		{
+			if(levelsToAdd.TryDequeue(out Level level))
+			{
+				this.SceneSystem.SceneInstance.RootScene.Children.Add(level.Scene);
+				level.Dimension = GetFreeDimension(level);
 			}
 		}
 	}
