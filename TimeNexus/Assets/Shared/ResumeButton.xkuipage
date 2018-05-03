@@ -1,0 +1,36 @@
+!UIPageAsset
+Id: af3823a7-eb80-48fa-995f-e2348cfe39af
+SerializedVersion: {Xenko: 2.1.0.1}
+Tags: []
+Design:
+    Resolution: {X: 1280.0, Y: 720.0, Z: 1000.0}
+Hierarchy:
+    RootParts:
+        - !Grid ref!! f74080c6-136d-43e1-a522-3671dd2029fe
+    Parts:
+        -   UIElement: !TextBlock
+                Id: 9f23cda4-eae6-4520-aa0e-2a396a3ac83d
+                DependencyProperties:
+                    d4efe5075b018c9b856bdfb2d24c8fd8~Panel.ZIndexPropertyKey: 0
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                HorizontalAlignment: Center
+                VerticalAlignment: Center
+                Margin: {}
+                MaximumWidth: 3.40282347E+38
+                MaximumHeight: 3.40282347E+38
+                MaximumDepth: 3.40282347E+38
+                Text: Resume
+                Font: c90f3988-0544-4cbe-993f-13af7d9c23c6:XenkoDefaultFont
+                TextSize: 300.0
+                TextColor: {R: 240, G: 240, B: 240, A: 255}
+                TextAlignment: Center
+        -   UIElement: !Grid
+                Id: f74080c6-136d-43e1-a522-3671dd2029fe
+                DependencyProperties: {}
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                Margin: {}
+                Children:
+                    1ab73e452cb3493b3fd6db5015e0c913: !TextBlock ref!! 9f23cda4-eae6-4520-aa0e-2a396a3ac83d
+                RowDefinitions: {}
+                ColumnDefinitions: {}
+                LayerDefinitions: {}

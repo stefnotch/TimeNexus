@@ -9,7 +9,36 @@ Hierarchy:
         - ref!! 50c025e0-c118-4422-9a0d-4784f0bb5d4e
         - ref!! bc62fdf4-5308-4d81-9926-d45456285d06
         - ref!! 61190276-efbf-41bd-b407-792d5eb637a1
+        - ref!! 8f455a02-6b3d-4bd0-8e2f-0aa8b0a7ea64
+        - ref!! cd355fee-d623-47b3-8e85-a96c220ebfb5
     Parts:
+        -   Entity:
+                Id: 01ff5e9c-de07-46b0-92c3-a1ab63db9e4b
+                Name: Resume
+                Components:
+                    594927355073566da73b4cccdce52c5a: !TransformComponent
+                        Id: 128ecccd-4d50-48d1-9f2d-e031010b0009
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    392afc79db5c25624dce6811421150bb: !Menu.Resume,TimeNexus.Game
+                        Id: 298e0f5b-680e-42c1-ae1c-379ab0a4fb7c
+        -   Folder: null
+            Entity:
+                Id: 4c7c4701-c2dc-46a8-a113-930b0215108d
+                Name: Wall3
+                Components:
+                    7300bf4cdc8362c7c3bf76c4f86c9483: !TransformComponent
+                        Id: c18fd650-dff5-4fdf-a5e8-1d8c49ce37c8
+                        Position: {X: 5.0, Y: 5.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.707106769, W: 0.707106769}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    8adbd7943d521bfff7952b0d3e8a23dd: !ModelComponent
+                        Id: da2b4ca3-8f18-4c14-aeb7-eb3cadabf285
+                        Model: c5a24f74-2fd2-4118-9829-295cf37636b0:Ground
+                        Materials: {}
         -   Entity:
                 Id: 50c025e0-c118-4422-9a0d-4784f0bb5d4e
                 Name: RootSceneEntity
@@ -29,6 +58,21 @@ Hierarchy:
                     437e330335e68dd32fe99e2476110e43: !TimeNexus.Levels.RootSceneLevelLoader,TimeNexus.Game
                         Id: 0f261eaf-6ea9-4383-ac35-ace5b7084107
                         DefaultLevelUrl: MainScene
+        -   Folder: null
+            Entity:
+                Id: 5a9a942f-d3fc-478c-b4f1-ad6ff668b2f9
+                Name: Wall2
+                Components:
+                    7300bf4cdc8362c7c3bf76c4f86c9483: !TransformComponent
+                        Id: e9922a44-132d-4fb2-a93d-00b81bf1785f
+                        Position: {X: 0.0, Y: 5.0, Z: 5.0}
+                        Rotation: {X: 0.707106769, Y: 0.0, Z: 0.0, W: -0.707106769}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    8adbd7943d521bfff7952b0d3e8a23dd: !ModelComponent
+                        Id: e9140455-9f1f-46a6-aa6d-caada15e526a
+                        Model: c5a24f74-2fd2-4118-9829-295cf37636b0:Ground
+                        Materials: {}
         -   Entity:
                 Id: 61190276-efbf-41bd-b407-792d5eb637a1
                 Name: Pause
@@ -48,6 +92,21 @@ Hierarchy:
                     429279813b34d2a3063f2663cce37329: !TimeNexus.Pausing.GamePauser,TimeNexus.Game
                         Id: 4993c267-ba4f-46b0-bba7-347ace106700
                         PauseUI: ref!! e215fe29-5d59-4f29-9c8c-a922d29c3380
+        -   Entity:
+                Id: 6227f8f3-acd3-4961-8ea7-63e092e5f9fb
+                Name: Ambient light
+                Components:
+                    4c421ba07efffc626f0045408e8102e6: !TransformComponent
+                        Id: ca3cf7b5-f994-4b9e-bb40-548f1979c8d7
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    2371534f7eb2a6b0bfe29d4eaf8ddd7f: !LightComponent
+                        Id: 10eecba2-a407-41eb-9cf1-5067e37ead7c
+                        Type: !LightAmbient
+                            Color: !ColorRgbProvider
+                                Value: {R: 1.0, G: 1.0, B: 1.0}
         -   Folder: null
             Entity:
                 Id: 6a376e1a-a655-44b8-9c8a-875c4ee0424e
@@ -60,6 +119,57 @@ Hierarchy:
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
                             66fc57038f1f4bb8cee3125307ce048c: ref!! ed9623e8-52b4-42e1-8a0f-20f904027306
+        -   Folder: null
+            Entity:
+                Id: 6dbf78a6-1180-4b67-9830-580e85f59394
+                Name: Wall1
+                Components:
+                    7300bf4cdc8362c7c3bf76c4f86c9483: !TransformComponent
+                        Id: 286a402c-e6b8-405a-ac77-0ebce0bbe139
+                        Position: {X: 0.0, Y: 5.0, Z: -5.0}
+                        Rotation: {X: 0.707106769, Y: 0.0, Z: 0.0, W: 0.707106769}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    8adbd7943d521bfff7952b0d3e8a23dd: !ModelComponent
+                        Id: d56133d6-bb6e-4037-978f-54ef9ecf3054
+                        Model: c5a24f74-2fd2-4118-9829-295cf37636b0:Ground
+                        Materials: {}
+        -   Entity:
+                Id: 77f9caab-c54e-472d-a819-d835adba17dd
+                Name: Ground
+                Components:
+                    7300bf4cdc8362c7c3bf76c4f86c9483: !TransformComponent
+                        Id: 4aa6be46-dd18-4dca-a34c-7876f44fccf5
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    8adbd7943d521bfff7952b0d3e8a23dd: !ModelComponent
+                        Id: eb705594-b181-4ace-928e-f4160b5981b0
+                        Model: c5a24f74-2fd2-4118-9829-295cf37636b0:Ground
+                        Materials: {}
+        -   Entity:
+                Id: 807e3967-edab-459a-a7ce-1ca39cc1bf74
+                Name: TextField
+                Components:
+                    24b102f375b3540df2cd273219a0730e: !TransformComponent
+                        Id: e43198d0-a8cb-40e5-8e59-bcb6ee9b1cbf
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    5e6e6a1ce6130c4ce22b5123a5d5089c: !UIComponent
+                        Id: 6801c346-73bc-4394-92e9-467d9c32adae
+                        Page: null
+                        Resolution: {X: 1280.0, Y: 720.0, Z: 1000.0}
+                        Size: {X: 1.0, Y: 1.0, Z: 1.0}
+                    b1071ba370dc29745a3f01e4c8ed8f0a: !Menu.ButtonTrigger,TimeNexus.Game
+                        Id: 4f7d6480-4d39-452f-b797-25c479886e3d
+                        action*: !Menu.Resume,TimeNexus.Game ref!! 298e0f5b-680e-42c1-ae1c-379ab0a4fb7c
+            Base:
+                BasePartAsset: 3cd100be-fd83-4a1d-981f-09b7c673b438:TextField
+                BasePartId: 6789c5d9-07ce-4c07-b341-1539d6f3be7d
+                InstanceId: d56fa395-0550-4ca1-8b12-c298dd7892df
         -   Folder: null
             Entity:
                 Id: 841f22f2-3022-498c-92cc-5f437db968bf
@@ -76,14 +186,6 @@ Hierarchy:
                         Id: eac282a6-ae3f-44d9-b3f5-fa7b422a2b1b
                         Model: 1f4fe54e-8726-4c75-aa3a-03331cb29a43:Models/MachinegunModel
                         Materials: {}
-                    2872470ec1e4f3e9d8a9eba3d3d57b56: !TimeNexus.Gun.GunController,TimeNexus.Game
-                        Id: 3924a161-dd1f-4cd5-9f4a-51c662d11523
-                        GunBeam: ref!! 2a7edde7-1c83-4b0a-90bc-d59bee58a8e6
-                        EffectMaterial: null
-                    bbab3b170ba8a5150674bb9bcfa8d6ab: !TimeNexus.Gun.GunBeam,TimeNexus.Game
-                        Id: 2a7edde7-1c83-4b0a-90bc-d59bee58a8e6
-                        GunBeamEntity: ref!! 6a376e1a-a655-44b8-9c8a-875c4ee0424e
-                        GunBeamModel: ref!! adc06f49-fdc7-4c08-a393-3dfe82247fbc
         -   Folder: null
             Entity:
                 Id: 882ee514-cb29-4555-97d8-a0c01fc99b88
@@ -101,6 +203,23 @@ Hierarchy:
                         IsShadowCaster: false
                         Materials:
                             19278de58c2f8e7b379806e8c8416e9f~0: 60c0f17f-d468-4bc7-bde4-e3c115660c35:Materials/gun/GunBeam
+        -   Entity:
+                Id: 8f455a02-6b3d-4bd0-8e2f-0aa8b0a7ea64
+                Name: Room
+                Components:
+                    cb2c5c27d83b8fb806dd5a0d0167211c: !TransformComponent
+                        Id: 40016ab2-117b-4080-af88-133cc94924b8
+                        Position: {X: 0.0, Y: 2.0, Z: -3.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            a90ec58af80446a2a121c5ea1905bb10: ref!! 4aa6be46-dd18-4dca-a34c-7876f44fccf5
+                            6aba71b128ced5c0bd3c6ab597824f8b: ref!! 286a402c-e6b8-405a-ac77-0ebce0bbe139
+                            ca929776a7c5adbd542b63b9b9e2aa16: ref!! e9922a44-132d-4fb2-a93d-00b81bf1785f
+                            a7c2fb9ff5a9876645226f59da3e2b26: ref!! c18fd650-dff5-4fdf-a5e8-1d8c49ce37c8
+                            3aaa8d93580d1c8677362df82fcbfd58: ref!! ef00a8eb-602d-45ca-bd5d-e10db87819b3
+                            38913a9ad11486ef1af26755f5e3fba9: ref!! fdadbbcf-a515-4bac-94f6-683ba3b800d7
+                            d05ea59d99ac2a65dc79dff08b712fc3: ref!! ca3cf7b5-f994-4b9e-bb40-548f1979c8d7
         -   Folder: null
             Entity:
                 Id: 95d01df7-de0c-4e7e-aa8c-dca95fcea3cd
@@ -119,6 +238,36 @@ Hierarchy:
                         Name: null
                         Projection: Perspective
                         Slot: 2ace6a4c-7e1b-491b-9f4a-5e02be4d59b5
+        -   Folder: null
+            Entity:
+                Id: b12ca83b-3063-491f-963b-2cf4bed684f4
+                Name: Ceiling
+                Components:
+                    7300bf4cdc8362c7c3bf76c4f86c9483: !TransformComponent
+                        Id: fdadbbcf-a515-4bac-94f6-683ba3b800d7
+                        Position: {X: 0.0, Y: 10.0, Z: 0.0}
+                        Rotation: {X: 1.0, Y: 0.0, Z: 0.0, W: -4.371139E-08}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    8adbd7943d521bfff7952b0d3e8a23dd: !ModelComponent
+                        Id: 19e1af54-2fdd-480d-93ef-d575291131ba
+                        Model: c5a24f74-2fd2-4118-9829-295cf37636b0:Ground
+                        Materials: {}
+        -   Folder: null
+            Entity:
+                Id: b1a46959-0c91-47ae-a9f1-7d1f82683864
+                Name: Wall4
+                Components:
+                    7300bf4cdc8362c7c3bf76c4f86c9483: !TransformComponent
+                        Id: ef00a8eb-602d-45ca-bd5d-e10db87819b3
+                        Position: {X: -5.0, Y: 5.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.707106769, W: -0.707106769}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    8adbd7943d521bfff7952b0d3e8a23dd: !ModelComponent
+                        Id: 7211a7ee-d8d0-467d-aa28-03b857f22960
+                        Model: c5a24f74-2fd2-4118-9829-295cf37636b0:Ground
+                        Materials: {}
         -   Entity:
                 Id: bc62fdf4-5308-4d81-9926-d45456285d06
                 Name: Player
@@ -169,6 +318,18 @@ Hierarchy:
                     f46446da73e35b740225b0793cab9bd7: !TimeNexus.Player.PlayerRaycaster,TimeNexus.Game
                         Id: d336c44b-a0b4-4dea-8933-b37f8526a66d
                         Camera: ref!! 89142c72-1616-401c-9232-02d689eb7535
+        -   Entity:
+                Id: cd355fee-d623-47b3-8e85-a96c220ebfb5
+                Name: TextField
+                Components:
+                    76708e1826b0633d736d706b0a1a439a: !TransformComponent
+                        Id: 03afd701-7df4-4f0d-9af7-c5e6e1481a02
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            075013ff88c7df1ab9f465d635b505e9: ref!! e43198d0-a8cb-40e5-8e59-bcb6ee9b1cbf
+                            a2b352452891756a07e890a99fa6ea2f: ref!! 128ecccd-4d50-48d1-9f2d-e031010b0009
         -   Folder: null
             Entity:
                 Id: dfd93150-6c5e-436e-a6a4-79ea5856f091

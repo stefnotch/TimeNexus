@@ -1,0 +1,26 @@
+!PrefabAsset
+Id: 3cd100be-fd83-4a1d-981f-09b7c673b438
+SerializedVersion: {Xenko: 2.1.0.1}
+Tags: []
+Hierarchy:
+    RootParts:
+        - ref!! 6789c5d9-07ce-4c07-b341-1539d6f3be7d
+    Parts:
+        -   Entity:
+                Id: 6789c5d9-07ce-4c07-b341-1539d6f3be7d
+                Name: TextField
+                Components:
+                    24b102f375b3540df2cd273219a0730e: !TransformComponent
+                        Id: 97979a3c-7985-42f3-bcf4-eaa74a8fbbe2
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    5e6e6a1ce6130c4ce22b5123a5d5089c: !UIComponent
+                        Id: f11f454f-2ceb-405e-a0ed-db8d64d383a2
+                        Page: null
+                        Resolution: {X: 1280.0, Y: 720.0, Z: 1000.0}
+                        Size: {X: 1.0, Y: 1.0, Z: 1.0}
+                    b1071ba370dc29745a3f01e4c8ed8f0a: !Menu.ButtonTrigger,TimeNexus.Game
+                        Id: 357235db-1b01-481a-948b-83ec9a126f8d
+                        action: null
