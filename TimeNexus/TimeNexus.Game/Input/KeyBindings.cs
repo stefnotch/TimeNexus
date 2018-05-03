@@ -1,4 +1,8 @@
-﻿using SiliconStudio.Core.Mathematics;
+﻿using SiliconStudio.Core;
+using SiliconStudio.Core.Diagnostics;
+using SiliconStudio.Core.Mathematics;
+using SiliconStudio.Xenko.Engine;
+using SiliconStudio.Xenko.Games;
 using SiliconStudio.Xenko.Input;
 using System;
 using System.Collections.Generic;
@@ -15,30 +19,36 @@ namespace TimeNexus.Input
 	 I can just use a bunch of variables. How come I didn't realize this sooner? XD *facepalm* 
 	 ( https://answers.unity.com/questions/374620/setting-up-key-binding-options.html )
 		 */
-	public static class KeyBindings
+	public class KeyBindings : StartupScript
 	{
-		
-		private static Keys _interact = Keys.E;
-		private static Keys _pause = Keys.P;
+		private static Keys interact = Keys.E;
+		private static Keys pause = Keys.P;
+
+		private static InputManager _input;
 
 		public static Keys Interact
 		{
-			get { return Enabled ? _interact : Keys.None; }
-			set { _interact = value; }
+			get { return Enabled ? interact : Keys.None; }
+			set { interact = value; }
 		}
 
 		public static Keys Pause
 		{
-			get { return Enabled ? _pause : Keys.None; }
-			set { _pause = value; }
+			get { return Enabled ? pause : Keys.None; }
+			set { pause = value; }
 		}
 
-		private static Vector2 MouseDelta
+		public static Vector2 MouseDelta
 		{
-			//get { return Enabled ? //Input.MouseDelta : Vector2; }
-			get { return Vector2.Zero; }
+			get { return Enabled ? _input.MouseDelta : Vector2.Zero; }
 		}
 
 		public static bool Enabled { get; set; } = true;
+
+		public override void Start()
+		{
+			if (_input != null) Log.Warning("Multiple Keybindings");
+			_input = Input;
+		}
 	}
 }
