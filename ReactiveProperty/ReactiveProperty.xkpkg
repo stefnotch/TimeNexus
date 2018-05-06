@@ -1,0 +1,25 @@
+!Package
+Id: 305dc909-598f-43dc-a2e9-b94d2103257d
+SerializedVersion: {Assets: 0.0.4}
+Meta:
+    Name: ReactiveProperty
+    Version: 1.0.0.0
+    Authors: []
+    Owners: []
+    Dependencies:
+        -   Name: Xenko
+            Version: 2.1.2.1
+            RootAssets: []
+LocalDependencies: []
+Profiles:
+    -   Name: Shared
+        Platform: Shared
+        InheritProfiles: []
+        AssetFolders:
+            -   Path: Assets/Shared
+        OutputGroupDirectories: {}
+        ProjectReferences: []
+ExplicitFolders: []
+Bundles: []
+TemplateFolders: []
+RootAssets: []

@@ -17,6 +17,12 @@ using System.Threading.Tasks;
 
 namespace TimeNexus.LevelManagement
 {
+	/// <summary>
+	/// Entity processors process entities
+	/// i.e. They do *something* with a certain type of entity
+	/// 
+	/// This one draws the gateways in the game studio
+	/// </summary>
 	public class GameStudioGatewayProcessor : EntityProcessor<Gateway, GameStudioGatewayProcessor.AssociatedData>
 	{
 		public class AssociatedData

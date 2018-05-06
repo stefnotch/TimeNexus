@@ -25,6 +25,9 @@ namespace TimeNexus.Levels
 
 	//[AllowMultipleComponents]
 	//[RequireComponent(typeof(Gateway))]
+	/// <summary>
+	/// Loads a level when a player is inside the trigger volume
+	/// </summary>
 	public class LevelLoader : StartupScript
 	{
 		private const String CorridorBaseURL = "Corridors";
@@ -41,6 +44,10 @@ namespace TimeNexus.Levels
 		/// The type of the level which will get loaded (corridor, actual level, etc.)
 		/// </summary>
 		public LevelType LevelType { get; set; } = LevelType.Level;
+
+		/// <summary>
+		/// The trigger volume, if a player enters is, a level will get loaded
+		/// </summary>
 		public RigidbodyComponent TriggerVolume { get; set; }
 		//[Display(category: "Name")]
 		//[NotNull]
@@ -63,10 +70,10 @@ namespace TimeNexus.Levels
 			switch(LevelType)
 			{
 				case LevelType.Level:
-					levelName = GetRandomLevelName();
+					levelName = GetRandomLevelName() ?? GetRandomCorridorName();
 					break;
 				case LevelType.Corridor:
-					levelName = GetRandomCorridorName();
+					levelName = GetRandomCorridorName() ?? GetRandomLevelName();
 					break;
 				default:
 					levelName = GetRandomLevelName();
@@ -78,16 +85,18 @@ namespace TimeNexus.Levels
 
 		private String GetRandomLevelName()
 		{
+			if (_levelUrls.Count == 0) return null;
 			return _levelUrls[_rng.Next(_levelUrls.Count)];
 		}
 
 		private String GetRandomCorridorName()
 		{
-			return _corridorUrls[_rng.Next(_levelUrls.Count)];
+			if (_corridorUrls.Count == 0) return null;
+			return _corridorUrls[_rng.Next(_corridorUrls.Count)];
 		}
 
 
-		public List<string> GetAssetUrls(string path)
+		private List<string> GetAssetUrls(string path)
 		{
 			if (path.Length == 0) throw new ArgumentException("Path may not be an empty string");
 

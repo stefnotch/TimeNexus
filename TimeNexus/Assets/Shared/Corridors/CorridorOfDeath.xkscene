@@ -1,0 +1,141 @@
+!SceneAsset
+Id: 56b12560-cc97-4ac8-a123-43d311c1a17b
+SerializedVersion: {Xenko: 2.1.0.1}
+Tags: []
+ChildrenIds: []
+Offset: {X: 0.0, Y: 0.0, Z: 0.0}
+Hierarchy:
+    RootParts:
+        - ref!! ed9bb8bd-4fdf-4752-a449-adcd445de521
+        - ref!! 7deb1afa-2828-48dc-95fb-085402c98b52
+        - ref!! f78ef9af-ffd5-4576-b560-390554969099
+        - ref!! 39a1d464-dd9c-4add-9518-0a76ee93ffab
+    Parts:
+        -   Folder: null
+            Entity:
+                Id: 39a1d464-dd9c-4add-9518-0a76ee93ffab
+                Name: Entrance
+                Components:
+                    6c1111da0122682f7a52e89ff1ecd0f5: !TransformComponent
+                        Id: fa40cc12-91e8-4c00-8f07-826d68c3110e
+                        Position: {X: 0.0, Y: 0.2, Z: -15.0}
+                        Rotation: {X: 0.0, Y: 1.0, Z: 0.0, W: -4.371139E-08}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    f069bc7fc0b885c8be52961ae2274974: !TimeNexus.LevelManagement.Gateway,TimeNexus.Game
+                        Id: 6a21aba8-e596-46b0-999a-3b0b670e7a48
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        IsExit: false
+                    a7745036ec29afcd1e16c372c048acff: !TimeNexus.Levels.LevelLoader,TimeNexus.Game
+                        Id: de17c633-6560-43c8-bc9e-71d6898faeb5
+                        LevelType: Level
+                        TriggerVolume: ref!! 9900e801-6aea-4df5-b3f6-9b8c38d65e65
+                        Gateway: ref!! 6a21aba8-e596-46b0-999a-3b0b670e7a48
+                    3cbec8c8464dff9ab877bdc4e22b6cd9: !RigidbodyComponent
+                        Id: 9900e801-6aea-4df5-b3f6-9b8c38d65e65
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: false
+                        IsKinematic: false
+                        Mass: 1.0
+                        LinearDamping: 0.0
+                        AngularDamping: 0.0
+                        OverrideGravity: false
+                        Gravity: {X: 0.0, Y: 0.0, Z: 0.0}
+                        NodeName: null
+                        ColliderShapes:
+                            e6f1c4f6ee5a264ff14046c0005dad5d: !SphereColliderShapeDesc
+                                Is2D: false
+                                Radius: 3.0
+                                LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
+        -   Entity:
+                Id: 7deb1afa-2828-48dc-95fb-085402c98b52
+                Name: Skybox light
+                Components:
+                    a16996c6f1858ddb9fafe8c399a61e56: !TransformComponent
+                        Id: 540a1433-e825-4d93-b7fe-68712f923eb7
+                        Position: {X: 0.0, Y: 2.15937781, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    d107136d8f99b5683560f33dbde3dcb0: !LightComponent
+                        Id: 8fa740dc-c0fc-4066-8e71-6096aba7a3a6
+                        Type: !LightSkybox
+                            Skybox: 377c2a27-0867-4fe1-8f27-227eb0eac5f1:Skybox
+                    59a460d6cf2b108be5ec0b6ef58862c2: !BackgroundComponent
+                        Id: de425cb6-7b7c-47a1-b7de-85174af35dbe
+                        Texture: fa985add-dab7-4519-ada2-69439f4a105b:Skybox texture
+        -   Entity:
+                Id: ed9bb8bd-4fdf-4752-a449-adcd445de521
+                Name: Floor
+                Components:
+                    f4fd46a06081fc97e97609b3d4bed35c: !TransformComponent
+                        Id: 3d69854a-7549-4297-b48f-e364b598cbda
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 10.0, Y: 1.0, Z: 30.0}
+                        Children: {}
+                    d338aecd22615c181cb3ea941a095287: !ModelComponent
+                        Id: 5b464cbc-1d8d-4408-81e4-66a75b79b788
+                        Model: ce90371d-40ab-4f73-a261-5f267f71d3b1:Plane
+                        Materials:
+                            8d754d35fcb4752e5f2e8ac90073bd54~0: 19d08d61-2288-4f5f-9d8b-9db0d8ae4f30:Materials/rock/groundRock
+                    8dda25fda4a653b9b9c3b59e86a0c8f4: !StaticColliderComponent
+                        Id: cf7c5f90-794c-4372-81a6-9aef4255d61d
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: false
+                        ColliderShapes:
+                            ae302011dcdd139a8bb44f38b3348b4b: !BoxColliderShapeDesc
+                                Is2D: false
+                                Size: {X: 1.0, Y: 1.0, Z: 1.0}
+                                LocalOffset: {X: 0.0, Y: -0.3, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+        -   Entity:
+                Id: f78ef9af-ffd5-4576-b560-390554969099
+                Name: Exit
+                Components:
+                    6c1111da0122682f7a52e89ff1ecd0f5: !TransformComponent
+                        Id: f7988ac8-145f-4ef3-ba8b-9a99ae19d1b6
+                        Position: {X: 0.0, Y: 0.2, Z: 15.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    f069bc7fc0b885c8be52961ae2274974: !TimeNexus.LevelManagement.Gateway,TimeNexus.Game
+                        Id: 88ed2a99-f00d-47cf-8202-74f397acb6e4
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        IsExit: true
+                    a7745036ec29afcd1e16c372c048acff: !TimeNexus.Levels.LevelLoader,TimeNexus.Game
+                        Id: 25212750-3a3e-4752-82f6-4ea4e073b388
+                        LevelType: Level
+                        TriggerVolume: ref!! 8f5bf065-815b-4a17-84ba-ffeda5ac6376
+                        Gateway: ref!! 88ed2a99-f00d-47cf-8202-74f397acb6e4
+                    3cbec8c8464dff9ab877bdc4e22b6cd9: !RigidbodyComponent
+                        Id: 8f5bf065-815b-4a17-84ba-ffeda5ac6376
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: false
+                        IsKinematic: false
+                        Mass: 1.0
+                        LinearDamping: 0.0
+                        AngularDamping: 0.0
+                        OverrideGravity: false
+                        Gravity: {X: 0.0, Y: 0.0, Z: 0.0}
+                        NodeName: null
+                        ColliderShapes:
+                            e6f1c4f6ee5a264ff14046c0005dad5d: !SphereColliderShapeDesc
+                                Is2D: false
+                                Radius: 3.0
+                                LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}

@@ -10,6 +10,10 @@ using System.Collections.Concurrent;
 
 namespace TimeNexus.LevelManagement
 {
+	/// <summary>
+	/// Manages a bunch of levels
+	/// Tip: Don't touch this unless you know what you are doing
+	/// </summary>
 	public class LevelManager : SyncScript
 	{
 		public const int DefaultDimension = 0;
@@ -96,22 +100,25 @@ namespace TimeNexus.LevelManagement
 		/// <returns></returns>
 		private int GetFreeDimension(Level s)
 		{
-			HashSet<int> collidingDimensions = new HashSet<int>();
+			var collidingDimensions = CollidingLevels(s.BoundingBox)
+				.Where(level => level != s)
+				.Select(level => level.Dimension)
+				.OrderBy((a) => a);
 
-			var boundingBox = s.BoundingBox;
-			foreach (var level in Levels.Values)
-			{
-				if (level == s) continue;
-
-				if (level.BoundingBox.Intersects(ref boundingBox))
-				{
-					collidingDimensions.Add(level.Dimension);
-				}
-			}
-
-			for (int i = 0; ; i++)
+			for(int i = 0; ; i++)
 			{
 				if (!collidingDimensions.Contains(i)) return i;
+			}
+		}
+
+		public IEnumerable<Level> CollidingLevels(BoundingBox boundingBox)
+		{
+			foreach (var level in Levels.Values)
+			{
+				if (level.BoundingBox.Intersects(ref boundingBox))
+				{
+					yield return level;
+				}
 			}
 		}
 

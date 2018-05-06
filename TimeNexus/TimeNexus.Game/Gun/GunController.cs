@@ -20,9 +20,14 @@ using TimeNexus.Gun;
 using SiliconStudio.Core.Annotations;
 using SiliconStudio.Core;
 using TimeNexus.Player;
+using TimeNexus.Input;
 
 namespace TimeNexus.Gun
 {
+	/// <summary>
+	/// Controls the GunBeam! Muwahahaha!
+	/// It also takes care of switching the time and the effects
+	/// </summary>
 	public class GunController : SyncScript
 	{
 		[CanBeNull]
@@ -35,9 +40,9 @@ namespace TimeNexus.Gun
 
 		public override void Start()
 		{
-			//Input.AddListener(new Test());
 			effectRenderPass = EffectMaterial?.Passes?.First();
 
+			//Wohoo, Rx FTW!
 			PlayerRaycaster.OnRaycast.Subscribe(hitResult =>
 			{
 				var entity = hitResult.Collider?.Entity;
@@ -47,13 +52,13 @@ namespace TimeNexus.Gun
 					return;
 				}
 
-				if (Input.MouseWheelDelta != 0)
+				if (KeyBindings.MouseWheelDelta != 0)
 				{
 					var timeComponent = entity.Get<TimeControllerComponent>() ?? entity.GetParent()?.Get<TimeControllerComponent>();
 					if (timeComponent != null)
 					{
 						GunBeam?.UpdateBeam(true, hitResult.Point);
-						if (Input.MouseWheelDelta < 0) timeComponent.Time = timeComponent.Time.GetPrevious();
+						if (KeyBindings.MouseWheelDelta < 0) timeComponent.Time = timeComponent.Time.GetPrevious();
 						else timeComponent.Time = timeComponent.Time.GetNext();
 					}
 				}
@@ -62,13 +67,14 @@ namespace TimeNexus.Gun
 					GunBeam?.UpdateBeam(false);
 				}
 			})
+			//We need to dispose of our subscription
 			.DisposeLater(this);
 		}
-
-
+		
 
 		public override void Update()
 		{
+			//Lots of experiments:
 			return;
 
 			Entity entity = null;

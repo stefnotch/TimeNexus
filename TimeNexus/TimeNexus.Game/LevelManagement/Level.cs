@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace TimeNexus.LevelManagement
 {
+	/// <summary>
+	/// A wrapper around a scene
+	/// </summary>
 	public class Level
 	{
 		private BoundingBox _boundingBox = BoundingBox.Empty;
@@ -33,20 +36,22 @@ namespace TimeNexus.LevelManagement
 		/// </summary>
 		public int Dimension { get; set; }
 
+		/// <summary>
+		/// The setings
+		/// </summary>
 		public LevelSettings Settings { get; }
 
 		/// <summary>
 		/// A <list type="Gateway">list of level entrances/exits</list>
 		/// Every entrance is also an exit :D
 		/// </summary>
-		public IReadOnlyList<Gateway> Gateways { get => _gateways.AsReadOnly(); }
+		public IEnumerable<Gateway> Gateways { get => GetRootComponents<Gateway>(Scene); }
 
 
 		public Level(Scene scene)
 		{
 			Scene = scene;
 			ComputeBoundingBox(Scene);
-			_gateways.AddRange(GetRootComponents<Gateway>(Scene));
 			Settings = GetRootComponents<LevelSettings>(Scene).DefaultIfEmpty(new LevelSettings()).FirstOrDefault();
 		}
 

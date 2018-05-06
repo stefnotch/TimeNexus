@@ -24,6 +24,9 @@ Profiles:
             -   Id: afe04b3a-4fb6-4d0e-85f7-35a1ad6e3590
                 Location: TimeNexus.Game/TimeNexus.Game.csproj
                 Type: Library
+            -   Id: 4ff9c2f2-e4a9-454c-9778-f756d3e3b7b0
+                Location: ReactiveProperty/ReactiveProperty.csproj
+                Type: Library
     -   Name: Windows
         Platform: Windows
         InheritProfiles: []
@@ -39,6 +42,7 @@ Bundles: []
 TemplateFolders: []
 RootAssets:
     - 44d32239-571d-44ae-8afa-45d3432998ac:Levels/TestScene
+    - 56b12560-cc97-4ac8-a123-43d311c1a17b:Corridors/CorridorOfDeath
     - de46e442-f5b7-4ea8-93c4-d4081978c424:MainScene
     - de63a6df-5f5e-4949-8c8a-6c323e196bcd:RootScene
     - fed758c6-e303-4c97-9ff9-d70299fb0874:Levels/TestScene3

@@ -133,20 +133,20 @@ namespace TimeNexus.Player
 			var up = Vector3.TransformNormal(UpVector, Matrix.RotationQuaternion(Entity.Transform.Rotation));
 			var right = Vector3.Cross(forward, up);
 
-			if (Input.IsKeyDown(Keys.A) || Input.IsKeyDown(Keys.Left))
+			if (Input.IsKeyDown(KeyBindings.Left))
 			{
 				move += right;
 			}
-			if (Input.IsKeyDown(Keys.D) || Input.IsKeyDown(Keys.Right))
+			if (Input.IsKeyDown(KeyBindings.Right))
 			{
 				move += -right;
 			}
-			if (Input.IsKeyDown(Keys.W) || Input.IsKeyDown(Keys.Up))
+			if (Input.IsKeyDown(KeyBindings.Forward))
 			{
 				move += -projectedForward;
 				//animation.("Gun Walk");
 			}
-			if (Input.IsKeyDown(Keys.S) || Input.IsKeyDown(Keys.Down))
+			if (Input.IsKeyDown(KeyBindings.Backward))
 			{
 				move += projectedForward;
 			}
@@ -161,7 +161,7 @@ namespace TimeNexus.Player
 
 			//Well, animations.......me lazy
 
-			if (Input.IsKeyPressed(Keys.Space) && character.IsGrounded)
+			if (Input.IsKeyPressed(KeyBindings.Space) && character.IsGrounded)
 			{
 				character.Jump();
 			}

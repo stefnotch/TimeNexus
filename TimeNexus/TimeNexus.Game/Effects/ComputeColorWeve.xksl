@@ -2,8 +2,14 @@
 {
     compose ComputeColor Frequency;
 
+    float2 Random(in float2 uv)
+    {
+        float2 noise = (frac(sin(dot(uv,float2(12.9898,78.233)*2.0)) * 43758.5453));
+        return noise;
+    }
+
     override float4 Compute()
     {
-        return sin(( Global.Time ) * 2 * 3.14 * Frequency.Compute().r);
+        return float4(Random(streams.TexCoord.xy), 0, 1);
     }
 };

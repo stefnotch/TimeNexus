@@ -12,6 +12,9 @@ using TimeNexus.ExtensionMethods;
 
 namespace TimeNexus.Gun
 {
+	/// <summary>
+	/// Gun Beam, doesn't do anything at all unless you fire it using UpdateBeam
+	/// </summary>
 	public class GunBeam : StartupScript
 	{
 		private readonly TimeSpan FADE_TIME = TimeSpan.FromMilliseconds(300);
@@ -22,6 +25,11 @@ namespace TimeNexus.Gun
 		public Entity GunBeamEntity { get; set; }
 		public ModelComponent GunBeamModel { get; set; }
 
+		/// <summary>
+		/// IMMA FIRIN' MAH LAZER !!!
+		/// </summary>
+		/// <param name="shoot">Should the lazor actually be fired</param>
+		/// <param name="target">The victim's world coordinates</param>
 		public void UpdateBeam(bool shoot, Vector3 target = default(Vector3))
 		{
 			if (GunBeamEntity == null || GunBeamModel == null) return;
@@ -46,7 +54,7 @@ namespace TimeNexus.Gun
 			Vector3 direction = _target - GunBeamEntity.Transform.GetWorldPosition();
 			SetBeamLength(Math.Abs(direction.Length()));
 
-			GunBeamEntity.Transform.LookAt(ref _target);	
+			GunBeamEntity.Transform.LookAt(ref _target);
 
 			if (shoot)
 			{

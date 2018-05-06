@@ -140,7 +140,7 @@ namespace TimeNexus.Objects
 				});
 
 			this.Entity.GetOrCreate<LookatTrigger>()
-				.OnLookatEnd
+				.OnLookatStart
 				.Subscribe(_ => DisplayUI(false));
 		}
 

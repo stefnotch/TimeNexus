@@ -8,8 +8,14 @@ using TimeNexus.Time;
 
 namespace TimeNexus.LevelManagement
 {
+	/// <summary>
+	/// Level settings
+	/// </summary>
 	public class LevelSettings : ScriptComponent
 	{
+		/// <summary>
+		/// The default time of this level
+		/// </summary>
 		public GameStudioTime DefaultTime { get; } = new GameStudioTime();
 	}
 }

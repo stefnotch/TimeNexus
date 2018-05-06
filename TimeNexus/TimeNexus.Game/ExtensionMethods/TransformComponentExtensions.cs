@@ -8,8 +8,14 @@ using System.Threading.Tasks;
 
 namespace TimeNexus.ExtensionMethods
 {
+	/// <summary>
+	/// Extension methods for transform components
+	/// </summary>
 	public static class TransformComponentExtensions
 	{
+		/// <summary>
+		/// Get's the world position of a transform component
+		/// </summary>
 		public static Vector3 GetWorldPosition(this TransformComponent transformComponent)
 		{
 			Vector3 position;
@@ -17,6 +23,9 @@ namespace TimeNexus.ExtensionMethods
 			return position;
 		}
 
+		/// <summary>
+		/// Get's the world rotation of a transform component
+		/// </summary>
 		public static Quaternion GetWorldRotation(this TransformComponent transformComponent)
 		{
 			Quaternion rotation;
@@ -24,6 +33,9 @@ namespace TimeNexus.ExtensionMethods
 			return rotation;
 		}
 
+		/// <summary>
+		/// Get's the world scale of a transform component
+		/// </summary>
 		public static Vector3 GetWorldScale(this TransformComponent transformComponent)
 		{
 			Vector3 scale;
@@ -288,6 +300,9 @@ Licensed under the Apache License, Version 2.0 (the "License");
    limitations under the License.
    */
 
+			/// <summary>
+		/// Makes a transform component look at some world position
+		/// </summary>
 		public static void LookAt(this TransformComponent transform, ref Vector3 target)
 		{
 			Vector3 worldUp = Vector3.UnitY;

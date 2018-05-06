@@ -140,7 +140,6 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BasicCameraController.cs" />
     <Compile Include="Debugging\DebugDraw.cs" />
     <Compile Include="Effects\AShader.cs">
       <AutoGen>True</AutoGen>
@@ -185,7 +184,6 @@
       <DependentUpon>TimeChangeFuture.xksl</DependentUpon>
     </Compile>
     <Compile Include="ExtensionMethods\IDisposableExtensions.cs" />
-    <Compile Include="ExtensionMethods\ScriptComponentExtensions.cs" />
     <Compile Include="ExtensionMethods\TransformComponentExtensions.cs" />
     <Compile Include="Gun\GunBeam.cs" />
     <Compile Include="Gun\GunController.cs" />
@@ -207,6 +205,7 @@
     <Compile Include="LevelManagement\LevelSettings.cs" />
     <Compile Include="Levels\RootSceneLevelLoader.cs" />
     <Compile Include="Levels\LevelLoader.cs" />
+    <Compile Include="Levels\Savepoint.cs" />
     <Compile Include="Objects\InteractionPopup.cs" />
     <Compile Include="Objects\Door.cs" />
     <Compile Include="Objects\Level1\DoorInteraction.cs" />
@@ -216,8 +215,10 @@
     <Compile Include="Objects\RaycastDistributor.cs" />
     <Compile Include="Pausing\GamePauser.cs" />
     <Compile Include="Player\EdgeTilt.cs" />
+    <Compile Include="Player\Player.cs" />
     <Compile Include="Player\PlayerRaycaster.cs" />
     <Compile Include="Player\PlayerRx.cs" />
+    <Compile Include="Levels\Savepoints.cs" />
     <Compile Include="Time\Era.cs" />
     <Compile Include="Player\PlayerController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -226,6 +227,12 @@
     <Compile Include="Time\TimeComponent.cs" />
     <Compile Include="Time\GameStudioTimeController.cs" />
     <Compile Include="Time\TimeControllerComponent.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ReactiveProperty\ReactiveProperty.csproj">
+      <Project>{4ff9c2f2-e4a9-454c-9778-f756d3e3b7b0}</Project>
+      <Name>ReactiveProperty</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="$(SiliconStudioPackageProps)" Condition="Exists('$(SiliconStudioPackageProps)')" />

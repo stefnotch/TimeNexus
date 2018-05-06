@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace TimeNexus.ExtensionMethods
 {
+	/// <summary>
+	/// Extension methods to dispose of IDisposeables when an Entity gets removed
+	/// </summary>
 	public static class IDisposableExtensions
 	{
 		/// <summary>
@@ -25,6 +28,7 @@ namespace TimeNexus.ExtensionMethods
 		{
 			entity.GetOrCreate<Disposer>().Disposables.Add(disposable);
 		}
+
 
 		private class Disposer : ScriptComponent
 		{

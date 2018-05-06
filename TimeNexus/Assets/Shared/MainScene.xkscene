@@ -293,6 +293,6 @@ Hierarchy:
                         IsExit: false
                     8c8967788133e084dde269ce62c7166f: !TimeNexus.Levels.LevelLoader,TimeNexus.Game
                         Id: 2e41f6c8-e67b-48de-af24-1903842f2898
-                        LevelType: Level
+                        LevelType: Corridor
                         TriggerVolume: ref!! 3a56e7de-1308-4ba8-ba19-481336adf2c3
                         Gateway: ref!! 20871f9a-4f2e-4faa-9ee6-2ae4ff900405

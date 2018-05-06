@@ -15,6 +15,9 @@ using System.Threading.Tasks;
 
 namespace TimeNexus.LevelManagement
 {
+	/// <summary>
+	/// Used by the GameStudioGatewayProcessor
+	/// </summary>
 	public class GameStudioGatewayRenderingService : GameSystem
 	{
 		private GraphicsDevice graphicsDevice;
@@ -50,6 +53,9 @@ namespace TimeNexus.LevelManagement
 			};
 		}
 
+		/// <summary>
+		/// Creates a new arrow 3D model
+		/// </summary>
 		public Model CreateArrow()
 		{
 			var arrowModel = new Model();

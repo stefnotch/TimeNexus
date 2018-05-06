@@ -11,9 +11,17 @@ using SiliconStudio.Xenko.Engine.Design;
 
 namespace TimeNexus.LevelManagement
 {
+
+	/// <summary>
+	/// Used to connect different levels
+	/// Both levels need to have a Gateway
+	/// </summary>
 	[DefaultEntityComponentProcessor(typeof(GameStudioGatewayProcessor), ExecutionMode = ExecutionMode.Editor)]
 	public class Gateway : ScriptComponent
 	{
+		/// <summary>
+		/// The direction of the gateway
+		/// </summary>
 		public Quaternion Rotation { get; set; } = Quaternion.Identity;
 
 		/// <summary>
@@ -37,7 +45,7 @@ namespace TimeNexus.LevelManagement
 		public bool IsLoading { get; private set; }
 
 		/// <summary>
-		/// Attaches a level to this gateway
+		/// Attaches a level to this gateway!
 		/// Will magically take care of everything.
 		/// </summary>
 		/// <param name="url">URL of the scene asset</param>
@@ -54,7 +62,7 @@ namespace TimeNexus.LevelManagement
 			IsLoading = true;
 			Level other = await LevelManager.Instance.LoadLevel(url).ConfigureAwait(false);
 			
-			if(other.Gateways.Count == 0)
+			if(!other.Gateways.Any())
 			{
 				throw new ArgumentException("You can't attach a scene with 0 gateways. Offending scene: " + url);
 			}

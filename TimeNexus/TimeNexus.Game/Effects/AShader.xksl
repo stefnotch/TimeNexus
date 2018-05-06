@@ -6,11 +6,10 @@ namespace SiliconStudio.Xenko.Rendering.Shadows
      shader AShader: ComputeColor
     {
 
-        [Color] compose float4 NOTOK = 0;
 
         override float4 Compute()
         {
-            return float4(0.0, NOTOK.xy, 1.0);
+            return float4(0.0, 0.0, 0.0, 1.0);
         }
 
     };
