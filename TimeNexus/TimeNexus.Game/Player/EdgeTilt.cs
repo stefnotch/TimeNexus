@@ -15,8 +15,6 @@ using System.Threading.Tasks;
 namespace TimeNexus.Player
 {
 	/// <summary>
-	/// This name isn't optimal...
-	/// 
 	/// It tilts the entity 
 	/// </summary>
 	public class EdgeTilt : StartupScript
@@ -38,8 +36,6 @@ namespace TimeNexus.Player
 
 		public override void Start()
 		{
-			//this.GetSimulation().ColliderShapesRendering = true;
-
 			_simulation = this.GetSimulation();
 
 			_collider = new SphereColliderShape(false, 0.2f);
@@ -57,7 +53,9 @@ namespace TimeNexus.Player
 			offsetMatrix = Matrix.Translation(0, -0.3f, 0);
 		}
 
-
+		/// <summary>
+		/// Calculates the pitch and roll of the player
+		/// </summary>
 		public Vector2 CalculatePitchRoll()
 		{
 			/*if (Entity.Get<CharacterComponent>()?.IsGrounded == false)

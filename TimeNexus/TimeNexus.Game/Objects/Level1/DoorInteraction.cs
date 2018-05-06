@@ -21,9 +21,7 @@ namespace TimeNexus.Objects.Level1
 		public override void Start()
 		{
 			LoadingIcon.Entity.EnableAll(false);
-			Interaction.OnOpen
-				.Where(a => { Console.WriteLine(1); return true; })
-				.Where(o => o == true)
+			Interaction.OnInteraction
 				.FirstAsync()
 				.Subscribe(_ => LoadingIcon.Entity.EnableAll(true));
 		}

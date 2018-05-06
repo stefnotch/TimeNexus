@@ -8,19 +8,26 @@ using System.Reactive.Subjects;
 using System.Text;
 using System.Threading.Tasks;
 using TimeNexus.ExtensionMethods;
+using TimeNexus.LevelManagement;
 using TimeNexus.Levels;
 
 namespace TimeNexus.Player
 {
+	/// <summary>
+	/// A player
+	/// </summary>
 	public class Player : StartupScript
 	{
 		public static float DefaultHealth { get; set; } = 100;
 
 		public ReactivePropertySlim<float> HealthP { get; } = new ReactivePropertySlim<float>(DefaultHealth);
 
+		public Savepoints Savepoints { get; private set; }
 
 		public override void Start()
 		{
+			Savepoints = new Savepoints(this);
+
 			HealthP.Subscribe(health =>
 			{
 				if(health <= 0)
@@ -32,9 +39,13 @@ namespace TimeNexus.Player
 
 		public void Respawn()
 		{
-			var lastPosition = Entity.Transform.WorldToLocal(Savepoints.Instance.GetLatest().Entity.Transform.GetWorldPosition());
-			Entity.Transform.Position = lastPosition;
 			HealthP.Value = DefaultHealth;
+			Entity.Transform.WorldMatrix = Savepoints.GetLatest().Transform;
+		}
+
+		public Level GetLevel()
+		{
+			return LevelManager.Instance.CollidingLevels(Entity.Transform.Position).First();
 		}
 	}
 }

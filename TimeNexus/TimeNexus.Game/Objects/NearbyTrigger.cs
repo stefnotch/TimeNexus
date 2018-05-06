@@ -26,7 +26,7 @@ namespace TimeNexus.Objects
 		[DataMemberIgnore]
 		private static Logger Logger = GlobalLogger.GetLogger("NearbyTrigger");
 
-		public RigidbodyComponent RigidbodyComponent { get; private set; }
+		public RigidbodyComponent RigidbodyComponent { get; }
 
 		[DataMemberIgnore]
 		private readonly Subject<Collision> _onTriggerStart = new Subject<Collision>();
@@ -63,12 +63,7 @@ namespace TimeNexus.Objects
 
 			this.DisposeLater(RigidbodyComponent.Entity);
 		}
-
-		public static NearbyTrigger From(RigidbodyComponent physicsComponent)
-		{
-			return new NearbyTrigger(physicsComponent);
-		}
-
+		
 		private void OnCollision(object sender, TrackingCollectionChangedEventArgs args)
 		{
 			if (args.Action == NotifyCollectionChangedAction.Add)

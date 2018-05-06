@@ -29,6 +29,8 @@ Hierarchy:
                         Id: 0e79c994-d2b6-49c5-a5a5-e01238a36672
                         GameStudioTime:
                             Era: FarFuture
+                            test:
+                                Value: Memes
         -   Entity:
                 Id: 21e8d9f2-3391-4062-abfb-656fa29c99c1
                 Name: MaterialModel
@@ -47,6 +49,8 @@ Hierarchy:
                         Id: b8ba72df-f05b-4d4d-aa0f-ce80c1927091
                         GameStudioTime:
                             Era: FarFuture
+                            test:
+                                Value: AncientHistory
         -   Entity:
                 Id: 2401dfa1-ccfc-4314-a920-87db266b1c7e
                 Name: Skybox
@@ -145,6 +149,8 @@ Hierarchy:
                         Id: 4410a669-350f-4e2b-9ba6-cc0dcb8eccfd
                         DefaultTime:
                             Era: AncientHistory
+                            test:
+                                Value: AncientHistory
         -   Entity:
                 Id: 8fce8da4-da36-40f6-a3b8-8e6de95f19ba
                 Name: Directional light
@@ -225,6 +231,8 @@ Hierarchy:
                         Id: cd687d8c-9b98-483a-ad61-84c0eb1af220
                         GameStudioTime:
                             Era: AncientHistory
+                            test:
+                                Value: AncientHistory
         -   Entity:
                 Id: ddc8bc75-4f12-4c93-8221-840ce294f552
                 Name: HAI
@@ -277,6 +285,8 @@ Hierarchy:
                         Id: 9ccd0cce-3a82-4797-9d94-b4b68de66d1f
                         GameStudioTime:
                             Era: Modern
+                            test:
+                                Value: AncientHistory
         -   Entity:
                 Id: ec4ac2ac-d94f-4237-a81b-b48c001da424
                 Name: Gateway

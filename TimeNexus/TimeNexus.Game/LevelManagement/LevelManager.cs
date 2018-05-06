@@ -62,7 +62,7 @@ namespace TimeNexus.LevelManagement
 		//TODO: Very shitty, sometimes causes the GC to go crazy but I have no better idea	
 		private async Task<Scene> LoadScene(string url)
 		{
-			bool alreadyLoaded = Content.IsLoaded(url, true);
+			bool alreadyLoaded = Content.IsLoaded(url);
 			var scene = await Content.LoadAsync<Scene>(url);
 			var newScene = new Scene
 			{
@@ -116,6 +116,18 @@ namespace TimeNexus.LevelManagement
 			foreach (var level in Levels.Values)
 			{
 				if (level.BoundingBox.Intersects(ref boundingBox))
+				{
+					yield return level;
+				}
+			}
+		}
+
+		public IEnumerable<Level> CollidingLevels(Vector3 point)
+		{
+			foreach (var level in Levels.Values)
+			{
+
+				if (level.BoundingBox.Contains(ref point) != ContainmentType.Disjoint)
 				{
 					yield return level;
 				}

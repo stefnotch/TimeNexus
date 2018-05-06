@@ -17,6 +17,8 @@ namespace TimeNexus.Player
 
 	/// <summary>
 	/// Attach this script to a player entity!
+	/// 
+	/// It casts a ray every Update
 	/// </summary>
 	public class PlayerRaycaster : SyncScript
 	{
