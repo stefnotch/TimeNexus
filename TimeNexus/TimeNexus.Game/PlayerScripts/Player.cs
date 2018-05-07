@@ -11,13 +11,15 @@ using TimeNexus.ExtensionMethods;
 using TimeNexus.LevelManagement;
 using TimeNexus.Levels;
 
-namespace TimeNexus.Player
+namespace TimeNexus.PlayerScripts
 {
 	/// <summary>
 	/// A player
 	/// </summary>
 	public class Player : StartupScript
 	{
+		public static Entity Instance { get; private set; }
+
 		public static float DefaultHealth { get; set; } = 100;
 
 		public ReactivePropertySlim<float> HealthP { get; } = new ReactivePropertySlim<float>(DefaultHealth);
@@ -26,6 +28,9 @@ namespace TimeNexus.Player
 
 		public override void Start()
 		{
+			if (Instance != null) Log.Error("Multiple player entities?? OwO");
+			Instance = this.Entity;
+
 			Savepoints = new Savepoints(this);
 
 			HealthP.Subscribe(health =>

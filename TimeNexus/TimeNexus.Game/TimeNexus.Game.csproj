@@ -212,7 +212,8 @@
     <Compile Include="LevelManagement\LevelSettings.cs" />
     <Compile Include="Levels\RootSceneLevelLoader.cs" />
     <Compile Include="Levels\LevelLoader.cs" />
-    <Compile Include="Player\Savepoint.cs" />
+    <Compile Include="PlayerScripts\Jump.cs" />
+    <Compile Include="PlayerScripts\Savepoint.cs" />
     <Compile Include="Objects\InteractionPopup.cs" />
     <Compile Include="Objects\Door.cs" />
     <Compile Include="Objects\Level1\DoorInteraction.cs" />
@@ -221,12 +222,12 @@
     <Compile Include="Objects\NearbyTrigger.cs" />
     <Compile Include="Objects\RaycastDistributor.cs" />
     <Compile Include="Pausing\GamePauser.cs" />
-    <Compile Include="Player\EdgeTilt.cs" />
-    <Compile Include="Player\Player.cs" />
-    <Compile Include="Player\PlayerRaycaster.cs" />
-    <Compile Include="Player\Savepoints.cs" />
+    <Compile Include="PlayerScripts\EdgeTilt.cs" />
+    <Compile Include="PlayerScripts\Player.cs" />
+    <Compile Include="PlayerScripts\PlayerRaycaster.cs" />
+    <Compile Include="PlayerScripts\Savepoints.cs" />
     <Compile Include="Time\Era.cs" />
-    <Compile Include="Player\PlayerController.cs" />
+    <Compile Include="PlayerScripts\PlayerController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Time\GameStudioTime.cs" />
     <Compile Include="Time\Time.cs" />

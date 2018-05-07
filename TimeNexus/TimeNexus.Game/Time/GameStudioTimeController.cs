@@ -42,7 +42,7 @@ namespace TimeNexus.Time
 				foreach (Entity e in Entity.Scene.Entities)
 				{
 					var timeController = e.Get<TimeControllerComponent>();
-					if (timeController != null) timeController.Time = t;
+					if (timeController != null) timeController.Time.Value = t;
 
 				}
 			}

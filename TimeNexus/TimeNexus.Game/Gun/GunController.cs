@@ -19,7 +19,7 @@ using TimeNexus.Effects;
 using TimeNexus.Gun;
 using SiliconStudio.Core.Annotations;
 using SiliconStudio.Core;
-using TimeNexus.Player;
+using TimeNexus.PlayerScripts;
 using TimeNexus.Input;
 
 namespace TimeNexus.Gun
@@ -58,8 +58,8 @@ namespace TimeNexus.Gun
 					if (timeComponent != null)
 					{
 						GunBeam?.UpdateBeam(true, hitResult.Point);
-						if (KeyBindings.MouseWheelDelta < 0) timeComponent.Time = timeComponent.Time.GetPrevious();
-						else timeComponent.Time = timeComponent.Time.GetNext();
+						if (KeyBindings.MouseWheelDelta < 0) timeComponent.Time.Value = timeComponent.Time.Value.GetPrevious();
+						else timeComponent.Time.Value = timeComponent.Time.Value.GetNext();
 					}
 				}
 				else

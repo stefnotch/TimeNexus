@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TimeNexus.ExtensionMethods;
-using TimeNexus.Player;
+using TimeNexus.PlayerScripts;
 using System.Reactive.Linq;
 using SiliconStudio.Xenko.Input;
 using TimeNexus.Input;
@@ -122,7 +122,7 @@ namespace TimeNexus.Objects
 				.OnLookatStay
 				.Subscribe(hitResult =>
 				{
-					var dist = (hitResult.Point - PlayerController.Player.Transform.GetWorldPosition()).Length();
+					var dist = (hitResult.Point - Player.Instance.Transform.GetWorldPosition()).Length();
 					if (dist < MinDistance)
 					{
 						Vector3 test2 = this.Entity.Transform.GetWorldPosition();

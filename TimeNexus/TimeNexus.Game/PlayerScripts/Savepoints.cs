@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TimeNexus.ExtensionMethods;
 
-namespace TimeNexus.Player
+namespace TimeNexus.PlayerScripts
 {
 	public class Savepoints
 	{

@@ -9,6 +9,7 @@ using SiliconStudio.Xenko.Engine;
 using SiliconStudio.Core;
 using TimeNexus.Levels;
 using TimeNexus.LevelManagement;
+using Reactive.Bindings;
 
 namespace TimeNexus.Time
 {
@@ -17,18 +18,19 @@ namespace TimeNexus.Time
 	[DataContract("TimeControllerComponent")]
 	public class TimeControllerComponent : StartupScript
 	{
-		private Time _time = new Time();
-
 		private Entity previousEntity;
-		
-		public Time Time
+
+		[DataMemberIgnore]
+		public ReactivePropertySlim<Time> Time { get; } = new ReactivePropertySlim<Time>();
+
+		public override void Start()
 		{
-			get => _time;
-			set
+			foreach (Entity e in GetChildrenWithTime())
 			{
-				_time = value;
-				TimeChanged(value);
+				e.Get<ModelComponent>().Enabled = false;
 			}
+
+			Time.Value = this.GetLevel().Settings.DefaultTime;
 		}
 
 		private void TimeChanged(Time t)
@@ -77,17 +79,6 @@ namespace TimeNexus.Time
 					yield return e;
 				}
 			}
-		}
-
-		public override void Start()
-		{
-			foreach (Entity e in GetChildrenWithTime())
-			{
-				e.Get<ModelComponent>().Enabled = false;
-			}
-
-			Time = this.GetLevel().Settings.DefaultTime;
-		}
-		
+		}		
 	}
 }

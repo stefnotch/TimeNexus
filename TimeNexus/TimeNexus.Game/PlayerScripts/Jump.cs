@@ -9,9 +9,9 @@ using SiliconStudio.Xenko.Engine;
 using SiliconStudio.Xenko.Extensions;
 using SiliconStudio.Xenko.Physics;
 
-namespace Player
+namespace TimeNexus.PlayerScripts
 {
-    public class ScriptComponent : SyncScript
+    public class JumpScript : SyncScript
     {        
         public Keys jump_key;
         public float jump_speed;

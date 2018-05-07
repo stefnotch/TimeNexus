@@ -8,7 +8,7 @@ using System.Reactive.Linq;
 using System.Reactive.Subjects;
 using System.Text;
 using System.Threading.Tasks;
-using TimeNexus.Player;
+using TimeNexus.PlayerScripts;
 
 namespace TimeNexus.Objects
 {
