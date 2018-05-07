@@ -212,6 +212,8 @@
     <Compile Include="LevelManagement\LevelSettings.cs" />
     <Compile Include="Levels\RootSceneLevelLoader.cs" />
     <Compile Include="Levels\LevelLoader.cs" />
+    <Compile Include="Objects\Projectile.cs" />
+    <Compile Include="Objects\ProjectileSpawner.cs" />
     <Compile Include="PlayerScripts\Jump.cs" />
     <Compile Include="PlayerScripts\Savepoint.cs" />
     <Compile Include="Objects\InteractionPopup.cs" />
