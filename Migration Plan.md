@@ -98,7 +98,7 @@ The goal is to migrate the game in it's current form from Xenko to Flax. This pl
 
 ## Goals:
 
-- Remote Desktop or some other solution
+- Remote Desktop or some other solution for Arno
 
 - Arno being familiar with Flax
 
@@ -112,9 +112,9 @@ The goal is to migrate the game in it's current form from Xenko to Flax. This pl
 
   - Joining the Flax community: Done
 
-- Running Flax at home
+- Arno running Flax at home
 
-- Remote Desktop Test
+- Remote Desktop Test (Arno)
 
 ## Tomorrow:
 
