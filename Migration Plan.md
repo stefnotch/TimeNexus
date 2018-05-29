@@ -14,7 +14,7 @@ The goal is to migrate the game in it's current form from Xenko to Flax. This pl
 
 - The Flax editor can actually be used while playing the game! (Awesome for debugging and testing) This allows you to inspect every object in the game, change the state of the objects, add/remove objects and look around the world (with a fly-camera).
 
-  ![Flax Editor](./Flax Editor.png)
+  ![Flax Editor](./Flax%20Editor.png)
 
   This is not possible in Xenko. In Xenko, you cannot use the editor while playing.
 
