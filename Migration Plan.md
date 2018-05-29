@@ -1,6 +1,40 @@
 # Migration Plan: Xenko → Flax
 
-The goal is to migrate the game in it's current form from Xenko to Flax. This plan outlines the current status and what is to be expected in the future. 
+The goal is to migrate the game in it's current form from Xenko to Flax. This plan outlines the current status and what is to be expected in the future.
+
+**Explanation of the huge discrepancy between Xenko and Flax development speed:**
+
+- The Flax Editor starts in < 8 seconds
+
+  The Xenko Editor takes at least ~27 seconds. The startup time of the Xenko editor will become worse in the future (when working on level one), because Xenko scans every single asset before starting. This is actually quite important, since both editors crash every once in a while.
+
+- Starting a game using Flax takes < 1 second. Super awesome for rapid prototyping.
+
+  Starting a game using Xenko takes ~25 seconds. 
+
+- The Flax editor can actually be used while playing the game! (Awesome for debugging and testing) This allows you to inspect every object in the game, change the state of the objects, add/remove objects and look around the world (with a fly-camera).
+
+  ![Flax Editor](.\Flax Editor.png)
+
+  This is not possible in Xenko. In Xenko, you cannot use the editor while playing.
+
+  
+
+- The Flax developer(s) and community is quite active and will respond very quickly when you run into an issue.
+
+  Xenko on the other hand is mostly dead. (There is a chance of the company continuing the project.)
+
+- Neither of them have a very complete documentation, however, since the Flax community is quite active, this is only an issue with Xenko.
+
+- Effects with Flax take far less time to create. Flax has a simple, but powerful visual programming tool with realtime previewing.
+
+  Xenko invented their own shading language, which is rather powerful but takes painfully long to compile. It's also badly documented.
+
+- The Flax editor is very open to modification.
+
+  Xenko's Editor is closed source.
+
+- Stefan prefers Flax over Xenko, which leads to him working more with Flax than he would work with Xenko. (In his free time)
 
 # Current Status
 
@@ -31,6 +65,8 @@ The goal is to migrate the game in it's current form from Xenko to Flax. This pl
   - **Rocks blocking the way --> Gun must be used to remove them**
 
   - **Interactive door**
+
+  - **Better looking effects/graphics**
 
 ### Xenko:
 
@@ -112,18 +148,65 @@ The goal is to migrate the game in it's current form from Xenko to Flax. This pl
 
   - Main menu: `Play` and `Exit` buttons
 
-  - Pause menu: `Resume/Unpause`, `Exit` buttons. Placeholders for other buttons such as `Save/Load`, `Settings`
+  - Pause menu: `Resume/Unpause`, `Exit` buttons. Placeholders for other buttons such as `Save/Load`, `Settings`
 
 ## Xenko
 
-Same as above. I'm really not expecting anything better than that, since using Xenko, most of the menu stuff has to be implemented manually.
+Pause menu with the 2 buttons. (`Resume/Unpause`, `Exit`) . A main menu with 2 buttons `Play` and `Exit`. I'm really not expecting anything better than that, since using Xenko, quite a bunch of the menu stuff has to be implemented manually.
 
 # 12th June - expected status
 
+## Both
 
+- Deadly projectiles (trap)
+
+- Checkpoints (Not to be confused with actually saving anything to the disk)
+
+- Health bar
+
+## Flax
+
+- Working on level 2 using the features above. Since they won't take as long to implement in Flax, a few other features can be implemented as well:
+
+- An altar where the player can pick up the time gun will be added to level 1
+
+- A better checkpoints menu (with buttons for each checkpoint)
+
+- Far better time scrolling transitions
+
+## Xenko
+
+- Starting to work on level one
+  - Importing 3D models
+  - Creating the level geometry
+  - Painstakingly adding and modifying physics colliders (major issue in Xenko)
 
 # 19th June - expected status
 
+## Flax
+
+- Finishing level 2
+
+- Working on level 3
+
+- Tutorial (text)
+
+- Sounds
+
+## Xenko
+
+- Finishing level 1
+
+- Working on level 2
+
+- Fixing/working around bugs - will take a while
+
 # 26th June - expected status
 
+## Flax
 
+- At least 4 levels with all the things listed above
+
+## Xenko
+
+- 2 low quality levels
