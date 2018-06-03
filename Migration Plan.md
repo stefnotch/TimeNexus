@@ -112,13 +112,13 @@ The goal is to migrate the game in it's current form from Xenko to Flax. This pl
 
   - Joining the Flax community: Done
 
-- Arno running Flax at home
+- Arno running Flax at home: Done
 
-- Remote Desktop Test (Arno)
+- Remote Desktop Test (Arno): Done, successful
 
 ## Tomorrow:
 
-- Testing the remote desktop stuff at school (2nd period)
+- Testing the remote desktop stuff at school (2nd period): Done
 
   This will require the following equipment:
 
@@ -134,13 +134,17 @@ The goal is to migrate the game in it's current form from Xenko to Flax. This pl
 
 ## Friday:
 
-- Resolving potential issues (remote desktop)
-- Setting a goal for the weekend (who should achieve what by Tuesday)
-- Writing a tiny status report and sending it to Prof. Bauer
+- Resolving potential issues (remote desktop): Done, not needed
+- Setting a goal for the weekend (who should achieve what by Tuesday): Done
+- Writing a tiny status report and sending it to Prof. Bauer: Done
 
 # 5th June - expected status
 
 ## Flax
+
+- Arno should bring a LAN cable
+
+- Stefan should bring a USB Type C to LAN adapter
 
 - Arno should be able to work on the project
 
