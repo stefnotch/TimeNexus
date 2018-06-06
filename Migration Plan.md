@@ -150,9 +150,9 @@ The goal is to migrate the game in it's current form from Xenko to Flax. This pl
 
 - The main menu and pause menu should be implemented:
 
-  - Main menu: `Play` and `Exit` buttons
+  - Main menu: `Play` and `Exit` buttons: Done
 
-  - Pause menu: `Resume/Unpause`, `Exit` buttons. Placeholders for other buttons such as `Save/Load`, `Settings`
+  - Pause menu: `Resume/Unpause`, `Exit` buttons. Placeholders for other buttons such as `Save/Load`, `Settings`: Done
 
 ## Xenko
 
@@ -162,9 +162,9 @@ Pause menu with the 2 buttons. (`Resume/Unpause`, `Exit`) . A main menu with 2 b
 
 ## Both
 
-- Deadly projectiles (trap)
+- Deadly projectiles (trap): Mostly done
 
-- Checkpoints (Not to be confused with actually saving anything to the disk)
+- Checkpoints (Not to be confused with actually saving anything to the disk): Mostly done
 
 - Health bar
 
