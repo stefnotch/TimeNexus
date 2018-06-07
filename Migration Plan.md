@@ -168,6 +168,8 @@ Pause menu with the 2 buttons. (`Resume/Unpause`, `Exit`) . A main menu with 2 b
 
 - Health bar
 
+- The basics of level 2's environment
+
 ## Flax
 
 - Working on level 2 using the features above. Since they won't take as long to implement in Flax, a few other features can be implemented as well:
