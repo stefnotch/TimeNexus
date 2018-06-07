@@ -172,7 +172,7 @@ Pause menu with the 2 buttons. (`Resume/Unpause`, `Exit`) . A main menu with 2 b
 
 - Working on level 2 using the features above. Since they won't take as long to implement in Flax, a few other features can be implemented as well:
 
-- An altar where the player can pick up the time gun will be added to level 1
+- An altar where the player can pick up the time gun will be added to level 1: Done
 
 - A better checkpoints menu (with buttons for each checkpoint)
 
