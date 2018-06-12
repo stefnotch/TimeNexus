@@ -176,7 +176,7 @@ Pause menu with the 2 buttons. (`Resume/Unpause`, `Exit`) . A main menu with 2 b
 
 - An altar where the player can pick up the time gun will be added to level 1: Done
 
-- **A better checkpoints menu (with buttons for each checkpoint): Maybe at the end, a settings menu is a higher priority**
+- **A better checkpoints menu (with buttons for each checkpoint): Might be done at the end, a settings menu is a higher priority**
 
 - Far better time scrolling transitions: Done
 
