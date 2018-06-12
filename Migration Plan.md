@@ -166,9 +166,9 @@ Pause menu with the 2 buttons. (`Resume/Unpause`, `Exit`) . A main menu with 2 b
 
 - Checkpoints (Not to be confused with actually saving anything to the disk): Mostly done
 
-- Health bar
+- **Health bar: TODO**
 
-- The basics of level 2's environment
+- **The basics of level 2's environment: Started**
 
 ## Flax
 
@@ -176,9 +176,9 @@ Pause menu with the 2 buttons. (`Resume/Unpause`, `Exit`) . A main menu with 2 b
 
 - An altar where the player can pick up the time gun will be added to level 1: Done
 
-- A better checkpoints menu (with buttons for each checkpoint)
+- **A better checkpoints menu (with buttons for each checkpoint): Maybe at the end, a settings menu is a higher priority**
 
-- Far better time scrolling transitions
+- Far better time scrolling transitions: Done
 
 ## Xenko
 
