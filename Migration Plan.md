@@ -8,7 +8,7 @@ The goal is to migrate the game in it's current form from Xenko to Flax. This pl
 
   The Xenko Editor takes at least ~27 seconds. The startup time of the Xenko editor will become worse in the future (when working on level one), because Xenko scans every single asset before starting. This is actually quite important, since both editors crash every once in a while.
 
-- Starting a game using Flax takes < 1 second. Super awesome for rapid prototyping.
+- Starting a game using Flax takes <3 second. Super awesome for rapid prototyping.
 
   Starting a game using Xenko takes ~25 seconds. 
 
