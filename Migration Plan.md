@@ -142,7 +142,7 @@ The goal is to migrate the game in it's current form from Xenko to Flax. This pl
 
 ## Flax
 
-- Arno should bring a LAN cable
+- Arno should bring a LAN cable: Arno't laptop doesn't even support LAN
 
 - Stefan should bring a USB Type C to LAN adapter
 
@@ -164,21 +164,23 @@ Pause menu with the 2 buttons. (`Resume/Unpause`, `Exit`) . A main menu with 2 b
 
 - Deadly projectiles (trap): Mostly done
 
-- Checkpoints (Not to be confused with actually saving anything to the disk): Mostly done
+- Checkpoints (Not to be confused with actually saving anything to the disk): Done
 
-- **Health bar: TODO**
+- Health bar: Done
 
 - **The basics of level 2's environment: Started**
 
 ## Flax
 
-- Working on level 2 using the features above. Since they won't take as long to implement in Flax, a few other features can be implemented as well:
+Working on level 2 using the features above. Since they won't take as long to implement in Flax, a few other features can be implemented as well:
 
 - An altar where the player can pick up the time gun will be added to level 1: Done
 
-- **A better checkpoints menu (with buttons for each checkpoint): Might be done at the end, a settings menu is a higher priority**
+- **A better checkpoints menu (with buttons for each checkpoint): Won't be done**
 
 - Far better time scrolling transitions: Done
+
+- Extra: A lion statue: Done
 
 ## Xenko
 
@@ -191,11 +193,9 @@ Pause menu with the 2 buttons. (`Resume/Unpause`, `Exit`) . A main menu with 2 b
 
 ## Flax
 
+- Release!
+
 - Finishing level 2
-
-- Working on level 3
-
-- Tutorial (text)
 
 - Sounds
 
@@ -206,13 +206,3 @@ Pause menu with the 2 buttons. (`Resume/Unpause`, `Exit`) . A main menu with 2 b
 - Working on level 2
 
 - Fixing/working around bugs - will take a while
-
-# 26th June - expected status
-
-## Flax
-
-- At least 4 levels with all the things listed above
-
-## Xenko
-
-- 2 low quality levels
